@@ -23,14 +23,14 @@
 .s * { box-sizing: border-box; margin: 0; padding: 0; }
 .s {
   --nv:   #1C3F7A;
-  --tl:   #0A8C6E;
+  --tl:   #CFCFCF;
   --bd:   #1A1A2E;
   --mu:   #6B7280;
   --cr:   #F9F8F6;
   --ru:   #CCCCCC;
   --wh:   #FFFFFF;
   --ru2:  #E8E8E8;
-  --tl2:  #D4EDE7;
+  --tl2:  #EDEDED;
   --nv2:  #EEF2FA;
 
   --sk: 'Cormorant Garamond', 'Noto Serif KR', Georgia, serif;
@@ -41,6 +41,9 @@
   font-family: var(--ss);
   background: var(--wh);
   color: var(--bd);
+}
+
+.s {
   -webkit-font-smoothing: antialiased;
   line-height: 1.7;
   width: 100%;
@@ -203,18 +206,6 @@
   top: 50%; left: 55%;
   width: 1px; height: 50%;
   background: var(--ru);
-}
-.s-geo-word {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: var(--sk);
-  font-style: italic;
-  font-size: 130px;
-  color: var(--nv);
-  opacity: 0.04;
-  user-select: none;
-  white-space: nowrap;
 }
 .s-cover-quote {
   padding: 36px 44px;
@@ -411,9 +402,9 @@
   padding: 6px 14px;
   border: 1px solid;
 }
-.s-sp-tag.tl { color: #7ec8b4; border-color: #7ec8b4; }
+.s-sp-tag.tl { color: #c9c9c9; border-color: #c9c9c9; }
 .s-sp-tag.wh { color: rgba(255,255,255,0.55); border-color: rgba(255,255,255,0.25); }
-.s-sp-tag.gd { color: #c8b48a; border-color: #c8b48a; }
+.s-sp-tag.gd { color: #c9c9c9; border-color: #c9c9c9; }
 .s-sp-r-eye {
   font-size: 9.5px;
   letter-spacing: 0.16em;
@@ -701,6 +692,66 @@
   border-radius: 3px;
 }
 
+/* ── CHAPTER DETAILS ──────────────────────────────────────── */
+.s-chapters { padding: 24px 72px 72px; background: var(--wh); }
+.s-chap-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 28px;
+}
+.s-chap {
+  padding: 28px 30px;
+  border: 1px solid var(--ru2);
+  background: linear-gradient(180deg, var(--wh) 0%, var(--cr) 100%);
+}
+.s-chap-num {
+  font-family: var(--sk);
+  font-style: italic;
+  font-size: 30px;
+  color: var(--tl);
+  margin-bottom: 10px;
+}
+.s-chap-title {
+  font-family: var(--kr);
+  font-size: 17px;
+  color: var(--nv);
+  margin-bottom: 10px;
+}
+.s-chap-body {
+  font-family: var(--krs);
+  font-weight: 300;
+  font-size: 12.5px;
+  line-height: 1.9;
+  color: var(--mu);
+  margin-bottom: 12px;
+}
+.s-chap-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0;
+  margin: 0;
+}
+.s-chap-list li {
+  position: relative;
+  padding-left: 12px;
+  font-size: 11px;
+  color: var(--nv);
+  letter-spacing: 0.02em;
+}
+.s-chap-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--tl);
+}
+
 /* ── RESPONSIVE ──────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .s-topbar { padding: 14px 28px; }
@@ -733,33 +784,25 @@
 
   <!-- TOPBAR -->
   <nav class="s-topbar">
-    <a class="s-logo" href="https://syr.co.kr">SYR<span>.</span>EDITION</a>
-    <div class="s-topbar-right">Art · Law · Market &nbsp;·&nbsp; syr.co.kr</div>
+    <a class="s-logo" href="https://syr.co.kr">SYR<span class="s-logo-dot"> EDITION</a>
+    <div class="s-topbar-right">Art · Law · Market </div>
   </nav>
 
   <!-- COVER -->
   <section class="s-cover" id="s0">
     <div class="s-cover-l">
       <div>
-        <div class="s-eyebrow">Art Authentication · 진품 논쟁</div>
-        <div class="s-issue">Art &amp; Law Series · 2025 · 특별판</div>
-        <div class="s-main-title">이 그림은<br>진짜인가</div>
+        <div class="s-issue">Art &amp; Law Series · 2026 <br><br> 미술작품 진위여부와 저작인격권 분쟁사례 </div>
+        <div class="s-main-title">이 작품은 <br> 진짜인가요? </div>
         <div class="s-main-title-en">Authenticity &amp; Authorship Disputes<br>in the Contemporary Art Market</div>
         <div class="s-cover-rule"></div>
-        <p class="s-cover-desc">예술 시장에서 '진품'이란 무엇인가. 살아있는 작가가 자신의 작품을 부인할 수 있는가. 감정 위원회는 누구를 위해 존재하는가. 법과 시장 사이에서 벌어지는 진품 논쟁의 민낯을 들여다본다.</p>
+        <p class="s-cover-desc"> 예술 시장에서 '진품'이란 무엇일까요? <br> 현존하는 작가가 본인의 작품을 부인할 수도 있을까요? <br>작품 감정위원회는 어떤 역할을 할까요? <br> 법과 시장 사이에서 벌어지는 진품 논쟁의 여러 면모를 들여다봅니다.</p>
+        <div class="s-meta-label"> Case Studies<br>Peter Doig, Kady Noland, Chagall Foundation, Gerhard Richter <br><br> </div>
+          
       </div>
       <div class="s-cover-meta">
         <div class="s-meta-item">
-          <div class="s-meta-label">저자</div>
-          <div class="s-meta-val">류소영 · Soyoung Ryu</div>
-        </div>
-        <div class="s-meta-item">
-          <div class="s-meta-label">출판</div>
-          <div class="s-meta-val">얼루어앤블룸 · SYR Edition</div>
-        </div>
-        <div class="s-meta-item">
-          <div class="s-meta-label">케이스</div>
-          <div class="s-meta-val">Doig · Noland · Chagall · Martin</div>
+          <div class="s-meta-label">저자: 류소영 <br> 출판: SYR edition </div>
         </div>
       </div>
     </div>
@@ -771,12 +814,10 @@
           <div class="s-geo-3"></div>
           <div class="s-geo-4"></div>
           <div class="s-geo-5"></div>
-          <div class="s-geo-word">真</div>
         </div>
       </div>
       <div class="s-cover-quote">
-        <div class="s-quote-text">"The art market is the final arbiter<br>as to whether a work is right or not."</div>
-        <div class="s-quote-attr">— New York Dispute Resolution Lawyer, 2020</div>
+        <div class="s-quote-text"> Some argue that the market is the final arbiter as to whether a work is right or not. <br><br> What do you think? </div>
       </div>
     </div>
   </section>
@@ -784,7 +825,6 @@
   <!-- TOC DIVIDER -->
   <div class="s-div">
     <div class="s-div-line"></div>
-    <div class="s-div-lbl">목차 · Contents</div>
     <div class="s-div-line"></div>
   </div>
 
@@ -792,7 +832,7 @@
   <section id="s1">
     <div class="s-sec-head">
       <div class="s-sec-kr">이 책이 담은 것들</div>
-      <div class="s-sec-en">Six chapters, four disputes, no easy answers</div>
+      <div class="s-sec-en" style="margin-top:6px"> What the book explains </div>
     </div>
     <div class="s-toc">
       <div class="s-toc-grid">
@@ -912,8 +952,8 @@
 
   <!-- FRAMEWORK -->
   <section class="s-fw" id="s3">
-    <div class="s-sec-kr">진품을 결정하는 세 개의 다리</div>
-    <div class="s-sec-en" style="margin-top:6px">The Three-Legged Stool of Art Authentication</div>
+    <div class="s-sec-kr">작품의 진위를 감정하는 세 가지 방안</div>
+    <div class="s-sec-en" style="margin-top:6px"> Three Methods for Art Authentication</div>
     <div class="s-stool">
       <div class="s-leg" data-n="I">
         <div class="s-leg-dot b"></div>
@@ -999,16 +1039,91 @@
     </div>
   </section>
 
+  <!-- CHAPTER DETAILS -->
+  <section class="s-chapters" aria-label="Chapter details">
+    <div class="s-sec-head" style="padding:0">
+      <div class="s-sec-kr">챕터별 상세 내용</div>
+      <div class="s-sec-en">Chapter-by-chapter breakdown of the book</div>
+    </div>
+    <div class="s-chap-grid">
+      <article class="s-chap">
+        <div class="s-chap-num">01</div>
+        <div class="s-chap-title">왜 지금, 진품 논쟁인가</div>
+        <p class="s-chap-body">예술 시장에서 진품의 기준이 무엇인지, 왜 시장과 법이 서로 다른 판단을 내리는지부터 설명한다.</p>
+        <ul class="s-chap-list">
+          <li>진품 논쟁의 역사적 배경</li>
+          <li>작가와 시장의 권력 구조</li>
+          <li>카탈로그 레조네의 역할</li>
+        </ul>
+      </article>
+
+      <article class="s-chap">
+        <div class="s-chap-num">02</div>
+        <div class="s-chap-title">진품을 가르는 세 개의 기둥</div>
+        <p class="s-chap-body">감식안, 출처 조사, 과학적 분석이 서로 어떻게 보완되고 충돌하는지 살펴본다.</p>
+        <ul class="s-chap-list">
+          <li>감식안의 한계와 영향력</li>
+          <li>출처의 역사적 가치</li>
+          <li>과학적 분석의 법적 신뢰성</li>
+        </ul>
+      </article>
+
+      <article class="s-chap">
+        <div class="s-chap-num">03</div>
+        <div class="s-chap-title">어떻게 읽을 것인가</div>
+        <p class="s-chap-body">네 개의 사례를 중심으로 법원 판결문, 경매 기록, 언론 보도, 작가 자료를 교차 검증하는 방법을 제시한다.</p>
+        <ul class="s-chap-list">
+          <li>목적 표집 방식</li>
+          <li>사례 간 비교 분석</li>
+          <li>데이터 삼각화 방식</li>
+        </ul>
+      </article>
+
+      <article class="s-chap">
+        <div class="s-chap-num">04</div>
+        <div class="s-chap-title">작가는 자신의 작품을 부인할 수 있는가</div>
+        <p class="s-chap-body">Doig, Noland, Richter, Martin의 사례를 통해 작가의 권리와 부인 행위의 법적·윤리적 의미를 분석한다.</p>
+        <ul class="s-chap-list">
+          <li>작가의 부인 권리</li>
+          <li>작품 손상과 시장의 반응</li>
+          <li>재단의 책임 범위</li>
+        </ul>
+      </article>
+
+      <article class="s-chap">
+        <div class="s-chap-num">05</div>
+        <div class="s-chap-title">소송 말고 다른 방법은 없을까</div>
+        <p class="s-chap-body">중재, 블록체인, 인공지능 등 법정 외 방식이 진품 인증의 새로운 후보로 떠오르는 이유를 설명한다.</p>
+        <ul class="s-chap-list">
+          <li>CAfA·WIPO·IFAR 중심의 ADR</li>
+          <li>블록체인 기반 출처 추적</li>
+          <li>AI 기반 감정 보조 시스템</li>
+        </ul>
+      </article>
+
+      <article class="s-chap">
+        <div class="s-chap-num">06</div>
+        <div class="s-chap-title">시장만이 최종 심판자인가</div>
+        <p class="s-chap-body">법원, 작가, 감정 위원회, 기술 모두가 완전한 권한을 갖지 못하는 현실을 정리하며 새 프레임워크를 제안한다.</p>
+        <ul class="s-chap-list">
+          <li>불확실성의 구조</li>
+          <li>제도적 개선 과제</li>
+          <li>한국 시장에의 시사점</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer class="s-footer">
     <div class="s-footer-l">
-      <div class="s-footer-logo">SYR<span>.</span>EDITION</div>
-      <div class="s-footer-sub">류소영 · 문화경제 · 예술 시장 자문 · 가치평가</div>
+      <div class="s-footer-logo">SYR<span></span>EDITION</div>
+      <div class="s-footer-sub"> 문화예술 시장 · 제도와 정책 · 사회와 경제 </div>
     </div>
     <div class="s-footer-r">
       <div class="s-footer-contact">syr.co.kr &nbsp;·&nbsp; info@syr.co.kr</div>
       <div class="s-footer-contact">+82 10 9293 9323</div>
-      <div class="s-footer-contact" style="margin-top:4px;font-size:9.5px;color:#aaa">© 2025 Soyoung Ryu · 얼루어앤블룸</div>
+      <div class="s-footer-contact" style="margin-top:4px;font-size:9.5px;color:#aaa">© 2026 SYR </div>
     </div>
   </footer>
 
