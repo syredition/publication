@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SYR EDITION — 글로벌 미술시장 이슈 (팩트체크 · 업데이트 260818)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+KR:wght@400;500;600&family=DM+Sans:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--navy:#1A2744;--gold:#C8960C;--ink:#111;--body-c:#2A2A2A;--muted:#888;--rule:#DCDCDC;--bg:#FAFAF8;--white:#FFF;--col:680px;--serif-en:'Cormorant Garamond',Georgia,serif;--serif-ko:'Noto Serif KR',Georgia,serif;--sans-en:'DM Sans',-apple-system,Arial,sans-serif;--sans-ko:'Noto Sans KR',-apple-system,Arial,sans-serif;}
+html{scroll-behavior:smooth;}body{background:var(--bg);color:var(--body-c);font-family:var(--sans-ko);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+.masthead{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--ink);padding:0 2rem;}
+.mast-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:.85rem 0;gap:1rem;}
+.mast-l,.mast-r{display:flex;align-items:center;}.mast-r{justify-content:flex-end;gap:.75rem;}.mast-c{text-align:center;}
+.logo-name{font-family:var(--serif-en);font-size:26px;font-weight:600;color:var(--navy);letter-spacing:.06em;line-height:1;}
+.logo-sub{font-family:var(--sans-en);font-size:9px;color:var(--muted);letter-spacing:.16em;text-transform:uppercase;margin-top:3px;}
+.pub-date{font-family:var(--sans-en);font-size:11px;color:var(--ink);letter-spacing:.04em;}
+.lang-sw{display:flex;border:1px solid var(--rule);border-radius:2px;overflow:hidden;}
+.lang-btn{font-family:var(--sans-en);font-size:11px;font-weight:500;padding:5px 14px;cursor:pointer;background:transparent;border:none;color:var(--muted);transition:all .12s;letter-spacing:.04em;}
+.lang-btn.on{background:var(--navy);color:var(--white);}.lang-btn:hover:not(.on){background:#F0F0EC;color:var(--ink);}
+.page-wrap{display:grid;grid-template-columns:150px 1fr;max-width:1200px;margin:0 auto;}
+.toc{position:sticky;top:56px;height:calc(100vh - 56px);overflow-y:auto;padding:1.5rem .75rem 3rem;border-right:1px solid var(--rule);}
+.toc-label{font-family:var(--sans-en);font-size:8.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:block;padding-bottom:.5rem;margin-bottom:.85rem;border-bottom:1px solid var(--rule);}
+.toc-item{display:flex;align-items:baseline;justify-content:space-between;gap:.3rem;padding:.55rem 0;border-bottom:1px solid var(--rule);text-decoration:none;transition:opacity .12s;}
+.toc-item:hover{opacity:.65;}.toc-item.active .toc-title{color:var(--navy);font-weight:600;}
+.toc-title{font-family:var(--sans-en);font-size:10px;color:#444;line-height:1.3;letter-spacing:.02em;}
+.toc-cnt{font-family:var(--sans-en);font-size:9.5px;font-weight:600;color:var(--gold);flex-shrink:0;}
+.scroll-area{padding:3rem 3rem 8rem;min-width:0;}
+.month-section{margin-bottom:5rem;scroll-margin-top:70px;}.month-header{margin-bottom:2rem;}
+.month-title{font-family:var(--sans-en);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin-bottom:.6rem;}
+.month-rule{height:2px;background:var(--ink);}
+.articles{max-width:var(--col);margin:0 auto;}.article{padding:2rem 0;border-bottom:1px solid var(--rule);}.article:last-child{border-bottom:none;}
+.art-eyebrow{margin-bottom:.45rem;}.art-date{font-family:var(--sans-en);font-size:11px;color:var(--ink);letter-spacing:.05em;}
+.art-hl{font-family:var(--serif-en);font-size:22px;font-weight:600;line-height:1.28;color:var(--ink);margin-bottom:.7rem;}
+.art-hl-ko{font-family:var(--serif-ko);font-size:18px;font-weight:600;line-height:1.52;color:var(--ink);margin-bottom:.7rem;}
+.art-hl a,.art-hl-ko a{color:inherit;text-decoration:none;}.art-hl a:hover,.art-hl-ko a:hover{color:var(--navy);text-decoration:underline;text-underline-offset:3px;}
+.art-kpis{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.9rem;}
+.kpi-country{font-family:var(--sans-en);font-size:10px;font-weight:600;color:var(--navy);}
+.kpi-tag{font-family:var(--sans-en);font-size:10px;color:var(--muted);}
+.art-body{font-size:15px;color:var(--body-c);line-height:1.82;}.art-body strong{color:var(--navy);font-weight:600;}
+.art-foot{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.5rem;}
+.art-rel{font-family:var(--sans-en);font-size:10px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:1px;transition:color .1s;white-space:nowrap;}
+.art-rel::before{content:"→ ";}.art-rel:hover{color:var(--navy);border-color:var(--navy);}
+.site-foot{border-top:1px solid var(--rule);padding:1.5rem 2rem;max-width:1200px;margin:0 auto;}
+.sf-copy{font-family:var(--sans-en);font-size:10px;color:var(--muted);letter-spacing:.04em;}
+.back-top{position:fixed;bottom:2rem;right:2rem;z-index:50;width:40px;height:40px;background:var(--navy);color:var(--white);border:none;border-radius:2px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;box-shadow:0 2px 12px rgba(0,0,0,.18);}
+.back-top.vis{opacity:1;}.back-top:hover{background:#2E4A8A;}
+@media(max-width:960px){.toc{display:none;}.page-wrap{grid-template-columns:1fr;}.scroll-area{padding:2rem 1.25rem 5rem;}.mast-l{display:none;}.mast-inner{grid-template-columns:auto 1fr;}}
+@media(max-width:600px){.logo-name{font-size:21px;}.art-hl{font-size:19px;}.art-hl-ko{font-size:16px;}}</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="mast-inner">
+    <div class="mast-l">
+      <span class="pub-date ko">
+            <a class="pub-date" href="/home">Home</a>
+            <a class="pub-date" href="/about">About</a>
+            <a class="pub-date" href="/news">News</a>  
+            <a class="pub-date" href="/briefing">Briefing</a>  
+            <a class="pub-date" href="/book">Book</a>
+            <a class="pub-date" href="/case">Case</a>   
+            <a class="pub-date" href="/artist">Artist</a>   
+            <a class="pub-date" href="/contact">Contact</a> 
+      <span class="pub-date en">
+            <a class="pub-date" href="/home">Home</a>
+            <a class="pub-date" href="/about">About</a>
+            <a class="pub-date" href="/news">News</a>  
+            <a class="pub-date" href="/briefing">Briefing</a>  
+            <a class="pub-date" href="/book">Book</a>
+            <a class="pub-date" href="/case">Case</a>   
+            <a class="pub-date" href="/artist">Artist</a>   
+            <a class="pub-date" href="/contact">Contact</a>
+            
+    </div>
+    <div class="mast-c">
+      <div class="logo-name">SYR EDITION</div>
+      <div class="logo-sub">Stay curious, Stay strategic</div>
+    </div>
+    <div class="mast-r">
+      <div class="lang-sw">
+        <button class="lang-btn on" id="btn-ko" onclick="setLang('ko')">한국어</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="page-wrap">
+  <nav class="toc">
+    <span class="toc-label ko">Index</span>
+    <span class="toc-label en" style="display:none">Index</span>
+    <div class="ko"><a class="toc-item" href="#m-2026-08"><span class="toc-title">2026년 8월</span><span class="toc-cnt">9</span></a><a class="toc-item" href="#m-2026-07"><span class="toc-title">2026년 7월</span><span class="toc-cnt">11</span></a><a class="toc-item" href="#m-2026-06"><span class="toc-title">2026년 6월</span><span class="toc-cnt">3</span></a><a class="toc-item" href="#m-2026-05"><span class="toc-title">2026년 5월</span><span class="toc-cnt">2</span></a><a class="toc-item" href="#m-2026-04"><span class="toc-title">2026년 4월</span><span class="toc-cnt">2</span></a><a class="toc-item" href="#m-2026-03"><span class="toc-title">2026년 3월</span><span class="toc-cnt">4</span></a><a class="toc-item" href="#m-2026-02"><span class="toc-title">2026년 2월</span><span class="toc-cnt">1</span></a><a class="toc-item" href="#m-2026-01"><span class="toc-title">2026년 1월</span><span class="toc-cnt">5</span></a></div>
+    <div class="en" style="display:none"><a class="toc-item" href="#m-2026-08"><span class="toc-title">August 2026</span><span class="toc-cnt">9</span></a><a class="toc-item" href="#m-2026-07"><span class="toc-title">July 2026</span><span class="toc-cnt">11</span></a><a class="toc-item" href="#m-2026-06"><span class="toc-title">June 2026</span><span class="toc-cnt">3</span></a><a class="toc-item" href="#m-2026-05"><span class="toc-title">May 2026</span><span class="toc-cnt">2</span></a><a class="toc-item" href="#m-2026-04"><span class="toc-title">April 2026</span><span class="toc-cnt">2</span></a><a class="toc-item" href="#m-2026-03"><span class="toc-title">March 2026</span><span class="toc-cnt">4</span></a><a class="toc-item" href="#m-2026-02"><span class="toc-title">February 2026</span><span class="toc-cnt">1</span></a><a class="toc-item" href="#m-2026-01"><span class="toc-title">January 2026</span><span class="toc-cnt">5</span></a></div>
+  </nav>
+  <div class="scroll-area">
+    <div class="ko">
+  <section class="month-section" id="m-2026-08">
+    <div class="month-header">
+      <h2 class="month-title">2026년 8월</h2>
+      <div class="month-rule"></div>
+    </div>
+    <div class="articles">
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 8. 14.</span></div>
+      <h2 class="art-hl-ko"><a href="https://ocula.com/magazine/art-news/frieze-seoul-will-move-to-new-venue-2027/" target="_blank" rel="noopener">Frieze Seoul 2027, COEX에서 DDP로 이전 — Ocula: &#x27;COEX 재개발로 자하 하디드 설계 동대문디자인플라자로&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#KR</span><span class="kpi-tag">#2027년 DDP(동대문디자인플라자)</span><span class="kpi-tag">#COEX 재개발 원인</span><span class="kpi-tag">#자하 하디드 설계</span></div>
+      <p class="art-body">Ocula의 보도에 따르면, <strong>Frieze Seoul</strong> 6회(2027년)가 COEX에서 <strong>동대문디자인플라자(DDP)</strong>로 장소를 변경합니다. COEX 재개발 공사가 이전의 원인입니다. Frieze.com도 이를 공식 확인했습니다: &#x27;COEX 재개발로 자하 하디드의 동대문디자인플라자로 이전할 예정.&#x27; DDP는 한국에서 가장 인지도 높은 문화·건축 공간 중 하나입니다. 2026년(5회)은 예정대로 COEX에서 9월 2–5일 진행됩니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://ocula.com/magazine/art-news/frieze-seoul-will-move-to-new-venue-2027/" target="_blank" rel="noopener">Ocula: Frieze Seoul 2027 venue announcement</a><a class="art-rel" href="https://www.frieze.com/fairs/frieze-seoul" target="_blank" rel="noopener">Frieze Seoul official</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 8. 13.</span></div>
+      <h2 class="art-hl-ko"><a href="https://news.artnet.com/art-world/auctions-specialist-spotlight-august-2026-2797027" target="_blank" rel="noopener">Artnet 경매 전문가 8월 포커스 — Kikuo Saito 시장 기록($245,100), 사진 경매 계절성 변화</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#US</span><span class="kpi-tag">#Kikuo Saito 기록 $245,100</span><span class="kpi-tag">#Photo Finds 세일 (8월 19일 마감)</span><span class="kpi-tag">#Contemporary Editions (8월 27일 마감)</span></div>
+      <p class="art-body">Artnet 경매 전문가 3인의 8월 포커스에 따르면, Phillips가 5월 GESTURE 세션에서 <strong>Kikuo Saito</strong>의 Cerise를 $245,100에 낙찰시키며 기록을 경신했습니다. Artnet Auctions는 Photo Finds 세일(Edward Weston·Marilyn Minter·Hiroshi Sugimoto·Marilyn Monroe — 8월 19일 마감)과 Contemporary Editions(Robert Motherwell·Joan Miró·KAWS·Ai Weiwei — 8월 27일 마감)를 진행 중입니다. 전문가들은 경매 캘린더의 <strong>계절성 변화 가능성</strong>과 컬렉터블 시장의 구조적 확장을 이번 달 핵심 논의로 꼽았습니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://news.artnet.com/art-world/auctions-specialist-spotlight-august-2026-2797027" target="_blank" rel="noopener">Artnet: Auctions specialist spotlight August 2026</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 8. 12.</span></div>
+      <h2 class="art-hl-ko"><a href="https://www.theartnewspaper.com/2026/08/12/august-book-bag-from-a-collection-of-sizzling-portraits-to-a-survey-of-little-known-us-museums" target="_blank" rel="noopener">TAN 8월 미술 출판 라운드업 — Tyeb Mehta 최초 모노그래프, 멕시코 사진 역사 148점</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#INT</span><span class="kpi-tag">#Tyeb Mehta 최초 모노그래프</span><span class="kpi-tag">#멕시코 사진역사 148점</span><span class="kpi-tag">#미국 비주류 박물관 가이드</span></div>
+      <p class="art-body">The Art Newspaper의 8월 출판 라운드업에 따르면, 주목할 신간은 세 권입니다. ① 잭 쇼울더의 &#x27;미술사 속 매력적인 남성 초상화&#x27; 분석서 ② <strong>Tyeb Mehta(1925–2009)</strong> 사망 이후 최초의 포괄적 모노그래프 ③ 그린버그-스타인하우저 컬렉션의 멕시코 사진 역사 148점 — Frida Kahlo·Diego Rivera 등 13명의 사진가·1920–2017년. 마지막 책은 9월 1일 개막하는 J. Paul Getty Museum 전시와 연동됩니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.theartnewspaper.com/2026/08/12/august-book-bag-from-a-collection-of-sizzling-portraits-to-a-survey-of-little-known-us-museums" target="_blank" rel="noopener">The Art Newspaper: August Book Bag</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 8. 11.</span></div>
+      <h2 class="art-hl-ko"><a href="https://news.artnet.com/market/blaquier-art-collection-sothebys-2795536" target="_blank" rel="noopener">소더비, 아르헨티나 Blaquier 컬렉션 $4.5억 수탁 — Van Gogh·Cézanne·Degas 포함, 가을 시즌 컨사인먼트 경쟁 개막</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#US</span><span class="kpi-tag">#$4.5억 규모</span><span class="kpi-tag">#Nelly Arrieta de Blaquier 컬렉션</span><span class="kpi-tag">#인상파·후기인상파 마스터피스</span></div>
+      <p class="art-body">Artnet의 카챠 카자키나 단독 보도에 따르면, Nelly Arrieta de Blaquier와 Carlos Pedro Blaquier의 자녀들이 보유한 인상파·후기인상파 컬렉션(약 <strong>$4.5억</strong> 규모)이 소더비에 컨사인됐습니다. 뉴욕 타임스(1995년)는 Nelly를 &#x27;아르헨티나 최대 개인 예술 컬렉션 소유자&#x27;로 소개한 바 있습니다. 같은 시기, Valentino Garavani 사후 컬렉션(Warhol·Basquiat·Bacon·Fontana)의 행방도 주목받고 있습니다. 2026년 가을 시즌 컨사인먼트 전쟁이 공식 시작됐습니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://news.artnet.com/market/blaquier-art-collection-sothebys-2795536" target="_blank" rel="noopener">Artnet: Sotheby&#x27;s Blaquier collection</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 8. 5.</span></div>
+      <h2 class="art-hl-ko"><a href="https://news.artprice.com/en/14558/georg-baselitz-has-died-the-life-and-career-of-a-giant-of-german-neo-expressionism" target="_blank" rel="noopener">Georg Baselitz 대규모 회고전, Sehwa Museum of Art 서울 — 신표현주의 60년, 사후 첫 대규모 기관 전시</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#KR</span><span class="kpi-tag">#Sehwa Museum of Art 서울</span><span class="kpi-tag">#8월 13일 – 12월 27일</span><span class="kpi-tag">#신표현주의 거장</span></div>
+      <p class="art-body">Artprice의 보도에 따르면, <strong>Sehwa Museum of Art</strong>가 8월 13일부터 12월 27일까지 Georg Baselitz(1938–2026) 대규모 회고전을 개최합니다. 초기 분절된 인체 표현, 거꾸로 그림(Upside-Down Paintings), 말년의 금색 회화(Gold Paintings)까지 60여 년의 창작을 총망라합니다. Artprice는 이를 &#x27;한국의 전략적 아트마켓 허브 역할을 재확인하는 이정표&#x27;로 평가했습니다. 2026년 타계한 Baselitz의 첫 사후 대규모 회고전이기도 합니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://news.artprice.com/en/14558/georg-baselitz-has-died-the-life-and-career-of-a-giant-of-german-neo-expressionism" target="_blank" rel="noopener">Artprice: Georg Baselitz obituary and Sehwa exhibition</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 8. 4.</span></div>
+      <h2 class="art-hl-ko"><a href="https://artreview.com/the-10-exhibitions-to-see-in-august-2026/" target="_blank" rel="noopener">ArtReview, 8월 봐야 할 10개 전시 — Christine Sun Kim MMCA 서울 박스 신작 커미션 포함</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#KR</span><span class="kpi-tag">#Christine Sun Kim MMCA 서울</span><span class="kpi-tag">#Walker Art Center 중간경력 회고전 연동</span><span class="kpi-tag">#ASL 핸드 제스처 기반 신작</span></div>
+      <p class="art-body">ArtReview &#x27;8월 봐야 할 10개 전시&#x27;에 따르면, 청각장애 작가 <strong>Christine Sun Kim</strong>의 MMCA &#x27;서울 박스&#x27; 신규 사이트 스페시픽 커미션이 포함됩니다. 흑백 만화 스타일의 라인 드로잉으로 ASL(미국 수화) 핸드 제스처의 움직임을 표현하며, &#x27;Have Many Dumb Fight Against Rock&#x27;이라는 텍스트가 영문·한국어로 병기됩니다. 워커 아트 센터(미니애폴리스)의 중간경력 회고전이 이달 말 마무리되는 시점에 서울 신작이 개막하는 의미 있는 타이밍입니다. MMCA는 LG와의 지속적 파트너십 일환으로 커미션을 진행했습니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://artreview.com/the-10-exhibitions-to-see-in-august-2026/" target="_blank" rel="noopener">ArtReview: 10 exhibitions to see in August 2026</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 8. 2.</span></div>
+      <h2 class="art-hl-ko"><a href="https://www.moca.org/exhibition/haegue-yang-star-crossed-rendezvous-after-yun" target="_blank" rel="noopener">Haegue Yang, MOCA LA — &#x27;Star-Crossed Rendezvous after Yun&#x27;, LA 필하모닉·Isang Yun과의 학제간 협업 종료</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#US</span><span class="kpi-tag">#MOCA Grand Avenue</span><span class="kpi-tag">#2월 24일 – 8월 2일</span><span class="kpi-tag">#LA 필하모닉 협업</span></div>
+      <p class="art-body"><strong>MOCA</strong>에서 열린 Haegue Yang의 개인전 &#x27;Star-Crossed Rendezvous after Yun&#x27;이 8월 2일 폐막했습니다. LA 필하모닉과 작곡가 Isang Yun을 연결하는 학제간 프로젝트로, 시각예술과 음악의 교차점을 탐구한 이 전시는 한국계 작가의 미국 주요 기관 프리미어로 큰 주목을 받았습니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.moca.org/exhibition/haegue-yang-star-crossed-rendezvous-after-yun" target="_blank" rel="noopener">MOCA exhibition page</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 8. 1.</span></div>
+      <h2 class="art-hl-ko"><a href="https://www.theartnewspaper.com/2026/04/17/the-big-review-rothko-in-florence" target="_blank" rel="noopener">Rothko in Florence, Palazzo Strozzi — The Art Newspaper ★★★★★: &#x27;역대 가장 중요한 Rothko 전시 중 하나&#x27; (8월 23일 폐막)</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#IT</span><span class="kpi-tag">#Palazzo Strozzi 피렌체</span><span class="kpi-tag">#3월 14일 – 8월 23일</span><span class="kpi-tag">#TAN ★★★★★</span></div>
+      <p class="art-body">The Art Newspaper는 <strong>Palazzo Strozzi</strong>의 &#x27;Rothko in Florence&#x27;에 별점 5/5를 부여했습니다. 크리스토퍼 로스코와 엘레나 게우나 큐레이션, MoMA·테이트·퐁피두 소장 70점 이상. 팔라초 스트로치·산 마르코 박물관·라우렌치아나 도서관 세 곳 구성. 8월 23일 폐막. 이후 TAN 리뷰: 산 마르코에서 Fra Angelico 프레스코화 옆 Rothko 캔버스의 배치를 &#x27;영적 강도의 조우&#x27;로 묘사했습니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.theartnewspaper.com/2026/04/17/the-big-review-rothko-in-florence" target="_blank" rel="noopener">The Art Newspaper: The Big Review ★★★★★</a><a class="art-rel" href="https://www.palazzostrozzi.org/en/exhibition/mark-rothko/" target="_blank" rel="noopener">Palazzo Strozzi exhibition page</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 8. 1.</span></div>
+      <h2 class="art-hl-ko"><a href="https://www.labiennale.org/en/art/2026" target="_blank" rel="noopener">Venice Biennale 2026 &#x27;In Minor Keys&#x27; — 심사위원단 사퇴, 7개국 첫 참가, 11월 22일까지</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#IT</span><span class="kpi-tag">#11월 22일까지</span><span class="kpi-tag">#7개국 첫 참가</span><span class="kpi-tag">#심사위원단 사퇴</span></div>
+      <p class="art-body">61회 Venice Biennale &#x27;In Minor Keys&#x27;가 11월 22일까지 계속됩니다. 심사위원단이 지정학적 분쟁을 이유로 조기 사퇴했으며, <strong>기니·적도기니·나우루·카타르·시에라리온·소말리아·베트남</strong> 7개국이 처음 참가했습니다. 남아공의 독립 전시 &#x27;Elegy&#x27;는 7월 31일 종료됐습니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.labiennale.org/en/art/2026" target="_blank" rel="noopener">La Biennale official</a></div>
+    </article></div>
+  </section>
+  <section class="month-section" id="m-2026-07">
+    <div class="month-header">
+      <h2 class="month-title">2026년 7월</h2>
+      <div class="month-rule"></div>
+    </div>
+    <div class="articles">
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 7. 28.</span></div>
+      <h2 class="art-hl-ko"><a href="https://www.thisiscolossal.com/2026/07/august-2026-open-calls-grants-residencies/" target="_blank" rel="noopener">Printed Matter Publisher Work Grant 2026 — $10,000 × 3곳, 마감 10월 4일</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#INT</span><span class="kpi-tag">#$10,000 × 3곳</span><span class="kpi-tag">#마감 10월 4일</span><span class="kpi-tag">#아트북 페어 전시 기회</span></div>
+      <p class="art-body">Colossal의 8월 기회 라운드업에 따르면, <strong>Printed Matter</strong> 3회 출판사 워크 그랜트가 독립 아티스트북 출판사 3곳에 각각 $10,000 비제한 보조금을 지급합니다. 수상 출판사는 Printed Matter NY 또는 LA 아트북 페어 전시 참가 기회도 부여받습니다. 마감: 2026년 10월 4일.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.thisiscolossal.com/2026/07/august-2026-open-calls-grants-residencies/" target="_blank" rel="noopener">Colossal August 2026 opportunities</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 7. 22.</span></div>
+      <h2 class="art-hl-ko"><a href="https://www.artsy.net/article/artsy-editorial-kiaf-seoul-2026-announces-175-exhibitors-25th-edition" target="_blank" rel="noopener">Kiaf SEOUL 25주년 — 175개 갤러리, Kuho Jung 첫 외부 크리에이티브 디렉터, 테마 &#x27;공존&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#KR</span><span class="kpi-tag">#18개국 175개 갤러리</span><span class="kpi-tag">#Kuho Jung 크리에이티브 디렉터</span><span class="kpi-tag">#9월 2–6일 COEX</span></div>
+      <p class="art-body">Artsy의 보도에 따르면, <strong>Kiaf SEOUL</strong>은 25주년을 맞아 18개국 175개 갤러리와 함께 9월 2–6일 열립니다. 패션·퍼포먼스 디자이너 <strong>Kuho Jung</strong>이 처음으로 외부 크리에이티브 디렉터로 임명돼 브랜딩·공간 디자인·특별전을 총괄합니다. 테마 &#x27;공존&#x27;: 특별전 Humal(강건·Gwak Jisoo 등 7인)·Virtual Vital(AR QR코드 COEX 전역). Korea Times가 Frieze Seoul과의 동시 진행을 확인했습니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.artsy.net/article/artsy-editorial-kiaf-seoul-2026-announces-175-exhibitors-25th-edition" target="_blank" rel="noopener">Artsy: Kiaf SEOUL 2026</a><a class="art-rel" href="https://www.koreatimes.co.kr/lifestyle/arts-theater/20260609/key-art-fairs-kiaf-frieze-to-open-in-september" target="_blank" rel="noopener">Korea Times</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 7. 22.</span></div>
+      <h2 class="art-hl-ko"><a href="https://www.thecultivist.com/stories/7-exhibitions-and-fairs-to-see-during-seoul-art-week-2026" target="_blank" rel="noopener">서울 아트위크 기관 프로그램 — Do Ho Suh·Koo Jeong A·Lee Bae·Es Devlin 등 역대 최강 라인업</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#KR</span><span class="kpi-tag">#MMCA·Leeum·SeMA·Museum SAN</span><span class="kpi-tag">#Es Devlin at FUTURA Seoul</span><span class="kpi-tag">#9월 2–6일</span></div>
+      <p class="art-body">The Cultivist의 가이드에 따르면, 서울 아트위크(9월 2–6일) 기관 프로그램: <strong>Do Ho Suh</strong>(MMCA 서울), <strong>Koo Jeong A</strong>(Leeum), <strong>Lee Bae</strong>(Museum SAN), Yoo Youngkuk·Amor Ex Machina(SeMA), Sol LeWitt(아모레퍼시픽), Art Spectrum 2026(Hoam). Muyeong Kim·Yang Ah Ham(Art Sonje Center), <strong>Es Devlin</strong>(FUTURA Seoul). K-Artnow는 이를 &#x27;역대 가장 강력한 기관 프로그램&#x27;으로 기술했습니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.thecultivist.com/stories/7-exhibitions-and-fairs-to-see-during-seoul-art-week-2026" target="_blank" rel="noopener">The Cultivist Seoul Art Week guide</a><a class="art-rel" href="https://k-artnow.com/posts.php?co_id=1785820503" target="_blank" rel="noopener">K-Artnow</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 7. 15.</span></div>
+      <h2 class="art-hl-ko"><a href="https://news.artnet.com/art-world/ana-mendieta-tate-modern-2788289" target="_blank" rel="noopener">Ana Mendieta, Tate Modern 개막 — &#x27;시루에타 연작 런던 첫 선, 진정한 유산이 드러나다&#x27; (2027년 1월까지)</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#UK</span><span class="kpi-tag">#Tate Modern 런던</span><span class="kpi-tag">#7월 15일 – 2027년 1월 17일</span><span class="kpi-tag">#120점 이상</span></div>
+      <p class="art-body">Artnet의 리뷰에 따르면, <strong>Tate Modern</strong>의 Ana Mendieta 회고전은 Silueta 연작·새로 복원된 필름·초기 회화·말년 조각 등 120점 이상을 선보입니다. The Art Newspaper는 &#x27;그녀의 신석기 예술적 뿌리를 재현한 기념비적 전시&#x27;로 평가했습니다. 2027년 1월 17일까지.</p>
+      <div class="art-foot"><a class="art-rel" href="https://news.artnet.com/art-world/ana-mendieta-tate-modern-2788289" target="_blank" rel="noopener">Artnet review</a><a class="art-rel" href="https://www.theartnewspaper.com/2026/07/13/ana-mendietas-neolithic-art-recreated-for-major-tate-modern-survey" target="_blank" rel="noopener">The Art Newspaper</a><a class="art-rel" href="https://www.tate.org.uk/whats-on/tate-modern/ana-mendieta" target="_blank" rel="noopener">Tate Modern</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 7. 14.</span></div>
+      <h2 class="art-hl-ko"><a href="https://www.frieze.com/article/first-details-frieze-seoul-2026" target="_blank" rel="noopener">Frieze Seoul 2026 5회 — 125개 갤러리, Material Practice·Spotlight 신설, Ryan Gander 코인 16,000개 도시 전역 배치 [팩트체크 수정]</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#KR</span><span class="kpi-tag">#30개국 125개 갤러리</span><span class="kpi-tag">#Material Practice — 현대미술×디자인 교차점</span><span class="kpi-tag">#Ryan Gander: 16,000개 특별 제작 코인</span></div>
+      <p class="art-body">Frieze 공식 발표(6월 9일)에 따르면, <strong>Frieze Seoul</strong> 5회는 9월 2–5일(프리뷰 9월 2일 초청자 한정) COEX에서 열립니다. 125개 갤러리 중 70% 이상이 아시아태평양 기반, 50개 이상이 서울 상설 공간을 운영합니다. 신설 섹션: <strong>Material Practice</strong>(현대미술과 디자인의 교차점), <strong>Spotlight</strong>(저평가된 20세기 작가). Ryan Gander의 &#x27;The Find Seoul&#x27;: 을지로·한남·청담·삼청·COEX 공공구역에 <strong>16,000개의 특별 제작 코인</strong>을 숨깁니다 — 각 코인에 지혜의 문구가 새겨져 있으며, 발견자가 소장하거나 전달할 수 있습니다. ☑ 팩트체크: 코인(coins)이 맞음, 일반 예술품(artworks)이 아님.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.frieze.com/article/first-details-frieze-seoul-2026" target="_blank" rel="noopener">Frieze: First details Frieze Seoul 2026</a><a class="art-rel" href="https://press.frieze.com/frieze-seoul-2026-returns-to-south-korea-a-global-epicentre-of-contemporary-culture/" target="_blank" rel="noopener">Frieze Seoul official press release</a><a class="art-rel" href="https://www.artsy.net/article/artsy-editorial-frieze-seoul-2026-announces-125-exhibitors" target="_blank" rel="noopener">Artsy announcement</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 7. 14.</span></div>
+      <h2 class="art-hl-ko"><a href="https://copyrightalliance.org/copyright-news-july-2026/" target="_blank" rel="noopener">미 저작권청 등록 수수료 43% 인상 의회 제출 — 홍콩·호주도 AI 저작권 예외 거부</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#US</span><span class="kpi-tag">#43% 수수료 인상</span><span class="kpi-tag">#의회 제출 7월 14일</span><span class="kpi-tag">#홍콩·호주 AI 예외 거부</span></div>
+      <p class="art-body">Copyright Alliance의 7월 라운드업에 따르면, 미국 저작권청이 <strong>등록 수수료를 43% 인상</strong>하는 개정안을 7월 14일 의회에 제출했습니다. 2026년 11월 중순 이른 시점에 발효될 수 있습니다. 같은 달 인도·독일 법원이 AI 저작권 주요 판결을 내렸으며, <strong>홍콩 정부는 AI 훈련을 위한 저작권 예외 도입을 명시적으로 거부</strong>했습니다. 호주도 창작자 권리를 지지하는 강한 성명을 발표했습니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://copyrightalliance.org/copyright-news-july-2026/" target="_blank" rel="noopener">Copyright Alliance: July 2026 copyright news</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 7. 13.</span></div>
+      <h2 class="art-hl-ko"><a href="https://artreview.com/the-12-exhibitions-to-see-in-july-2026/" target="_blank" rel="noopener">The Whitworth 맨체스터 — 한국·인도 여성 작가 8인, Theresa Hak Kyung Cha 미공개작, ArtReview 7월 추천</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#UK</span><span class="kpi-tag">#The Whitworth 맨체스터</span><span class="kpi-tag">#64점 31명</span><span class="kpi-tag">#Theresa Hak Kyung Cha 미공개작</span></div>
+      <p class="art-body">ArtReview &#x27;7월 봐야 할 12개 전시&#x27;에 따르면, <strong>The Whitworth</strong>의 전시는 한국과 인도 출신 여성 작가 8인의 섬유·설치 작품 64점을 원형 오픈플랜 배치로 선보입니다. 특히 <strong>Theresa Hak Kyung Cha</strong>의 미완성작 &#x27;White Dust from Mongolia(1980)&#x27;가 포함됩니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://artreview.com/the-12-exhibitions-to-see-in-july-2026/" target="_blank" rel="noopener">ArtReview: 12 exhibitions to see in July 2026</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 7. 11.</span></div>
+      <h2 class="art-hl-ko"><a href="https://news.artnet.com/market/christies-h1-mid-year-sales-2026-2788024" target="_blank" rel="noopener">크리스티 H1 $45억 (+71%) — &#x27;5년 만의 최고, 모든 부문·가격대에서 성장&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#US</span><span class="kpi-tag">#크리스티 $45억</span><span class="kpi-tag">#경매 $35억 (+71%)</span><span class="kpi-tag">#사모 거래 $10억</span></div>
+      <p class="art-body">Artnet의 보도에 따르면, <strong>크리스티</strong>는 2026년 상반기 총 $45억(경매 $35억, 낙찰률 91%)을 기록하며 전년 대비 71% 성장했습니다. CEO Bonnie Brennan은 &#x27;5년 만의 최고 상반기&#x27;라고 밝혔습니다. 20세기·21세기 부문이 $23억으로 최대 기여했으며, 올드 마스터는 +232% 성장했습니다. 같은 날 필립스도 $5.07억(+60%)을 발표했습니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://news.artnet.com/market/christies-h1-mid-year-sales-2026-2788024" target="_blank" rel="noopener">Artnet: Christie&#x27;s H1 results</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 7. 11.</span></div>
+      <h2 class="art-hl-ko"><a href="https://news.artnet.com/market/mid-year-review-auctions-2787320" target="_blank" rel="noopener">소더비 H1 $44억 (+88%), 필립스 $5.07억 (+60%) — Artnet: &#x27;두 속도의 회복&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#US</span><span class="kpi-tag">#소더비 $44억 (+58% 전체)</span><span class="kpi-tag">#낙찰률 87.7%</span><span class="kpi-tag">#필립스 $5.07억 (+60%)</span></div>
+      <p class="art-body">Artnet의 공식 발표 및 상반기 리뷰에 따르면, <strong>소더비</strong>는 H1 총매출 $44억(+58% YoY, 전체 기준), 낙찰률 87.7%, 로트당 평균 4.9명 입찰이라는 10년 만의 최고 참여율을 기록했습니다. 핵심 동력은 6월 런던 Lewis Collection($3.926억). <strong>필립스</strong>는 $5.07억(+60%)을 기록했으나 현대미술 부문은 여전히 조정 국면입니다. ARTnews는 이를 &#x27;두 속도의 회복&#x27;으로 분석했습니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://news.artnet.com/market/mid-year-review-auctions-2787320" target="_blank" rel="noopener">Artnet: Mid-year market review</a><a class="art-rel" href="https://www.artnews.com/art-news/market/auction-house-h1-results-art-market-analysis-2026-1234792333/" target="_blank" rel="noopener">ARTnews: H1 auction analysis</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 7. 10.</span></div>
+      <h2 class="art-hl-ko"><a href="https://www.wallpaper.com/art/exhibitions-shows/european-art-exhibitions-summer-2026" target="_blank" rel="noopener">Museum de Lakenhal 레이든 &#x27;Garden of Earthly Delights — 17세기의 꽃&#x27; — Walter Van Beirendonck 공간 연출</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#NL</span><span class="kpi-tag">#Museum de Lakenhal 레이든</span><span class="kpi-tag">#Phoebus Foundation 소장품</span><span class="kpi-tag">#Walter Van Beirendonck 공간</span></div>
+      <p class="art-body">Wallpaper의 유럽 여름 전시 가이드에 따르면, 레이든 <strong>Museum de Lakenhal</strong>이 Phoebus Foundation 소장 17세기 꽃 회화를 중심으로 &#x27;Garden of Earthly Delights — 17세기의 꽃&#x27;을 선보이고 있습니다. 벨기에 패션 디자이너 <strong>Walter Van Beirendonck</strong>이 전시 시나리오를 맡아 예술·자연·상상이 교차하는 몰입적 경험을 구성했습니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.wallpaper.com/art/exhibitions-shows/european-art-exhibitions-summer-2026" target="_blank" rel="noopener">Wallpaper: European exhibitions summer 2026</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 7. 3.</span></div>
+      <h2 class="art-hl-ko"><a href="https://news.artnet.com/art-world/congress-funding-bill-nea-neh-2735600" target="_blank" rel="noopener">미 의회, 트럼프 NEA·NEH 폐지안 저지 — FY2026 각 $2.07억 유지, 하원 FY2027 35% 삭감 추진</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#US</span><span class="kpi-tag">#NEA $207M</span><span class="kpi-tag">#NEH $207M</span><span class="kpi-tag">#FY2027 35% 삭감 발의</span></div>
+      <p class="art-body">Artnet과 Glasstire의 보도에 따르면, 의회는 FY2026 예산에서 <strong>NEA와 NEH 각 $2.07억, IMLS $2.918억</strong>을 유지해 트럼프의 전액 폐지 요청을 막아냈습니다(하원 397-28, 상원 82-15). 그러나 6월 26일 하원은 FY2027에서 NEA·NEH 각 35% 삭감안을 발의했습니다. MASSCreative 조사: 뉴잉글랜드 89개 기관에서 $1,350만 손실.</p>
+      <div class="art-foot"><a class="art-rel" href="https://news.artnet.com/art-world/congress-funding-bill-nea-neh-2735600" target="_blank" rel="noopener">Artnet: Congress NEA/NEH bill</a><a class="art-rel" href="https://glasstire.com/2026/01/21/u-s-congress-passes-bill-fully-funding-nea-and-neh-through-2026/" target="_blank" rel="noopener">Glasstire</a><a class="art-rel" href="https://www.mass-creative.org/priorities/2026-federal-impact-survey-results" target="_blank" rel="noopener">MASSCreative</a></div>
+    </article></div>
+  </section>
+  <section class="month-section" id="m-2026-06">
+    <div class="month-header">
+      <h2 class="month-title">2026년 6월</h2>
+      <div class="month-rule"></div>
+    </div>
+    <div class="articles">
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 6. 12.</span></div>
+      <h2 class="art-hl-ko"><a href="https://www.afmuseet.no/en/exhibitions/beatriz-gonzalez/" target="_blank" rel="noopener">Beatriz González 회고전, Astrup Fearnley Museet 오슬로 — 생전 기획, 사후 헌정 전시 (6월 12일–10월 11일)</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#NO</span><span class="kpi-tag">#Astrup Fearnley Museet 오슬로</span><span class="kpi-tag">#6월 12일 – 10월 11일</span><span class="kpi-tag">#150점 이상</span></div>
+      <p class="art-body">Astrup Fearnley Museet 공식 전시 페이지에 따르면, <strong>Beatriz González(1932–2026)</strong> 회고전이 6월 12일부터 10월 11일까지 열립니다. 150점 이상의 이 전시는 작가가 2026년 1월 타계하기 전 긴밀히 기획했으며, 유산에 대한 헌정이 됐습니다. TAN 부고는 São Paulo → Barbican 런던 → 오슬로 순회를 확인했습니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.afmuseet.no/en/exhibitions/beatriz-gonzalez/" target="_blank" rel="noopener">Astrup Fearnley: Beatriz González</a><a class="art-rel" href="https://www.theartnewspaper.com/2026/01/16/beatriz-gonzalez-colombian-artist-curator-scholar-obituary" target="_blank" rel="noopener">The Art Newspaper: González obituary</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 6. 11.</span></div>
+      <h2 class="art-hl-ko"><a href="https://www.npg.org.uk/whatson/exhibitions/2026/lucian-freud-drawing-into-painting" target="_blank" rel="noopener">Lucian Freud &#x27;Drawing into Painting&#x27;, Louisiana Museum — NPG 런던 순회 (6월 11일–9월 27일)</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#DK</span><span class="kpi-tag">#Louisiana Museum (덴마크)</span><span class="kpi-tag">#6월 11일 – 9월 27일</span><span class="kpi-tag">#170점 드로잉·에칭·회화</span></div>
+      <p class="art-body">NPG 공식 전시 페이지에 따르면, <strong>Lucian Freud &#x27;Drawing into Painting&#x27;</strong>이 루이지애나 현대미술관(덴마크 훔레벡)에서 6월 11일부터 9월 27일까지 열립니다. NPG 런던(2월 12일–5월 4일) 이후 순회. 드로잉·에칭·회화 170점으로 종이 위 실천이 회화에 미친 영향을 탐구합니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.npg.org.uk/whatson/exhibitions/2026/lucian-freud-drawing-into-painting" target="_blank" rel="noopener">NPG: Lucian Freud exhibition</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 6. 9.</span></div>
+      <h2 class="art-hl-ko"><a href="https://news.artnet.com/art-world/7-must-see-museum-shows-on-view-across-asia-in-2026-2723845" target="_blank" rel="noopener">Kim Yun Shin 91세 기념 회고전, Hoam Museum of Art — &#x27;베니스 이후 70년의 여정&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#KR</span><span class="kpi-tag">#Hoam Museum of Art</span><span class="kpi-tag">#91세 기념</span><span class="kpi-tag">#2024 Venice Biennale 이후</span></div>
+      <p class="art-body">Artnet &#x27;2026년 아시아 7대 전시&#x27;에 따르면, <strong>Kim Yun Shin(1935–)</strong>은 91세를 맞아 Hoam Museum of Art에서 대규모 회고전을 개최합니다. 2024 Venice Biennale 이후 국제적 스타로 부상한 작가의 북한·남한·파리·아르헨티나를 거치는 70년 이상의 궤적을 추적합니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://news.artnet.com/art-world/7-must-see-museum-shows-on-view-across-asia-in-2026-2723845" target="_blank" rel="noopener">Artnet: 7 must-see Asia shows 2026</a></div>
+    </article></div>
+  </section>
+  <section class="month-section" id="m-2026-05">
+    <div class="month-header">
+      <h2 class="month-title">2026년 5월</h2>
+      <div class="month-rule"></div>
+    </div>
+    <div class="articles">
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 5. 19.</span></div>
+      <h2 class="art-hl-ko"><a href="https://www.theartnewspaper.com/2026/05/19/seouls-new-centre-pompidou-hanwha-museum-opens-next-monthcan-it-live-up-to-expectations" target="_blank" rel="noopener">Centre Pompidou Hanwha, TAN 개관 전 심층 분석 — &#x27;기대에 부응할 수 있을까&#x27; (6월 4일 개관)</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#KR</span><span class="kpi-tag">#TAN 심층 분석</span><span class="kpi-tag">#4년 파트너십 €2,000만</span><span class="kpi-tag">#연간 2회 퐁피두 전시</span></div>
+      <p class="art-body">The Art Newspaper의 5월 분석에 따르면, <strong>Centre Pompidou Hanwha</strong>는 63빌딩 4개 층 11,000 sq ft 공간을 차지합니다. 한화는 4년 계약 대가로 퐁피두에 €2,000만을 지불합니다. 퐁피두 측은 이를 &#x27;상호 교류&#x27;로 규정했습니다. 마크롱 대통령이 4월 3일 시설을 둘러봤습니다. 개관일: 2026년 6월 4일, 개관전 &#x27;입체주의: 새로운 시각의 탄생&#x27;.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.theartnewspaper.com/2026/05/19/seouls-new-centre-pompidou-hanwha-museum-opens-next-monthcan-it-live-up-to-expectations" target="_blank" rel="noopener">The Art Newspaper: Pompidou Hanwha preview</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 5. 5.</span></div>
+      <h2 class="art-hl-ko"><a href="https://imma.ie/whats-on/cecilia-vicuna/" target="_blank" rel="noopener">Cecilia Vicuña &#x27;Reverse Migration&#x27;, IMMA 더블린 — 7월 5일 폐막, 이후 Whitechapel Gallery 런던 순회</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#IE</span><span class="kpi-tag">#IMMA 더블린</span><span class="kpi-tag">#2025.11.7 – 2026.7.5</span><span class="kpi-tag">#Whitechapel Gallery 이후 순회</span></div>
+      <p class="art-body">IMMA 공식 전시 페이지에 따르면, <strong>Cecilia Vicuña</strong>의 아일랜드 첫 단독전 &#x27;Reverse Migration, a Poetic Journey&#x27;가 7월 5일 폐막했습니다(2025년 11월 7일 개막). Whitechapel Gallery(런던, 2026년 10월 7일–2027년 2월 14일)로 순회합니다. IMMA는 Vicuña의 두 회화를 아일랜드 국립 컬렉션에 소장했습니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://imma.ie/whats-on/cecilia-vicuna/" target="_blank" rel="noopener">IMMA: Cecilia Vicuña exhibition</a></div>
+    </article></div>
+  </section>
+  <section class="month-section" id="m-2026-04">
+    <div class="month-header">
+      <h2 class="month-title">2026년 4월</h2>
+      <div class="month-rule"></div>
+    </div>
+    <div class="articles">
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 4. 17.</span></div>
+      <h2 class="art-hl-ko"><a href="https://www.theartnewspaper.com/2026/04/17/the-big-review-rothko-in-florence" target="_blank" rel="noopener">The Art Newspaper, Rothko in Florence ★★★★★ 리뷰 — &#x27;회화적 혁신이 르네상스 건축을 만나다&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#IT</span><span class="kpi-tag">#TAN ★★★★★</span><span class="kpi-tag">#세 개 장소 구성</span><span class="kpi-tag">#크리스토퍼 로스코·엘레나 게우나 큐레이션</span></div>
+      <p class="art-body">The Art Newspaper의 리뷰어는 <strong>Palazzo Strozzi</strong>의 Rothko 전시에 별점 5/5를 부여했습니다. 특히 산 마르코 박물관에서 Fra Angelico 프레스코화 옆 Rothko 캔버스의 배치를 &#x27;영적 강도의 조우&#x27;로 묘사했습니다. 70점 이상: 팔라초 스트로치(주전시)·산 마르코(5점)·라우렌치아나 도서관(2점).</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.theartnewspaper.com/2026/04/17/the-big-review-rothko-in-florence" target="_blank" rel="noopener">The Art Newspaper: The Big Review</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 4. 14.</span></div>
+      <h2 class="art-hl-ko"><a href="https://news.artnet.com/art-world/trump-executive-orders-arts-2605142" target="_blank" rel="noopener">트럼프 첫 100일 예술계 영향 — &#x27;NEH $1,700만 국가 영웅 정원 전용, NEA 기준 전면 재편&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#US</span><span class="kpi-tag">#NEH $17M → 국가 영웅 정원</span><span class="kpi-tag">#NEA 기준 재편</span><span class="kpi-tag">#80% NEH 직원 행정휴직</span></div>
+      <p class="art-body">Artnet의 보도에 따르면, <strong>NEH</strong>는 &#x27;미국 영웅 국가 정원&#x27; 조성에 NEA·NEH 공동 $1,700만을 배정했습니다. <strong>NEA</strong>는 보조금 기준을 &#x27;숙련 기술 일자리·AI 역량·군인 지원·아시아계 미국인 경제 개발&#x27;로 재편했습니다. NEH는 기존 보조금의 약 85%를 취소하고 직원 80%를 행정 휴직에 배치했습니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://news.artnet.com/art-world/trump-executive-orders-arts-2605142" target="_blank" rel="noopener">Artnet: Trump executive orders on the arts</a></div>
+    </article></div>
+  </section>
+  <section class="month-section" id="m-2026-03">
+    <div class="month-header">
+      <h2 class="month-title">2026년 3월</h2>
+      <div class="month-rule"></div>
+    </div>
+    <div class="articles">
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 3. 20.</span></div>
+      <h2 class="art-hl-ko"><a href="https://asiaweekny.com/asia-week-new-york-2026-edition-highlights/" target="_blank" rel="noopener">Asia Week New York 17회 — 23개 갤러리·27개 뮤지엄, 일본 판화·남아시아 강세</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#US</span><span class="kpi-tag">#3월 19–27일</span><span class="kpi-tag">#23개 갤러리 27개 뮤지엄</span><span class="kpi-tag">#일본 판화·남아시아 강세</span></div>
+      <p class="art-body">Asia Week NY 공식 하이라이트에 따르면, 17회 Asia Week New York(3월 19–27일)이 개최됐습니다. 23개 갤러리와 27개 박물관·문화기관이 참여했으며, 크리스티·소더비·본햄스·도일·프리맨·헤리티지 옥션이 경매를 진행했습니다. 일본 판화와 남아시아 작품에서 컬렉터 참여도가 특히 강했습니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://asiaweekny.com/asia-week-new-york-2026-edition-highlights/" target="_blank" rel="noopener">Asia Week NY 2026 highlights</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 3. 10.</span></div>
+      <h2 class="art-hl-ko"><a href="https://www.ne-mo.org/news-events/article/european-parliament-report-on-copyright-and-generative-ai/" target="_blank" rel="noopener">EU 의회, AI·저작권 보고서 채택 — &#x27;AI 옵트아웃 표준화·유럽 레지스트리 창설 촉구&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#EU</span><span class="kpi-tag">#3월 10일 채택</span><span class="kpi-tag">#MEP Axel Voss 주도</span><span class="kpi-tag">#비구속적이나 정책 형성</span></div>
+      <p class="art-body">NEMO의 분석에 따르면, 유럽 의회는 3월 10일 &#x27;저작권과 생성형 AI&#x27; 자체 보고서를 채택했습니다. <strong>MEP Axel Voss</strong> 주도의 비구속적 보고서는 AI 학습 지침 명확화, <strong>표준화된 옵트아웃 메커니즘</strong> 도입, 중앙화된 유럽 레지스트리 설립을 촉구합니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.ne-mo.org/news-events/article/european-parliament-report-on-copyright-and-generative-ai/" target="_blank" rel="noopener">NEMO: EU Parliament AI copyright report</a><a class="art-rel" href="https://iapp.org/news/a/the-eu-ai-copyright-playbook-the-tdm-exception-and-ai-act-s-transparency-requirements" target="_blank" rel="noopener">IAPP: EU AI copyright playbook</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 3. 9.</span></div>
+      <h2 class="art-hl-ko"><a href="https://www.thisiscolossal.com/2026/02/march-2026-opportunities-open-calls-residencies-grants/" target="_blank" rel="noopener">Pollock-Krasner Foundation Grant · Ucross Native American Fellowship 2026 — Colossal 3월 기회</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#US</span><span class="kpi-tag">#Pollock-Krasner 최대 $50,000</span><span class="kpi-tag">#Ucross 4주 레지던시 + $3,500</span><span class="kpi-tag">#상시 접수</span></div>
+      <p class="art-body">Colossal의 3월 2026 기회 라운드업에 따르면, <strong>Pollock-Krasner Foundation</strong>은 화가·조각가·판화작가에게 최대 $50,000의 연간 보조금을 상시 접수로 제공합니다. <strong>Ucross Native American Fellowships</strong>는 4주 레지던시와 $1,500 스티펀드 + $2,000 어워드를 제공합니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.thisiscolossal.com/2026/02/march-2026-opportunities-open-calls-residencies-grants/" target="_blank" rel="noopener">Colossal: March 2026 opportunities</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 3. 1.</span></div>
+      <h2 class="art-hl-ko"><a href="https://news.artprice.com/en/12818/cezanne-at-the-fondation-beyeler-2026-a-major-retrospective-of-the-late-period-of-the-master-of-modern-art-in-basel" target="_blank" rel="noopener">Paul Cézanne 회고전, Fondation Beyeler 바젤 — &#x27;말년 프로방스 풍경·정물·수욕자 80점&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#CH</span><span class="kpi-tag">#Fondation Beyeler 바젤</span><span class="kpi-tag">#말년 회화 약 80점</span><span class="kpi-tag">#입체주의·추상의 선구자</span></div>
+      <p class="art-body">Artprice의 보도에 따르면, <strong>Fondation Beyeler</strong>가 2026년 Paul Cézanne 단독전을 개최합니다. 프로방스 풍경·정물화·초상화·수욕자 장면을 중심으로 한 말년 작품 약 80점이 전시됩니다. 세잔이 어떻게 입체주의와 추상의 길을 열었는지를 탐구합니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://news.artprice.com/en/12818/cezanne-at-the-fondation-beyeler-2026-a-major-retrospective-of-the-late-period-of-the-master-of-modern-art-in-basel" target="_blank" rel="noopener">Artprice: Cézanne at Fondation Beyeler</a></div>
+    </article></div>
+  </section>
+  <section class="month-section" id="m-2026-02">
+    <div class="month-header">
+      <h2 class="month-title">2026년 2월</h2>
+      <div class="month-rule"></div>
+    </div>
+    <div class="articles">
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 2. 2.</span></div>
+      <h2 class="art-hl-ko"><a href="https://legalblogs.wolterskluwer.com/copyright-blog/eu-copyright-law-roundup-first-trimester-of-2026/" target="_blank" rel="noopener">EU 집행위, 덴마크 AI 저작권법 초안에 경고 — &#x27;딥페이크 보호 규정이 EU법과 충돌&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#EU</span><span class="kpi-tag">#2월 2일 경고 서한</span><span class="kpi-tag">#딥페이크 보호 규정</span><span class="kpi-tag">#EU 규제 단편화 우려</span></div>
+      <p class="art-body">Kluwer Copyright Blog의 2026년 1분기 라운드업에 따르면, 유럽 집행위원회는 2월 2일 <strong>덴마크의 저작권법 개정 초안</strong>에 경고 서한을 보냈습니다. 덴마크가 AI 생성 모방 및 딥페이크로부터 개인 특성·예술 퍼포먼스를 보호하는 조항을 추가하려 하자, 집행위는 기존 EU 저작권 규정·AI법과 충돌하고 규제 단편화를 초래할 수 있다고 경고했습니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://legalblogs.wolterskluwer.com/copyright-blog/eu-copyright-law-roundup-first-trimester-of-2026/" target="_blank" rel="noopener">Kluwer: EU copyright law Q1 2026 roundup</a></div>
+    </article></div>
+  </section>
+  <section class="month-section" id="m-2026-01">
+    <div class="month-header">
+      <h2 class="month-title">2026년 1월</h2>
+      <div class="month-rule"></div>
+    </div>
+    <div class="articles">
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 1. 21.</span></div>
+      <h2 class="art-hl-ko"><a href="https://glasstire.com/2026/01/21/u-s-congress-passes-bill-fully-funding-nea-and-neh-through-2026/" target="_blank" rel="noopener">미 의회, NEA·NEH FY2026 각 $2.07억 전액 유지 — Glasstire: &#x27;상원 82-15, 하원 397-28&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#US</span><span class="kpi-tag">#NEA $207M</span><span class="kpi-tag">#NEH $207M</span><span class="kpi-tag">#스미스소니언 $11억</span></div>
+      <p class="art-body">Glasstire의 보도에 따르면, 상원이 1월 15일 82-15로 FY2026 세출안을 통과시키면서 <strong>NEA와 NEH 각 $2.07억, 스미스소니언·홀로코스트 기념관에 $11억</strong>이 확보됐습니다. 이는 트럼프의 전액 폐지 요청에 맞선 의회의 직접적 거부입니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://glasstire.com/2026/01/21/u-s-congress-passes-bill-fully-funding-nea-and-neh-through-2026/" target="_blank" rel="noopener">Glasstire: Congress passes NEA/NEH funding</a><a class="art-rel" href="https://news.artnet.com/art-world/congress-funding-bill-nea-neh-2735600" target="_blank" rel="noopener">Artnet: NEA/NEH funding bill</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 1. 20.</span></div>
+      <h2 class="art-hl-ko"><a href="https://www.timeout.com/asia/news/these-are-the-exhibitions-in-asia-worth-travelling-for-in-2026-011926" target="_blank" rel="noopener">Botero: The Heart of Volume, IMBA 싱가포르 — 가든스 바이 더 베이 신 미술관 개관 기념전</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#SG</span><span class="kpi-tag">#IMBA 가든스 바이 더 베이</span><span class="kpi-tag">#개관 기념전</span><span class="kpi-tag">#보테로 사후 아시아 전시</span></div>
+      <p class="art-body">Time Out Asia의 가이드에 따르면, 싱가포르 가든스 바이 더 베이의 새 미술관 <strong>IMBA</strong>가 페르난도 보테로의 조각과 회화를 야외·실내 복합 환경에서 선보이는 개관전으로 문을 열었습니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.timeout.com/asia/news/these-are-the-exhibitions-in-asia-worth-travelling-for-in-2026-011926" target="_blank" rel="noopener">Time Out Asia: Exhibitions in Asia 2026</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 1. 16.</span></div>
+      <h2 class="art-hl-ko"><a href="https://www.theartnewspaper.com/2026/01/16/beatriz-gonzalez-colombian-artist-curator-scholar-obituary" target="_blank" rel="noopener">Beatriz González 사망, 향년 93세 — TAN 부고: &#x27;콜롬비아 미술의 라 마에스트라&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#NO</span><span class="kpi-tag">#1932–2026 콜롬비아</span><span class="kpi-tag">#오슬로 회고전 생전 기획</span><span class="kpi-tag">#라틴아메리카 20세기 최중요 작가</span></div>
+      <p class="art-body">The Art Newspaper의 부고에 따르면, 콜롬비아 미술의 <strong>&#x27;라 마에스트라&#x27; Beatriz González</strong>가 2026년 1월 향년 93세로 타계했습니다. 서구 미술사 이미지와 신문 컷아웃을 대담한 그래픽 스타일로 변환해 폭력·권력·취향을 탐구한 작가입니다. Astrup Fearnley Museet(오슬로) 회고전은 생전에 작가와 기획됐습니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.theartnewspaper.com/2026/01/16/beatriz-gonzalez-colombian-artist-curator-scholar-obituary" target="_blank" rel="noopener">The Art Newspaper: Beatriz González obituary</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 1. 15.</span></div>
+      <h2 class="art-hl-ko"><a href="https://www.stephensonharwood.com/insights/recent-developments-in-restitution/" target="_blank" rel="noopener">스위스, &#x27;부담이 있는 과거 문화재 독립위원회&#x27; 출범 — &#x27;홀로코스트 + 식민지 청구 포괄&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#CH</span><span class="kpi-tag">#홀로코스트 + 식민지 문화재</span><span class="kpi-tag">#비구속적 권고</span><span class="kpi-tag">#나치 약탈 경우 일방 소집 가능</span></div>
+      <p class="art-body">Stephenson Harwood의 분석에 따르면, 스위스가 2026년 <strong>&#x27;부담이 있는 과거 문화재 독립위원회&#x27;</strong>를 출범시켰습니다. 홀로코스트 관련 청구뿐 아니라 식민지 시대 문화재까지 포괄합니다. 비구속적 권고를 내리며 나치 약탈 미술 사건은 일방적으로 위원회를 소집할 수 있습니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.stephensonharwood.com/insights/recent-developments-in-restitution/" target="_blank" rel="noopener">Stephenson Harwood: Recent developments in restitution</a><a class="art-rel" href="https://www.jns.org/news/world/italy-advances-legislation-on-holocaust-era-art-restitution" target="_blank" rel="noopener">JNS: Italy Holocaust restitution</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">2026. 1. 1.</span></div>
+      <h2 class="art-hl-ko"><a href="https://www.euipo.europa.eu/en/news/copyright-artworks-entering-the-public-domain-in-2026" target="_blank" rel="noopener">EU 저작권 공유 영역 2026 — EUIPO: &#x27;국가별 문화유산법으로 사용 제한 가능&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#EU</span><span class="kpi-tag">#EUIPO 확인</span><span class="kpi-tag">#국가별 법률 주의 필요</span><span class="kpi-tag">#도덕적 권리 지속 적용</span></div>
+      <p class="art-body">EUIPO의 공식 발표에 따르면, 2026년 EU 내에서 다수의 상징적 작품들이 공유 영역에 진입합니다. 그러나 이탈리아·그리스 등의 문화유산법은 공유 영역 작품의 사용에도 사전 승인과 수수료를 요구할 수 있습니다. &#x27;공유 영역&#x27;이 &#x27;자유로운 사용&#x27;을 의미하지는 않습니다.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.euipo.europa.eu/en/news/copyright-artworks-entering-the-public-domain-in-2026" target="_blank" rel="noopener">EUIPO: Copyright artworks entering the public domain in 2026</a></div>
+    </article></div>
+  </section></div>
+    <div class="en" style="display:none">
+  <section class="month-section" id="m-2026-08">
+    <div class="month-header">
+      <h2 class="month-title">August 2026</h2>
+      <div class="month-rule"></div>
+    </div>
+    <div class="articles">
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Aug 14, 2026</span></div>
+      <h2 class="art-hl"><a href="https://ocula.com/magazine/art-news/frieze-seoul-will-move-to-new-venue-2027/" target="_blank" rel="noopener">Frieze Seoul 2027 to relocate from COEX to Zaha Hadid&#x27;s Dongdaemun Design Plaza — Ocula</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#KR</span><span class="kpi-tag">#2027: DDP (Dongdaemun Design Plaza)</span><span class="kpi-tag">#COEX redevelopment</span><span class="kpi-tag">#Zaha Hadid design</span></div>
+      <p class="art-body">Per Ocula, <strong>Frieze Seoul</strong>&#x27;s 6th edition (2027) will relocate from COEX to <strong>Dongdaemun Design Plaza (DDP)</strong> — due to COEX&#x27;s planned redevelopment. Frieze.com confirms: &#x27;With the redevelopment of COEX, the fair is set to relocate to Zaha Hadid&#x27;s Dongdaemun Design Plaza, one of the city&#x27;s most unique and recognisable buildings.&#x27; The 2026 edition (5th) proceeds as planned at COEX, September 2–5.</p>
+      <div class="art-foot"><a class="art-rel" href="https://ocula.com/magazine/art-news/frieze-seoul-will-move-to-new-venue-2027/" target="_blank" rel="noopener">Ocula: Frieze Seoul 2027 venue announcement</a><a class="art-rel" href="https://www.frieze.com/fairs/frieze-seoul" target="_blank" rel="noopener">Frieze Seoul official</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Aug 13, 2026</span></div>
+      <h2 class="art-hl"><a href="https://news.artnet.com/art-world/auctions-specialist-spotlight-august-2026-2797027" target="_blank" rel="noopener">Artnet Auctions August specialist spotlight — Kikuo Saito record ($245,100), photography market seasonality shift</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#US</span><span class="kpi-tag">#Kikuo Saito record $245,100</span><span class="kpi-tag">#Photo Finds sale deadline Aug 19</span><span class="kpi-tag">#Contemporary Editions Aug 27</span></div>
+      <p class="art-body">Per Artnet Auctions&#x27; August specialist spotlight, Phillips&#x27; May 2026 GESTURE session set a record for <strong>Kikuo Saito</strong> — Cerise at $245,100. Current Artnet Auctions sales: Photo Finds (Weston, Minter, Sugimoto; closes Aug 19) and Contemporary Editions (Motherwell, Miró, KAWS, Ai Weiwei; closes Aug 27). Specialists flag a potential structural shift in <strong>auction calendar seasonality</strong> and growing institutional legitimacy of the collectibles market.</p>
+      <div class="art-foot"><a class="art-rel" href="https://news.artnet.com/art-world/auctions-specialist-spotlight-august-2026-2797027" target="_blank" rel="noopener">Artnet: Auctions specialist spotlight August 2026</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Aug 12, 2026</span></div>
+      <h2 class="art-hl"><a href="https://www.theartnewspaper.com/2026/08/12/august-book-bag-from-a-collection-of-sizzling-portraits-to-a-survey-of-little-known-us-museums" target="_blank" rel="noopener">TAN August Book Bag — first comprehensive Tyeb Mehta monograph, 148 photographs charting Mexico&#x27;s 20th century</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#INT</span><span class="kpi-tag">#First Tyeb Mehta monograph</span><span class="kpi-tag">#148 photographs on Mexico</span><span class="kpi-tag">#US hidden museums guide</span></div>
+      <p class="art-body">The Art Newspaper&#x27;s August book roundup highlights three publications: Jack Shoulder&#x27;s analysis of &#x27;the most sizzling portraits in art history&#x27;; the first comprehensive monograph on <strong>Tyeb Mehta (1925–2009)</strong> since his death in 2009; and 148 photographs mapping Mexico&#x27;s 20th century from the Greenberg–Steinhauser collection — Kahlo, Rivera, Graciela Iturbide and 10 others, 1920–2017. The Mexico volume ties to a J. Paul Getty Museum exhibition opening September 1.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.theartnewspaper.com/2026/08/12/august-book-bag-from-a-collection-of-sizzling-portraits-to-a-survey-of-little-known-us-museums" target="_blank" rel="noopener">The Art Newspaper: August Book Bag</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Aug 11, 2026</span></div>
+      <h2 class="art-hl"><a href="https://news.artnet.com/market/blaquier-art-collection-sothebys-2795536" target="_blank" rel="noopener">Sotheby&#x27;s lands $450M Argentine Blaquier collection — Van Gogh, Cézanne, Degas included; fall consignment season opens</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#US</span><span class="kpi-tag">#~$450M value</span><span class="kpi-tag">#Blaquier family collection</span><span class="kpi-tag">#Impressionist + Post-Impressionist masterpieces</span></div>
+      <p class="art-body">Artnet&#x27;s Katya Kazakina reports exclusively that the children of <strong>Nelly Arrieta de Blaquier</strong> and Carlos Pedro Blaquier have consigned their Impressionist and Post-Impressionist masterpiece collection — estimated at approximately <strong>$450M</strong> — to Sotheby&#x27;s. The New York Times (1995) described Nelly as the owner of &#x27;Argentina&#x27;s largest private art collection.&#x27; Simultaneously, the Valentino Garavani estate collection (Warhol, Basquiat, Bacon, Fontana) is being negotiated. The 2026 fall consignment season is formally underway.</p>
+      <div class="art-foot"><a class="art-rel" href="https://news.artnet.com/market/blaquier-art-collection-sothebys-2795536" target="_blank" rel="noopener">Artnet: Sotheby&#x27;s Blaquier collection</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Aug 05, 2026</span></div>
+      <h2 class="art-hl"><a href="https://news.artprice.com/en/14558/georg-baselitz-has-died-the-life-and-career-of-a-giant-of-german-neo-expressionism" target="_blank" rel="noopener">Georg Baselitz major retrospective at Sehwa Museum of Art, Seoul — 60 years of Neo-Expressionism, first posthumous institutional show</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#KR</span><span class="kpi-tag">#Sehwa Museum of Art Seoul</span><span class="kpi-tag">#Aug 13 – Dec 27</span><span class="kpi-tag">#German Neo-Expressionism</span></div>
+      <p class="art-body">According to Artprice, <strong>Sehwa Museum of Art</strong> presents a major Georg Baselitz (1938–2026) retrospective from August 13 to December 27 — spanning early fragmented figures, iconic upside-down paintings, and late Gold Paintings across more than 60 years. Artprice calls it &#x27;a landmark confirming Korea&#x27;s strategic role in the contemporary art market.&#x27; Also the first major posthumous institutional retrospective following Baselitz&#x27;s death in 2026.</p>
+      <div class="art-foot"><a class="art-rel" href="https://news.artprice.com/en/14558/georg-baselitz-has-died-the-life-and-career-of-a-giant-of-german-neo-expressionism" target="_blank" rel="noopener">Artprice: Georg Baselitz obituary and Sehwa exhibition</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Aug 04, 2026</span></div>
+      <h2 class="art-hl"><a href="https://artreview.com/the-10-exhibitions-to-see-in-august-2026/" target="_blank" rel="noopener">ArtReview 10 exhibitions to see in August 2026 — Christine Sun Kim at MMCA Seoul Box new commission</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#KR</span><span class="kpi-tag">#Christine Sun Kim MMCA Seoul Box</span><span class="kpi-tag">#Ties to Walker Art Center retrospective</span><span class="kpi-tag">#ASL hand gesture-based new work</span></div>
+      <p class="art-body">ArtReview&#x27;s August 2026 exhibition roundup features <strong>Christine Sun Kim&#x27;s</strong> new site-specific commission for MMCA&#x27;s &#x27;Seoul Box&#x27; — composed of characteristic black-and-white, comic book-inspired lines expressing ASL hand gestures, with text stating &#x27;Have Many Dumb Fight Against Rock&#x27; in English and Korean. The commission arrives as Kim&#x27;s mid-career retrospective (which premiered at the Whitney and toured to the Walker Art Center) wraps up. MMCA produced the work as part of its ongoing partnership with LG.</p>
+      <div class="art-foot"><a class="art-rel" href="https://artreview.com/the-10-exhibitions-to-see-in-august-2026/" target="_blank" rel="noopener">ArtReview: 10 exhibitions to see in August 2026</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Aug 02, 2026</span></div>
+      <h2 class="art-hl"><a href="https://www.moca.org/exhibition/haegue-yang-star-crossed-rendezvous-after-yun" target="_blank" rel="noopener">Haegue Yang at MOCA LA — &#x27;Star-Crossed Rendezvous after Yun&#x27; closes Aug 2, LA Philharmonic collaboration</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#US</span><span class="kpi-tag">#MOCA Grand Avenue</span><span class="kpi-tag">#Feb 24 – Aug 2, 2026</span><span class="kpi-tag">#LA Philharmonic + Isang Yun</span></div>
+      <p class="art-body"><strong>Haegue Yang&#x27;s</strong> &#x27;Star-Crossed Rendezvous after Yun&#x27; closed August 2 at MOCA Grand Avenue — a cross-disciplinary project pairing Yang&#x27;s sculpture with the LA Philharmonic and the music of Isang Yun. One of the most significant Korean-born artist institutional premieres in the US in recent years.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.moca.org/exhibition/haegue-yang-star-crossed-rendezvous-after-yun" target="_blank" rel="noopener">MOCA exhibition page</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Aug 01, 2026</span></div>
+      <h2 class="art-hl"><a href="https://www.theartnewspaper.com/2026/04/17/the-big-review-rothko-in-florence" target="_blank" rel="noopener">Rothko in Florence, Palazzo Strozzi — TAN five-star review: &#x27;one of the most important Rothko exhibitions ever&#x27; (closes Aug 23)</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#IT</span><span class="kpi-tag">#Palazzo Strozzi Florence</span><span class="kpi-tag">#Mar 14 – Aug 23, 2026</span><span class="kpi-tag">#TAN ★★★★★ review</span></div>
+      <p class="art-body">The Art Newspaper awarded five stars to <strong>Palazzo Strozzi&#x27;s</strong> &#x27;Rothko in Florence&#x27; — co-curated by Christopher Rothko and Elena Geuna, 70+ works from MoMA, Tate, Centre Pompidou across three Florence venues. Closes August 23. The TAN reviewer described the installation at Museo di San Marco, alongside Fra Angelico frescoes, as &#x27;an encounter of spiritual intensity.&#x27;</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.theartnewspaper.com/2026/04/17/the-big-review-rothko-in-florence" target="_blank" rel="noopener">The Art Newspaper: The Big Review ★★★★★</a><a class="art-rel" href="https://www.palazzostrozzi.org/en/exhibition/mark-rothko/" target="_blank" rel="noopener">Palazzo Strozzi exhibition page</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Aug 01, 2026</span></div>
+      <h2 class="art-hl"><a href="https://www.labiennale.org/en/art/2026" target="_blank" rel="noopener">Venice Biennale 2026 &#x27;In Minor Keys&#x27; — jury resigns, 7 first-time countries, through Nov 22</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#IT</span><span class="kpi-tag">#Through Nov 22</span><span class="kpi-tag">#7 first-time countries</span><span class="kpi-tag">#Jury resigned</span></div>
+      <p class="art-body">The 61st Venice Biennale continues through November 22. The international jury resigned over geopolitical disputes. Seven first-time countries: Guinea, Equatorial Guinea, Nauru, Qatar, Sierra Leone, Somalia, and Vietnam. South Africa&#x27;s independently staged Elegy closed July 31.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.labiennale.org/en/art/2026" target="_blank" rel="noopener">La Biennale official</a></div>
+    </article></div>
+  </section>
+  <section class="month-section" id="m-2026-07">
+    <div class="month-header">
+      <h2 class="month-title">July 2026</h2>
+      <div class="month-rule"></div>
+    </div>
+    <div class="articles">
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Jul 28, 2026</span></div>
+      <h2 class="art-hl"><a href="https://www.thisiscolossal.com/2026/07/august-2026-open-calls-grants-residencies/" target="_blank" rel="noopener">Printed Matter Publisher Work Grant 2026 — $10,000 each for 3 publishers, deadline Oct 4</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#INT</span><span class="kpi-tag">#$10,000 × 3 publishers</span><span class="kpi-tag">#Deadline Oct 4, 2026</span><span class="kpi-tag">#Art Book Fair exhibitor place</span></div>
+      <p class="art-body">Per Colossal&#x27;s August 2026 roundup, <strong>Printed Matter&#x27;s Publisher Work Grant</strong> (3rd year) offers three unrestricted $10,000 grants to independent artists&#x27; book publishers, plus a featured exhibitor presence at Printed Matter NY or LA Art Book Fair. Deadline: October 4, 2026.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.thisiscolossal.com/2026/07/august-2026-open-calls-grants-residencies/" target="_blank" rel="noopener">Colossal August 2026 opportunities</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Jul 22, 2026</span></div>
+      <h2 class="art-hl"><a href="https://www.artsy.net/article/artsy-editorial-kiaf-seoul-2026-announces-175-exhibitors-25th-edition" target="_blank" rel="noopener">Kiaf SEOUL 25th anniversary — 175 galleries, Kuho Jung as first external creative director, theme: &#x27;Coexistence&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#KR</span><span class="kpi-tag">#175 galleries · 18 countries</span><span class="kpi-tag">#Kuho Jung creative director</span><span class="kpi-tag">#Sep 2–6 COEX</span></div>
+      <p class="art-body">Per Artsy, <strong>Kiaf SEOUL</strong>&#x27;s 25th anniversary edition (September 2–6, COEX) brings 175 galleries from 18 countries. Fashion and exhibition designer <strong>Kuho Jung</strong> appointed as first-ever external creative director. Theme: &#x27;Coexistence.&#x27; Special exhibitions: Humal (7 Korean artists) and Virtual Vital (AR QR codes throughout COEX).</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.artsy.net/article/artsy-editorial-kiaf-seoul-2026-announces-175-exhibitors-25th-edition" target="_blank" rel="noopener">Artsy: Kiaf SEOUL 2026</a><a class="art-rel" href="https://www.koreatimes.co.kr/lifestyle/arts-theater/20260609/key-art-fairs-kiaf-frieze-to-open-in-september" target="_blank" rel="noopener">Korea Times</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Jul 22, 2026</span></div>
+      <h2 class="art-hl"><a href="https://www.thecultivist.com/stories/7-exhibitions-and-fairs-to-see-during-seoul-art-week-2026" target="_blank" rel="noopener">Seoul Art Week institutional programme — Do Ho Suh, Koo Jeong A, Lee Bae, Es Devlin: strongest ever line-up</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#KR</span><span class="kpi-tag">#MMCA · Leeum · SeMA · Museum SAN</span><span class="kpi-tag">#Es Devlin at FUTURA Seoul</span><span class="kpi-tag">#Sep 2–6</span></div>
+      <p class="art-body">Per The Cultivist, Seoul Art Week (Sep 2–6) institutional programme: <strong>Do Ho Suh</strong> (MMCA Seoul), <strong>Koo Jeong A</strong> (Leeum), <strong>Lee Bae</strong> (Museum SAN), Yoo Youngkuk, Amor Ex Machina (SeMA), Sol LeWitt (Amorepacific Museum), Art Spectrum 2026 (Hoam). Muyeong Kim and Yang Ah Ham (Art Sonje Center); <strong>Es Devlin</strong> (FUTURA Seoul). K-Artnow: &#x27;strongest institutional programme ever.&#x27;</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.thecultivist.com/stories/7-exhibitions-and-fairs-to-see-during-seoul-art-week-2026" target="_blank" rel="noopener">The Cultivist Seoul Art Week guide</a><a class="art-rel" href="https://k-artnow.com/posts.php?co_id=1785820503" target="_blank" rel="noopener">K-Artnow</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Jul 15, 2026</span></div>
+      <h2 class="art-hl"><a href="https://news.artnet.com/art-world/ana-mendieta-tate-modern-2788289" target="_blank" rel="noopener">Ana Mendieta opens at Tate Modern — &#x27;Silueta series arrives in London, her true legacy emerges&#x27; (through Jan 2027)</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#UK</span><span class="kpi-tag">#Tate Modern London</span><span class="kpi-tag">#Jul 15 – Jan 17, 2027</span><span class="kpi-tag">#120+ works</span></div>
+      <p class="art-body">Artnet&#x27;s review describes the <strong>Tate Modern</strong> Ana Mendieta retrospective as presenting 120+ works — Silueta series, newly remastered films, early paintings, late sculpture. The Art Newspaper: &#x27;neolithic art recreated for a major Tate Modern survey.&#x27; Through January 17, 2027.</p>
+      <div class="art-foot"><a class="art-rel" href="https://news.artnet.com/art-world/ana-mendieta-tate-modern-2788289" target="_blank" rel="noopener">Artnet review</a><a class="art-rel" href="https://www.theartnewspaper.com/2026/07/13/ana-mendietas-neolithic-art-recreated-for-major-tate-modern-survey" target="_blank" rel="noopener">The Art Newspaper</a><a class="art-rel" href="https://www.tate.org.uk/whats-on/tate-modern/ana-mendieta" target="_blank" rel="noopener">Tate Modern</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Jul 14, 2026</span></div>
+      <h2 class="art-hl"><a href="https://www.frieze.com/article/first-details-frieze-seoul-2026" target="_blank" rel="noopener">Frieze Seoul 2026 5th edition — 125 galleries, Material Practice, Spotlight, Ryan Gander 16,000 coins citywide [fact-checked]</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#KR</span><span class="kpi-tag">#125 galleries · 30 countries</span><span class="kpi-tag">#Material Practice — contemporary art × design</span><span class="kpi-tag">#Ryan Gander: 16,000 specially designed coins</span></div>
+      <p class="art-body">Per Frieze&#x27;s official June 9 announcement, <strong>Frieze Seoul</strong>&#x27;s 5th edition runs September 2–5 at COEX (invite-only preview September 2). 125 galleries from 30 countries; 70%+ Asia-Pacific based; 50+ with permanent Seoul spaces. New sections: <strong>Material Practice</strong> (intersection of contemporary art and design); <strong>Spotlight</strong> (underrepresented 20th-century artists). Ryan Gander&#x27;s The Find Seoul: <strong>16,000 specially designed coins</strong> hidden across Euljiro, Hannam, Cheongdam, Samcheong, and COEX — each embossed with a piece of wisdom, to keep or pass on. ☑ Fact-check: coins confirmed by Frieze.com, not artworks.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.frieze.com/article/first-details-frieze-seoul-2026" target="_blank" rel="noopener">Frieze: First details Frieze Seoul 2026</a><a class="art-rel" href="https://press.frieze.com/frieze-seoul-2026-returns-to-south-korea-a-global-epicentre-of-contemporary-culture/" target="_blank" rel="noopener">Frieze Seoul official press release</a><a class="art-rel" href="https://www.artsy.net/article/artsy-editorial-frieze-seoul-2026-announces-125-exhibitors" target="_blank" rel="noopener">Artsy announcement</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Jul 14, 2026</span></div>
+      <h2 class="art-hl"><a href="https://copyrightalliance.org/copyright-news-july-2026/" target="_blank" rel="noopener">US Copyright Office proposes 43% fee increase — Hong Kong and Australia also reject AI exception</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#US</span><span class="kpi-tag">#43% fee increase</span><span class="kpi-tag">#Submitted Jul 14</span><span class="kpi-tag">#HK + Australia reject AI exception</span></div>
+      <p class="art-body">Per Copyright Alliance&#x27;s July 2026 roundup, the US Copyright Office submitted a <strong>43% average fee increase</strong> to Congress on July 14 — effective as early as November 2026. Courts in India and Germany delivered key AI copyright decisions the same month. <strong>Hong Kong explicitly rejected an AI training copyright exception</strong>; Australia issued a strong creators&#x27; rights statement.</p>
+      <div class="art-foot"><a class="art-rel" href="https://copyrightalliance.org/copyright-news-july-2026/" target="_blank" rel="noopener">Copyright Alliance: July 2026 copyright news</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Jul 13, 2026</span></div>
+      <h2 class="art-hl"><a href="https://artreview.com/the-12-exhibitions-to-see-in-july-2026/" target="_blank" rel="noopener">The Whitworth Manchester — Korean and Indian women artists, Theresa Hak Kyung Cha rarely seen work, ArtReview July pick</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#UK</span><span class="kpi-tag">#The Whitworth Manchester</span><span class="kpi-tag">#64 works · 31 artists</span><span class="kpi-tag">#Theresa Hak Kyung Cha unfinished work</span></div>
+      <p class="art-body">Per ArtReview&#x27;s July 2026 roundup, <strong>The Whitworth</strong> presents 64 works by 31 artists across 8 Korean and Indian women artists, in a circular open-plan layout. Highlight: <strong>Theresa Hak Kyung Cha&#x27;s</strong> rarely seen unfinished White Dust from Mongolia (1980).</p>
+      <div class="art-foot"><a class="art-rel" href="https://artreview.com/the-12-exhibitions-to-see-in-july-2026/" target="_blank" rel="noopener">ArtReview: 12 exhibitions to see in July 2026</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Jul 11, 2026</span></div>
+      <h2 class="art-hl"><a href="https://news.artnet.com/market/christies-h1-mid-year-sales-2026-2788024" target="_blank" rel="noopener">Christie&#x27;s H1 $4.5B (+71%) — &#x27;best first half in five years, growth across all departments&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#US</span><span class="kpi-tag">#Christie&#x27;s $4.5B total</span><span class="kpi-tag">#Auction $3.5B · 91% sell-through</span><span class="kpi-tag">#Private sales $1B</span></div>
+      <p class="art-body">Artnet reports <strong>Christie&#x27;s</strong> H1 2026 total of $4.5B — auction $3.5B with 91% sell-through, +71% YoY. CEO Bonnie Brennan: &#x27;our best first half in five years, growing in all departments and regions, at every price point.&#x27; 20th/21st century: $2.3B; Old Masters: +232%. Phillips announced $507M (+60%) the same day.</p>
+      <div class="art-foot"><a class="art-rel" href="https://news.artnet.com/market/christies-h1-mid-year-sales-2026-2788024" target="_blank" rel="noopener">Artnet: Christie&#x27;s H1 results</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Jul 11, 2026</span></div>
+      <h2 class="art-hl"><a href="https://news.artnet.com/market/mid-year-review-auctions-2787320" target="_blank" rel="noopener">Sotheby&#x27;s H1 $4.4B (+58% total), Phillips $507M (+60%) — Artnet: &#x27;a two-speed recovery&#x27; [fact-checked]</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#US</span><span class="kpi-tag">#Sotheby&#x27;s $4.4B · +58% total</span><span class="kpi-tag">#Sell-through 87.7%</span><span class="kpi-tag">#Phillips $507M · +60%</span></div>
+      <p class="art-body">Per Artnet&#x27;s official Sotheby&#x27;s H1 report (Jul 14) and mid-year review: <strong>Sotheby&#x27;s</strong> H1 total $4.4B (+58% YoY overall), 87.7% sell-through — a decade high, 4.9 bidders/lot. Primary driver: London Lewis Collection ($392.6M). <strong>Phillips</strong> $507M (+60%) — leaning on watches; contemporary art still cooling. ARTnews: &#x27;two-speed recovery&#x27; — trophy lots booming, mid-market stagnating.</p>
+      <div class="art-foot"><a class="art-rel" href="https://news.artnet.com/market/sothebys-h1-sales-2787726" target="_blank" rel="noopener">Artnet: Sotheby&#x27;s H1 official results</a><a class="art-rel" href="https://news.artnet.com/market/mid-year-review-auctions-2787320" target="_blank" rel="noopener">Artnet: Big Three mid-year review</a><a class="art-rel" href="https://www.artnews.com/art-news/market/auction-house-h1-results-art-market-analysis-2026-1234792333/" target="_blank" rel="noopener">ARTnews: H1 analysis</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Jul 10, 2026</span></div>
+      <h2 class="art-hl"><a href="https://www.wallpaper.com/art/exhibitions-shows/european-art-exhibitions-summer-2026" target="_blank" rel="noopener">Museum de Lakenhal Leiden &#x27;Garden of Earthly Delights — 17th Century in Bloom&#x27; — Walter Van Beirendonck scenography</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#NL</span><span class="kpi-tag">#Museum de Lakenhal Leiden</span><span class="kpi-tag">#Phoebus Foundation works</span><span class="kpi-tag">#Walter Van Beirendonck design</span></div>
+      <p class="art-body">Per Wallpaper&#x27;s European summer exhibitions guide, <strong>Museum de Lakenhal</strong> in Leiden presents &#x27;Garden of Earthly Delights — The Seventeenth Century in Bloom&#x27;, combining Phoebus Foundation 17th-century flower paintings with an immersive scenography by Belgian fashion designer <strong>Walter Van Beirendonck</strong>.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.wallpaper.com/art/exhibitions-shows/european-art-exhibitions-summer-2026" target="_blank" rel="noopener">Wallpaper: European exhibitions summer 2026</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Jul 03, 2026</span></div>
+      <h2 class="art-hl"><a href="https://news.artnet.com/art-world/congress-funding-bill-nea-neh-2735600" target="_blank" rel="noopener">Congress blocks Trump&#x27;s NEA/NEH elimination — $207M each for FY2026; House proposes 35% FY2027 cuts</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#US</span><span class="kpi-tag">#NEA $207M maintained</span><span class="kpi-tag">#NEH $207M maintained</span><span class="kpi-tag">#FY2027 35% cuts proposed</span></div>
+      <p class="art-body">Per Artnet and Glasstire, Congress held firm on FY2026: <strong>NEA and NEH each at $207M, IMLS at $291.8M</strong> (House 397-28, Senate 82-15). But on June 26, the House proposed 35% cuts for FY2027. MASSCreative documented $13.5M in losses across 89 New England arts organisations.</p>
+      <div class="art-foot"><a class="art-rel" href="https://news.artnet.com/art-world/congress-funding-bill-nea-neh-2735600" target="_blank" rel="noopener">Artnet: Congress NEA/NEH bill</a><a class="art-rel" href="https://glasstire.com/2026/01/21/u-s-congress-passes-bill-fully-funding-nea-and-neh-through-2026/" target="_blank" rel="noopener">Glasstire</a><a class="art-rel" href="https://www.mass-creative.org/priorities/2026-federal-impact-survey-results" target="_blank" rel="noopener">MASSCreative</a></div>
+    </article></div>
+  </section>
+  <section class="month-section" id="m-2026-06">
+    <div class="month-header">
+      <h2 class="month-title">June 2026</h2>
+      <div class="month-rule"></div>
+    </div>
+    <div class="articles">
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Jun 12, 2026</span></div>
+      <h2 class="art-hl"><a href="https://www.afmuseet.no/en/exhibitions/beatriz-gonzalez/" target="_blank" rel="noopener">Beatriz González retrospective at Astrup Fearnley Museet Oslo — developed before her Jan 2026 death (Jun 12 – Oct 11)</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#NO</span><span class="kpi-tag">#Astrup Fearnley Museet Oslo</span><span class="kpi-tag">#Jun 12 – Oct 11</span><span class="kpi-tag">#150+ works</span></div>
+      <p class="art-body">Per Astrup Fearnley Museet&#x27;s official page, the <strong>Beatriz González (1932–2026)</strong> retrospective (June 12 – October 11) brings together 150+ artworks — developed in close dialogue with the artist before her January 2026 death. TAN&#x27;s obituary confirmed the tour: São Paulo → Barbican London → Oslo.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.afmuseet.no/en/exhibitions/beatriz-gonzalez/" target="_blank" rel="noopener">Astrup Fearnley: Beatriz González</a><a class="art-rel" href="https://www.theartnewspaper.com/2026/01/16/beatriz-gonzalez-colombian-artist-curator-scholar-obituary" target="_blank" rel="noopener">The Art Newspaper: González obituary</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Jun 11, 2026</span></div>
+      <h2 class="art-hl"><a href="https://www.npg.org.uk/whatson/exhibitions/2026/lucian-freud-drawing-into-painting" target="_blank" rel="noopener">Lucian Freud &#x27;Drawing into Painting&#x27; at Louisiana Museum — touring from NPG London (Jun 11 – Sep 27)</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#DK</span><span class="kpi-tag">#Louisiana Museum Denmark</span><span class="kpi-tag">#Jun 11 – Sep 27</span><span class="kpi-tag">#170 drawings, etchings, paintings</span></div>
+      <p class="art-body">Per the NPG&#x27;s official page, <strong>Lucian Freud: Drawing into Painting</strong> tours to Louisiana Museum (Humlebæk, Denmark) June 11 – September 27, following its London NPG run (February 12 – May 4). 170 drawings, etchings, and paintings exploring the dialogue between practice on paper and on canvas.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.npg.org.uk/whatson/exhibitions/2026/lucian-freud-drawing-into-painting" target="_blank" rel="noopener">NPG: Lucian Freud exhibition</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Jun 09, 2026</span></div>
+      <h2 class="art-hl"><a href="https://news.artnet.com/art-world/7-must-see-museum-shows-on-view-across-asia-in-2026-2723845" target="_blank" rel="noopener">Kim Yun Shin 91st-year retrospective at Hoam Museum of Art — &#x27;70-year trajectory post-Venice Biennale&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#KR</span><span class="kpi-tag">#Hoam Museum of Art</span><span class="kpi-tag">#Turns 91 in 2026</span><span class="kpi-tag">#Post-Venice Biennale 2024</span></div>
+      <p class="art-body">Per Artnet&#x27;s &#x27;Asia shows 2026&#x27;, <strong>Kim Yun Shin</strong> — turns 91 in 2026, rose to international prominence at Venice Biennale 2024 — receives a major retrospective at Hoam Museum of Art tracing her 70+ year journey: North Korea, South Korea, Paris, Argentina, and back.</p>
+      <div class="art-foot"><a class="art-rel" href="https://news.artnet.com/art-world/7-must-see-museum-shows-on-view-across-asia-in-2026-2723845" target="_blank" rel="noopener">Artnet: 7 must-see Asia shows 2026</a></div>
+    </article></div>
+  </section>
+  <section class="month-section" id="m-2026-05">
+    <div class="month-header">
+      <h2 class="month-title">May 2026</h2>
+      <div class="month-rule"></div>
+    </div>
+    <div class="articles">
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">May 19, 2026</span></div>
+      <h2 class="art-hl"><a href="https://www.theartnewspaper.com/2026/05/19/seouls-new-centre-pompidou-hanwha-museum-opens-next-monthcan-it-live-up-to-expectations" target="_blank" rel="noopener">Centre Pompidou Hanwha: TAN pre-opening deep dive — &#x27;can it live up to expectations?&#x27; (opens Jun 4)</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#KR</span><span class="kpi-tag">#TAN in-depth analysis</span><span class="kpi-tag">#4-year partnership €20M</span><span class="kpi-tag">#2 Pompidou exhibitions/year</span></div>
+      <p class="art-body">Per TAN&#x27;s May analysis, <strong>Centre Pompidou Hanwha</strong> occupies 11,000 sq ft across four floors of 63 Building. Hanwha paid €20M for a four-year licensing deal. The Pompidou frames it as &#x27;reciprocal exchange.&#x27; Macron toured April 3. Opens June 4 with &#x27;The Cubists: Inventing Modern Vision&#x27;.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.theartnewspaper.com/2026/05/19/seouls-new-centre-pompidou-hanwha-museum-opens-next-monthcan-it-live-up-to-expectations" target="_blank" rel="noopener">The Art Newspaper: Pompidou Hanwha preview</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">May 05, 2026</span></div>
+      <h2 class="art-hl"><a href="https://imma.ie/whats-on/cecilia-vicuna/" target="_blank" rel="noopener">Cecilia Vicuña &#x27;Reverse Migration&#x27; at IMMA Dublin — closed Jul 5, touring to Whitechapel Gallery Oct 2026</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#IE</span><span class="kpi-tag">#IMMA Dublin</span><span class="kpi-tag">#Nov 7, 2025 – Jul 5, 2026</span><span class="kpi-tag">#Whitechapel Gallery Oct 2026</span></div>
+      <p class="art-body">Per IMMA&#x27;s official page, <strong>Cecilia Vicuña&#x27;s</strong> first Irish solo &#x27;Reverse Migration, a Poetic Journey&#x27; closed July 5 (opened November 7, 2025). Tours to Whitechapel Gallery (Oct 7, 2026 – Feb 14, 2027). IMMA acquired two Vicuña paintings into the Irish National Collection.</p>
+      <div class="art-foot"><a class="art-rel" href="https://imma.ie/whats-on/cecilia-vicuna/" target="_blank" rel="noopener">IMMA: Cecilia Vicuña exhibition</a></div>
+    </article></div>
+  </section>
+  <section class="month-section" id="m-2026-04">
+    <div class="month-header">
+      <h2 class="month-title">April 2026</h2>
+      <div class="month-rule"></div>
+    </div>
+    <div class="articles">
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Apr 17, 2026</span></div>
+      <h2 class="art-hl"><a href="https://www.theartnewspaper.com/2026/04/17/the-big-review-rothko-in-florence" target="_blank" rel="noopener">The Art Newspaper ★★★★★ review of Rothko in Florence — &#x27;the painterly revolution meets Renaissance architecture&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#IT</span><span class="kpi-tag">#TAN ★★★★★ review</span><span class="kpi-tag">#Three-venue show</span><span class="kpi-tag">#Curated by Christopher Rothko + Elena Geuna</span></div>
+      <p class="art-body">The Art Newspaper&#x27;s reviewer awarded five stars to <strong>Palazzo Strozzi&#x27;s</strong> Rothko show, especially praising the installation at Museo di San Marco alongside Fra Angelico frescoes — &#x27;an encounter of spiritual intensity.&#x27; 70+ works across three venues.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.theartnewspaper.com/2026/04/17/the-big-review-rothko-in-florence" target="_blank" rel="noopener">The Art Newspaper: The Big Review</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Apr 14, 2026</span></div>
+      <h2 class="art-hl"><a href="https://news.artnet.com/art-world/trump-executive-orders-arts-2605142" target="_blank" rel="noopener">Trump&#x27;s first 100 days on the arts — &#x27;NEH directs $17M to National Garden of Heroes, NEA guidelines rewritten&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#US</span><span class="kpi-tag">#NEH $17M → Garden of Heroes</span><span class="kpi-tag">#NEA priorities rewritten</span><span class="kpi-tag">#80% NEH staff on leave</span></div>
+      <p class="art-body">Per Artnet, <strong>NEH</strong> designated $17M toward the National Garden of American Heroes. The <strong>NEA</strong> rewrote its grant priorities: &#x27;skilled trade jobs, AI competency, military and veteran support, Asian American economic development.&#x27; NEH cancelled ~85% of recent grants; 80% of staff on administrative leave.</p>
+      <div class="art-foot"><a class="art-rel" href="https://news.artnet.com/art-world/trump-executive-orders-arts-2605142" target="_blank" rel="noopener">Artnet: Trump executive orders on the arts</a></div>
+    </article></div>
+  </section>
+  <section class="month-section" id="m-2026-03">
+    <div class="month-header">
+      <h2 class="month-title">March 2026</h2>
+      <div class="month-rule"></div>
+    </div>
+    <div class="articles">
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Mar 20, 2026</span></div>
+      <h2 class="art-hl"><a href="https://asiaweekny.com/asia-week-new-york-2026-edition-highlights/" target="_blank" rel="noopener">Asia Week New York 17th edition — 23 galleries, 27 museums, Japanese prints and South Asian works lead</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#US</span><span class="kpi-tag">#Mar 19–27, 2026</span><span class="kpi-tag">#23 galleries · 27 museums</span><span class="kpi-tag">#Japanese prints + South Asian strength</span></div>
+      <p class="art-body">Per Asia Week NY&#x27;s official highlights, the 17th edition (March 19–27) brought together 23 galleries and 27 museums alongside six auction houses. Japanese prints and South Asian works showed particularly strong collector participation.</p>
+      <div class="art-foot"><a class="art-rel" href="https://asiaweekny.com/asia-week-new-york-2026-edition-highlights/" target="_blank" rel="noopener">Asia Week NY 2026 highlights</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Mar 10, 2026</span></div>
+      <h2 class="art-hl"><a href="https://www.ne-mo.org/news-events/article/european-parliament-report-on-copyright-and-generative-ai/" target="_blank" rel="noopener">EU Parliament adopts AI/copyright report — &#x27;standardised opt-out and European registry&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#EU</span><span class="kpi-tag">#Adopted Mar 10</span><span class="kpi-tag">#MEP Axel Voss led</span><span class="kpi-tag">#Non-binding but policy-shaping</span></div>
+      <p class="art-body">Per NEMO&#x27;s analysis, the European Parliament adopted a non-binding own-initiative report on &#x27;Copyright and Generative AI&#x27; on March 10. Led by MEP Axel Voss: AI training rule clarification, <strong>standardised opt-out mechanisms</strong>, centralised European rights registry.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.ne-mo.org/news-events/article/european-parliament-report-on-copyright-and-generative-ai/" target="_blank" rel="noopener">NEMO: EU Parliament AI copyright report</a><a class="art-rel" href="https://iapp.org/news/a/the-eu-ai-copyright-playbook-the-tdm-exception-and-ai-act-s-transparency-requirements" target="_blank" rel="noopener">IAPP: EU AI copyright playbook</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Mar 09, 2026</span></div>
+      <h2 class="art-hl"><a href="https://www.thisiscolossal.com/2026/02/march-2026-opportunities-open-calls-residencies-grants/" target="_blank" rel="noopener">Pollock-Krasner Foundation Grant and Ucross Native American Fellowship 2026 — Colossal March opportunities</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#US</span><span class="kpi-tag">#Pollock-Krasner up to $50,000</span><span class="kpi-tag">#Ucross 4-week residency + $3,500</span><span class="kpi-tag">#Rolling deadlines</span></div>
+      <p class="art-body">Per Colossal&#x27;s March 2026 roundup, the <strong>Pollock-Krasner Foundation</strong> offers grants up to $50,000 on a rolling basis to painters, sculptors, and printmakers. <strong>Ucross Native American Fellowships</strong>: four-week residency + $1,500 stipend + $2,000 award.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.thisiscolossal.com/2026/02/march-2026-opportunities-open-calls-residencies-grants/" target="_blank" rel="noopener">Colossal: March 2026 opportunities</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Mar 01, 2026</span></div>
+      <h2 class="art-hl"><a href="https://news.artprice.com/en/12818/cezanne-at-the-fondation-beyeler-2026-a-major-retrospective-of-the-late-period-of-the-master-of-modern-art-in-basel" target="_blank" rel="noopener">Paul Cézanne retrospective at Fondation Beyeler Basel — &#x27;80 late-period works: Provençal landscapes, still lifes, bathers&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#CH</span><span class="kpi-tag">#Fondation Beyeler Basel</span><span class="kpi-tag">#~80 late-period works</span><span class="kpi-tag">#Pioneer of Cubism and abstraction</span></div>
+      <p class="art-body">Per Artprice, <strong>Fondation Beyeler</strong> presents approximately 80 late-period Cézanne works: Provençal landscapes, still lifes, portraits, and bathers. The retrospective explores how Cézanne&#x27;s construction of space through colour paved the way for Cubism and abstraction.</p>
+      <div class="art-foot"><a class="art-rel" href="https://news.artprice.com/en/12818/cezanne-at-the-fondation-beyeler-2026-a-major-retrospective-of-the-late-period-of-the-master-of-modern-art-in-basel" target="_blank" rel="noopener">Artprice: Cézanne at Fondation Beyeler</a></div>
+    </article></div>
+  </section>
+  <section class="month-section" id="m-2026-02">
+    <div class="month-header">
+      <h2 class="month-title">February 2026</h2>
+      <div class="month-rule"></div>
+    </div>
+    <div class="articles">
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Feb 02, 2026</span></div>
+      <h2 class="art-hl"><a href="https://legalblogs.wolterskluwer.com/copyright-blog/eu-copyright-law-roundup-first-trimester-of-2026/" target="_blank" rel="noopener">European Commission warns Denmark over AI copyright draft — &#x27;deepfake protections risk EU legal fragmentation&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#EU</span><span class="kpi-tag">#Formal letter Feb 2</span><span class="kpi-tag">#Deepfake protection provisions</span><span class="kpi-tag">#EU fragmentation risk</span></div>
+      <p class="art-body">Per Kluwer Copyright Blog&#x27;s Q1 2026 roundup, the European Commission sent a <strong>formal letter to Denmark on February 2</strong> warning that proposed copyright amendments protecting individuals from AI-generated imitations and deepfakes risk incompatibility with EU copyright rules and the AI Act.</p>
+      <div class="art-foot"><a class="art-rel" href="https://legalblogs.wolterskluwer.com/copyright-blog/eu-copyright-law-roundup-first-trimester-of-2026/" target="_blank" rel="noopener">Kluwer: EU copyright law Q1 2026 roundup</a></div>
+    </article></div>
+  </section>
+  <section class="month-section" id="m-2026-01">
+    <div class="month-header">
+      <h2 class="month-title">January 2026</h2>
+      <div class="month-rule"></div>
+    </div>
+    <div class="articles">
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Jan 21, 2026</span></div>
+      <h2 class="art-hl"><a href="https://glasstire.com/2026/01/21/u-s-congress-passes-bill-fully-funding-nea-and-neh-through-2026/" target="_blank" rel="noopener">Congress passes FY2026: NEA and NEH fully maintained at $207M each — Glasstire: &#x27;Senate 82-15, House 397-28&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#US</span><span class="kpi-tag">#NEA $207M</span><span class="kpi-tag">#NEH $207M</span><span class="kpi-tag">#Smithsonian $1.1B</span></div>
+      <p class="art-body">Per Glasstire, the US Senate voted 82-15 on January 15, maintaining <strong>NEA and NEH at $207M each and the Smithsonian/Holocaust Memorial Museum at $1.1B</strong> — directly countering Trump&#x27;s zero-budget proposal. Senate followed the House (397-28).</p>
+      <div class="art-foot"><a class="art-rel" href="https://glasstire.com/2026/01/21/u-s-congress-passes-bill-fully-funding-nea-and-neh-through-2026/" target="_blank" rel="noopener">Glasstire: Congress passes NEA/NEH funding</a><a class="art-rel" href="https://news.artnet.com/art-world/congress-funding-bill-nea-neh-2735600" target="_blank" rel="noopener">Artnet: NEA/NEH funding bill</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Jan 20, 2026</span></div>
+      <h2 class="art-hl"><a href="https://www.timeout.com/asia/news/these-are-the-exhibitions-in-asia-worth-travelling-for-in-2026-011926" target="_blank" rel="noopener">Botero: The Heart of Volume at IMBA Singapore — inaugural exhibition at Gardens by the Bay</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#SG</span><span class="kpi-tag">#IMBA Gardens by the Bay</span><span class="kpi-tag">#Inaugural exhibition</span><span class="kpi-tag">#Botero posthumous Asia show</span></div>
+      <p class="art-body">Per Time Out Asia&#x27;s guide, Singapore&#x27;s new <strong>IMBA</strong> at Gardens by the Bay opened with Fernando Botero&#x27;s inaugural exhibition — presenting his sculptures and paintings in an immersive indoor/outdoor setting.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.timeout.com/asia/news/these-are-the-exhibitions-in-asia-worth-travelling-for-in-2026-011926" target="_blank" rel="noopener">Time Out Asia: Exhibitions in Asia 2026</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Jan 16, 2026</span></div>
+      <h2 class="art-hl"><a href="https://www.theartnewspaper.com/2026/01/16/beatriz-gonzalez-colombian-artist-curator-scholar-obituary" target="_blank" rel="noopener">Beatriz González dies aged 93 — TAN obituary: &#x27;La maestra of Colombian art&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#NO</span><span class="kpi-tag">#1932–2026 Colombia</span><span class="kpi-tag">#Oslo retrospective developed before death</span><span class="kpi-tag">#Most important Latin American artist of 20th century</span></div>
+      <p class="art-body">Per The Art Newspaper&#x27;s obituary, <strong>Beatriz González</strong> — &#x27;la maestra of Colombian art&#x27; — died in January 2026 at 93. Known for transforming Western art history and Colombian news media imagery into sharply graphic paintings probing power, violence, and taste.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.theartnewspaper.com/2026/01/16/beatriz-gonzalez-colombian-artist-curator-scholar-obituary" target="_blank" rel="noopener">The Art Newspaper: Beatriz González obituary</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Jan 15, 2026</span></div>
+      <h2 class="art-hl"><a href="https://www.stephensonharwood.com/insights/recent-developments-in-restitution/" target="_blank" rel="noopener">Switzerland launches Independent Committee for Cultural Property with a Burdened Past — &#x27;covers Holocaust and colonial claims&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#CH</span><span class="kpi-tag">#Holocaust + colonial claims</span><span class="kpi-tag">#Non-binding recommendations</span><span class="kpi-tag">#Unilateral referral for Nazi-looted art</span></div>
+      <p class="art-body">Per Stephenson Harwood, Switzerland launched the <strong>Independent Committee for Cultural Property with a Burdened Past</strong> — covering both Holocaust-related and colonial-era claims. Issues non-binding recommendations; Nazi-looted art cases can be referred unilaterally.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.stephensonharwood.com/insights/recent-developments-in-restitution/" target="_blank" rel="noopener">Stephenson Harwood: Recent developments in restitution</a><a class="art-rel" href="https://www.jns.org/news/world/italy-advances-legislation-on-holocaust-era-art-restitution" target="_blank" rel="noopener">JNS: Italy Holocaust restitution</a></div>
+    </article>
+    <article class="article">
+      <div class="art-eyebrow"><span class="art-date">Jan 01, 2026</span></div>
+      <h2 class="art-hl"><a href="https://www.euipo.europa.eu/en/news/copyright-artworks-entering-the-public-domain-in-2026" target="_blank" rel="noopener">EU public domain 2026 — EUIPO: &#x27;national cultural heritage laws may restrict use even for public domain works&#x27;</a></h2>
+      <div class="art-kpis"><span class="kpi-country">#EU</span><span class="kpi-tag">#EUIPO confirmed</span><span class="kpi-tag">#National laws may restrict use</span><span class="kpi-tag">#Moral rights persist</span></div>
+      <p class="art-body">Per EUIPO&#x27;s official announcement, iconic artworks enter the EU public domain in 2026. However, cultural heritage laws in Italy and Greece may impose approval requirements and fees even for public domain works. Moral rights can further restrict use across jurisdictions.</p>
+      <div class="art-foot"><a class="art-rel" href="https://www.euipo.europa.eu/en/news/copyright-artworks-entering-the-public-domain-in-2026" target="_blank" rel="noopener">EUIPO: Copyright artworks entering the public domain in 2026</a></div>
+    </article></div>
+  </section></div>
+  </div>
+</div>
+<footer class="site-foot">
+  <span class="sf-copy">Published every week &nbsp;·&nbsp; Supported by SYR</span>
+</footer>
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+let lang='ko';
+function setLang(l){lang=l;document.getElementById('btn-ko').classList.toggle('on',l==='ko');document.getElementById('btn-en').classList.toggle('on',l==='en');document.querySelectorAll('.ko').forEach(e=>e.style.display=l==='ko'?'':'none');document.querySelectorAll('.en').forEach(e=>e.style.display=l==='en'?'':'none');}
+setLang('ko');
+const bt=document.getElementById('backTop');
+window.addEventListener('scroll',()=>bt.classList.toggle('vis',window.scrollY>500),{passive:true});
+const secs=Array.from(document.querySelectorAll('.month-section'));
+const tocLinks=Array.from(document.querySelectorAll('.toc-item'));
+function updateToc(){let cur=null;for(const s of secs){if(s.getBoundingClientRect().top<=80)cur=s.id;}tocLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));}
+window.addEventListener('scroll',updateToc,{passive:true});updateToc();
+</script>
+</body>
+</html>
