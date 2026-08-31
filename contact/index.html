@@ -3,187 +3,263 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SYR Edition — 미술 감정 · 문화 자문 / Art Valuation & Cultural Advisory</title>
+<title>SYR Edition — 미술 감정 · 문화 자문 / Art Valuation &amp; Cultural Advisory</title>
 <meta name="description" content="문화경제학에 근거한 이중언어 미술 감정·문화 자문. 감정, 컬렉션 전략, 문화정책 자문, 주간 아트마켓 브리핑(AMD).">
+
+<!-- 링크 공유 미리보기 -->
+<meta property="og:site_name" content="SYR Edition">
+<meta property="og:title" content="SYR Edition — 미술 감정 · 문화 자문">
+<meta property="og:description" content="문화경제학에 근거한 이중언어 미술 감정·문화 자문.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://syredition.com/">
+<!-- TODO: 1200×630 이미지를 만들어 두 줄의 주석을 해제하십시오
+<meta property="og:image" content="https://syredition.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image"> -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
+  /* ══ 토큰 ═══════════════════════════════════════════════════
+     색을 되돌리거나 바꾸려면 이 블록만 고치면 전체에 반영됩니다.
+     ══════════════════════════════════════════════════════════ */
   :root{
-    --navy:#1C3F7A; --navy-deep:#16336A;
-    --ink:#1A1A2E; --muted:#6B7280; --rule:#CCCCCC; --rule-soft:#E6E6E6;
-    --bg:#FFFFFF; --cream:#F9F8F6;
+    --ink:#1C1814;        /* 제목 · 본문 */
+    --sage:#6B7D6E;       /* 강조 · 선 · 버튼 */
+    --sage-deep:#586A5B;  /* 강조 호버 */
+    --bronze:#8C7355;     /* 라벨 · 번호 */
+    --muted:#8A837B;      /* 보조 텍스트 */
+    --rule:#E2DCD3;       /* 실선 */
+    --rule-soft:#EFEAE3;
+    --bg:#FAFAF7;         /* 배경 */
+    --stone:#F0EBE3;      /* 교차 배경 */
     --maxw:1080px;
   }
   *{box-sizing:border-box; margin:0; padding:0}
   html{scroll-behavior:smooth}
   body{background:var(--bg); color:var(--ink);
     font-family:'DM Sans','Noto Sans KR',system-ui,sans-serif;
-    font-weight:400; line-height:1.65; letter-spacing:-.005em;
-    -webkit-font-smoothing:antialiased;}
+    font-size:15px; font-weight:400; line-height:1.7; letter-spacing:-.003em;
+    -webkit-font-smoothing:antialiased; word-break:keep-all;}
   .serif{font-family:'Cormorant Garamond','Noto Serif KR',Georgia,serif}
   .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px}
   a{color:inherit; text-decoration:none}
   h1,h2,h3{font-family:'Cormorant Garamond','Noto Serif KR',Georgia,serif;
-    font-weight:500; color:var(--navy); line-height:1.15; letter-spacing:-.01em}
+    font-weight:500; color:var(--ink); line-height:1.18; letter-spacing:-.008em}
+
+  /* 언어 전환 : <html data-lang> 하나로 제어 */
   .en{display:none}
   html[data-lang="en"] .ko{display:none}
   html[data-lang="en"] .en{display:inline}
   html[data-lang="en"] .en.block{display:block}
-  .eyebrow{font-family:'DM Sans','Noto Sans KR',sans-serif; font-size:12px; font-weight:600;
-    letter-spacing:.16em; text-transform:uppercase; color:var(--navy)}
 
-  /* Header */
-  header{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.92);
+  .eyebrow{font-family:'DM Sans','Noto Sans KR',sans-serif; font-size:11px; font-weight:600;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--bronze)}
+
+  /* ── HEADER ─────────────────────────────────────────────── */
+  header{position:sticky; top:0; z-index:50; background:rgba(250,250,247,.92);
     backdrop-filter:blur(8px); border-bottom:1px solid var(--rule)}
-  .navbar{display:flex; align-items:center; justify-content:space-between; height:66px}
-  .brand{font-family:'Cormorant Garamond','Noto Serif KR',serif; font-weight:600; font-size:24px;
-    color:var(--navy); letter-spacing:.01em}
-  nav.links{display:flex; gap:30px; align-items:center}
-  nav.links a{font-size:14px; color:var(--muted); font-weight:500}
-  nav.links a:hover{color:var(--navy)}
-  .lang{border:1px solid var(--rule); background:none; cursor:pointer;
-    font-family:'DM Sans',sans-serif; font-size:12px; font-weight:600; color:var(--navy);
-    padding:6px 12px; border-radius:1px; letter-spacing:.04em}
-  .lang:hover{border-color:var(--navy)}
-  @media(max-width:720px){ nav.links a{display:none} }
+  .navbar{display:flex; align-items:center; justify-content:space-between; gap:24px; height:60px}
 
-  /* Hero */
+  .brand{font-family:'Cormorant Garamond','Noto Serif KR',serif; font-weight:600; font-size:20px;
+    color:var(--ink); letter-spacing:.02em; line-height:1; white-space:nowrap; flex:0 0 auto}
+
+  .nav-right{display:flex; align-items:center; gap:22px}
+
+  nav.links ul{list-style:none; display:flex; align-items:center; gap:22px}
+  nav.links a{font-size:13px; color:var(--muted); font-weight:500; line-height:1;
+    padding:6px 0; border-bottom:1px solid transparent; transition:color .2s, border-color .2s}
+  nav.links a:hover{color:var(--ink)}
+  nav.links a[aria-current="page"]{color:var(--ink); border-bottom-color:var(--sage)}
+
+  .lang{border:1px solid var(--rule); background:none; cursor:pointer;
+    font-family:'DM Sans',sans-serif; font-size:11px; font-weight:600; color:var(--ink);
+    padding:6px 11px; border-radius:1px; letter-spacing:.06em; line-height:1; flex:0 0 auto;
+    transition:border-color .2s, color .2s}
+  .lang:hover{border-color:var(--sage); color:var(--sage)}
+
+  /* 모바일 메뉴 버튼 */
+  .burger{display:none; background:none; border:0; cursor:pointer; padding:6px; width:34px; height:34px}
+  .burger span{display:block; height:1px; background:var(--ink); margin:6px 0; transition:transform .25s, opacity .25s}
+  header.is-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  header.is-open .burger span:nth-child(2){opacity:0}
+  header.is-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+  @media(max-width:820px){
+    .burger{display:block}
+    .nav-right{gap:12px}
+    nav.links{position:absolute; left:0; right:0; top:60px; display:none;
+      background:var(--bg); border-bottom:1px solid var(--rule)}
+    header.is-open nav.links{display:block}
+    nav.links ul{flex-direction:column; align-items:stretch; gap:0;
+      max-width:var(--maxw); margin:0 auto; padding:4px 32px 16px}
+    nav.links li{border-top:1px solid var(--rule-soft)}
+    nav.links a{display:block; padding:14px 0; border-bottom:0; font-size:15px}
+    nav.links a[aria-current="page"]{color:var(--ink)}
+  }
+
+  /* ── HERO ───────────────────────────────────────────────── */
   .hero{position:relative; overflow:hidden; border-bottom:1px solid var(--rule)}
   .hero-inner{display:grid; grid-template-columns:1.35fr 1fr; gap:40px; align-items:center;
-    padding:100px 0 92px}
+    padding:84px 0 76px}
   .hero .eyebrow{margin-bottom:24px; display:block}
-  .hero h1{font-size:clamp(38px,5.6vw,62px); max-width:15ch; margin-bottom:26px; font-weight:500}
-  .hero .lead{font-family:'DM Sans','Noto Sans KR',sans-serif; font-size:clamp(16px,1.8vw,18px);
-    color:var(--muted); max-width:46ch; margin-bottom:36px; line-height:1.7}
+  .hero h1{font-size:clamp(31px,4.4vw,50px); max-width:16ch; margin-bottom:22px; font-weight:500}
+  .hero .lead{font-family:'DM Sans','Noto Sans KR',sans-serif; font-size:clamp(14.5px,1.4vw,16px);
+    color:var(--muted); max-width:48ch; margin-bottom:30px; line-height:1.75}
   .cta-row{display:flex; gap:14px; flex-wrap:wrap; align-items:center}
   .btn{display:inline-block; font-family:'DM Sans','Noto Sans KR',sans-serif; font-weight:600;
-    font-size:15px; padding:13px 26px; border-radius:1px}
-  .btn-primary{background:var(--navy); color:#fff}
-  .btn-primary:hover{background:var(--navy-deep)}
-  .btn-ghost{border:1px solid var(--rule); color:var(--navy)}
-  .btn-ghost:hover{border-color:var(--navy)}
-  /* Geometric composition */
-  .geo{position:relative; height:340px}
-  .geo .ring{position:absolute; border-radius:50%; border:1px solid var(--navy)}
-  .geo .r1{width:300px; height:300px; top:20px; right:0; opacity:.9}
-  .geo .r2{width:210px; height:210px; top:65px; right:45px; border-color:var(--rule)}
-  .geo .disc{position:absolute; width:150px; height:150px; border-radius:50%;
-    background:var(--cream); top:95px; right:75px}
-  .geo .half{position:absolute; width:150px; height:75px; top:170px; right:75px;
-    background:var(--navy); border-radius:0 0 150px 150px}
-  .geo .dot{position:absolute; width:12px; height:12px; border-radius:50%; background:var(--navy);
-    top:20px; right:294px}
-  @media(max-width:820px){ .hero-inner{grid-template-columns:1fr} .geo{display:none} }
+    font-size:13.5px; padding:11px 22px; border-radius:1px; cursor:pointer; letter-spacing:.01em}
+  .btn-primary{background:var(--ink); color:var(--bg); border:1px solid var(--ink);
+    transition:background .2s, border-color .2s}
+  .btn-primary:hover{background:var(--sage); border-color:var(--sage)}
+  .btn-ghost{border:1px solid var(--rule); color:var(--ink); transition:border-color .2s, color .2s}
+  .btn-ghost:hover{border-color:var(--sage); color:var(--sage)}
 
-  /* Section */
-  section{padding:80px 0}
-  .cream{background:var(--cream); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule)}
+  /* 기하 구성 */
+  .geo{position:relative; height:300px}
+  .geo .ring{position:absolute; border-radius:50%; border:1px solid var(--sage)}
+  .geo .r1{width:264px; height:264px; top:18px; right:0; opacity:.85}
+  .geo .r2{width:186px; height:186px; top:57px; right:39px; border-color:var(--rule)}
+  .geo .disc{position:absolute; width:132px; height:132px; border-radius:50%;
+    background:var(--stone); top:84px; right:66px}
+  .geo .half{position:absolute; width:132px; height:66px; top:150px; right:66px;
+    background:var(--sage); border-radius:0 0 132px 132px}
+  .geo .dot{position:absolute; width:10px; height:10px; border-radius:50%; background:var(--bronze);
+    top:18px; right:259px}
+  @media(max-width:820px){ .hero-inner{grid-template-columns:1fr; padding:64px 0 60px} .geo{display:none} }
+
+  /* ── SECTION ────────────────────────────────────────────── */
+  section{padding:68px 0}
+  .stone{background:var(--stone)}
+  /* 인접한 섹션 사이에만 선을 둡니다 (선이 두 번 겹치던 문제) */
+  section + section{border-top:1px solid var(--rule)}
   .sec-label{font-family:'DM Sans','Noto Sans KR',sans-serif; font-size:12px; font-weight:600;
-    letter-spacing:.16em; text-transform:uppercase; color:var(--navy); margin-bottom:16px}
-  h2{font-size:clamp(26px,3.6vw,38px); max-width:22ch; margin-bottom:20px; font-weight:500}
-  .sec-intro{font-family:'DM Sans','Noto Sans KR',sans-serif; color:var(--muted); font-size:17px;
-    max-width:60ch; line-height:1.7}
+    letter-spacing:.16em; text-transform:uppercase; color:var(--bronze); margin-bottom:14px}
+  h2{font-size:clamp(22px,2.9vw,31px); max-width:24ch; margin-bottom:16px; font-weight:500}
+  .sec-intro{font-family:'DM Sans','Noto Sans KR',sans-serif; color:var(--muted); font-size:15px;
+    max-width:62ch; line-height:1.75}
 
-  /* Problem */
-  .split{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center}
-  @media(max-width:760px){ .split{grid-template-columns:1fr; gap:34px} }
-  .stat-line{font-family:'Cormorant Garamond','Noto Serif KR',serif; font-size:clamp(28px,4.4vw,44px);
-    font-weight:500; color:var(--navy); line-height:1.2}
-  .stat-note{font-family:'DM Sans','Noto Sans KR',sans-serif; color:var(--muted); font-size:15px;
-    margin-top:16px; max-width:34ch}
-  .geo-inline{position:relative; height:220px}
-  .geo-inline .ring{position:absolute; border-radius:50%; border:1px solid var(--navy)}
-  .geo-inline .a{width:180px; height:180px; top:20px; left:20px}
-  .geo-inline .b{width:180px; height:180px; top:20px; left:120px; border-color:var(--rule)}
-  .geo-inline .c{position:absolute; width:90px; height:90px; border-radius:50%; background:var(--navy);
-    top:65px; left:110px; mix-blend-mode:normal; opacity:.08}
-
-  /* Services */
+  /* ── SERVICES ───────────────────────────────────────────── */
   .svc-grid{display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:26px; border-top:1px solid var(--rule)}
   @media(max-width:720px){ .svc-grid{grid-template-columns:1fr} }
-  .svc{padding:34px 34px 34px 0; border-bottom:1px solid var(--rule)}
-  .svc:nth-child(even){padding-left:44px; border-left:1px solid var(--rule)}
+  .svc{padding:28px 30px 28px 0; border-bottom:1px solid var(--rule)}
+  .svc:nth-child(even){padding-left:38px; border-left:1px solid var(--rule)}
   @media(max-width:720px){ .svc:nth-child(even){padding-left:0; border-left:none} }
-  .svc .num{font-family:'Cormorant Garamond',serif; font-size:30px; color:var(--navy); line-height:1}
-  .svc h3{font-size:24px; margin:8px 0 10px; font-weight:500}
-  .svc p{font-family:'DM Sans','Noto Sans KR',sans-serif; color:var(--muted); font-size:15px}
+  .svc .num{font-family:'Cormorant Garamond',serif; font-size:24px; color:var(--bronze); line-height:1}
+  .svc h3{font-size:20px; margin:6px 0 8px; font-weight:500}
+  .svc p{font-family:'DM Sans','Noto Sans KR',sans-serif; color:var(--muted); font-size:14px; line-height:1.7}
+  .svc .for{display:block; margin-top:12px; font-size:12px; color:var(--sage); letter-spacing:.02em}
 
-  /* Trust */
-  .logos{display:flex; flex-wrap:wrap; gap:14px 36px; margin-top:26px; align-items:center}
-  .logos span{font-family:'Cormorant Garamond','Noto Serif KR',serif; font-size:20px; font-weight:500;
-    color:var(--navy); padding-bottom:4px; border-bottom:1px solid var(--navy)}
-  .trust-note{font-family:'DM Sans','Noto Sans KR',sans-serif; color:var(--muted); font-size:14.5px;
-    margin-top:26px; max-width:64ch}
-
-  /* Clients */
-  .cli-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:28px; margin-top:26px}
+  /* ── CLIENTS ────────────────────────────────────────────── */
+  .cli-head{margin-top:38px; margin-bottom:2px}
+  .cli-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px; margin-top:18px}
   @media(max-width:860px){ .cli-grid{grid-template-columns:1fr 1fr} }
   @media(max-width:480px){ .cli-grid{grid-template-columns:1fr} }
-  .cli{border-top:1px solid var(--navy); padding-top:16px}
-  .cli h3{font-size:20px; margin-bottom:8px; font-weight:500}
-  .cli p{font-family:'DM Sans','Noto Sans KR',sans-serif; color:var(--muted); font-size:14px}
+  .cli{border-top:1px solid var(--sage); padding-top:14px}
+  .cli h3{font-size:17px; margin-bottom:6px; font-weight:500}
+  .cli p{font-family:'DM Sans','Noto Sans KR',sans-serif; color:var(--muted); font-size:13px; line-height:1.65}
 
-  /* Contact */
+  /* ── CONTACT ────────────────────────────────────────────── */
   .contact{position:relative; overflow:hidden}
-  .contact .mail{font-family:'Cormorant Garamond','Noto Serif KR',serif; font-size:clamp(28px,4.6vw,44px);
-    font-weight:500; color:var(--navy); border-bottom:1px solid var(--navy); padding-bottom:4px; display:inline-block}
-  .contact .mail:hover{color:var(--navy-deep)}
-  .cinfo{display:flex; gap:44px; flex-wrap:wrap; margin-top:34px; font-family:'DM Sans','Noto Sans KR',sans-serif;
-    color:var(--ink); font-size:15px}
-  .cinfo b{display:block; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase;
-    color:var(--navy); margin-bottom:6px; font-weight:600}
+  .contact .mail{font-family:'Cormorant Garamond','Noto Serif KR',serif; font-size:clamp(23px,3.4vw,34px);
+    font-weight:500; color:var(--ink); border-bottom:1px solid var(--sage); padding-bottom:3px;
+    display:inline-block; line-height:1.25; transition:color .2s}
+  .contact .mail:hover{color:var(--sage)}
+  .cinfo{display:flex; gap:38px; flex-wrap:wrap; margin-top:28px;
+    font-family:'DM Sans','Noto Sans KR',sans-serif; color:var(--ink); font-size:14px}
+  .cinfo b{display:block; font-size:10.5px; letter-spacing:.13em; text-transform:uppercase;
+    color:var(--bronze); margin-bottom:5px; font-weight:600}
   .contact .corner{position:absolute; right:-70px; bottom:-70px; width:220px; height:220px;
-    border-radius:50%; border:1px solid var(--rule)}
+    border-radius:50%; border:1px solid var(--rule); pointer-events:none}
   .contact .corner2{position:absolute; right:10px; bottom:10px; width:80px; height:80px;
-    border-radius:50%; background:var(--cream)}
+    border-radius:50%; background:var(--stone); pointer-events:none; z-index:-1}
 
-  footer{padding:34px 0; border-top:1px solid var(--rule); background:#fff}
+  /* 문의 폼 */
+  .contact-grid{display:grid; grid-template-columns:1fr 1.25fr; gap:48px; align-items:start;
+    margin-top:40px; padding-top:34px; border-top:1px solid var(--rule)}
+  @media(max-width:820px){ .contact-grid{grid-template-columns:1fr; gap:34px} }
+
+  .cform{display:grid; grid-template-columns:1fr 1fr; gap:20px 20px; position:relative; z-index:2}
+  @media(max-width:560px){ .cform{grid-template-columns:1fr} }
+  .cfield{display:flex; flex-direction:column}
+  .cfield.wide{grid-column:1 / -1}
+  .cfield label{font-family:'DM Sans','Noto Sans KR',sans-serif; font-size:10.5px; font-weight:600;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--bronze); margin-bottom:7px}
+  .cfield input, .cfield select, .cfield textarea{
+    font-family:'DM Sans','Noto Sans KR',sans-serif; font-size:14px; color:var(--ink);
+    background:transparent; border:0; border-bottom:1px solid var(--rule);
+    padding:8px 0; border-radius:0; transition:border-color .2s}
+  .cfield textarea{resize:vertical; min-height:108px; line-height:1.7}
+  .cfield select{appearance:none; cursor:pointer; padding-right:22px;
+    background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),
+                     linear-gradient(135deg,var(--muted) 50%,transparent 50%);
+    background-position:calc(100% - 9px) calc(50% + 1px), calc(100% - 4px) calc(50% + 1px);
+    background-size:5px 5px, 5px 5px; background-repeat:no-repeat}
+  .cfield input:focus, .cfield select:focus, .cfield textarea:focus{
+    outline:0; border-bottom-color:var(--sage)}
+  .cfield input::placeholder, .cfield textarea::placeholder{color:#B9BCC4}
+
+  .cactions{grid-column:1 / -1; display:flex; align-items:center; gap:20px; flex-wrap:wrap; margin-top:6px}
+  .cstatus{font-family:'DM Sans','Noto Sans KR',sans-serif; font-size:13px; color:var(--muted)}
+  .cstatus.ok{color:var(--sage)}
+  .cstatus.bad{color:#C0392B}
+  .ctrap{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden}
+
+  footer{padding:28px 0; border-top:1px solid var(--rule); background:var(--bg)}
   .foot{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
-    font-family:'DM Sans','Noto Sans KR',sans-serif; color:var(--muted); font-size:13.5px}
+    font-family:'DM Sans','Noto Sans KR',sans-serif; color:var(--muted); font-size:12.5px}
+
+  :focus-visible{outline:2px solid var(--sage); outline-offset:3px}
+  @media(prefers-reduced-motion:reduce){ *{transition:none !important; scroll-behavior:auto} }
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap navbar">
-    <div class="brand">SYR Edition</div>
-<nav>
-  <div class="nav-progress" id="navProgress">
-    <div class="closing-sub">
-        <a class="closing-sub" href="/home">Home</a>
-        <a class="closing-sub" href="/about">About</a>
-        <a class="closing-sub" href="/news">News</a>  
-        <a class="closing-sub"href="/briefing">Briefing</a>  
-        <a class="closing-sub" href="/book">Book</a>
-        <a class="closing-sub"href="/case">Case</a>   
-        <a class="closing-sub" href="/artist">Artist</a>   
-        <a class="closing-sub" href="/contact">Contact</a>   
-    </div>
-  </div>
-</nav>
 
-    </nav>
-    <button class="lang" onclick="toggleLang()" aria-label="Toggle language">
-      <span class="ko">EN</span><span class="en">KOR</span>
+<!-- ══ HEADER ══════════════════════════════════════════════════ -->
+<header id="siteHeader">
+  <div class="wrap navbar">
+    <a class="brand" href="/">SYR Edition</a>
+
+    <button class="burger" type="button" id="burger" aria-label="메뉴" aria-expanded="false">
+      <span></span><span></span><span></span>
     </button>
+
+    <div class="nav-right">
+      <nav class="links" aria-label="주요 메뉴">
+        <ul>
+          <li><a href="/home">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/news">News</a></li>
+          <li><a href="/briefing">Briefing</a></li>
+          <li><a href="/book">Book</a></li>
+          <li><a href="/case">Case</a></li>
+          <li><a href="/artist">Artist</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="lang" type="button" onclick="toggleLang()" aria-label="Toggle language">
+        <span class="ko">EN</span><span class="en">KOR</span>
+      </button>
+    </div>
   </div>
 </header>
 
-<!-- HERO -->
+<!-- ══ HERO ════════════════════════════════════════════════════ -->
 <div class="hero">
   <div class="wrap hero-inner">
     <div>
       <h1 class="serif">
-        <span class="ko"> 데이터에 기반한 의사결정 </br> 가능합니다.</span>
-        <span class="en">The art market speaks two languages — data, and decisions.</span>
+        <span class="ko">데이터에 기반한 의사결정,</br></br>가능합니다.</span>
+        <span class="en">Data-based decisions </br></br> for art market professionals </span>
       </h1>
       <p class="lead">
-        <span class="ko">시장의 데이터를 의사결정으로 이어갑니다.</span>
-        <span class="en">SYR Edition bridges the two — translating global market data into local decisions through bilingual, academically grounded art valuation and cultural advisory.</span>
+        <span class="ko"> 데이터를 의사결정으로 이어갑니다.</span>
+        <span class="en"> Transfering market data into decision makings.</span>
       </p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="#contact"><span class="ko">상담 문의</span><span class="en">Request a consultation</span></a>
         <a class="btn btn-ghost" href="#services"><span class="ko">서비스 보기</span><span class="en">Explore services</span></a>
+        <a class="btn btn-primary" href="#contact"><span class="ko">상담 문의</span><span class="en">Request a consultation</span></a>
       </div>
     </div>
     <div class="geo" aria-hidden="true">
@@ -193,43 +269,144 @@
   </div>
 </div>
 
-<!-- SERVICES -->
-<section id="services" class="cream">
+<!-- ══ SERVICES + CLIENTS (한 섹션으로 통합) ═══════════════════ -->
+<section id="services" class="stone">
   <div class="wrap">
-    <div class="sec-label"><span class="ko">서비스</span><span class="en">Services</span></div>
+    <div class="sec-label"><span class="ko">제공 서비스</span><span class="en">Services </span></div>
+    <h2 class="serif">
+    </h2>
+
     <div class="svc-grid">
       <div class="svc">
         <div class="num serif">01</div>
-        <h3 class="serif"><span class="ko">미술품 가치평가</span><span class="en">Art Valuation</span></h3>
-        <p><span class="ko">독립적이고 방법론이 투명한 가치평가. 감정·보험·거래·상속·기부 목적의 근거 있는 평가 보고서.</span><span class="en">Independent, method-transparent valuation. Defensible reports for insurance, transaction, estate, and donation purposes.</span></p>
+        <h3 class="serif"><span class="ko">문화정책 · 사업 평가</span><span class="en">Cultural Policy &amp; Evaluation</span></h3>
+        <p><span class="ko">문화정책 분석, 사업 성과평가, ODA·문화교류 프로그램 기획</span><span class="en">Policy advisory, project evaluation, and cultural ODA programs development.</span></p>
+        <span class="for">
+          <span class="ko">공공기관 · 재단 · 기관</span>
+          <span class="en">Public institutions, foundations, art institutions</span>
+        </span>
       </div>
+
       <div class="svc">
         <div class="num serif">02</div>
-        <h3 class="serif"><span class="ko">문화정책 · 사업 평가</span><span class="en">Cultural Policy & Evaluation</span></h3>
-        <p><span class="ko">공공기관·재단을 위한 문화정책 자문, 사업 성과평가, ODA·문화교류 프로그램 설계.</span><span class="en">Policy advisory, program evaluation, and ODA / cultural-exchange design for public institutions and foundations.</span></p>
+        <h3 class="serif"><span class="ko">미술품 가치평가</span><span class="en">Art Valuation</span></h3>
+        <p><span class="ko"> 투명한 가치평가, 거래·상속·기부를 위한 보고서 제공</span><span class="en"> Transparent valuation reports for artwork transaction, bestowment, and donation purposes.</span></p>
+        <span class="for">
+          <span class="ko">컬렉터 · 패밀리오피스 · 기업</span>
+          <span class="en">Collectors, family offices, corporates</span>
+        </span>
+      </div>
+
+      <div class="svc">
+        <div class="num serif">03</div>
+        <h3 class="serif"><span class="ko">프로그램 기획 </span><span class="en">Program Planning</span></h3>
+        <p><span class="ko">갤러리와 브랜드를 위한 예술 프로그램 운영</span><span class="en">Art conversations, seminars, vip programs management from a to z.</span></p>
+        <span class="for">
+          <span class="ko">갤러리 · 브랜드 · 아트페어</span>
+          <span class="en">Galleries, brands, art fairs</span>
+        </span>
+      </div>
+
+    </div>
     </div>
   </div>
 </section>
 
-<!-- CLIENTS -->
-<section id="clients" class="cream">
-  <div class="wrap">
-    <div class="sec-label"><span class="ko">대상 고객</span><span class="en">Who We Serve</span></div>
-    <div class="cli-grid">
-      <div class="cli"><h3 class="serif"><span class="ko">공공기관</span><span class="en">Public Institutions</span></h3><p><span class="ko">문화정책·사업 평가, ODA 자문</span><span class="en">Policy & program evaluation, ODA advisory</span></p></div>
-      <div class="cli"><h3 class="serif"><span class="ko">컬렉터 · 패밀리오피스</span><span class="en">Collectors & Family Offices</span></h3><p><span class="ko">감정, 취득 자문, 포트폴리오</span><span class="en">Valuation, acquisition, portfolio advisory</span></p></div>
-      <div class="cli"><h3 class="serif"><span class="ko">갤러리 · 아트페어</span><span class="en">Galleries & Fairs</span></h3><p><span class="ko">프로그램 기획, VIP/Press</span><span class="en">IR, positioning, pricing rationale</span></p></div>
-      <div class="cli"><h3 class="serif"><span class="ko">기업 · 재단</span><span class="en">Corporates & Foundations</span></h3><p><span class="ko">문화브랜딩, 컬렉션 방향</span><span class="en">Collection strategy, valuation, cultural branding</span></p></div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
+<!-- ══ CONTACT ═════════════════════════════════════════════════ -->
 <section id="contact" class="contact">
   <div class="wrap">
-    <div class="sec-label"><span class="ko">문의</span><span class="en">Contact</span></div>
-    <p class="sec-intro" style="margin-bottom:30px"><span class="ko">info@syr.co.kr 궁금한 내용을 문의해주세요 :)</span><span class="en">One email is enough. Tell us what you need, and we'll propose an evidence-based next step.</span></p>
+    <div class="sec-label"><span class="ko">문의</span><span class="en">Inquiry</span></div>
+    <p class="sec-intro" style="margin-bottom:26px">
+      <span class="ko">궁금한 내용을 문의해주세요. 다음 단계를 제안드립니다.</span>
+      <span class="en">Tell us what you need, and we'll propose an your next step.</span>
+    </p>
+
+    <div class="cinfo">
+      <div>
+        <b><span class="ko">이메일</span><span class="en">Email</span></b>
+        <span class="ko">info@syr.co.kr </span><span class="en">info@syr.co.kr </span>
+      </div>
+      <div>
+        <b><span class="ko">회신</span><span class="en">Response</span></b>
+        <span class="ko">영업일 기준 3일 이내</span><span class="en">Within 3 business days</span>
+      </div>
+      <div>
+        <b><span class="ko">운영</span><span class="en">Hours</span></b>
+        <span class="ko">월–금 10-17 (KST)</span><span class="en">Mon–Fri 10-17 KST</span>
+      </div>
+    </div>
+
+    <div class="contact-grid">
+      <div>
+        <h3 class="serif" style="font-size:20px; margin-bottom:10px">
+          <span class="ko"> 이메일을 보내주시거나, 아래 내용을 작성해주세요.</span>
+          <span class="en"> You can send us an email or leave your inquiry below.</span>
+        </h3>
+        <p style="color:var(--muted); font-size:14px">
+          <span class="ko">목적과 대략의 시기, 규모를 함께 적어주시면 첫 회신에서 바로 다음 단계를 제안드릴 수 있습니다.</span>
+          <span class="en">Include the purpose, rough timing and scale, and our first reply can already propose the next step.</span>
+        </p>
+      </div>
+
+      <form class="cform" id="cform" novalidate>
+        <div class="cfield">
+          <label for="f-name"><span class="ko">이름</span><span class="en">Name</span></label>
+          <input id="f-name" name="name" type="text" required autocomplete="name">
+        </div>
+
+        <div class="cfield">
+          <label for="f-org"><span class="ko">소속</span><span class="en">Organisation</span></label>
+          <input id="f-org" name="org" type="text" autocomplete="organization">
+        </div>
+
+        <div class="cfield">
+          <label for="f-email"><span class="ko">이메일</span><span class="en">Email</span></label>
+          <input id="f-email" name="email" type="email" required autocomplete="email" placeholder="name@example.com">
+        </div>
+
+        <div class="cfield">
+          <label for="f-who"><span class="ko">소속 유형</span><span class="en">You are</span></label>
+          <select id="f-who" name="who">
+            <option value="public">공공기관 / Public Institution</option>
+            <option value="collector">컬렉터 · 패밀리오피스 / Collector &amp; Family Office</option>
+            <option value="gallery">갤러리 · 아트페어 / Gallery &amp; Fair</option>
+            <option value="corporate">기업 · 재단 / Corporate &amp; Foundation</option>
+            <option value="individual">개인 / Individual</option>
+            <option value="other">기타 / Other</option>
+          </select>
+        </div>
+
+        <div class="cfield wide">
+          <label for="f-type"><span class="ko">문의 유형</span><span class="en">Enquiry type</span></label>
+          <select id="f-type" name="type">
+            <option value="valuation">미술품 가치평가 / Art Valuation</option>
+            <option value="policy">문화정책 · 사업 평가 / Cultural Policy &amp; Evaluation</option>
+            <option value="collection">컬렉션 전략 · 취득 자문 / Collection Strategy</option>
+            <option value="briefing">아트마켓 브리핑 / Art Market Briefing</option>
+            <option value="speaking">강연 · 자문 / Speaking &amp; Advisory</option>
+            <option value="press">취재 · 협업 / Press &amp; Partnership</option>
+            <option value="other">기타 / Other</option>
+          </select>
+        </div>
+
+        <div class="cfield wide">
+          <label for="f-msg"><span class="ko">내용</span><span class="en">Message</span></label>
+          <textarea id="f-msg" name="message" required
+            placeholder="목적, 대략의 시기와 규모를 함께 적어주세요."></textarea>
+        </div>
+
+        <div class="ctrap" aria-hidden="true">
+          <label for="f-web">Leave this empty</label>
+          <input id="f-web" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="cactions">
+          <button class="btn btn-primary" type="submit" id="csend">
+            <span class="ko">보내기</span><span class="en">Send</span>
+          </button>
+          <p class="cstatus" id="cstatus" role="status" aria-live="polite"></p>
+        </div>
+      </form>
     </div>
   </div>
   <span class="corner" aria-hidden="true"></span><span class="corner2" aria-hidden="true"></span>
@@ -237,18 +414,120 @@
 
 <footer>
   <div class="wrap foot">
-    <div>© syr <span class="ko"></span><span class="en">Art Valuation & Cultural Advisory.</span></div>
-    <div>info@syr.co.kr · syr.co.kr</div>
+    <div>© syr</div>
+    <div><a href="mailto:info@syr.co.kr">info@syr.co.kr</a></div>
   </div>
 </footer>
 
 <script>
-  function toggleLang(){
-    const html=document.documentElement;
-    const next=html.getAttribute('data-lang')==='en'?'ko':'en';
-    html.setAttribute('data-lang',next);
-    html.setAttribute('lang',next);
+/* ── 언어 전환 ─────────────────────────────────────────────── */
+function toggleLang(){
+  var html = document.documentElement;
+  var next = html.getAttribute('data-lang') === 'en' ? 'ko' : 'en';
+  html.setAttribute('data-lang', next);
+  html.setAttribute('lang', next);
+}
+
+/* ── 모바일 메뉴 ───────────────────────────────────────────── */
+(function(){
+  var header = document.getElementById('siteHeader');
+  var burger = document.getElementById('burger');
+  burger.addEventListener('click', function(){
+    var open = header.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', String(open));
+  });
+  document.querySelectorAll('nav.links a').forEach(function(a){
+    a.addEventListener('click', function(){
+      header.classList.remove('is-open');
+      burger.setAttribute('aria-expanded','false');
+    });
+  });
+})();
+
+/* ── 문의 폼 ───────────────────────────────────────────────────
+   설정은 아래 두 줄뿐입니다.
+
+   TO       : 받는 주소
+   ENDPOINT : Formspree 주소. 비워두면 메일 앱이 열리는 방식으로
+              자동 전환되어 지금 상태로도 바로 동작합니다.
+              formspree.io 가입 → New Form → 받은 주소를 붙여넣기
+   ──────────────────────────────────────────────────────────── */
+(function(){
+  var TO = 'info@syr.co.kr';
+  var ENDPOINT = '';   // 예: 'https://formspree.io/f/xxxxxxxx'
+
+  var form   = document.getElementById('cform');
+  var status = document.getElementById('cstatus');
+  var button = document.getElementById('csend');
+
+  function isKo(){ return document.documentElement.getAttribute('data-lang') !== 'en'; }
+  function say(ko, en, cls){
+    status.textContent = isKo() ? ko : en;
+    status.className = 'cstatus' + (cls ? ' ' + cls : '');
   }
+  function label(sel){ return sel.options[sel.selectedIndex].text; }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (form.website.value) return;                 // 봇 차단
+
+    var name = form.name.value.trim();
+    var email = form.email.value.trim();
+    var message = form.message.value.trim();
+
+    if (!name || !email || !message){
+      say('이름, 이메일, 내용을 채워주세요.',
+          'Please fill in your name, email and message.', 'bad');
+      return;
+    }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){
+      say('이메일 주소를 다시 확인해주세요.',
+          'That email address does not look right.', 'bad');
+      return;
+    }
+
+    var typeLabel = label(form.type);
+    var whoLabel  = label(form.who);
+
+    /* Formspree 미설정 → 메일 앱으로 전환 */
+    if (!ENDPOINT){
+      var subject = '[SYR Edition] ' + typeLabel + ' — ' + name;
+      var lines =
+        '이름 / Name: ' + name + '\n' +
+        '소속 / Organisation: ' + (form.org.value.trim() || '-') + '\n' +
+        '이메일 / Email: ' + email + '\n' +
+        '소속 유형 / Segment: ' + whoLabel + '\n' +
+        '문의 유형 / Type: ' + typeLabel + '\n\n' +
+        '내용 / Message:\n' + message + '\n';
+      window.location.href = 'mailto:' + TO +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body='    + encodeURIComponent(lines);
+      say('메일 앱이 열립니다. 창에서 전송을 눌러주세요.',
+          'Your mail app is opening. Press send there to finish.', 'ok');
+      return;
+    }
+
+    /* Formspree 설정됨 → 페이지 이동 없이 전송 */
+    button.disabled = true;
+    say('보내는 중…', 'Sending…');
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    }).then(function(res){
+      if (!res.ok) throw new Error('failed');
+      form.reset();
+      say('보내주셔서 감사합니다. 영업일 기준 2일 안에 회신드리겠습니다.',
+          'Thank you. We will reply within two business days.', 'ok');
+    }).catch(function(){
+      say('전송에 실패했습니다. info@syr.co.kr 로 직접 보내주세요.',
+          'Something went wrong. Please email info@syr.co.kr directly.', 'bad');
+    }).then(function(){
+      button.disabled = false;
+    });
+  });
+})();
 </script>
 </body>
 </html>
