@@ -1,0 +1,681 @@
+<!-- ============================================================
+     SYR EDITION · syr.co.kr
+     Art Law Cases — Additional Research
+     260729 · 류소영 저
+
+     Paste into WordPress Custom HTML block
+     or deploy as index.html via GitHub Pages
+     ============================================================ -->
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+KR:wght@300;400;500&family=Noto+Serif+KR:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ── SYR Brand System ──────────────────────────────────────────
+   Navy   #1C3F7A  headings, logo
+   Teal   #0A8C6E  accent, rules, tags
+   Body   #1A1A2E  body text
+   Muted  #6B7280  captions
+   Cream  #F9F8F6  alt bg
+   Rule   #CCCCCC  dividers
+   White  #FFFFFF  primary bg
+   ─────────────────────────────────────────────────────────────*/
+.p*,.p*::before,.p*::after{box-sizing:border-box;margin:0;padding:0}
+.p{
+  --nv:#1C3F7A;--tl:#0A8C6E;--bd:#1A1A2E;--mu:#6B7280;
+  --cr:#F9F8F6;--ru:#CCCCCC;--wh:#FFFFFF;--ru2:#E8E8E8;
+  --tl2:#D4EDE7;--nv2:#EEF2FA;--rd:#C0392B;
+  --sk:'Cormorant Garamond','Noto Serif KR',Georgia,serif;
+  --ss:'DM Sans','Noto Sans KR',sans-serif;
+  --kr:'Noto Serif KR',serif;--krs:'Noto Sans KR',sans-serif;
+  font-family:var(--ss);background:var(--wh);color:var(--bd);
+  -webkit-font-smoothing:antialiased;line-height:1.7;
+  width:100%;max-width:100%!important;margin:0!important;padding:0!important;
+}
+
+/* ── TOPBAR ── */
+.p-top{border-bottom:1px solid var(--ru);padding:14px 64px;
+  display:flex;justify-content:space-between;align-items:center;
+  background:var(--wh);position:sticky;top:0;z-index:100;}
+.p-logo{font-family:var(--ss);font-size:13px;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--nv);text-decoration:none;}
+.p-logo span{color:var(--tl);}
+.p-top-r{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);}
+.p-top-nav{display:flex;gap:28px;}
+.p-top-nav a{font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--mu);text-decoration:none;transition:color .2s;}
+.p-top-nav a:hover{color:var(--tl);}
+
+/* ── HERO ── */
+.p-hero{padding:88px 72px 64px;border-bottom:1px solid var(--ru);
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;}
+.p-hero-l{}
+.p-hero-eye{font-size:9.5px;font-weight:500;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--tl);margin-bottom:18px;}
+.p-hero-title{font-family:var(--kr);font-weight:300;
+  font-size:clamp(36px,4.5vw,58px);line-height:1.18;color:var(--nv);
+  letter-spacing:-.025em;margin-bottom:14px;}
+.p-hero-en{font-family:var(--sk);font-style:italic;
+  font-size:clamp(14px,1.6vw,19px);font-weight:300;color:var(--mu);
+  margin-bottom:32px;line-height:1.5;}
+.p-hero-desc{font-family:var(--krs);font-weight:300;font-size:13.5px;
+  line-height:2;color:var(--mu);max-width:460px;}
+.p-hero-r{display:flex;flex-direction:column;gap:20px;}
+.p-stat{border-left:2px solid var(--tl);padding:12px 0 12px 20px;}
+.p-stat-n{font-family:var(--sk);font-size:40px;color:var(--nv);
+  line-height:1;margin-bottom:4px;}
+.p-stat-l{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);}
+.p-hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+.p-htag{font-size:9.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  padding:5px 12px;border:1px solid var(--ru);color:var(--mu);text-decoration:none;display:inline-block;transition:border-color .2s,color .2s;}
+.p-htag:hover{border-color:var(--tl);color:var(--tl);}
+
+/* ── SECTION ── */
+.p-sec{padding:72px;}
+.p-sec.cream{background:var(--cr);}
+.p-sec-hd{margin-bottom:48px;}
+.p-sec-eye{font-size:9.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--tl);margin-bottom:10px;}
+.p-sec-kr{font-family:var(--kr);font-weight:400;font-size:26px;
+  color:var(--nv);letter-spacing:-.01em;margin-bottom:5px;}
+.p-sec-en{font-family:var(--sk);font-style:italic;font-size:14px;color:var(--mu);}
+.p-sec-rule{width:32px;height:1.5px;background:var(--tl);margin:16px 0;}
+
+/* ── TYPE TABS ── */
+.p-tabs{display:flex;gap:0;border-bottom:1px solid var(--ru);margin-bottom:48px;}
+.p-tab{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  padding:12px 24px;cursor:pointer;color:var(--mu);border-bottom:2px solid transparent;
+  margin-bottom:-1px;transition:all .2s;background:none;border-top:none;border-left:none;border-right:none;}
+.p-tab:hover{color:var(--nv);}
+.p-tab.on{color:var(--tl);border-bottom-color:var(--tl);}
+.p-pane{display:none;}
+.p-pane.on{display:block;}
+
+/* ── CASE GRID ── */
+.p-cases{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1px;
+  background:var(--ru);border:1px solid var(--ru);}
+.p-case{background:var(--wh);padding:32px;transition:background .2s;}
+.p-case:hover{background:var(--cr);}
+.p-case-top{display:flex;justify-content:space-between;align-items:flex-start;
+  gap:12px;margin-bottom:14px;}
+.p-case-num{font-family:var(--sk);font-style:italic;font-size:28px;
+  color:var(--ru2);line-height:1;flex-shrink:0;}
+.p-case-tags{display:flex;flex-wrap:wrap;gap:5px;justify-content:flex-end;}
+.p-ctag{font-size:8.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  padding:3px 8px;}
+.p-ctag.us{background:var(--nv2);color:var(--nv);}
+.p-ctag.uk{background:#EEF5EE;color:#1A5C1A;}
+.p-ctag.fr{background:#F5EEEE;color:#5C1A1A;}
+.p-ctag.de{background:#F5F0EE;color:#5C3A1A;}
+.p-ctag.kr{background:#EEEEF5;color:#1A1A5C;}
+.p-ctag.it{background:#FEF0E8;color:#8B3A00;}
+.p-ctag.au{background:#E8F5F0;color:#006040;}
+.p-ctag.eu{background:#F0EEF5;color:#3A1A5C;}
+.p-ctag.ca{background:#F0F5EE;color:#1A4A1A;}
+.p-ctag.yr{background:var(--cr);color:var(--mu);border:1px solid var(--ru);}
+.p-ctag.new{background:#D4EDE7;color:var(--tl);}
+.p-case-name{font-family:var(--sk);font-size:17px;color:var(--nv);
+  margin-bottom:5px;line-height:1.3;}
+.p-case-party{font-size:10px;letter-spacing:.06em;color:var(--mu);
+  margin-bottom:14px;font-style:italic;}
+.p-case-body{font-family:var(--krs);font-weight:300;font-size:12px;
+  line-height:1.95;color:var(--mu);}
+.p-case-footer{margin-top:16px;padding-top:14px;border-top:1px solid var(--ru2);
+  display:flex;justify-content:space-between;align-items:center;}
+.p-case-yr{font-family:var(--sk);font-style:italic;font-size:13px;color:var(--ru);}
+.p-case-link{font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--tl);text-decoration:none;transition:opacity .2s;}
+.p-case-link:hover{opacity:.7;}
+
+/* ── FEATURED CASE (wide) ── */
+.p-case.wide{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+.p-case.wide .p-case-body{column-count:1;}
+
+/* ── BOOK SPREAD ── */
+.p-book{display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:var(--ru);border:1px solid var(--ru);margin-top:0;}
+.p-book-l{background:var(--nv);padding:56px;}
+.p-book-r{background:var(--wh);padding:56px;}
+.p-book-eye{font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--tl);margin-bottom:20px;}
+.p-book-title{font-family:var(--kr);font-weight:300;font-size:22px;
+  color:var(--wh);line-height:1.45;margin-bottom:28px;letter-spacing:-.01em;}
+.p-book-title-dk{color:var(--nv);}
+.p-book-en{font-family:var(--sk);font-style:italic;font-size:13px;
+  color:rgba(255,255,255,.45);margin-bottom:28px;}
+.p-book-en-dk{color:var(--mu);}
+.p-part{margin-bottom:28px;}
+.p-part-lbl{font-size:9px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.45);margin-bottom:8px;}
+.p-part-lbl-dk{color:var(--mu);}
+.p-ch{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.07);
+  display:flex;gap:12px;align-items:baseline;}
+.p-ch-dk{border-bottom-color:var(--ru2);}
+.p-ch-n{font-family:var(--sk);font-style:italic;font-size:13px;
+  color:rgba(255,255,255,.3);flex-shrink:0;width:32px;}
+.p-ch-n-dk{color:var(--ru);}
+.p-ch-txt{font-size:12px;color:rgba(255,255,255,.7);line-height:1.5;}
+.p-ch-txt-dk{color:var(--bd);}
+.p-ch-txt em{font-style:normal;font-size:10px;
+  color:rgba(255,255,255,.4);display:block;margin-top:2px;}
+.p-ch-txt-dk em{color:var(--mu);}
+.p-ch-tag{font-size:8.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  padding:2px 7px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.5);
+  margin-left:auto;flex-shrink:0;align-self:center;}
+.p-ch-tag-new{background:var(--tl2);color:var(--tl);}
+
+/* ── SOCIAL POSTS ── */
+.p-posts{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;}
+.p-post{border:.5px solid var(--ru);padding:28px;background:var(--wh);}
+.p-post-platform{font-size:9px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--tl);margin-bottom:14px;display:flex;align-items:center;gap:6px;}
+.p-post-platform::before{content:'';width:4px;height:4px;
+  border-radius:50%;background:var(--tl);}
+.p-post-body{font-family:var(--krs);font-weight:300;font-size:13px;
+  line-height:2;color:var(--bd);margin-bottom:16px;white-space:pre-line;}
+.p-post-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.p-post-tag{font-size:10px;color:var(--tl);}
+
+/* ── FRAMEWORK CALLOUT ── */
+.p-callout{background:var(--nv2);border-left:3px solid var(--nv);
+  padding:24px 28px;margin:32px 0;}
+.p-callout-lbl{font-size:9px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--nv);margin-bottom:8px;}
+.p-callout-txt{font-size:13px;color:var(--bd);line-height:1.7;}
+.p-callout-txt strong{color:var(--nv);font-weight:500;}
+
+/* ── CLOSING / CTA ── */
+.p-cta{background:var(--nv);padding:80px 72px;
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.p-cta-l .p-sec-eye{color:rgba(200,150,12,.9);}
+.p-cta-kr{font-family:var(--kr);font-weight:300;
+  font-size:clamp(22px,3vw,32px);color:var(--wh);
+  line-height:1.5;letter-spacing:-.01em;margin-bottom:16px;}
+.p-cta-en{font-family:var(--sk);font-style:italic;font-size:15px;
+  color:rgba(255,255,255,.45);line-height:1.7;}
+.p-cta-r{display:flex;flex-direction:column;gap:14px;}
+.p-cta-item{padding:20px 24px;border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.04);}
+.p-cta-item-lbl{font-size:9px;font-weight:500;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--tl);margin-bottom:5px;}
+.p-cta-item-txt{font-size:12px;color:rgba(255,255,255,.6);line-height:1.6;}
+
+/* ── FOOTER ── */
+.p-foot{border-top:1px solid var(--ru);padding:32px 72px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.p-foot-l{display:flex;flex-direction:column;gap:4px;}
+.p-foot-logo{font-family:var(--ss);font-size:11px;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--nv);}
+.p-foot-logo span{color:var(--tl);}
+.p-foot-sub{font-size:10.5px;color:var(--mu);}
+.p-foot-r{display:flex;flex-direction:column;align-items:flex-end;gap:3px;}
+.p-foot-contact{font-size:10.5px;color:var(--mu);}
+.p-foot-c{font-size:9.5px;color:#aaa;margin-top:2px;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .p-top{padding:14px 24px;}
+  .p-top-nav{display:none;}
+  .p-hero{grid-template-columns:1fr;padding:52px 28px 40px;gap:36px;}
+  .p-sec{padding:44px 28px;}
+  .p-cases{grid-template-columns:1fr;}
+  .p-case.wide{grid-template-columns:1fr;}
+  .p-book{grid-template-columns:1fr;}
+  .p-book-l,.p-book-r{padding:36px 28px;}
+  .p-cta{grid-template-columns:1fr;padding:52px 28px;gap:36px;}
+  .p-foot{padding:24px 28px;}
+  .p-tabs{overflow-x:auto;}
+  .p-posts{grid-template-columns:1fr;}
+}
+</style>
+
+<div class="p">
+
+<!-- TOPBAR -->
+<nav class="p-top">
+  <a class="p-logo" href="https://syredition.com">SYR<span>.</span>EDITION</a>
+  <nav class="p-top-nav">
+    <a href="/home">Home</a>
+    <a href="/about">About</a>
+    <a href="/news">News</a>
+    <a href="/briefing">Briefing</a>
+    <a href="/book">Book</a>
+    <a href="/case">Case</a>
+    <a href="/artist">Artist</a>
+    <a href="/contact">Contact</a>
+  </nav>
+  <div class="p-top-r">Art · Law · Market</div>
+</nav>
+
+<!-- HERO -->
+<section class="p-hero">
+  <div class="p-hero-l">
+    <div class="p-hero-title">저작권 소송 사례</div>
+    <p class="p-hero-desc">최근 10년간 미국, 영국, 프랑스, 독일, 한국, 일본, 중국 등 주요 국가에서 발생한 예술법 판례를 세 유형으로 분류하고 분석합니다.</p>
+  </div>
+  <div class="p-hero-r">
+    <div class="p-hero-tags">
+      <a class="p-htag" href="#type1">Authentication · 진품 인증·저작권</a>
+      <a class="p-htag" href="#type2">Restitution · 반환·송환</a>
+      <a class="p-htag" href="#type3">Forgery · 위작·사기</a>
+    </div>
+  </div>
+</section>
+
+<!-- CASES SECTION -->
+<section class="p-sec" id="type1">
+  <div class="p-sec-hd">
+    <div class="p-sec-eye">Type 1</div>
+    <div class="p-sec-kr">진품 인증 · 저작권 · 작가 권리</div>
+    <div class="p-sec-en">Authentication, Authorship &amp; Copyright</div>
+    <div class="p-sec-rule"></div>
+  </div>
+
+  <div class="p-cases">
+
+    <div class="p-case wide" id="c-doig">
+      <div>
+        <div class="p-case-top">
+          <div class="p-case-num">01</div>
+          <div class="p-case-tags">
+            <span class="p-ctag us">US</span>
+            <span class="p-ctag yr">2013–2023</span>
+            <span class="p-ctag new">Thesis Case</span>
+          </div>
+        </div>
+        <div class="p-case-name">Fletcher et al. v. Peter Doig et al.</div>
+        <div class="p-case-party">N.D. Illinois → 2023 Bad Faith Recovery</div>
+        <div class="p-case-body">전직 교도관 로버트 플레처는 현대 작가 Peter Doig가 790만 달러 상당의 그림을 허위로 부인했다고 소송을 제기했다. 그림에는 "Peter Doige, 76"이라 서명되어 있었으나 피고인 측 연구에 따르면 이는 2012년 사망한 별개의 인물 Peter Edward Doige의 작품이었다. 시카고 판사는 "Peter Marryat Doig는 분쟁 작품을 절대로 그린 적이 없다"고 판결했다. 2023년에는 원래 소송이 악의적으로 제기됐다고 판단, Doig의 법률 비용 배상을 명령했다.</div>
+      </div>
+      <div>
+        <div class="p-callout">
+          <div class="p-callout-lbl">Book Focus</div>
+          <div class="p-callout-txt">살아있는 작가가 자신의 이름을 지키기 위해 10년의 법정 싸움을 감내해야 하는 현실. <strong>Visual Artists Rights Act(VARA)</strong>의 보호 범위와 법원이 예술 시장의 최종 중재자가 될 수 없는 이유를 보여주는 핵심 사례.</div>
+        </div>
+        <div class="p-case-footer">
+          <div class="p-case-yr">2013–2023 · 10 years</div>
+          <a class="p-case-link" href="https://dockets.justia.com/docket/illinois/ilndce/1:2013cv03270/281186" target="_blank">Case Filing →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-case">
+      <div class="p-case-top">
+        <div class="p-case-num">02</div>
+        <div class="p-case-tags"><span class="p-ctag us">US</span><span class="p-ctag yr">2016–2019</span><span class="p-ctag new">Thesis Case</span></div>
+      </div>
+      <div class="p-case-name">Mayor Gallery v. Agnes Martin Catalogue Raisonné LLC</div>
+      <div class="p-case-party">NY Supreme Court</div>
+      <div class="p-case-body">런던의 Mayor Gallery가 Agnes Martin 인증 위원회를 상대로 720만 달러 손실을 주장하며 소송을 제기했다. 위원회가 갤러리가 판매한 13점을 카탈로그 레조네에서 제외했기 때문이다. Masley 판사는 "카탈로그 레조네의 포함 여부는 예술 시장의 기능이며 법원이 강제할 수 없다"고 판시했다.</div>
+      <div class="p-case-footer">
+        <div class="p-case-yr">2016–2019</div>
+        <div class="p-case-link">N.Y. Sup. Ct. 2019</div>
+      </div>
+    </div>
+
+    <div class="p-case">
+      <div class="p-case-top">
+        <div class="p-case-num">03</div>
+        <div class="p-case-tags"><span class="p-ctag us">US</span><span class="p-ctag yr">2017–2020</span><span class="p-ctag new">Thesis Case</span></div>
+      </div>
+      <div class="p-case-name">Noland v. Janssen et al.</div>
+      <div class="p-case-party">S.D.N.Y. · VARA Disavowal</div>
+      <div class="p-case-body">Cady Noland이 허가 없이 복원된 자신의 조각 <em>Log Cabin Façade</em>의 판매 시도에 대해 저작권 침해와 VARA 도덕적 권리 위반을 주장하며 세 갤러리를 고소했다. 소더비 경매 전날 작품을 부인한 것과 맞물려 VARA 법의 범위와 한계를 명확히 한 사례.</div>
+      <div class="p-case-footer">
+        <div class="p-case-yr">2017–2020</div>
+        <div class="p-case-link">No. 1:2017cv05452</div>
+      </div>
+    </div>
+
+    <div class="p-case">
+      <div class="p-case-top">
+        <div class="p-case-num">04</div>
+        <div class="p-case-tags"><span class="p-ctag us">US</span><span class="p-ctag yr">2019–2023</span><span class="p-ctag new">NEW</span></div>
+      </div>
+      <div class="p-case-name">Andy Warhol Foundation v. Goldsmith</div>
+      <div class="p-case-party">US Supreme Court · 598 U.S. 508 (2023)</div>
+      <div class="p-case-body">워홀 재단이 Lynn Goldsmith의 Prince 사진을 바탕으로 제작한 실크스크린 초상화를 Condé Nast에 라이선스했다. 대법원은 원작과 실질적으로 유사한 상업적 목적으로 사용할 경우, 저작물의 경미한 변형은 공정 이용에 해당하지 않는다고 판시했다.</div>
+      <div class="p-case-footer">
+        <div class="p-case-yr">2023 · Supreme Court</div>
+        <a class="p-case-link" href="https://www.supremecourt.gov/opinions/22pdf/21-869_87ad.pdf" target="_blank">Opinion →</a>
+      </div>
+    </div>
+
+    <div class="p-case">
+      <div class="p-case-top">
+        <div class="p-case-num">05</div>
+        <div class="p-case-tags"><span class="p-ctag us">US</span><span class="p-ctag yr">2019–2026</span><span class="p-ctag new">NEW</span></div>
+      </div>
+      <div class="p-case-name">Thaler v. Perlmutter</div>
+      <div class="p-case-party">D.C. Circuit · AI Authorship</div>
+      <div class="p-case-body">AI 시스템 "Creativity Machine"이 자율적으로 생성한 시각 예술 작품의 저작권 등록을 요청했다. D.C. 순회법원은 1976년 저작권법이 인간의 창작을 필수 요건으로 한다고 만장일치로 판결했으며, 2026년 3월 대법원은 상고를 기각했다.</div>
+      <div class="p-case-footer">
+        <div class="p-case-yr">2026 · 최종 확정</div>
+        <a class="p-case-link" href="https://www.copyright.gov/ai/docs/court-of-appeals-decision-affirming-refusal-of-registration.pdf" target="_blank">Decision →</a>
+      </div>
+    </div>
+
+    <div class="p-case">
+      <div class="p-case-top">
+        <div class="p-case-num">06</div>
+        <div class="p-case-tags"><span class="p-ctag us">US</span><span class="p-ctag yr">2018–ongoing</span><span class="p-ctag new">NEW</span></div>
+      </div>
+      <div class="p-case-name">Morgan Art Foundation v. McKenzie — Robert Indiana</div>
+      <div class="p-case-party">LOVE Image · Estate Dispute</div>
+      <div class="p-case-body">Robert Indiana 사망(2018) 후 그의 상징적 <em>LOVE</em> 이미지의 재현 권한을 둘러싸고 복수의 당사자가 위작, 유산 조작, 저작권 침해를 주장하며 충돌했다. 작가 사후 카탈로그 관리와 인증 인프라가 명확한 승계 계획 없이 붕괴될 수 있음을 보여주는 사례.</div>
+      <div class="p-case-footer">
+        <div class="p-case-yr">2018–ongoing</div>
+        <a class="p-case-link" href="https://news.artnet.com/art-world/robert-indiana-love-estate-lawsuit-1308436" target="_blank">Artnet →</a>
+      </div>
+    </div>
+
+    <div class="p-case">
+      <div class="p-case-top">
+        <div class="p-case-num">07</div>
+        <div class="p-case-tags"><span class="p-ctag us">US</span><span class="p-ctag yr">2007–2010</span></div>
+      </div>
+      <div class="p-case-name">Simon-Whelan v. Andy Warhol Foundation</div>
+      <div class="p-case-party">S.D.N.Y. · Authentication Board</div>
+      <div class="p-case-body">수집가가 워홀 인증 위원회가 <em>Self-Portrait</em> 실크스크린 인증을 거부한 것에 대해 반독점법 위반과 이해충돌을 주장하며 소송을 제기했다. 기각됐지만, 워홀 재단이 2012년 인증 위원회를 해산하는 데 직접적인 계기가 된 사례.</div>
+      <div class="p-case-footer">
+        <div class="p-case-yr">2007–2010</div>
+        <div class="p-case-link">No. 07 Civ. 6423</div>
+      </div>
+    </div>
+
+    <div class="p-case">
+      <div class="p-case-top">
+        <div class="p-case-num">08</div>
+        <div class="p-case-tags"><span class="p-ctag us">US</span><span class="p-ctag yr">2009</span></div>
+      </div>
+      <div class="p-case-name">Thome v. Alexander &amp; Louisa Calder Foundation</div>
+      <div class="p-case-party">App. Div. 2009 · Landmark Precedent</div>
+      <div class="p-case-body">작품 소유자가 Calder Foundation의 카탈로그 레조네 제외로 시장 가치가 손상됐다며 소송을 제기했다. 법원은 법원이 작품을 진품으로 결정했더라도 사립 재단에 카탈로그 레조네 포함을 강제하는 의무적 가처분은 없다고 확인했다.</div>
+      <div class="p-case-footer">
+        <div class="p-case-yr">2009 · Landmark</div>
+        <div class="p-case-link">70 A.D.3d 88</div>
+      </div>
+    </div>
+
+    <div class="p-case">
+      <div class="p-case-top">
+        <div class="p-case-num">09</div>
+        <div class="p-case-tags"><span class="p-ctag eu">EU</span><span class="p-ctag yr">2020</span><span class="p-ctag new">NEW</span></div>
+      </div>
+      <div class="p-case-name">Banksy's Trademark Dispute — Flower Thrower</div>
+      <div class="p-case-party">EUIPO · Anonymous Artist Problem</div>
+      <div class="p-case-body">유럽연합 지식재산청(EUIPO)이 Banksy의 유명한 이미지 상표를 2020년 무효화했다. 실제 상품에 사용할 의도 없이 나쁜 신의로 상표를 출원했기 때문이다. 익명 예술가가 신원을 공개하지 않고 지식재산권을 행사하는 것의 법적 어려움을 드러낸 사례.</div>
+      <div class="p-case-footer">
+        <div class="p-case-yr">2020 · EUIPO</div>
+        <div class="p-case-link">Trademark 012575155</div>
+      </div>
+    </div>
+
+    <div class="p-case">
+      <div class="p-case-top">
+        <div class="p-case-num">10</div>
+        <div class="p-case-tags"><span class="p-ctag kr">KR</span><span class="p-ctag yr">Recent</span><span class="p-ctag new">NEW</span></div>
+      </div>
+      <div class="p-case-name">Lee Ufan Authentication Scandal</div>
+      <div class="p-case-party">South Korea · Forgery + Authentication Clash</div>
+      <div class="p-case-body">한국 검찰이 이우환의 작품으로 위장해 수백만 달러에 판매한 복수의 아트 딜러를 기소했다. 법의학적 경찰 증거와 위조자의 자백에도 불구하고 작가 본인이 처음에 해당 작품들이 진품이라고 주장하는 이례적인 상황이 발생했다. 진품 인증에서 작가의 진술이 갖는 권위와 한계를 보여준다.</div>
+      <div class="p-case-footer">
+        <div class="p-case-yr">Korea · Recent</div>
+        <a class="p-case-link" href="https://www.grossmanllp.com/Strange-Cases-of-Authentication-When-Is-the-Artists-Word-Enough" target="_blank">Analysis →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TYPE 2 -->
+<section class="p-sec cream" id="type2">
+  <div class="p-sec-hd">
+    <div class="p-sec-eye">Type 2</div>
+    <div class="p-sec-kr">반환 · 송환 · 문화 유산</div>
+    <div class="p-sec-en">Restitution &amp; Repatriation</div>
+    <div class="p-sec-rule"></div>
+  </div>
+
+  <div class="p-cases">
+
+    <div class="p-case wide">
+      <div>
+        <div class="p-case-top">
+          <div class="p-case-num">11</div>
+          <div class="p-case-tags"><span class="p-ctag us">US</span><span class="p-ctag yr">2021</span><span class="p-ctag new">NEW</span></div>
+        </div>
+        <div class="p-case-name">Federal Republic of Germany v. Philipp — Guelph Treasure</div>
+        <div class="p-case-party">US Supreme Court · 592 U.S. (2021)</div>
+        <div class="p-case-body">1935년 나치 압박 하에 중세 교회 예술품 컬렉션을 매각한 유대인 아트 딜러의 상속자들이 FSIA(외국 주권 면제법)를 근거로 미국 법원에서 독일을 상대로 소송을 제기했다. 대법원은 FSIA의 수용 예외는 외국 국가가 자국 국민의 재산을 수용하는 국내 사례에는 적용되지 않는다고 만장일치로 판결했다.</div>
+      </div>
+      <div>
+        <div class="p-callout">
+          <div class="p-callout-lbl">ODA &amp; Policy Relevance</div>
+          <div class="p-callout-txt">이 판결은 국제 반환 청구에서 주권 면제의 한계를 드러낸다. 이후 <strong>미국 HEAR Act 2025</strong>가 이 판결을 사실상 번복하며 나치 약탈 예술에 대한 외국 국가의 주권 면제 항변을 제거했다. 사법 판결을 입법으로 극복하는 과정을 보여주는 핵심 사례.</div>
+        </div>
+        <div class="p-case-footer">
+          <div class="p-case-yr">2021 · Supreme Court</div>
+          <a class="p-case-link" href="https://www.supremecourt.gov/opinions/20pdf/19-351_4f15.pdf" target="_blank">Opinion →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-case">
+      <div class="p-case-top">
+        <div class="p-case-num">12</div>
+        <div class="p-case-tags"><span class="p-ctag us">US</span><span class="p-ctag yr">2005–2024</span><span class="p-ctag new">NEW</span></div>
+      </div>
+      <div class="p-case-name">Cassirer v. Thyssen-Bornemisza Museum</div>
+      <div class="p-case-party">US Courts → Spanish Property Law Applied</div>
+      <div class="p-case-body">유대인 가족의 상속인들이 나치가 약탈한 Pissarro 작품이 마드리드 Thyssen-Bornemisza 박물관에 있다며 반환을 청구했다. 2024년 1월 미국 항소법원은 스페인 재산법을 적용해 박물관이 정당한 소유자라고 판결했다. 선의의 점유자를 피탈취 청구인보다 보호하는 사법적 접근을 보여준다.</div>
+      <div class="p-case-footer">
+        <div class="p-case-yr">2024 · Final Ruling</div>
+        <a class="p-case-link" href="https://www.theartnewspaper.com/2024/01/16/us-court-rules-madrid-museum-can-keep-pissarro-stolen-from-jewish-family" target="_blank">Art Newspaper →</a>
+      </div>
+    </div>
+
+    <div class="p-case">
+      <div class="p-case-top">
+        <div class="p-case-num">13</div>
+        <div class="p-case-tags"><span class="p-ctag uk">UK</span><span class="p-ctag yr">2024–2025</span><span class="p-ctag new">NEW</span></div>
+      </div>
+      <div class="p-case-name">Tate Britain — Cornelis van Haarlem Restitution</div>
+      <div class="p-case-party">UK Spoliation Advisory Panel</div>
+      <div class="p-case-body">네덜란드 유대인 아트 딜러 Sylvain Hartveld의 상속인들이 Tate Britain이 1994년 브뤼셀 갤러리에서 구입한 1654년 유화의 반환을 청구했다. 영국 약탈 자문 패널은 이 작품이 "인종 박해 행위로 약탈됐다"고 판결했으며, Tate는 2025년 3월 작품을 반환했다.</div>
+      <div class="p-case-footer">
+        <div class="p-case-yr">2025 · Returned</div>
+        <a class="p-case-link" href="https://www.theartnewspaper.com/2025/03/31/tate-returns-nazi-looted-henry-gibbs-painting-to-heirs-of-jewish-dealer" target="_blank">Art Newspaper →</a>
+      </div>
+    </div>
+
+    <div class="p-case">
+      <div class="p-case-top">
+        <div class="p-case-num">14</div>
+        <div class="p-case-tags"><span class="p-ctag us">US</span><span class="p-ctag yr">2023</span><span class="p-ctag new">NEW</span></div>
+      </div>
+      <div class="p-case-name">US Returns Egon Schiele Works — Fritz Grünbaum Heirs</div>
+      <div class="p-case-party">Department of Justice · Repatriation</div>
+      <div class="p-case-body">미국 당국이 1941년 나치에게 살해된 오스트리아 유대인 카바레 배우 Fritz Grünbaum의 상속인들에게 에곤 실레 작품 7점을 반환했다. 여러 작품이 수십 년간 주요 경매 회사와 박물관 컬렉션을 거쳤으며, 해당 기관들의 출처 조사 적절성에 의문을 제기했다.</div>
+      <div class="p-case-footer">
+        <div class="p-case-yr">2023</div>
+        <a class="p-case-link" href="https://www.theartnewspaper.com/2023/09/21/us-returns-egon-schiele-art-looted-by-nazis-to-heirs" target="_blank">Art Newspaper →</a>
+      </div>
+    </div>
+
+    <div class="p-case">
+      <div class="p-case-top">
+        <div class="p-case-num">15</div>
+        <div class="p-case-tags"><span class="p-ctag de">DE</span><span class="p-ctag yr">2025</span><span class="p-ctag new">NEW</span></div>
+      </div>
+      <div class="p-case-name">Germany — New Arbitration Court for Nazi-Looted Art</div>
+      <div class="p-case-party">Federal Government Reform · Binding Authority</div>
+      <div class="p-case-body">독일 정부가 2025년 1월 나치 약탈 예술 반환을 더 쉽게 할 수 있는 새로운 중재 시스템을 승인했다. 구속력 없는 자문 패널에서 구속력 있는 중재 기구로의 전환으로, 느린 해결 속도로 비판받아 온 기존 시스템을 대체한다.</div>
+      <div class="p-case-footer">
+        <div class="p-case-yr">2025 · Reform</div>
+        <a class="p-case-link" href="https://www.theartnewspaper.com/2025/01/10/row-erupts-over-new-german-court-for-nazi-looted-art" target="_blank">Art Newspaper →</a>
+      </div>
+    </div>
+
+    <div class="p-case">
+      <div class="p-case-top">
+        <div class="p-case-num">16</div>
+        <div class="p-case-tags"><span class="p-ctag uk">UK</span><span class="p-ctag yr">2024</span><span class="p-ctag new">NEW</span></div>
+      </div>
+      <div class="p-case-name">Oxford University — Returns Sculpture to India</div>
+      <div class="p-case-party">Voluntary Repatriation · Colonial Collections</div>
+      <div class="p-case-body">옥스퍼드 대학교가 법원 강제 없이 500년 된 조각을 인도에 반환하겠다고 발표했다. 영국 대학과 박물관들이 식민지 시대 수집품을 재검토하는 광범위한 전환을 보여주는 사례로, 법적 강제가 아닌 기관 자발적 행동에 의한 반환의 선례를 만들었다.</div>
+      <div class="p-case-footer">
+        <div class="p-case-yr">2024 · Voluntary</div>
+        <a class="p-case-link" href="https://www.euronews.com/culture/2024/06/11/oxford-university-to-return-500-year-old-sculpture-to-india" target="_blank">Euronews →</a>
+      </div>
+    </div>
+
+    <div class="p-case">
+      <div class="p-case-top">
+        <div class="p-case-num">17</div>
+        <div class="p-case-tags"><span class="p-ctag de">DE</span><span class="p-ctag yr">2017–ongoing</span><span class="p-ctag new">NEW</span></div>
+      </div>
+      <div class="p-case-name">Kunstmuseum Bern — Gurlitt Collection</div>
+      <div class="p-case-party">Germany / Switzerland · 1,500+ Works</div>
+      <div class="p-case-body">Cornelius Gurlitt 사망(2014) 후 나치 약탈 의심 작품 1,500여 점 이상이 베른 미술관으로 이전됐다. 대규모 의심 약탈 컬렉션을 기관이 처리하는 모델을 정립하고 유럽 전역 상속인에게 개별 작품을 반환하는 결과를 낳았다.</div>
+      <div class="p-case-footer">
+        <div class="p-case-yr">2017–ongoing</div>
+        <a class="p-case-link" href="https://www.theartnewspaper.com/topic/gurlitt-collection" target="_blank">Art Newspaper →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TYPE 3 -->
+<section class="p-sec" id="type3">
+  <div class="p-sec-hd">
+    <div class="p-sec-eye">Type 3</div>
+    <div class="p-sec-kr">위작 · 사기 · 금융 범죄</div>
+    <div class="p-sec-en">Forgery, Fraud &amp; Financial Crime</div>
+    <div class="p-sec-rule"></div>
+  </div>
+
+  <div class="p-cases">
+
+    <div class="p-case wide">
+      <div>
+        <div class="p-case-top">
+          <div class="p-case-num">18</div>
+          <div class="p-case-tags"><span class="p-ctag us">US</span><span class="p-ctag yr">2011–2016</span><span class="p-ctag new">NEW</span></div>
+        </div>
+        <div class="p-case-name">Knoedler Gallery Forgery Cases — De Sole v. Knoedler</div>
+        <div class="p-case-party">New York · $63M Forgery Ring</div>
+        <div class="p-case-body">뉴욕 최고(最古)의 상업 갤러리인 Knoedler Gallery가 2011년 문을 닫았다. 디렉터 Ann Freedman이 Rothko, Pollock, de Kooning의 위작 약 40점을 총 6,300만 달러에 판매한 사실이 드러났기 때문이다. 모든 위작은 단일 출처 Glafira Rosales에게서 나왔으며, 그녀는 통신 사기와 자금 세탁 혐의로 유죄를 인정했다.</div>
+      </div>
+      <div>
+        <div class="p-callout">
+          <div class="p-callout-lbl">Institutional Implication</div>
+          <div class="p-callout-txt">갤러리 차원의 조직적 위작 유통이 어떻게 가능했는가. <strong>단일 공급원에 대한 과도한 의존</strong>과 실사 부재가 핵심 문제다. AML(자금세탁방지)과 예술 시장 규제의 교차점을 보여주는 핵심 사례.</div>
+        </div>
+        <div class="p-case-footer">
+          <div class="p-case-yr">2011–2016 · Closed</div>
+          <a class="p-case-link" href="https://www.nytimes.com/2016/02/11/arts/design/knoedler-gallery-fraud-case-settles.html" target="_blank">NYT →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-case">
+      <div class="p-case-top">
+        <div class="p-case-num">19</div>
+        <div class="p-case-tags"><span class="p-ctag us">US</span><span class="p-ctag yr">2022–2023</span><span class="p-ctag new">NEW</span></div>
+      </div>
+      <div class="p-case-name">Orlando Museum of Art — Fake Basquiat Scandal</div>
+      <div class="p-case-party">FBI Investigation · FedEx Box Evidence</div>
+      <div class="p-case-body">올랜도 미술관이 Basquiat 작품 25점 전시를 개최했으나, 일부 작품이 1988년 Basquiat 사망 6년 후인 1994년에야 등장한 폰트가 인쇄된 FedEx 박스에 그려진 것으로 밝혀졌다. 2023년 캘리포니아 경매인 Michael Barzman이 가짜 Basquiat 작품 제작을 인정하고 FBI 인터뷰에서 출처에 관한 허위 진술을 한 혐의로 유죄를 인정했다.</div>
+      <div class="p-case-footer">
+        <div class="p-case-yr">2022–2023</div>
+        <a class="p-case-link" href="https://itsartlaw.org/art-law/the-cost-of-fakes-the-aesthetic-legal-and-economic-implications-of-forgeries/" target="_blank">ItsArtLaw →</a>
+      </div>
+    </div>
+
+    <div class="p-case">
+      <div class="p-case-top">
+        <div class="p-case-num">20</div>
+        <div class="p-case-tags"><span class="p-ctag uk">UK</span><span class="p-ctag yr">2023–2025</span><span class="p-ctag new">NEW</span></div>
+      </div>
+      <div class="p-case-name">R v. Ojiri — Terrorism Financing via Art Sales</div>
+      <div class="p-case-party">Old Bailey · First Conviction of its Kind</div>
+      <div class="p-case-body">런던 아트 딜러이자 BBC <em>Bargain Hunt</em> 전문가인 Oghenochuko Ojiri가 미국과 영국이 헤즈볼라 자금 공급자로 제재한 다이아몬드 딜러 Nazem Ahmad에게 14만 파운드의 예술품을 판매하면서 Ahmad의 신원을 송장에서 은폐했다. 예술 시장 전문가를 대상으로 하는 특정 테러리즘법 조항으로 유죄 판결을 받은 최초의 사례. 2025년 6월 2년 6개월 징역형 선고.</div>
+      <div class="p-case-footer">
+        <div class="p-case-yr">2025 · 2.5년 징역</div>
+        <a class="p-case-link" href="https://www.cps.gov.uk/index.php/cy/node/26576" target="_blank">CPS →</a>
+      </div>
+    </div>
+
+    <div class="p-case">
+      <div class="p-case-top">
+        <div class="p-case-num">21</div>
+        <div class="p-case-tags"><span class="p-ctag us">US</span><span class="p-ctag yr">2022</span><span class="p-ctag new">NEW</span></div>
+      </div>
+      <div class="p-case-name">Inigo Philbrick Art Fraud</div>
+      <div class="p-case-party">S.D.N.Y. · $86M Fraud Scheme</div>
+      <div class="p-case-body">전직 저명 아트 딜러가 2022년 미국 교도소에서 7년 형을 선고받았다. 현대 예술 작품의 소유권 100% 이상을 복수의 투자자에게 동시에 반복 판매하고 그 자금으로 호화 생활을 유지한 8,600만 달러 사기 사건. 예술 시장의 소유권 검증 체계 부재를 드러낸다.</div>
+      <div class="p-case-footer">
+        <div class="p-case-yr">2022 · 7년 징역</div>
+        <div class="p-case-link">DOJ S.D.N.Y.</div>
+      </div>
+    </div>
+
+    <div class="p-case">
+      <div class="p-case-top">
+        <div class="p-case-num">22</div>
+        <div class="p-case-tags"><span class="p-ctag it">IT</span><span class="p-ctag yr">2022–2025</span><span class="p-ctag new">NEW</span></div>
+      </div>
+      <div class="p-case-name">Italian Forgery Workshop — Rome Raids</div>
+      <div class="p-case-party">19 Artists · Multiple Auction Houses</div>
+      <div class="p-case-body">이탈리아 경찰이 제작 중인 캔버스와 재료 노화 도구가 가득한 위작 공방을 적발했다. 조사 결과 복수의 이탈리아 경매 회사가 Warhol, Banksy, Mondrian, Kandinsky, Klee를 포함한 19명 이상의 작가로 허위 귀속된 작품을 판매한 것으로 밝혀졌다.</div>
+      <div class="p-case-footer">
+        <div class="p-case-yr">2022–2025</div>
+        <a class="p-case-link" href="https://www.artnews.com/art-news/news/art-forgery-workshop-busted-by-italian-police-rome-1234732858/" target="_blank">ArtNews →</a>
+      </div>
+    </div>
+
+    <div class="p-case">
+      <div class="p-case-top">
+        <div class="p-case-num">23</div>
+        <div class="p-case-tags"><span class="p-ctag ca">CA</span><span class="p-ctag yr">2025–2026</span><span class="p-ctag new">NEW</span></div>
+      </div>
+      <div class="p-case-name">Norval Morrisseau Art Fraud Ring</div>
+      <div class="p-case-party">Canada · Indigenous Artist · 수천 점 위작</div>
+      <div class="p-case-body">캐나다 당국이 고(故) 원주민 예술가 Norval Morrisseau의 작품으로 허위 귀속해 수천 점의 가짜 작품을 제작·판매한 복수의 인물을 체포했다. 주모자들은 2025년과 2026년 사기 혐의로 유죄 판결을 받았으며, 캐나다 역사상 가장 대규모 예술 위작 사건 중 하나가 됐다.</div>
+      <div class="p-case-footer">
+        <div class="p-case-yr">2025–2026 · Conviction</div>
+        <a class="p-case-link" href="https://www.ctvnews.ca/barrie/article/ont-man-convicted-of-fraud-in-morrisseau-art-forgery-case-hires-appeal-lawyers-for-sentencing-hearing/" target="_blank">CTV News →</a>
+      </div>
+    </div>
+
+    <div class="p-case">
+      <div class="p-case-top">
+        <div class="p-case-num">24</div>
+        <div class="p-case-tags"><span class="p-ctag eu">ES</span><span class="p-ctag yr">2024</span><span class="p-ctag new">NEW</span></div>
+      </div>
+      <div class="p-case-name">Spain — Banksy Fakes Ring, Zaragoza</div>
+      <div class="p-case-party">Spanish Police · Anonymous Artist Problem</div>
+      <div class="p-case-body">스페인 경찰이 2024년 3월 사라고사에서 Banksy 위작 제작·판매 조직을 적발하고 4명을 체포했다. 개당 최대 1,500유로에 판매된 위작들은 익명으로 활동하는 작가의 작품을 인증하는 전통적 메커니즘이 부재한 상황에서 발생하는 특수한 위험을 드러낸다.</div>
+      <div class="p-case-footer">
+        <div class="p-case-yr">2024 · Spain</div>
+        <a class="p-case-link" href="https://www.euronews.com/2024/03/08/spanish-police-say-they-have-smashed-banksy-fakes-ring" target="_blank">Euronews →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="p-foot">
+  <div class="p-foot-l">
+    <div class="p-foot-logo">SYR<span>.</span>EDITION</div>
+  </div>
+  <div class="p-foot-r">
+    <div class="p-foot-contact">info@syr.co.kr</div>
+    <div class="p-foot-c">© 2026 syr</div>
+  </div>
+</footer>
+
+</div><!-- .p -->

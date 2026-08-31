@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SYR · AMD — 아트 마켓 인프라</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Noto+Serif+KR:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --c1: #2C2C2A;
+  --c2: #8C8680;
+  --c3: #F0EDE8;
+  --white: #FFFFFF;
+  --off: #F8F6F3;
+  --line: #DDD9D4;
+  --muted: #A09C97;
+  --serif: "Noto Serif KR", "Cormorant Garamond", Georgia, serif;
+  --sans: "Noto Sans KR", sans-serif;
+  --mono: "DM Mono", monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { background: var(--white); color: var(--c1); font-family: var(--sans); font-weight: 300; overflow-x: hidden; line-height: 1.75; }
+
+/* ── SLIDE CONTAINER ── */
+.deck { width: 100%; }
+.slide {
+  width: 100%; min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; overflow: hidden;
+  padding: 5rem 6vw;
+}
+.slide.full { padding: 0; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.1rem 3rem;
+  background: rgba(255,255,255,0.93);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-logo img { height: 16px; opacity: 0.8; }
+.nav-progress { display: flex; gap: 5px; align-items: center; }
+.nav-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--line); cursor: pointer; transition: all 0.2s;
+}
+.nav-dot.active { background: var(--c1); transform: scale(1.4); }
+.nav-dot:hover { background: var(--c2); }
+.nav-cta {
+  font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--white); background: var(--c1);
+  padding: 0.5rem 1.3rem; text-decoration: none; transition: opacity 0.2s;
+}
+.nav-cta:hover { opacity: 0.75; }
+
+/* ── SCROLL INDICATOR ── */
+.scroll-hint {
+  position: fixed; bottom: 2rem; right: 2.5rem; z-index: 100;
+  display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+  opacity: 1; transition: opacity 0.4s;
+}
+.scroll-hint.hidden { opacity: 0; pointer-events: none; }
+.scroll-hint span {
+  font-family: var(--mono); font-size: 0.52rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--muted);
+  writing-mode: vertical-rl;
+}
+.scroll-arrow {
+  width: 1px; height: 40px;
+  background: linear-gradient(to bottom, var(--line), transparent);
+  animation: scrollPulse 1.8s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%,100% { transform: scaleY(1); opacity: 0.6; }
+  50% { transform: scaleY(0.6); opacity: 1; }
+}
+
+/* ── SLIDE COUNTER ── */
+.slide-counter {
+  position: absolute; bottom: 2.2rem; right: 2.5rem;
+  font-family: var(--mono); font-size: 0.6rem; color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+/* ── SECTION TAG ── */
+.stag {
+  font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 1.2rem;
+}
+.stag.light { color: rgba(255,255,255,0.45); }
+
+/* ─────────────────────────────────────────
+   SLIDE 01: COVER
+───────────────────────────────────────── */
+#s01 {
+  background: var(--c1); min-height: 100vh; padding: 0;
+  display: grid; grid-template-columns: 62% 38%;
+}
+.cover-left {
+  padding: 7rem 5vw 4rem;
+  display: flex; flex-direction: column; justify-content: space-between;
+  position: relative;
+}
+.cover-left::after {
+  content: ''; position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 48px 48px; pointer-events: none;
+}
+.cover-syr {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(5rem, 12vw, 9rem);
+  font-weight: 300; color: var(--white);
+  line-height: 0.9; letter-spacing: -0.02em;
+  position: relative; z-index: 1;
+}
+.cover-tagline {
+  font-family: var(--serif); font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 300; color: var(--c3); font-style: italic;
+  margin-top: 1.5rem; position: relative; z-index: 1;
+}
+.cover-sub {
+  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.18em;
+  color: var(--c2); margin-top: 0.5rem; position: relative; z-index: 1;
+}
+.cover-footer {
+  position: relative; z-index: 1;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1.5rem;
+  font-family: var(--mono); font-size: 0.6rem; color: var(--c2); letter-spacing: 0.1em;
+}
+.cover-right {
+  background: var(--c3);
+  padding: 7rem 3vw 4rem;
+  display: flex; flex-direction: column; justify-content: center;
+  border-left: 3px solid var(--c2);
+}
+.amd-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 300; color: var(--c1); line-height: 1;
+}
+.amd-sub {
+  font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em;
+  color: var(--c2); margin-top: 0.6rem; text-transform: uppercase;
+}
+.amd-divider { width: 3rem; height: 1px; background: var(--line); margin: 1.5rem 0; }
+.amd-desc {
+  font-family: var(--mono); font-size: 0.7rem; color: var(--muted);
+  letter-spacing: 0.04em; line-height: 1.8;
+}
+
+/* ─────────────────────────────────────────
+   SLIDE 02: WHY NOW
+───────────────────────────────────────── */
+#s02 { background: var(--white); min-height: 100vh; }
+.gap-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.8rem;
+}
+.gap-card {
+  background: var(--c3); border: 1px solid var(--line);
+  padding: 2rem 1.6rem;
+  position: relative; overflow: hidden;
+}
+.gap-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--c2);
+}
+.gap-num {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3rem; font-weight: 300; color: var(--c2);
+  line-height: 1; display: block; margin-bottom: 1rem;
+}
+.gap-title {
+  font-family: var(--serif); font-size: 1.1rem; color: var(--c1);
+  margin-bottom: 0.8rem; font-weight: 400;
+}
+.gap-body { font-size: 0.86rem; color: var(--c2); line-height: 1.85; word-break: keep-all; }
+.slide-note {
+  margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line);
+  font-family: var(--mono); font-size: 0.68rem; color: var(--muted);
+  font-style: italic;
+}
+
+/* ─────────────────────────────────────────
+   SLIDE 03: ABOUT
+───────────────────────────────────────── */
+#s03 { background: var(--c3); min-height: 100vh; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 2rem; }
+.about-body p { font-size: 0.95rem; color: var(--c1); line-height: 2; margin-bottom: 1.2rem; word-break: keep-all; }
+.about-body strong { color: var(--c1); font-weight: 500; }
+.pillars-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line); margin-top: 2rem; }
+.pillar {
+  background: var(--white); padding: 1.6rem 1rem; text-align: center;
+  transition: background 0.2s;
+}
+.pillar:hover { background: var(--off); }
+.pillar-letter {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.2rem; color: var(--c1); display: block; font-weight: 300;
+}
+.pillar-en {
+  font-family: var(--mono); font-size: 0.52rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--muted); display: block; margin-top: 0.3rem;
+}
+.pillar-kr { font-size: 0.78rem; color: var(--c2); display: block; margin-top: 0.3rem; }
+.milestones-strip {
+  margin-top: 2.5rem; padding: 1.2rem 1.5rem; background: var(--c1);
+  font-family: var(--mono); font-size: 0.68rem; color: var(--c3);
+  letter-spacing: 0.06em; display: flex; flex-wrap: wrap; gap: 0.5rem 2rem;
+}
+.milestones-strip span { opacity: 0.7; }
+
+/* ─────────────────────────────────────────
+   SLIDE 04: AMD PRODUCT
+───────────────────────────────────────── */
+#s04 { background: var(--white); min-height: 100vh; }
+.product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2.4rem; }
+.product-card {
+  background: var(--c3); border: 1px solid var(--line); padding: 1.8rem 1.6rem;
+  border-left: 3px solid var(--c1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.product-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(44,44,42,0.08); }
+.product-title { font-family: var(--serif); font-size: 1.15rem; color: var(--c1); margin-bottom: 0.7rem; }
+.product-body { font-size: 0.85rem; color: var(--c2); line-height: 1.85; word-break: keep-all; }
+.product-tag {
+  display: inline-block; margin-top: 0.9rem;
+  font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--c2); background: var(--off);
+  padding: 0.2rem 0.6rem; border: 1px solid var(--line);
+}
+
+/* ─────────────────────────────────────────
+   SLIDE 05: SERVICES
+───────────────────────────────────────── */
+#s05 { background: var(--c3); min-height: 100vh; }
+.services-list { display: flex; flex-direction: column; gap: 1px; background: var(--line); margin-top: 2rem; }
+.svc-row {
+  background: var(--white); padding: 1.3rem 1.8rem;
+  display: grid; grid-template-columns: 2.5rem 1fr auto auto;
+  align-items: center; gap: 1.5rem;
+  transition: background 0.18s;
+}
+.svc-row:hover { background: var(--off); }
+.svc-num { font-family: "Cormorant Garamond", serif; font-size: 1.3rem; color: var(--c2); }
+.svc-title { font-family: var(--serif); font-size: 1.05rem; color: var(--c1); word-break: keep-all; }
+.svc-badge {
+  font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--c2);
+  border: 1px solid var(--line); padding: 0.22rem 0.65rem; white-space: nowrap;
+}
+.svc-desc { font-size: 0.82rem; color: var(--muted); text-align: right; max-width: 22ch; word-break: keep-all; }
+
+/* ─────────────────────────────────────────
+   SLIDE 06: BUSINESS MODEL
+───────────────────────────────────────── */
+#s06 { background: var(--white); min-height: 100vh; }
+.model-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--line); margin-top: 2.4rem; }
+.model-card {
+  background: var(--c3); padding: 2rem 1.4rem;
+  display: flex; flex-direction: column; gap: 0.8rem;
+  position: relative;
+}
+.model-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.model-card:nth-child(1)::before, .model-card:nth-child(2)::before { background: var(--c1); }
+.model-card:nth-child(3)::before, .model-card:nth-child(4)::before { background: var(--c2); }
+.model-name { font-family: var(--serif); font-size: 1rem; color: var(--c1); line-height: 1.35; }
+.model-price { font-family: "Cormorant Garamond", serif; font-size: 1.4rem; color: var(--c2); font-weight: 300; }
+.model-proj { font-size: 0.8rem; color: var(--muted); line-height: 1.7; }
+.mrr-bar {
+  margin-top: 2rem; background: var(--c1); padding: 1rem 2rem;
+  font-family: var(--mono); font-size: 0.72rem; color: var(--c3);
+  letter-spacing: 0.06em; display: flex; gap: 2rem; flex-wrap: wrap; align-items: center;
+}
+.mrr-item strong { color: var(--white); }
+
+/* ─────────────────────────────────────────
+   SLIDE 07: TRACTION
+───────────────────────────────────────── */
+#s07 { background: var(--c3); min-height: 100vh; }
+.timeline { display: flex; flex-direction: column; gap: 0; margin-top: 2.2rem; position: relative; }
+.tl-item {
+  display: grid; grid-template-columns: 7rem 1.4rem 1fr;
+  gap: 0 1.2rem; align-items: start; padding-bottom: 1.6rem;
+}
+.tl-date { font-family: var(--mono); font-size: 0.68rem; color: var(--c2); padding-top: 0.15rem; }
+.tl-dot-col { display: flex; flex-direction: column; align-items: center; }
+.tl-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--c1); flex-shrink: 0; margin-top: 0.12rem;
+}
+.tl-dot.future { background: var(--line); border: 1px solid var(--c2); }
+.tl-line { width: 1px; flex: 1; background: var(--line); min-height: 1.4rem; }
+.tl-content {}
+.tl-title { font-family: var(--serif); font-size: 1.05rem; color: var(--c1); margin-bottom: 0.22rem; }
+.tl-title.future { color: var(--c2); }
+.tl-sub { font-size: 0.82rem; color: var(--muted); }
+
+/* ─────────────────────────────────────────
+   SLIDE 08: MARKET
+───────────────────────────────────────── */
+#s08 { background: var(--white); min-height: 100vh; }
+.stats-trio { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.4rem; }
+.stat-card {
+  background: var(--c3); border: 1px solid var(--line);
+  padding: 2rem 1.4rem; text-align: center;
+  transition: transform 0.2s;
+}
+.stat-card:hover { transform: translateY(-2px); }
+.stat-num {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4vw, 3rem); color: var(--c1); display: block; font-weight: 300;
+}
+.stat-label { font-family: var(--serif); font-size: 0.95rem; color: var(--c2); margin-top: 0.3rem; }
+.stat-sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.4rem; }
+.adv-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.2rem; margin-top: 2.5rem; }
+.adv-card {
+  background: var(--off); border: 1px solid var(--line);
+  border-left: 3px solid var(--c2);
+  padding: 1.2rem 1rem;
+}
+.adv-title { font-family: var(--serif); font-size: 0.95rem; color: var(--c1); margin-bottom: 0.5rem; }
+.adv-body { font-size: 0.8rem; color: var(--c2); line-height: 1.75; word-break: keep-all; }
+
+/* ─────────────────────────────────────────
+   SLIDE 09: ROADMAP
+───────────────────────────────────────── */
+#s09 { background: var(--c3); min-height: 100vh; }
+.phase-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--line); margin-top: 2.4rem; }
+.phase-card {
+  background: var(--white); padding: 2rem 1.4rem;
+  display: flex; flex-direction: column; gap: 0.8rem;
+  transition: background 0.2s;
+}
+.phase-card:hover { background: var(--off); }
+.phase-card.active { background: var(--c1); }
+.phase-num { font-family: "Cormorant Garamond", serif; font-size: 2rem; color: var(--c2); font-weight: 300; }
+.phase-card.active .phase-num { color: var(--c3); opacity: 0.7; }
+.phase-label { font-family: var(--serif); font-size: 1rem; color: var(--c1); font-weight: 400; }
+.phase-card.active .phase-label { color: var(--c3); }
+.phase-period { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); }
+.phase-card.active .phase-period { color: var(--c2); }
+.phase-divider { width: 2rem; height: 1px; background: var(--line); }
+.phase-card.active .phase-divider { background: rgba(255,255,255,0.15); }
+.phase-items { display: flex; flex-direction: column; gap: 0.4rem; }
+.phase-item { font-size: 0.82rem; color: var(--c2); word-break: keep-all; line-height: 1.5; }
+.phase-card.active .phase-item { color: var(--c3); opacity: 0.85; }
+.phase-badge {
+  margin-top: auto; align-self: flex-start;
+  font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--c2); border: 1px solid var(--c2);
+  padding: 0.18rem 0.55rem;
+}
+
+/* ─────────────────────────────────────────
+   SLIDE 10: TEAM
+───────────────────────────────────────── */
+#s10 { background: var(--white); min-height: 100vh; }
+.team-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 2.2rem; align-items: start; }
+.founder-card {
+  background: var(--c3); border: 1px solid var(--line);
+  padding: 2.2rem; position: relative; overflow: hidden;
+}
+.founder-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: var(--c1);
+}
+.founder-avatar {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--c2); display: flex; align-items: center; justify-content: center;
+  font-family: "Cormorant Garamond", serif; font-size: 1.3rem; color: var(--white);
+  margin-bottom: 1.2rem;
+}
+.founder-name { font-family: var(--serif); font-size: 1.4rem; color: var(--c1); }
+.founder-kr { font-family: var(--mono); font-size: 0.68rem; color: var(--c2); margin-bottom: 1rem; }
+.founder-divider { width: 100%; height: 1px; background: var(--line); margin: 1rem 0; }
+.founder-roles { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 1.2rem; }
+.founder-role { font-size: 0.85rem; color: var(--c2); }
+.founder-role.primary { color: var(--c1); font-weight: 500; }
+.founder-contact { display: flex; flex-direction: column; gap: 0.3rem; }
+.founder-contact a {
+  font-family: var(--mono); font-size: 0.72rem; color: var(--c2);
+  text-decoration: none; transition: color 0.2s;
+}
+.founder-contact a:hover { color: var(--c1); }
+.open-roles-title { font-family: var(--serif); font-size: 1.1rem; color: var(--c1); margin-bottom: 1.2rem; }
+.open-roles { display: flex; flex-direction: column; gap: 1rem; }
+.role-card {
+  background: var(--off); border: 1px solid var(--line);
+  border-left: 3px solid var(--c2); padding: 1rem 1.1rem;
+}
+.role-title { font-family: var(--serif); font-size: 0.95rem; color: var(--c1); margin-bottom: 0.3rem; }
+.role-desc { font-size: 0.8rem; color: var(--c2); }
+
+/* ─────────────────────────────────────────
+   SLIDE 11: FUNDING
+───────────────────────────────────────── */
+#s11 { background: var(--c3); min-height: 100vh; }
+.funding-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2.2rem; }
+.funding-col-title { font-family: var(--serif); font-size: 1.1rem; color: var(--c1); margin-bottom: 0.8rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--line); }
+.funding-items { display: flex; flex-direction: column; gap: 0.8rem; }
+.funding-item {
+  background: var(--white); border: 1px solid var(--line);
+  padding: 0.9rem 1.1rem; display: flex; justify-content: space-between; align-items: center;
+  transition: background 0.15s;
+}
+.funding-item:hover { background: var(--off); }
+.funding-item.highlight { background: var(--c1); border-color: var(--c1); }
+.fi-left {}
+.fi-name { font-family: var(--serif); font-size: 0.95rem; color: var(--c1); }
+.funding-item.highlight .fi-name { color: var(--white); }
+.fi-timing { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); margin-top: 0.15rem; }
+.funding-item.highlight .fi-timing { color: var(--c2); }
+.fi-amt { font-family: "Cormorant Garamond", serif; font-size: 1.2rem; color: var(--c2); text-align: right; }
+.funding-item.highlight .fi-amt { color: var(--c3); font-size: 1.35rem; }
+
+/* ─────────────────────────────────────────
+   SLIDE 12: CLOSING
+───────────────────────────────────────── */
+#s12 {
+  background: var(--c1); min-height: 100vh; padding: 0;
+  display: grid; grid-template-columns: 62% 38%;
+}
+.closing-left {
+  padding: 7rem 5vw 4rem;
+  display: flex; flex-direction: column; justify-content: space-between;
+  position: relative;
+}
+.closing-left::after {
+  content: ''; position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 48px 48px; pointer-events: none;
+}
+.closing-headline {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 6vw, 4.8rem);
+  font-weight: 300; color: var(--white);
+  line-height: 1.2; word-break: keep-all;
+  position: relative; z-index: 1;
+}
+.closing-sub {
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em;
+  color: var(--c2); position: relative; z-index: 1;
+}
+.closing-footer {
+  position: relative; z-index: 1;
+  border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem;
+  font-family: var(--mono); font-size: 0.6rem; color: rgba(255,255,255,0.35);
+  letter-spacing: 0.08em;
+}
+.closing-right {
+  background: var(--c3); border-left: 3px solid var(--c2);
+  padding: 7rem 3vw 4rem;
+  display: flex; flex-direction: column; justify-content: center; gap: 2.2rem;
+}
+.contact-block {}
+.contact-label {
+  font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 0.3rem;
+}
+.contact-value { font-family: var(--serif); font-size: 1rem; color: var(--c1); }
+.contact-value a { color: var(--c1); text-decoration: none; }
+.contact-value a:hover { text-decoration: underline; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  #s01, #s12 { grid-template-columns: 1fr; }
+  .cover-right, .closing-right { border-left: none; border-top: 3px solid var(--c2); }
+  .gap-grid, .product-grid, .stats-trio, .adv-grid,
+  .phase-grid, .team-layout, .funding-cols, .about-grid,
+  .model-grid { grid-template-columns: 1fr; }
+  .svc-row { grid-template-columns: 2rem 1fr; }
+  .svc-badge, .svc-desc { display: none; }
+  nav { padding: 1rem 1.5rem; }
+  .slide { padding: 4.5rem 1.4rem 3rem; }
+}
+@media (max-width: 480px) {
+  .milestones-strip { flex-direction: column; gap: 0.3rem; }
+  .mrr-bar { flex-direction: column; gap: 0.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-progress" id="navProgress">
+    <div class="closing-sub">
+        <a class="closing-sub" href="/home">Home</a>
+        <a class="closing-sub" href="/about">About</a>
+        <a class="closing-sub" href="/news">News</a>  
+        <a class="closing-sub"href="/briefing">Briefing</a>  
+        <a class="closing-sub" href="/book">Book</a>
+        <a class="closing-sub"href="/case">Case</a>   
+        <a class="closing-sub" href="/artist">Artist</a>   
+        <a class="closing-sub" href="/contact">Contact</a>   
+    </div>
+  </div>
+</nav>
+
+<!-- SCROLL HINT -->
+<div class="scroll-hint" id="scrollHint">
+  <span>Scroll</span>
+  <div class="scroll-arrow"></div>
+</div>
+
+<!-- ══ SLIDE 01: COVER ══ -->
+<section id="s01" class="slide full">
+  <div class="cover-left">
+    <div>
+      <div class="cover-syr">SYR</div>
+      <p class="cover-sub"> Stay Curious Stay Strategic </p>
+    </div>
+    <div class="cover-footer">
+    </div>
+  </div>
+  <div class="cover-right">
+    <div class="amd-divider"></div>
+    <div class="amd-desc">SYR Edition <br> 문화예술 프로그램을 그려갑니다. </div>
+  </div>
+</section>
+
+<!-- ══ SLIDE 12: CLOSING ══ -->
+<section id="s12" class="slide full">
+  <div class="closing-left">
+    <div>
+      <div class="closing-headline">예술로 소통하고 문화로 담아냅니다.</div>
+      <p class="closing-sub" style="margin-top:1.5rem;">Art, Culture and Beyond</p>
+    </div>
+    <div class="closing-footer">
+      © syr
+    </div>
+  </div>
+  <div class="closing-right">
+
+    
+  </div>
+</section>
+
+<script>
+// ── SCROLL REVEAL ──
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+
+// ── NAV DOTS ──
+const slides = document.querySelectorAll('section[id]');
+const dots = document.querySelectorAll('.nav-dot');
+const scrollHint = document.getElementById('scrollHint');
+
+const slideObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting && e.intersectionRatio > 0.4) {
+      const id = e.target.id;
+      dots.forEach(d => d.classList.toggle('active', d.dataset.target === id));
+      scrollHint.classList.toggle('hidden', id === 's12');
+    }
+  });
+}, { threshold: 0.4 });
+slides.forEach(s => slideObserver.observe(s));
+
+// ── DOT CLICK ──
+dots.forEach(d => {
+  d.addEventListener('click', () => {
+    document.getElementById(d.dataset.target)?.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// ── HIDE SCROLL HINT AFTER FIRST SCROLL ──
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 200) scrollHint.classList.add('hidden');
+}, { once: true });
+</script>
+</body>
+</html>
