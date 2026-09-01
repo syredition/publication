@@ -18,132 +18,103 @@ html{scroll-behavior:smooth}
 body{font-family:var(--fb);font-weight:300;color:var(--text);background:var(--white);
   word-break:keep-all;overflow-wrap:break-word;overflow-x:hidden}
 a{color:var(--navy);text-decoration:none}
-a:hover{opacity:.75}
+a:hover{opacity:.72}
 img{max-width:100%;display:block}
 
-/* ── SITE NAV ────────────────────────────── */
-.site-nav{
-  border-bottom:1px solid var(--rule);
-  padding:.6rem 6vw;
-  display:flex;align-items:center;gap:1.5rem;
-  font-size:.65rem;letter-spacing:.1em;
-  background:var(--white);
-}
-.site-nav .logo{
-  font-family:var(--fd);font-weight:600;
-  font-size:.9rem;color:var(--deep);letter-spacing:.04em;
-  margin-right:auto;
-}
-.site-nav a{color:var(--muted);white-space:nowrap}
-.site-nav a.active,.site-nav a:hover{color:var(--deep)}
-@media(max-width:768px){
-  .site-nav{overflow-x:auto;flex-wrap:nowrap;
-    padding:.5rem 1rem;gap:1rem;scrollbar-width:none}
-  .site-nav::-webkit-scrollbar{display:none}
-}
+/* ── LANGUAGE SWITCHING ──────────── */
+body .en{display:none}
+body .ko{display:inline}
+body.lang-en .en{display:inline}
+body.lang-en .ko{display:none}
+/* block-level versions */
+body p.en,body div.en,body li.en{display:none}
+body p.ko,body div.ko,body li.ko{display:block}
+body.lang-en p.en,body.lang-en div.en,body.lang-en li.en{display:block}
+body.lang-en p.ko,body.lang-en div.ko,body.lang-en li.ko{display:none}
 
-/* ── MASTHEAD ────────────────────────────── */
+/* ── SITE NAV ──────────────────────── */
+.site-nav{border-bottom:1px solid var(--rule);padding:.6rem 6vw;
+  display:flex;align-items:center;gap:1.5rem;
+  font-size:.65rem;letter-spacing:.1em;background:var(--white)}
+.site-nav .logo{font-family:var(--fd);font-weight:600;
+  font-size:.9rem;color:var(--deep);letter-spacing:.04em;margin-right:auto}
+.site-nav a{color:var(--muted);white-space:nowrap}
+.site-nav a.cur,.site-nav a:hover{color:var(--deep)}
+.site-nav .lang-btn{margin-left:auto}
+
+/* ── MASTHEAD ─────────────────────── */
 .masthead{padding:3rem 6vw 2rem;border-bottom:1px solid var(--rule)}
 .masthead h1{font-family:var(--fd);font-weight:300;
-  font-size:clamp(2rem,4vw,3rem);color:var(--deep);
-  line-height:1;margin-bottom:.5rem}
+  font-size:clamp(2rem,4vw,3rem);color:var(--deep);line-height:1;margin-bottom:.5rem}
 .masthead p{font-size:.9rem;color:var(--muted)}
 
-/* ── STICKY ARTIST NAV ───────────────────── */
+/* ── STICKY ARTIST NAV ─────────────── */
 .artist-nav{
   position:sticky;top:0;z-index:200;
-  padding:.65rem 6vw;
-  border-bottom:1px solid var(--rule);
+  padding:.65rem 6vw;border-bottom:1px solid var(--rule);
   background:rgba(255,255,255,.97);
   backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  display:flex;flex-wrap:wrap;gap:.3rem .55rem;
-  font-size:.7rem;letter-spacing:.06em;color:var(--muted);
+  display:flex;align-items:center;gap:.5rem;
   transition:box-shadow .2s;
 }
 .artist-nav.scrolled{box-shadow:0 2px 14px rgba(0,0,0,.08)}
-.artist-nav a{
-  color:var(--muted);white-space:nowrap;
+.nav-links{display:flex;flex-wrap:wrap;gap:.3rem .5rem;flex:1;min-width:0;
+  font-size:.7rem;letter-spacing:.06em}
+.nav-links a{color:var(--muted);white-space:nowrap;
   padding:.15rem .3rem;border-radius:2px;
-  transition:color .15s,background .15s;
-}
-.artist-nav a:hover{color:var(--deep);background:var(--cream)}
-.artist-nav a.active{color:var(--navy);font-weight:500}
-.idx-num{color:var(--rule);flex-shrink:0}
-@media(max-width:768px){
-  .artist-nav{
-    flex-wrap:nowrap;overflow-x:auto;
-    padding:.55rem 1rem;gap:.2rem .4rem;
-    scrollbar-width:none;
-  }
-  .artist-nav::-webkit-scrollbar{display:none}
-  .idx-num{display:none}
-  .artist-nav a{font-size:.68rem;padding:.2rem .35rem}
-}
+  transition:color .15s,background .15s}
+.nav-links a:hover{color:var(--deep);background:var(--cream)}
+.nav-links a.active{color:var(--navy);font-weight:500}
 
-/* ── ARTIST ENTRY ────────────────────────── */
-.artist{
-  padding:3rem 6vw;
-  border-bottom:1px solid var(--rule);
+/* ── LANG TOGGLE ──────────────────── */
+.lang-btn{
+  flex-shrink:0;margin-left:auto;
+  font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;
+  border:1px solid var(--rule);background:none;color:var(--muted);
+  padding:.25rem .65rem;border-radius:2px;cursor:pointer;
+  transition:border-color .15s,color .15s;font-family:var(--fb);
+  white-space:nowrap;
 }
+.lang-btn:hover{border-color:var(--navy);color:var(--navy)}
+
+/* ── ARTIST ENTRY ──────────────────── */
+.artist{padding:3rem 6vw;border-bottom:1px solid var(--rule)}
 .artist:target{background:var(--cream)}
-.artist-hd{
-  display:flex;align-items:baseline;gap:1.5rem;
-  margin-bottom:1.75rem;flex-wrap:wrap;
-}
-.artist-num{
-  font-family:var(--fd);font-weight:300;
-  font-size:2.8rem;color:var(--rule);line-height:1;flex-shrink:0;
-}
-.artist-name{
-  font-family:var(--fd);font-weight:600;
-  font-size:clamp(1.5rem,2.8vw,2.2rem);
-  color:var(--deep);line-height:1;margin-bottom:.25rem;
-}
+.artist-hd{display:flex;align-items:baseline;gap:1.5rem;
+  margin-bottom:1.75rem;flex-wrap:wrap}
+.artist-num{font-family:var(--fd);font-weight:300;
+  font-size:2.8rem;color:var(--rule);line-height:1;flex-shrink:0}
+.artist-name{font-family:var(--fd);font-weight:600;
+  font-size:clamp(1.5rem,2.8vw,2.2rem);color:var(--deep);
+  line-height:1;margin-bottom:.25rem}
 .artist-meta{font-size:.78rem;color:var(--muted);margin-bottom:.5rem}
 .tags{display:flex;flex-wrap:wrap;gap:4px}
-.tag{
-  font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;
-  border:1px solid var(--rule);color:var(--muted);
-  padding:2px 8px;border-radius:10px;
-}
+.tag{font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;
+  border:1px solid var(--rule);color:var(--muted);padding:2px 8px;border-radius:10px}
 
-/* ── FIELDS ──────────────────────────────── */
+/* ── FIELDS ──────────────────────── */
 .fields{display:grid;gap:0}
-.field{
-  display:grid;grid-template-columns:120px 1fr;gap:1rem;
-  padding:.65rem 0;border-bottom:1px solid var(--rule);
-}
+.field{display:grid;grid-template-columns:120px 1fr;gap:1rem;
+  padding:.65rem 0;border-bottom:1px solid var(--rule)}
 .field:last-child{border-bottom:none}
-.field-lbl{
-  font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--muted);padding-top:3px;font-weight:500;
-}
+.field-lbl{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);padding-top:3px;font-weight:500}
 .field-val{font-size:.875rem;color:var(--text);line-height:1.72}
-.field-val.serif{
-  font-family:var(--fd);font-style:italic;
-  font-size:1rem;line-height:1.75;
-}
+.field-val.serif{font-family:var(--fd);font-style:italic;font-size:1rem;line-height:1.75}
 
 /* exhibitions */
 .exh-list{list-style:none;display:flex;flex-direction:column;gap:.35rem;padding:0}
 .exh-list li{font-size:.85rem;line-height:1.5}
-.exh-yr{
-  font-family:var(--fd);font-weight:600;
-  color:var(--accent);margin-right:.5rem;font-size:.95rem;
-}
+.exh-yr{font-family:var(--fd);font-weight:600;color:var(--accent);
+  margin-right:.5rem;font-size:.95rem}
 .exh-note{font-size:.75rem;color:var(--muted)}
 
-/* price table */
+/* price */
 .price-tbl{width:100%;border-collapse:collapse;font-size:.82rem;margin-top:.35rem}
-.price-tbl th{
-  text-align:left;font-size:.58rem;letter-spacing:.1em;
+.price-tbl th{text-align:left;font-size:.58rem;letter-spacing:.1em;
   text-transform:uppercase;color:var(--muted);font-weight:400;
-  border-bottom:1px solid #999;padding:.35rem .5rem .35rem 0;
-}
-.price-tbl td{
-  padding:.45rem .5rem .45rem 0;
-  border-bottom:1px solid var(--rule);vertical-align:top;
-}
+  border-bottom:1px solid #999;padding:.35rem .5rem .35rem 0}
+.price-tbl td{padding:.45rem .5rem .45rem 0;border-bottom:1px solid var(--rule);vertical-align:top}
 .price-tbl td.yr{color:var(--accent);font-family:var(--fd);font-weight:600;font-size:.95rem}
 .price-tbl td.muted{color:var(--muted)}
 .price-tbl td.price{color:#0A8C6E;font-weight:500}
@@ -151,82 +122,57 @@ img{max-width:100%;display:block}
 
 /* links */
 .link-row{display:flex;flex-wrap:wrap;gap:.5rem;padding:.15rem 0}
-.link-btn{
-  font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;
-  border:1px solid var(--rule);color:var(--muted);
-  padding:.25rem .75rem;border-radius:2px;
-  transition:border-color .15s,color .15s;
-}
+.link-btn{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;
+  border:1px solid var(--rule);color:var(--muted);padding:.25rem .75rem;
+  border-radius:2px;transition:border-color .15s,color .15s}
 .link-btn:hover{border-color:var(--navy);color:var(--navy)}
 
-/* artwork images */
-.art-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:1.5rem;margin:.25rem 0;
-}
+/* artwork */
+.art-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin:.25rem 0}
 .art-fig{margin:0;display:flex;flex-direction:column;gap:.5rem}
-.art-img-wrap{
-  background:var(--cream);overflow:hidden;border-radius:1px;
-  display:flex;align-items:center;justify-content:center;
-  min-height:160px;
-}
-.art-img-wrap img{width:100%;height:auto;max-height:460px;object-fit:contain}
+.art-img-wrap{background:var(--cream);overflow:hidden;border-radius:1px;
+  display:flex;align-items:center;justify-content:center;min-height:150px}
+.art-img-wrap img{width:100%;height:auto;max-height:440px;object-fit:contain}
 .img-err{padding:1.5rem;font-size:.72rem;color:var(--muted);text-align:center;width:100%}
 figcaption{padding:.6rem 0 0;border-top:1px solid var(--rule)}
-.art-caption{
-  font-family:var(--fd);font-style:italic;font-size:.85rem;
-  line-height:1.6;color:var(--text);margin-bottom:.35rem;
-}
-.art-meta{
-  display:flex;justify-content:space-between;
-  align-items:flex-start;gap:.75rem;flex-wrap:wrap;
-}
+.art-caption{font-family:var(--fd);font-style:italic;font-size:.85rem;
+  line-height:1.6;color:var(--text);margin-bottom:.35rem}
+.art-meta{display:flex;justify-content:space-between;align-items:flex-start;
+  gap:.75rem;flex-wrap:wrap}
 .art-copy{font-size:.62rem;color:var(--muted);line-height:1.5;flex:1}
-.art-src{
-  font-size:.62rem;color:var(--navy);
-  border-bottom:1px solid var(--rule);white-space:nowrap;flex-shrink:0;
-}
+.art-src{font-size:.62rem;color:var(--navy);border-bottom:1px solid var(--rule);
+  white-space:nowrap;flex-shrink:0}
 
-/* ── ACCORDION ───────────────────────────── */
-.acc-toggle{
-  display:flex;align-items:center;justify-content:space-between;
-  width:100%;padding:.75rem 0;
-  background:none;border:none;border-top:1px solid var(--rule);
-  cursor:pointer;font-family:var(--fb);font-size:.62rem;
-  letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
-  margin-top:.25rem;
-}
-.acc-toggle:hover .acc-lbl,
-.acc-toggle:hover .acc-arrow{color:var(--deep)}
-.acc-arrow{
-  font-size:.68rem;color:var(--muted);
-  transition:transform .25s ease,color .2s;flex-shrink:0;margin-left:.75rem;
-}
-.acc-toggle[aria-expanded="true"] .acc-arrow{
-  transform:rotate(180deg);color:var(--navy);
-}
+/* ── ACCORDION ──────────────────────── */
+.acc-toggle{display:flex;align-items:center;justify-content:space-between;
+  width:100%;padding:.75rem 0;background:none;border:none;
+  border-top:1px solid var(--rule);cursor:pointer;
+  font-family:var(--fb);font-size:.62rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);margin-top:.25rem}
+.acc-toggle:hover .acc-lbl,.acc-toggle:hover .acc-arrow{color:var(--deep)}
+.acc-arrow{font-size:.68rem;color:var(--muted);
+  transition:transform .25s,color .2s;flex-shrink:0;margin-left:.75rem}
+.acc-toggle[aria-expanded="true"] .acc-arrow{transform:rotate(180deg);color:var(--navy)}
 .acc-toggle[aria-expanded="true"] .acc-lbl{color:var(--navy)}
-.acc-body{
-  overflow:hidden;
-  max-height:0;
-  transition:max-height .38s cubic-bezier(.4,0,.2,1);
-}
+.acc-body{overflow:hidden;max-height:0;transition:max-height .38s cubic-bezier(.4,0,.2,1)}
 .acc-body.open{max-height:9999px}
 
-/* ── FOOTER ──────────────────────────────── */
-footer{
-  padding:1.5rem 6vw;font-size:.62rem;color:var(--muted);
-  border-top:1px solid var(--rule);
-  display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;
-}
+/* ── FOOTER ─────────────────────────── */
+footer{padding:1.5rem 6vw;font-size:.62rem;color:var(--muted);
+  border-top:1px solid var(--rule);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
 
-/* ── RESPONSIVE ─────────────────────────── */
+/* ── RESPONSIVE ─────────────────────── */
 @media(max-width:900px){
   .field{grid-template-columns:90px 1fr}
-  .art-grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
 }
 @media(max-width:768px){
+  .site-nav{overflow-x:auto;flex-wrap:nowrap;padding:.5rem 1rem;gap:1rem;scrollbar-width:none}
+  .site-nav::-webkit-scrollbar{display:none}
+  .artist-nav{padding:.55rem 1rem;gap:.4rem}
+  .nav-links{overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none;gap:.2rem .35rem}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{font-size:.68rem;padding:.2rem .35rem}
+  .lang-btn{font-size:.6rem;padding:.2rem .5rem}
   .artist{padding:2rem 1.25rem}
   .masthead{padding:2rem 1.25rem 1.5rem}
   .artist-num{font-size:2rem}
@@ -236,16 +182,14 @@ footer{
   .art-grid{grid-template-columns:1fr}
 }
 @media(max-width:480px){
-  .artist-nav a{font-size:.65rem}
+  .nav-links a{font-size:.64rem}
+  .lang-btn{font-size:.58rem}
 }
-
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 </style>
 </head>
 <body>
 
-<!-- SITE NAV -->
-<nav class="site-nav" aria-label="사이트 내비게이션">
+<nav class="site-nav">
   <span class="logo">SYR EDITION</span>
   <a href="https://syredition.com/home">Home</a>
   <a href="https://syredition.com/about">About</a>
@@ -253,714 +197,697 @@ footer{
   <a href="https://syredition.com/briefing">Briefing</a>
   <a href="https://syredition.com/book">Book</a>
   <a href="https://syredition.com/case">Case</a>
-  <a href="https://syredition.com/artist" class="active">Artist</a>
+  <a href="https://syredition.com/artist" class="cur">Artist</a>
   <a href="https://syredition.com/contact">Contact</a>
+  <button class="lang-btn" id="lang-btn" onclick="toggleLang()">EN</button>
 </nav>
 
-<!-- MASTHEAD -->
 <div class="masthead">
-  <h1>Dive into the works</h1>
-  <p>어떤 작품이 당신의 시선을 머물게 하나요?</p>
+  <h1><span class="ko">Dive into the works</span><span class="en">Dive into the works</span></h1>
+  <p><span class="ko">어떤 작품이 당신의 시선을 머물게 하나요?</span><span class="en">Which works hold your gaze?</span></p>
 </div>
 
-<!-- STICKY ARTIST NAV -->
-<nav class="artist-nav" id="artist-nav" aria-label="작가 목록">
-<span class="idx-num">01</span><a href="#sorolla">Joaquín Sorolla</a>
-<span class="idx-num">02</span><a href="#longevial">Inès Longevial</a>
-<span class="idx-num">03</span><a href="#muntean">Muntean / Rosenblum</a>
-<span class="idx-num">04</span><a href="#beer">Oliver Beer</a>
-<span class="idx-num">05</span><a href="#omyocho">오묘초 (Oh Myocho)</a>
-<span class="idx-num">06</span><a href="#anicka">Anicka Yi</a>
-<span class="idx-num">07</span><a href="#gerrard">John Gerrard</a>
-<span class="idx-num">08</span><a href="#pooley">Christiane Pooley</a>
-<span class="idx-num">09</span><a href="#eliasson">Olafur Eliasson</a>
-<span class="idx-num">10</span><a href="#jansen">Theo Jansen</a>
-<span class="idx-num">11</span><a href="#quinonero">Maru Quiñonero</a>
-
+<nav class="artist-nav" id="artist-nav">
+  <div class="nav-links">
+<a href="#sorolla">Joaquín Sorolla</a>
+<a href="#longevial">Inès Longevial</a>
+<a href="#muntean">Muntean / Rosenblum</a>
+<a href="#beer">Oliver Beer</a>
+<a href="#omyocho">오묘초 (Oh Myocho)</a>
+<a href="#anicka">Anicka Yi</a>
+<a href="#gerrard">John Gerrard</a>
+<a href="#pooley">Christiane Pooley</a>
+<a href="#eliasson">Olafur Eliasson</a>
+<a href="#jansen">Theo Jansen</a>
+<a href="#quinonero">Maru Quiñonero</a>
+  </div>
 </nav>
-
-<!-- ARTISTS -->
 
 <article class="artist" id="sorolla">
   <div class="artist-hd">
     <span class="artist-num">01</span>
     <div>
       <h2 class="artist-name">Joaquín Sorolla</h2>
-      <p class="artist-meta">b. 1863, Valencia, Spain · d. 1923, Cercedilla · Spanish</p>
+      <p class="artist-meta"><span class="ko">b. 1863, 스페인 발렌시아 · d. 1923, 세르세디야 · 스페인</span><span class="en">b. 1863, Valencia, Spain · d. 1923, Cercedilla · Spanish</span></p>
       <div class="tags"><span class="tag">Spanish Impressionism</span><span class="tag">Luminism</span><span class="tag">Plein Air</span></div>
     </div>
   </div>
   <div class="fields">
     
-    
     <div class="field always">
       <span class="field-lbl">Artist Statement</span>
       <p class="field-val serif">"I do not paint sadness. I believe only in light."</p>
     </div>
-    
     <div class="field always">
       <span class="field-lbl">Practice</span>
-      <p class="field-val">지중해 해변의 빛·물·인물을 그린 루미니즘 회화의 거장. 야외 직접 제작(plein air)으로 햇빛 아래 색채와 형태의 변화를 포착했다. 대표작으로는 〈슬픈 유산〉(1900 파리 만국박람회 대상), 〈해변의 산책〉, 히스패닉 소사이어티 벽화 연작 〈스페인의 환영〉(14점, 총 227m²)이 있다. 2,000점 이상의 작품을 남겼으며, 마드리드 소로야 미술관(옛 작업실 자택)이 최대 컬렉션을 소장한다.</p>
+      <div class="field-val ko">지중해 해변의 빛·물·인물을 그린 루미니즘 회화의 거장. 야외 직접 제작(plein air)으로 햇빛 아래 색채와 형태의 변화를 포착했다. 대표작으로는 〈슬픈 유산〉(1900 파리 만국박람회 대상), 〈해변의 산책〉, 히스패닉 소사이어티 벽화 연작 〈스페인의 환영〉(14점, 총 227m²)이 있다. 2,000점 이상의 작품을 남겼으며, 마드리드 소로야 미술관(옛 작업실 자택)이 최대 컬렉션을 소장한다.</div><div class="field-val en">Sorolla was the supreme luminista painter — capturing Mediterranean light on water, bodies, and white fabric through direct plein-air observation. His breakthrough, Sad Inheritance, won the Grand Prix at the 1900 Paris Exposition Universelle. His 1909 solo exhibition at the Hispanic Society of America drew 160,000 visitors and led to a portrait commission from President Taft. His magnum opus is the Vision of Spain mural cycle (14 panels, 227m²) for Archer Huntington. He left over 2,000 works; the Museo Sorolla in Madrid — his former studio home — holds the largest collection.</div>
     </div>
   </div>
-  
-    <button class="acc-toggle" aria-expanded="false">
-      <span class="acc-lbl">전시 · 경매 · 링크 · 이미지 더 보기</span>
+  <button class="acc-toggle" aria-expanded="false">
+      <span class="ko acc-lbl">전시 · 경매 · 링크 · 이미지</span>
+      <span class="en acc-lbl">Exhibitions · Prices · Links · Works</span>
       <span class="acc-arrow">▼</span>
     </button>
-  
-    <div class="acc-body">
+  <div class="acc-body">
       <div class="field">
-        <span class="field-lbl">주요 전시</span>
-        <div class="field-val"><ul class="exh-list"><li><span class="exh-yr">2026</span>《A Living Vision: the Sorolla Gallery at 100》 Hispanic Society of America, New York <span class="exh-note">2026.5.21–2027.5.27</span></li><li><span class="exh-yr">2026</span>《소로야의 바다》 Palau Martorell, Barcelona <span class="exh-note">2025.12–2026.4</span></li><li><span class="exh-yr">2026</span>반카하 재단, 발렌시아 — 소로야 미술관 걸작 60점 순회 <span class="exh-note">2025.10–2026.4</span></li><li><span class="exh-yr">2009</span>New York Hispanic Society solo — 160,000명 방문, 이후 루스벨트·태프트 대통령 초상 위촉</li><li><span class="exh-yr">1900</span>Grand Prix, Exposition Universelle, Paris</li></ul></div>
+        <span class="field-lbl"><span class="ko">주요 전시</span><span class="en">Major Exhibitions</span></span>
+        <div class="field-val"><ul class='exh-list'><li><span class="exh-yr">2026</span>《A Living Vision: the Sorolla Gallery at 100》 Hispanic Society of America, New York <span class="exh-note">2026.5.21–2027.5.27</span></li><li><span class="exh-yr">2026</span>《소로야의 바다》 Palau Martorell, Barcelona / <span class='en-t'>The Sea of Sorolla, Palau Martorell, Barcelona</span> <span class="exh-note">2025.12–2026.4</span></li><li><span class="exh-yr">2026</span>반카하 재단, 발렌시아 — 소로야 미술관 걸작 60점 순회 / <span class='en-t'>Bankaja Foundation, Valencia — 60 masterworks from Museo Sorolla on tour</span> <span class="exh-note">2025.10–2026.4</span></li><li><span class="exh-yr">2009</span>New York Hispanic Society solo — 160,000명 방문, 루스벨트·태프트 대통령 초상 위촉</li><li><span class="exh-yr">1900</span>Grand Prix, Exposition Universelle, Paris</li></ul></div>
       </div>
       <div class="field">
-        <span class="field-lbl">경매가</span>
-        <div class="field-val"><table class="price-tbl"><thead><tr><th>연도</th><th>작품</th><th>경매사</th><th>낙찰가</th></tr></thead><tbody><tr><td class="yr">2012</td><td>Pescadores Valencianos</td><td class="muted">Sotheby's London</td><td class="price">£4.0M (~$5.95M) — 경매 최고가</td></tr><tr><td class="yr">2019</td><td>El bote blanco, Jávea</td><td class="muted">Sotheby's NY</td><td class="price">$2.89M</td></tr><tr><td class="yr">2018</td><td>Barcas de pesca en la playa</td><td class="muted">Christie's London</td><td class="price">£1.56M</td></tr><tr><td class="yr">2021</td><td>Valencia, la pesca de la tarde</td><td class="muted">Sotheby's NY</td><td class="price">$1.02M</td></tr></tbody></table><p class="price-note">중간 시장(소형 해변 습작·초상): $150K–$1M 구간에서 활발 거래. 대형 걸작은 경매 출현 드물며 출현 시 시장 기준 재설정.</p></div>
+        <span class="field-lbl"><span class="ko">경매가</span><span class="en">Auction Records</span></span>
+        <div><table class="price-tbl"><thead><tr><th><span class="ko">연도</span><span class="en">Year</span></th><th><span class="ko">작품</span><span class="en">Work</span></th><th><span class="ko">경매사</span><span class="en">House</span></th><th><span class="ko">낙찰가</span><span class="en">Result</span></th></tr></thead><tbody><tr><td class="yr">2012</td><td>Pescadores Valencianos</td><td class="muted">Sotheby's London</td><td class="price">£4.0M (~$5.95M) — auction record</td></tr><tr><td class="yr">2019</td><td>El bote blanco, Jávea</td><td class="muted">Sotheby's NY</td><td class="price">$2.89M</td></tr><tr><td class="yr">2018</td><td>Barcas de pesca en la playa</td><td class="muted">Christie's London</td><td class="price">£1.56M</td></tr><tr><td class="yr">2021</td><td>Valencia, la pesca de la tarde</td><td class="muted">Sotheby's NY</td><td class="price">$1.02M</td></tr></tbody></table><p class="price-note ko">중간 시장(소형 해변 습작·초상): $150K–$1M 구간에서 활발 거래.</p><p class="price-note en">Mid-market (small beach studies, portraits): active trading in the $150K–$1M range.</p></div>
       </div>
       <div class="field">
-        <span class="field-lbl">웹사이트 / 갤러리</span>
-        <div class="link-row"><a class="link-btn" href="https://www.museosorolla.es" target="_blank" rel="noopener">museosorolla.es</a><a class="link-btn" href="https://www.hispanicsociety.org" target="_blank" rel="noopener">Hispanic Society of America</a><a class="link-btn" href="https://www.artnet.com/artists/joaquin-sorolla-y-bastida/" target="_blank" rel="noopener">Artnet</a></div>
+        <span class="field-lbl"><span class="ko">웹사이트 / 갤러리</span><span class="en">Website / Gallery</span></span>
+        <div class="link-row"><a class="link-btn" href="https://www.museosorolla.es" target="_blank" rel="noopener">museosorolla.es</a><a class="link-btn" href="https://www.hispanicsociety.org" target="_blank" rel="noopener">Hispanic Society</a><a class="link-btn" href="https://www.artnet.com/artists/joaquin-sorolla-y-bastida/" target="_blank" rel="noopener">Artnet</a></div>
       </div>
-      <div class='field'><span class='field-lbl'>대표 작품</span><div><div class="art-grid"><figure class="art-fig">
+      <div class="field">
+        <span class="field-lbl"><span class="ko">대표 작품</span><span class="en">Selected Works</span></span>
+        <div class="art-grid"><figure class="art-fig">
           <div class="art-img-wrap">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Joaqu%C3%ADn_Sorolla_y_Bastida_-_Strolling_along_the_Seashore_-_Google_Art_Project.jpg/960px-Joaqu%C3%ADn_Sorolla_y_Bastida_-_Strolling_along_the_Seashore_-_Google_Art_Project.jpg" alt="Strolling Along the Seashore, 1909" loading="lazy"
-              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패</div>'">
+              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패 / Image load failed</div>'">
           </div>
           <figcaption>
-            <p class="art-caption">〈해변의 산책 / Strolling Along the Seashore〉, 1909. Oil on canvas, 200 × 205 cm. Museo Sorolla, Madrid.</p>
+            <p class="art-caption">〈해변의 산책〉 / Strolling Along the Seashore, 1909. Oil on canvas, 200 × 205 cm. Museo Sorolla, Madrid.</p>
             <div class="art-meta">
               <span class="art-copy">Public Domain — Wikimedia Commons / Google Art Project</span>
-              <a class="art-src" href="https://commons.wikimedia.org/wiki/File:Joaqu%C3%ADn_Sorolla_y_Bastida_-_Strolling_along_the_Seashore_-_Google_Art_Project.jpg" target="_blank" rel="noopener">원문 ↗</a>
+              <a class="art-src" href="https://commons.wikimedia.org/wiki/File:Joaqu%C3%ADn_Sorolla_y_Bastida_-_Strolling_along_the_Seashore_-_Google_Art_Project.jpg" target="_blank" rel="noopener">원문 / Source ↗</a>
             </div>
           </figcaption>
         </figure><figure class="art-fig">
           <div class="art-img-wrap">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Joaquin_Sorolla_-_Ni%C3%B1os_en_la_playa.jpg/900px-Joaquin_Sorolla_-_Ni%C3%B1os_en_la_playa.jpg" alt="Niños en la playa, 1910" loading="lazy"
-              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패</div>'">
+              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패 / Image load failed</div>'">
           </div>
           <figcaption>
-            <p class="art-caption">〈해변의 아이들 / Niños en la playa〉, 1910. Oil on canvas, 118 × 185 cm. Museo del Prado, Madrid.</p>
+            <p class="art-caption">〈해변의 아이들〉 / Niños en la playa, 1910. Oil on canvas, 118 × 185 cm. Museo del Prado, Madrid.</p>
             <div class="art-meta">
               <span class="art-copy">Public Domain — Wikimedia Commons</span>
-              <a class="art-src" href="https://commons.wikimedia.org/wiki/File:Joaquin_Sorolla_-_Ni%C3%B1os_en_la_playa.jpg" target="_blank" rel="noopener">원문 ↗</a>
+              <a class="art-src" href="https://commons.wikimedia.org/wiki/File:Joaquin_Sorolla_-_Ni%C3%B1os_en_la_playa.jpg" target="_blank" rel="noopener">원문 / Source ↗</a>
             </div>
           </figcaption>
-        </figure></div></div></div>
+        </figure></div>
+      </div>
     </div>
 </article>
-
 <article class="artist" id="longevial">
   <div class="artist-hd">
     <span class="artist-num">02</span>
     <div>
       <h2 class="artist-name">Inès Longevial</h2>
-      <p class="artist-meta">b. 1990, Agen, France · Lives: Paris · French</p>
+      <p class="artist-meta"><span class="ko">b. 1990, 프랑스 아장 · 거주: 파리 · 프랑스</span><span class="en">b. 1990, Agen, France · Lives: Paris · French</span></p>
       <div class="tags"><span class="tag">Figurative Painting</span><span class="tag">Fauvism</span><span class="tag">Self-Portrait</span></div>
     </div>
   </div>
   <div class="fields">
     
-    
     <div class="field always">
       <span class="field-lbl">Artist Statement</span>
-      <p class="field-val serif">"Naturally, I was very attracted by the cliché and idealistic representation of the female body — like so many that are posted on Instagram. I wanted to counter that with something more truthful: the forgotten forms of flesh."</p>
+      <p class="field-val serif">"Naturally, I was very attracted by the cliché and idealistic representation of the female body — like so many posted on Instagram. I wanted to counter that with something more truthful: the forgotten forms of flesh."</p>
     </div>
-    
     <div class="field always">
       <span class="field-lbl">Practice</span>
-      <p class="field-val">포비즘(Fauvism) 색채를 바탕으로 한 생동감 넘치는 구상 회화. 자화상과 여성 신체의 파편(손끝, 광대뼈, 눈두덩) — 사회가 요구하는 이상화된 신체 대신, 일상에서 잊혀온 살의 형태를 그린다. 빛의 변주와 피부톤·그림자 탐구를 통해 자기 신체와 여성성을 되찾는 작업이다. 소셜미디어를 통해 초기 인지도를 쌓았으며, 알민 레쉬 전속과 리졸리 모노그래프 출판으로 기관적 위상을 확립했다. 피카소·로댕·카미유 클로델을 주요 영향으로 꼽는다.</p>
+      <div class="field-val ko">포비즘(Fauvism) 색채를 바탕으로 한 생동감 넘치는 구상 회화. 자화상과 여성 신체의 파편(손끝, 광대뼈, 눈두덩) — 사회가 요구하는 이상화된 신체 대신, 일상에서 잊혀온 살의 형태를 그린다. 빛의 변주와 피부톤·그림자 탐구를 통해 자기 신체와 여성성을 되찾는 작업이다. 소셜미디어를 통해 초기 인지도를 쌓았으며, 알민 레쉬 전속과 리졸리 모노그래프 출판으로 기관적 위상을 확립했다. 피카소·로댕·카미유 클로델을 주요 영향으로 꼽는다.</div><div class="field-val en">Figurative painting in the Fauvist tradition — fragmented female forms (hands, cheekbones, eyelids) as a counter to idealised social media imagery. Her exploration of light variation, skin tone, and shadow reclaims the body on her own terms. She built an early following online before formalising her position through representation with Almine Rech and a Rizzoli monograph. Key influences: Picasso, Rodin, and Camille Claudel.</div>
     </div>
   </div>
-  
-    <button class="acc-toggle" aria-expanded="false">
-      <span class="acc-lbl">전시 · 경매 · 링크 · 이미지 더 보기</span>
+  <button class="acc-toggle" aria-expanded="false">
+      <span class="ko acc-lbl">전시 · 경매 · 링크 · 이미지</span>
+      <span class="en acc-lbl">Exhibitions · Prices · Links · Works</span>
       <span class="acc-arrow">▼</span>
     </button>
-  
-    <div class="acc-body">
+  <div class="acc-body">
       <div class="field">
-        <span class="field-lbl">주요 전시</span>
-        <div class="field-val"><ul class="exh-list"><li><span class="exh-yr">2025</span>《Skin of a Storm》 Almine Rech, Tribeca, New York</li><li><span class="exh-yr">2024</span>《Visages》 Almine Rech, New York · 《Les Silences du Désir》 Almine Rech, Shanghai · 《Le Jour des peintres》 Musée d'Orsay, Paris</li><li><span class="exh-yr">2023</span>《Pourfendue》 Almine Rech, London · 《Perchée》 Ketabi Bourdet, Paris</li><li><span class="exh-yr">2022</span>《En chair et en os》 Van de Weghe, New York · 《L'Heure Magique》 Musée des Beaux-Arts d'Agen</li><li><span class="exh-yr">2018</span>《Sous Le Soleil》 HVW8, Los Angeles — 미국 첫 개인전; Juxtapoz 2018 봄호 표지</li></ul></div>
+        <span class="field-lbl"><span class="ko">주요 전시</span><span class="en">Major Exhibitions</span></span>
+        <div class="field-val"><ul class='exh-list'><li><span class="exh-yr">2025</span>《Skin of a Storm》 Almine Rech, Tribeca, New York</li><li><span class="exh-yr">2024</span>《Visages》 Almine Rech, New York · 《Les Silences du Désir》 Almine Rech, Shanghai · 《Le Jour des peintres》 Musée d'Orsay, Paris</li><li><span class="exh-yr">2023</span>《Pourfendue》 Almine Rech, London · 《Perchée》 Ketabi Bourdet, Paris</li><li><span class="exh-yr">2022</span>《En chair et en os》 Van de Weghe, New York</li><li><span class="exh-yr">2018</span>《Sous Le Soleil》 HVW8, Los Angeles <span class="exh-note">US debut; Juxtapoz Spring 2018 cover</span></li></ul></div>
       </div>
       <div class="field">
-        <span class="field-lbl">경매가</span>
-        <div class="field-val"><p class="field-val">2차 경매 기록은 제한적이며 갤러리 1차 시장 중심으로 유통된다. Artnet 기재 작품 기준, 소형 작품 약 €5,000–€15,000, 대형 회화 €30,000 이상으로 추정된다. 알민 레쉬 전속 이후 시장 형성이 빠르게 진행되고 있다.</p></div>
+        <span class="field-lbl"><span class="ko">경매가</span><span class="en">Auction Records</span></span>
+        <div><p class="field-val ko">2차 경매 기록은 제한적이며 갤러리 1차 시장 중심으로 유통된다. 소형 작품 약 €5,000–€15,000, 대형 회화 €30,000 이상 추정. 알민 레쉬 전속 이후 시장 형성이 빠르게 진행 중.</p><p class="field-val en">Secondary market records limited; primary gallery market dominates. Small works c. €5,000–€15,000; large paintings estimated €30,000+. Market development accelerating following Almine Rech representation.</p></div>
       </div>
       <div class="field">
-        <span class="field-lbl">웹사이트 / 갤러리</span>
+        <span class="field-lbl"><span class="ko">웹사이트 / 갤러리</span><span class="en">Website / Gallery</span></span>
         <div class="link-row"><a class="link-btn" href="https://www.ineslongevial.com" target="_blank" rel="noopener">ineslongevial.com</a><a class="link-btn" href="https://www.alminerech.com/artists/292-ines-longevial" target="_blank" rel="noopener">Almine Rech</a><a class="link-btn" href="https://www.ketabibourdet.com/artists/25-ines-longevial-b.-1990/" target="_blank" rel="noopener">Ketabi Bourdet</a><a class="link-btn" href="https://www.artnet.com/artists/in%C3%A8s-longevial/" target="_blank" rel="noopener">Artnet</a></div>
       </div>
-      <div class='field'><span class='field-lbl'>대표 작품</span><div><div class="art-grid"><figure class="art-fig">
+      <div class="field">
+        <span class="field-lbl"><span class="ko">대표 작품</span><span class="en">Selected Works</span></span>
+        <div class="art-grid"><figure class="art-fig">
           <div class="art-img-wrap">
             <img src="https://ocula.com/media/uploads/artworks/ines-longevial-untitled-2022.jpg" alt="Inès Longevial painting" loading="lazy"
-              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패</div>'">
+              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패 / Image load failed</div>'">
           </div>
           <figcaption>
             <p class="art-caption">Inès Longevial, 〈Untitled〉, 2022. Oil on canvas. Almine Rech.</p>
             <div class="art-meta">
               <span class="art-copy">© Inès Longevial. Courtesy Almine Rech.</span>
-              <a class="art-src" href="https://ocula.com/artists/ines-longevial/" target="_blank" rel="noopener">원문 ↗</a>
+              <a class="art-src" href="https://ocula.com/artists/ines-longevial/" target="_blank" rel="noopener">원문 / Source ↗</a>
             </div>
           </figcaption>
-        </figure></div></div></div>
+        </figure></div>
+      </div>
     </div>
 </article>
-
 <article class="artist" id="muntean">
   <div class="artist-hd">
     <span class="artist-num">03</span>
     <div>
       <h2 class="artist-name">Muntean / Rosenblum</h2>
-      <p class="artist-meta">Markus Muntean b. 1962 Graz, Austria · Adi Rosenblum b. 1962 Haifa, Israel · Collaboration since 1992 · Vienna / London / Tel Aviv</p>
+      <p class="artist-meta"><span class="ko">Markus Muntean b. 1962 오스트리아 그라츠 · Adi Rosenblum b. 1962 이스라엘 하이파 · 1992년부터 협업 · 빈/런던/텔아비브</span><span class="en">Markus Muntean b. 1962 Graz, Austria · Adi Rosenblum b. 1962 Haifa, Israel · Collaboration since 1992 · Vienna / London / Tel Aviv</span></p>
       <div class="tags"><span class="tag">Figurative Painting</span><span class="tag">Video / Installation</span><span class="tag">Neo-Conceptualism</span></div>
     </div>
   </div>
   <div class="fields">
     
-    
     <div class="field always">
       <span class="field-lbl">Artist Statement</span>
       <p class="field-val serif">"We are interested in the gap between what we are told life should be and what it actually is — the young people we paint occupy that gap."</p>
     </div>
-    
     <div class="field always">
       <span class="field-lbl">Practice</span>
-      <p class="field-val">잡지·인터넷·SNS의 청년 이미지를 르네상스 회화 구도의 집단 초상으로 전환하고, 문학·철학·광고에서 가져온 텍스트 캡션을 덧붙이는 대형 유화가 핵심. 공항·쇼핑몰·호텔처럼 누구에게도 귀속되지 않는 익명의 공간에서 스마트폰을 보거나 허공을 응시하는 인물들 — 현대적 실존의 양가성, 불안, 덧없음이 주제다. 회화 외에 영상·설치·조각·드로잉으로 작업을 확장하며, 문화적 맥락이 다른 텍스트들을 병치한다. 컬렉션: MoMA, 알베르티나(비엔나), 루벨 패밀리 컬렉션(마이애미) 등.</p>
+      <div class="field-val ko">잡지·인터넷·SNS의 청년 이미지를 르네상스 회화 구도의 집단 초상으로 전환하고, 문학·철학·광고에서 가져온 텍스트 캡션을 덧붙이는 대형 유화가 핵심. 공항·쇼핑몰·호텔처럼 누구에게도 귀속되지 않는 익명의 공간에서 스마트폰을 보거나 허공을 응시하는 인물들 — 현대적 실존의 양가성, 불안, 덧없음이 주제다. 회화 외에 영상·설치·조각·드로잉으로 작업을 확장하며, 문화적 맥락이 다른 텍스트들을 병치한다. 컬렉션: MoMA, 알베르티나(비엔나), 루벨 패밀리 컬렉션(마이애미) 등.</div><div class="field-val en">Large-scale figurative paintings sourced from magazines and social media, recomposed as Renaissance-style group portraits with text overlays from literature, philosophy, and advertising. Figures occupy airports, malls, hotels — anonymous transit spaces — staring at phones or into the middle distance. The subject is existential ambivalence: the gap between what life is and what it is supposed to be. The practice extends into video, installation, sculpture, and drawing. Collections: MoMA, Albertina (Vienna), Rubell Family Collection (Miami).</div>
     </div>
   </div>
-  
-    <button class="acc-toggle" aria-expanded="false">
-      <span class="acc-lbl">전시 · 경매 · 링크 · 이미지 더 보기</span>
+  <button class="acc-toggle" aria-expanded="false">
+      <span class="ko acc-lbl">전시 · 경매 · 링크 · 이미지</span>
+      <span class="en acc-lbl">Exhibitions · Prices · Links · Works</span>
       <span class="acc-arrow">▼</span>
     </button>
-  
-    <div class="acc-body">
+  <div class="acc-body">
       <div class="field">
-        <span class="field-lbl">주요 전시</span>
-        <div class="field-val"><ul class="exh-list"><li><span class="exh-yr">2026</span>《Uncertainty's Grace》 Braverman Gallery, Tel Aviv</li><li><span class="exh-yr">2025</span>《Many Kinds of Silences》 Budapest</li><li><span class="exh-yr">2024</span>《Mirror of Thoughts》 Städel Museum, Frankfurt</li><li><span class="exh-yr">2022</span>Albertina Museum, Vienna — major retrospective</li><li><span class="exh-yr">2018</span>《Walking Wounded》 MOCAK, Krakow · MAC, A Coruña</li><li><span class="exh-yr">2005</span>Venice Biennale — international breakthrough</li><li><span class="exh-yr">2001</span>City of Vienna Prize for Visual Arts</li></ul></div>
+        <span class="field-lbl"><span class="ko">주요 전시</span><span class="en">Major Exhibitions</span></span>
+        <div class="field-val"><ul class='exh-list'><li><span class="exh-yr">2026</span>《Uncertainty's Grace》 Braverman Gallery, Tel Aviv</li><li><span class="exh-yr">2025</span>《Many Kinds of Silences》 Budapest</li><li><span class="exh-yr">2024</span>《Mirror of Thoughts》 Städel Museum, Frankfurt</li><li><span class="exh-yr">2022</span>Albertina Museum, Vienna <span class="exh-note">major retrospective</span></li><li><span class="exh-yr">2018</span>《Walking Wounded》 MOCAK, Krakow · MAC, A Coruña</li><li><span class="exh-yr">2005</span>Venice Biennale <span class="exh-note">international breakthrough</span></li><li><span class="exh-yr">2001</span>City of Vienna Prize for Visual Arts</li></ul></div>
       </div>
       <div class="field">
-        <span class="field-lbl">경매가</span>
-        <div class="field-val"><p class="field-val">Artnet 기준 170점 이상 경매 기록. 2026 최고가: Untitled (A town, almost any town) 2001, Sotheby's. 전형적 범위: 대형 회화 €30,000–€120,000. 드로잉·종이 작업 €5,000–€25,000. 갤러리 1차가는 비공개.</p></div>
+        <span class="field-lbl"><span class="ko">경매가</span><span class="en">Auction Records</span></span>
+        <div><p class="field-val ko">Artnet 기준 170점 이상 경매 기록. 전형적 범위: 대형 회화 €30,000–€120,000. 드로잉·종이 작업 €5,000–€25,000. 갤러리 1차가는 비공개.</p><p class="field-val en">170+ auction records on Artnet. Typical range: large paintings €30,000–€120,000; works on paper €5,000–€25,000. Gallery primary prices undisclosed.</p></div>
       </div>
       <div class="field">
-        <span class="field-lbl">웹사이트 / 갤러리</span>
-        <div class="link-row"><a class="link-btn" href="https://www.munteanrosenblum.com" target="_blank" rel="noopener">munteanrosenblum.com</a><a class="link-btn" href="https://ronmandos.nl/artist/muntean-rosenblum/" target="_blank" rel="noopener">Galerie Ron Mandos</a><a class="link-btn" href="https://www.galerie-zink.de" target="_blank" rel="noopener">Galerie Zink</a><a class="link-btn" href="https://bravermangallery.com" target="_blank" rel="noopener">Braverman Gallery</a></div>
+        <span class="field-lbl"><span class="ko">웹사이트 / 갤러리</span><span class="en">Website / Gallery</span></span>
+        <div class="link-row"><a class="link-btn" href="https://www.munteanrosenblum.com" target="_blank" rel="noopener">munteanrosenblum.com</a><a class="link-btn" href="https://ronmandos.nl/artist/muntean-rosenblum/" target="_blank" rel="noopener">Ron Mandos</a><a class="link-btn" href="https://www.galerie-zink.de" target="_blank" rel="noopener">Galerie Zink</a><a class="link-btn" href="https://bravermangallery.com" target="_blank" rel="noopener">Braverman Gallery</a></div>
       </div>
-      <div class='field'><span class='field-lbl'>대표 작품</span><div><div class="art-grid"><figure class="art-fig">
+      <div class="field">
+        <span class="field-lbl"><span class="ko">대표 작품</span><span class="en">Selected Works</span></span>
+        <div class="art-grid"><figure class="art-fig">
           <div class="art-img-wrap">
-            <img src="https://www.staedelmuseum.de/sites/default/files/styles/teaser_xl/public/2024-10/muntean-rosenblum-staedel-mirror-of-thoughts-2024.jpg" alt="Muntean/Rosenblum, Mirror of Thoughts, Städel 2024" loading="lazy"
-              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패</div>'">
+            <img src="https://www.staedelmuseum.de/sites/default/files/styles/teaser_xl/public/2024-10/muntean-rosenblum-staedel-mirror-of-thoughts-2024.jpg" alt="Muntean/Rosenblum, Städel 2024" loading="lazy"
+              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패 / Image load failed</div>'">
           </div>
           <figcaption>
-            <p class="art-caption">Exhibition view: 〈Mirror of Thoughts〉, Städel Museum, Frankfurt, 2024.</p>
+            <p class="art-caption">Exhibition view: 《Mirror of Thoughts》, Städel Museum, Frankfurt, 2024.</p>
             <div class="art-meta">
-              <span class="art-copy">© Muntean/Rosenblum. Foto: Städel Museum, Frankfurt am Main.</span>
-              <a class="art-src" href="https://www.staedelmuseum.de/en/exhibitions" target="_blank" rel="noopener">원문 ↗</a>
+              <span class="art-copy">© Muntean/Rosenblum. Photo: Städel Museum.</span>
+              <a class="art-src" href="https://www.staedelmuseum.de/en/exhibitions" target="_blank" rel="noopener">원문 / Source ↗</a>
             </div>
           </figcaption>
-        </figure></div></div></div>
+        </figure></div>
+      </div>
     </div>
 </article>
-
 <article class="artist" id="beer">
   <div class="artist-hd">
     <span class="artist-num">04</span>
     <div>
       <h2 class="artist-name">Oliver Beer</h2>
-      <p class="artist-meta">b. 1985, UK · Lives: London / Paris · British</p>
+      <p class="artist-meta"><span class="ko">b. 1985, 영국 · 거주: 런던/파리 · 영국</span><span class="en">b. 1985, UK · Lives: London / Paris · British</span></p>
       <div class="tags"><span class="tag">Sound Art</span><span class="tag">Acoustic Resonance</span><span class="tag">Installation</span></div>
     </div>
   </div>
   <div class="fields">
     
-    
     <div class="field always">
       <span class="field-lbl">Artist Statement</span>
       <p class="field-val serif">"Every space has a voice — a resonant frequency that has existed since the moment it was formed. My work is about finding that voice and making it audible."</p>
     </div>
-    
     <div class="field always">
       <span class="field-lbl">Practice</span>
-      <p class="field-val">런던에서 작곡을, 옥스퍼드 러스킨 스쿨에서 미술을, 소르본에서 영화이론을 공부했다 — 소리·공간·건축의 교차가 작업의 핵심이다. 대표 시리즈: ①〈Resonance Project〉: 건축 공간 고유의 진동수를 목소리로 울리는 퍼포먼스 및 설치(퐁피두 센터, 이스탄불 해맘, 구석기 동굴까지). ②〈Resonance Paintings〉: 캔버스 위에 안료를 올리고 아래에서 스피커로 진동시켜 소리의 형태를 회화로 옮긴 작업 — 클라드니 패턴의 예술적 전용. ③〈Resonance Project: The Cave〉(리옹 비엔날레, 2024): 도르도뉴 구석기 동굴 퐁드곰에서 루퍼스 웨인라이트 등 8인의 목소리를 녹음해 8채널 영상·16채널 사운드 설치로 구현 — 비평가들로부터 '비엔날레의 정점'이라 평가받았다.</p>
+      <div class="field-val ko">런던에서 작곡을, 옥스퍼드 러스킨 스쿨에서 미술을, 소르본에서 영화이론을 공부했다 — 소리·공간·건축의 교차가 작업의 핵심이다. 대표 시리즈: ①〈Resonance Project〉: 건축 공간 고유의 진동수를 목소리로 울리는 퍼포먼스 및 설치(퐁피두 센터, 이스탄불 해맘, 구석기 동굴까지). ②〈Resonance Paintings〉: 캔버스 위에 안료를 올리고 아래에서 스피커로 진동시켜 소리의 형태를 회화로 옮긴 작업 — 클라드니 패턴의 예술적 전용. ③〈Resonance Project: The Cave〉(리옹 비엔날레, 2024): 도르도뉴 구석기 동굴 퐁드곰에서 루퍼스 웨인라이트 등 8인의 목소리를 녹음해 8채널 영상·16채널 사운드 설치로 구현 — '비엔날레의 정점'이라 평가받았다.</div><div class="field-val en">Trained in music composition in London, fine art at Oxford's Ruskin School, and film theory at the Sorbonne — the intersection of sound, space, and architecture defines the practice. ① Resonance Project: identifies and amplifies each site's unique resonant frequency through voice, from the Centre Pompidou to Istanbul hammams to Palaeolithic caves. ② Resonance Paintings: dry pigments placed on canvas over loudspeakers, vibrated into Chladni-pattern formations — sound made visible. ③ Resonance Project: The Cave (Lyon Biennale, 2024): eight singers including Rufus Wainwright and Woodkid recorded their earliest musical memories inside Dordogne's Font-de-Gaume cave — critics called it 'without doubt the climax of the Biennale.'</div>
     </div>
   </div>
-  
-    <button class="acc-toggle" aria-expanded="false">
-      <span class="acc-lbl">전시 · 경매 · 링크 · 이미지 더 보기</span>
+  <button class="acc-toggle" aria-expanded="false">
+      <span class="ko acc-lbl">전시 · 경매 · 링크 · 이미지</span>
+      <span class="en acc-lbl">Exhibitions · Prices · Links · Works</span>
       <span class="acc-arrow">▼</span>
     </button>
-  
-    <div class="acc-body">
+  <div class="acc-body">
       <div class="field">
-        <span class="field-lbl">주요 전시</span>
-        <div class="field-val"><ul class="exh-list"><li><span class="exh-yr">2026</span>《The Sky in the Cave》 Thaddaeus Ropac, London <span class="exh-note">2026.6.5–7.31 — 1만7천 년 전 안료와 동일 광물 사용</span></li><li><span class="exh-yr">2025</span>《Resonance Paintings: The Cave》 Thaddaeus Ropac, Paris</li><li><span class="exh-yr">2024</span>《Resonance Project: The Cave》 17th Biennale de Lyon <span class="exh-note">"without doubt the climax of the Biennale"</span></li><li><span class="exh-yr">2020</span>Solo exhibition, Musée d'Art Moderne de Paris</li><li><span class="exh-yr">2013</span>Resonance Project, Centre Pompidou, Paris</li><li><span class="exh-yr">2011</span>Live Fire Exercise (with Wayne McGregor), Royal Opera House, London</li></ul></div>
+        <span class="field-lbl"><span class="ko">주요 전시</span><span class="en">Major Exhibitions</span></span>
+        <div class="field-val"><ul class='exh-list'><li><span class="exh-yr">2026</span>《The Sky in the Cave》 Thaddaeus Ropac, London <span class="exh-note">2026.6.5–7.31</span></li><li><span class="exh-yr">2025</span>《Resonance Paintings: The Cave》 Thaddaeus Ropac, Paris</li><li><span class="exh-yr">2024</span>《Resonance Project: The Cave》 17th Biennale de Lyon <span class="exh-note">"climax of the Biennale"</span></li><li><span class="exh-yr">2020</span>Solo exhibition, Musée d'Art Moderne de Paris</li><li><span class="exh-yr">2013</span>Resonance Project, Centre Pompidou, Paris</li><li><span class="exh-yr">2011</span>Live Fire Exercise (with Wayne McGregor), Royal Opera House, London</li></ul></div>
       </div>
       <div class="field">
-        <span class="field-lbl">경매가</span>
-        <div class="field-val"><p class="field-val">갤러리 1차 시장 중심. 〈Resonance Paintings〉: 소형 €15,000–, 대형 €80,000+. 대형 사운드 설치는 커미션 방식으로 비상업적 제작. 2024 리옹 비엔날레 이후 시장 위상 급상승 중.</p></div>
+        <span class="field-lbl"><span class="ko">경매가</span><span class="en">Auction Records</span></span>
+        <div><p class="field-val ko">갤러리 1차 시장 중심. 〈Resonance Paintings〉: 소형 €15,000–, 대형 €80,000+. 대형 사운드 설치는 커미션 방식. 2024 리옹 비엔날레 이후 시장 위상 급상승 중.</p><p class="field-val en">Gallery primary market. Resonance Paintings: small works from €15,000; large works €80,000+. Large sound installations are non-commercial commissions. Market position rising sharply post–Lyon Biennale 2024.</p></div>
       </div>
       <div class="field">
-        <span class="field-lbl">웹사이트 / 갤러리</span>
+        <span class="field-lbl"><span class="ko">웹사이트 / 갤러리</span><span class="en">Website / Gallery</span></span>
         <div class="link-row"><a class="link-btn" href="https://www.oliverbeer.co.uk" target="_blank" rel="noopener">oliverbeer.co.uk</a><a class="link-btn" href="https://ropac.net/artist/oliver-beer/" target="_blank" rel="noopener">Thaddaeus Ropac</a><a class="link-btn" href="https://www.alminerech.com/artists/oliver-beer" target="_blank" rel="noopener">Almine Rech</a></div>
       </div>
-      <div class='field'><span class='field-lbl'>대표 작품</span><div><div class="art-grid"><figure class="art-fig">
+      <div class="field">
+        <span class="field-lbl"><span class="ko">대표 작품</span><span class="en">Selected Works</span></span>
+        <div class="art-grid"><figure class="art-fig">
           <div class="art-img-wrap">
             <img src="https://ropac.net/application/files/thumbnails/large/oliver-beer-resonance-project-the-cave-biennale-de-lyon-2024.jpg" alt="Oliver Beer, Resonance Project: The Cave, 2024" loading="lazy"
-              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패</div>'">
+              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패 / Image load failed</div>'">
           </div>
           <figcaption>
             <p class="art-caption">〈Resonance Project: The Cave〉, 2024. 8-screen video, 16-channel sound. 17th Biennale de Lyon.</p>
             <div class="art-meta">
-              <span class="art-copy">© Oliver Beer. Courtesy Thaddaeus Ropac, London/Paris/Salzburg/Seoul.</span>
-              <a class="art-src" href="https://ropac.net/exhibitions/739-oliver-beer-resonance-paintings-the-cave/" target="_blank" rel="noopener">원문 ↗</a>
+              <span class="art-copy">© Oliver Beer. Courtesy Thaddaeus Ropac.</span>
+              <a class="art-src" href="https://ropac.net/exhibitions/739-oliver-beer-resonance-paintings-the-cave/" target="_blank" rel="noopener">원문 / Source ↗</a>
             </div>
           </figcaption>
         </figure><figure class="art-fig">
           <div class="art-img-wrap">
             <img src="https://ropac.net/application/files/thumbnails/large/oliver-beer-resonance-paintings-cave-2025-paris.jpg" alt="Oliver Beer, Resonance Paintings: The Cave, 2025" loading="lazy"
-              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패</div>'">
+              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패 / Image load failed</div>'">
           </div>
           <figcaption>
             <p class="art-caption">〈Resonance Paintings: The Cave〉 series, 2024–25. Pigments vibrated by cave frequencies. Thaddaeus Ropac, Paris.</p>
             <div class="art-meta">
               <span class="art-copy">© Oliver Beer. Courtesy Thaddaeus Ropac.</span>
-              <a class="art-src" href="https://ropac.net/exhibitions/739-oliver-beer-resonance-paintings-the-cave/" target="_blank" rel="noopener">원문 ↗</a>
+              <a class="art-src" href="https://ropac.net/exhibitions/739-oliver-beer-resonance-paintings-the-cave/" target="_blank" rel="noopener">원문 / Source ↗</a>
             </div>
           </figcaption>
-        </figure></div></div></div>
+        </figure></div>
+      </div>
     </div>
 </article>
-
 <article class="artist" id="omyocho">
   <div class="artist-hd">
     <span class="artist-num">05</span>
     <div>
       <h2 class="artist-name">오묘초 (Oh Myocho)</h2>
-      <p class="artist-meta">b. 1984, 한국 · 서울 활동</p>
-      <div class="tags"><span class="tag">조각 / Sculpture</span><span class="tag">생물형태 / Biomorphic</span><span class="tag">신기술 비판</span></div>
+      <p class="artist-meta"><span class="ko">b. 1984, 한국 · 서울 활동</span><span class="en">b. 1984, South Korea · Based: Seoul</span></p>
+      <div class="tags"><span class="tag">조각 / Sculpture</span><span class="tag">생물형태 / Biomorphic</span><span class="tag">신기술 비판 / New Technology Critique</span></div>
     </div>
   </div>
   <div class="fields">
-    
     <div class="field always">
-      <span class="field-lbl">학력 / 수상</span>
-      <p class="field-val">Goldsmiths, University of London 순수미술 졸업 · 2020 수림미술상 수상 · 2024 아트바젤 스테이트먼츠(Art Basel Statements) 섹터 선정</p>
+      <span class="field-lbl"><span data-ko data-en><span class="ko">학력 / 수상</span><span class="en">Education / Awards</span></span></span>
+      <div class="field-val ko">Goldsmiths, University of London 순수미술 졸업 · 2020 수림미술상 수상 · 2024 아트바젤 스테이트먼츠(Art Basel Statements) 섹터 선정</div><div class="field-val en">BA Fine Art, Goldsmiths, University of London · 2020 Surim Art Award · 2024 Art Basel Statements sector selection</div>
     </div>
-    
     
     <div class="field always">
       <span class="field-lbl">Practice</span>
-      <p class="field-val">신기술이 제공하는 환상과 그 이면에 숨겨진 가능성을 조각으로 탐구한다. 송진·수초·버섯 같은 자연물과 인공 재료를 혼합해 자연과 인공의 경계를 오가는 독자적인 조형 세계를 구축한다. 대표작: 〈배럴아이〉(VR 영상+조각, 2022), 〈점보 쉬림프〉(2021), 〈택시더미아〉. 옴니버스 소설 『언급되지 않을 것들의 흔적』(2018)을 집필했다. 수림아트센터 소장 작가.</p>
+      <div class="field-val ko">신기술이 제공하는 환상과 그 이면에 숨겨진 가능성을 조각으로 탐구한다. 송진·수초·버섯 같은 자연물과 인공 재료를 혼합해 자연과 인공의 경계를 오가는 독자적인 조형 세계를 구축한다. 대표작: 〈배럴아이〉(VR 영상+조각, 2022), 〈점보 쉬림프〉(2021), 〈택시더미아〉. 옴니버스 소설 『언급되지 않을 것들의 흔적』(2018)을 집필했다. 수림아트센터 소장 작가.</div><div class="field-val en">Oh Myocho investigates the illusions generated by new technology and the possibilities concealed beneath them. Her sculptures blend natural materials — pine resin, aquatic plants, mushrooms — with synthetic ones, building a visual language that moves fluidly between the natural and artificial. Major works: Barrel Eye (VR video + sculpture, 2022), Jumbo Shrimp (2021), Taxidermia. She also authored the omnibus novel Traces of Things That Will Not Be Mentioned (2018). Works held by Surim Art Center, Seoul.</div>
     </div>
   </div>
-  
-    <button class="acc-toggle" aria-expanded="false">
-      <span class="acc-lbl">전시 · 경매 · 링크 · 이미지 더 보기</span>
+  <button class="acc-toggle" aria-expanded="false">
+      <span class="ko acc-lbl">전시 · 경매 · 링크 · 이미지</span>
+      <span class="en acc-lbl">Exhibitions · Prices · Links · Works</span>
       <span class="acc-arrow">▼</span>
     </button>
-  
-    <div class="acc-body">
+  <div class="acc-body">
       <div class="field">
-        <span class="field-lbl">주요 전시</span>
-        <div class="field-val"><ul class="exh-list"><li><span class="exh-yr">2026</span>《어디에나 있고 어디에도 없을》 경남도립미술관 <span class="exh-note">–2026.6</span></li><li><span class="exh-yr">2026</span>《The Collapse Manual Ep.02》 AOD 뮤지엄 <span class="exh-note">–2026.3</span></li><li><span class="exh-yr">2025</span>《Cell Struggles》 파운드리 서울 · 제24회 송은미술대상전, 서울</li><li><span class="exh-yr">2024</span>아트바젤 스테이트먼츠 선정 · 《집(ZIP)》 아르코미술관 · 《예술과 인공지능》 울산시립미술관</li><li><span class="exh-yr">2023</span>《변형 액체》 수림큐브 · 《풍경들》 우손갤러리, 대구</li><li><span class="exh-yr">2022</span>인천국제공항 공공미술 설치 · 《배럴아이》 오시선, 서울</li><li><span class="exh-yr">2021</span>《점보 쉬림프》 대전테미예술창작센터</li></ul></div>
+        <span class="field-lbl"><span class="ko">주요 전시</span><span class="en">Major Exhibitions</span></span>
+        <div class="field-val"><ul class='exh-list'><li><span class="exh-yr">2026</span>《어디에나 있고 어디에도 없을》 경남도립미술관 / Gyeongnam Art Museum <span class="exh-note">–2026.6</span></li><li><span class="exh-yr">2026</span>《The Collapse Manual Ep.02》 AOD Museum <span class="exh-note">–2026.3</span></li><li><span class="exh-yr">2025</span>《Cell Struggles》 Foundry Seoul · 24th SongEun Art Award, Seoul</li><li><span class="exh-yr">2024</span>Art Basel Statements · 《집(ZIP)》 ARKO Art Center · 《Art & AI》 Ulsan Art Museum</li><li><span class="exh-yr">2023</span>《변형 액체》 Surim Cube · 《풍경들》 Woosong Gallery, Daegu</li><li><span class="exh-yr">2022</span>Public art installation, Incheon International Airport · 《배럴아이》 Oshison, Seoul</li><li><span class="exh-yr">2021</span>《점보 쉬림프》 Daejeon Temi Art Center</li></ul></div>
       </div>
       <div class="field">
-        <span class="field-lbl">경매가</span>
-        <div class="field-val"><p class="field-val">1차 갤러리 시장 중심. 공개 경매 기록 없음. 우손갤러리(대구) 및 국내 기관 중심 유통.</p></div>
+        <span class="field-lbl"><span class="ko">경매가</span><span class="en">Auction Records</span></span>
+        <div><p class="field-val ko">1차 갤러리 시장 중심. 공개 경매 기록 없음. 우손갤러리(대구) 및 국내 기관 중심 유통.</p><p class="field-val en">Primary gallery market. No public auction records. Distributed primarily through Woosong Gallery (Daegu) and Korean institutions.</p></div>
       </div>
       <div class="field">
-        <span class="field-lbl">웹사이트 / 갤러리</span>
-        <div class="link-row"><a class="link-btn" href="https://www.woosongallery.com/artists/93-omyo-cho/" target="_blank" rel="noopener">우손갤러리</a><a class="link-btn" href="https://www.songeun.or.kr" target="_blank" rel="noopener">송은아트스페이스</a><a class="link-btn" href="https://k-artist.com/ko/Artist_page.php?tab_num=tab1&artist_num=192" target="_blank" rel="noopener">K-Artist 프로필</a></div>
+        <span class="field-lbl"><span class="ko">웹사이트 / 갤러리</span><span class="en">Website / Gallery</span></span>
+        <div class="link-row"><a class="link-btn" href="https://www.woosongallery.com/artists/93-omyo-cho/" target="_blank" rel="noopener">우손갤러리 / Woosong Gallery</a><a class="link-btn" href="https://www.songeun.or.kr" target="_blank" rel="noopener">송은아트스페이스 / SongEun</a><a class="link-btn" href="https://k-artist.com/ko/Artist_page.php?tab_num=tab1&artist_num=192" target="_blank" rel="noopener">K-Artist</a></div>
       </div>
-      <div class='field'><span class='field-lbl'>대표 작품</span><div><div class="art-grid"><figure class="art-fig">
+      <div class="field">
+        <span class="field-lbl"><span class="ko">대표 작품</span><span class="en">Selected Works</span></span>
+        <div class="art-grid"><figure class="art-fig">
           <div class="art-img-wrap">
             <img src="https://frieze-production.imgix.net/article_images/2024/oh-myocho-frieze.jpg?w=900" alt="오묘초 작품" loading="lazy"
-              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패</div>'">
+              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패 / Image load failed</div>'">
           </div>
           <figcaption>
-            <p class="art-caption">오묘초 (Oh Myocho), 설치 전경. Courtesy Frieze / Art Basel, 2024.</p>
+            <p class="art-caption">오묘초 (Oh Myocho), 설치 전경 / installation view. Courtesy Frieze / Art Basel, 2024.</p>
             <div class="art-meta">
               <span class="art-copy">© 오묘초 (Oh Myocho). Image via Frieze.</span>
-              <a class="art-src" href="https://www.frieze.com" target="_blank" rel="noopener">원문 ↗</a>
+              <a class="art-src" href="https://www.frieze.com" target="_blank" rel="noopener">원문 / Source ↗</a>
             </div>
           </figcaption>
-        </figure></div></div></div>
+        </figure></div>
+      </div>
     </div>
 </article>
-
 <article class="artist" id="anicka">
   <div class="artist-hd">
     <span class="artist-num">06</span>
     <div>
       <h2 class="artist-name">Anicka Yi</h2>
-      <p class="artist-meta">b. 1971, Seoul, South Korea · Lives: New York · Korean-American</p>
+      <p class="artist-meta"><span class="ko">b. 1971, 서울, 한국 · 거주: 뉴욕 · 한국계 미국인</span><span class="en">b. 1971, Seoul, South Korea · Lives: New York · Korean-American</span></p>
       <div class="tags"><span class="tag">Bio Art</span><span class="tag">Multisensory Installation</span><span class="tag">AI / Ecology</span></div>
     </div>
   </div>
   <div class="fields">
     
-    
     <div class="field always">
       <span class="field-lbl">Artist Statement</span>
       <p class="field-val serif">"I'm interested in what it means to be a body in relation to other bodies — bacterial, machine, animal — and how smell, which carries both memory and immune information, can be a medium for thinking about those relationships."</p>
     </div>
-    
     <div class="field always">
       <span class="field-lbl">Practice</span>
-      <p class="field-val">곤충·박테리아·AI·향기를 매체로, 냄새의 정치적·젠더적 역사와 유기체–기계 사이의 관계를 탐구한다. 작업실은 과학 실험실에 가깝게 운영되며, 생물학자·화학자와의 협업이 작업의 토대다. 서른 중반에 본격적으로 미술을 시작해 2011년 뉴욕 47 Canal 첫 개인전으로 주목받았다. 대표작: 〈7,070,430K of Digital Spit〉(박테리아로 그린 캔버스 회화, 2015), 〈In Love With The World〉(테이트 모던 터빈홀 현대자동차 커미션, 2021 — AI로 조종되는 생체형 기계 '에어로브'들이 공간을 부유), 켈프 조각 연작.</p>
+      <div class="field-val ko">곤충·박테리아·AI·향기를 매체로, 냄새의 정치적·젠더적 역사와 유기체–기계 사이의 관계를 탐구한다. 작업실은 과학 실험실에 가깝게 운영되며, 생물학자·화학자와의 협업이 작업의 토대다. 서른 중반에 본격적으로 미술을 시작해 2011년 뉴욕 47 Canal 첫 개인전으로 주목받았다. 대표작: 〈7,070,430K of Digital Spit〉(박테리아로 그린 캔버스 회화, 2015), 〈In Love With The World〉(테이트 모던 터빈홀 현대자동차 커미션, 2021 — AI로 조종되는 생체형 기계 '에어로브'들이 공간을 부유), 켈프 조각 연작.</div><div class="field-val en">Yi works with insects, bacteria, AI, and scent to explore the political and gendered history of smell and the relationships between organisms and machines. The studio functions as a laboratory; biologists and chemists are central collaborators. She began making art seriously in her mid-thirties, debuting at 47 Canal, New York in 2011. Key works: 7,070,430K of Digital Spit (bacterial paintings, 2015) and In Love With The World (Tate Modern Turbine Hall Hyundai Commission, 2021) — AI-piloted biomorphic 'aerobes' floating through the hall in response to their environment.</div>
     </div>
   </div>
-  
-    <button class="acc-toggle" aria-expanded="false">
-      <span class="acc-lbl">전시 · 경매 · 링크 · 이미지 더 보기</span>
+  <button class="acc-toggle" aria-expanded="false">
+      <span class="ko acc-lbl">전시 · 경매 · 링크 · 이미지</span>
+      <span class="en acc-lbl">Exhibitions · Prices · Links · Works</span>
       <span class="acc-arrow">▼</span>
     </button>
-  
-    <div class="acc-body">
+  <div class="acc-body">
       <div class="field">
-        <span class="field-lbl">주요 전시</span>
-        <div class="field-val"><ul class="exh-list"><li><span class="exh-yr">2026</span>《Message from the Mud》 Storm King Art Center <span class="exh-note">조류·시아노박테리아 배양 첫 대형 야외 프로젝트</span></li><li><span class="exh-yr">2025</span>《Karmic Debt》 Museum of Fine Arts, Houston</li><li><span class="exh-yr">2024</span>《또 다른 진화가 있다, 그러나 이번에는》 리움미술관, 서울 → 2025 UCCA, 베이징 순회</li><li><span class="exh-yr">2021</span>《In Love With The World》 Tate Modern Turbine Hall (Hyundai Commission)</li><li><span class="exh-yr">2017</span>Korean Pavilion, Venice Biennale</li><li><span class="exh-yr">2015</span>Frieze Artist Award</li></ul></div>
+        <span class="field-lbl"><span class="ko">주요 전시</span><span class="en">Major Exhibitions</span></span>
+        <div class="field-val"><ul class='exh-list'><li><span class="exh-yr">2026</span>《Message from the Mud》 Storm King Art Center <span class="exh-note">first large-scale outdoor project — cultivating algae and cyanobacteria</span></li><li><span class="exh-yr">2025</span>《Karmic Debt》 Museum of Fine Arts, Houston</li><li><span class="exh-yr">2024</span>《또 다른 진화가 있다, 그러나 이번에는》 Leeum Museum, Seoul → 2025 UCCA, Beijing</li><li><span class="exh-yr">2021</span>《In Love With The World》 Tate Modern Turbine Hall (Hyundai Commission)</li><li><span class="exh-yr">2017</span>Korean Pavilion, Venice Biennale</li><li><span class="exh-yr">2015</span>Frieze Artist Award</li></ul></div>
       </div>
       <div class="field">
-        <span class="field-lbl">경매가</span>
-        <div class="field-val"><p class="field-val">기관 커미션 중심의 실천으로 2차 경매 기록 제한적. 소형 조각·사진 작품: $20,000–$200,000 범위. 대형 설치는 비상업적 커미션. 테이트·베니스 비엔날레의 기관적 위상이 아직 경매 시장 깊이로 완전히 전환되지 않은 단계.</p></div>
+        <span class="field-lbl"><span class="ko">경매가</span><span class="en">Auction Records</span></span>
+        <div><p class="field-val ko">기관 커미션 중심의 실천으로 2차 경매 기록 제한적. 소형 조각·사진 작품: $20,000–$200,000 범위. 테이트·베니스 비엔날레의 기관적 위상이 아직 경매 시장 깊이로 완전히 전환되지 않은 단계.</p><p class="field-val en">Practice is primarily institutional commission-based; secondary market records limited. Small sculptures and photographs: $20,000–$200,000. The institutional prestige (Tate, Venice Biennale) has not yet fully translated into auction market depth.</p></div>
       </div>
       <div class="field">
-        <span class="field-lbl">웹사이트 / 갤러리</span>
+        <span class="field-lbl"><span class="ko">웹사이트 / 갤러리</span><span class="en">Website / Gallery</span></span>
         <div class="link-row"><a class="link-btn" href="https://www.anickayistudio.biz" target="_blank" rel="noopener">anickayistudio.biz</a><a class="link-btn" href="https://www.pacegallery.com/artists/anicka-yi/" target="_blank" rel="noopener">Pace Gallery</a><a class="link-btn" href="https://www.gladstonegallery.com/artist/anicka-yi" target="_blank" rel="noopener">Gladstone Gallery</a><a class="link-btn" href="https://www.estherschipper.com/artists/56-anicka-yi/" target="_blank" rel="noopener">Esther Schipper</a></div>
       </div>
-      <div class='field'><span class='field-lbl'>대표 작품</span><div><div class="art-grid"><figure class="art-fig">
+      <div class="field">
+        <span class="field-lbl"><span class="ko">대표 작품</span><span class="en">Selected Works</span></span>
+        <div class="art-grid"><figure class="art-fig">
           <div class="art-img-wrap">
-            <img src="https://www.pacegallery.com/media/images/anicka_yi_in_love_with_the_world_2021_pace.width-1200.jpg" alt="Anicka Yi, In Love With The World, Tate 2021" loading="lazy"
-              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패</div>'">
+            <img src="https://www.pacegallery.com/media/images/anicka_yi_in_love_with_the_world_2021_pace.width-1200.jpg" alt="Anicka Yi, In Love With The World, 2021" loading="lazy"
+              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패 / Image load failed</div>'">
           </div>
           <figcaption>
             <p class="art-caption">Anicka Yi, 〈In Love With The World〉, 2021. Hyundai Commission, Tate Modern Turbine Hall, London.</p>
             <div class="art-meta">
               <span class="art-copy">© Anicka Yi. Courtesy the Artist and Pace Gallery.</span>
-              <a class="art-src" href="https://www.pacegallery.com/artists/anicka-yi/" target="_blank" rel="noopener">원문 ↗</a>
+              <a class="art-src" href="https://www.pacegallery.com/artists/anicka-yi/" target="_blank" rel="noopener">원문 / Source ↗</a>
             </div>
           </figcaption>
-        </figure></div></div></div>
+        </figure></div>
+      </div>
     </div>
 </article>
-
 <article class="artist" id="gerrard">
   <div class="artist-hd">
     <span class="artist-num">07</span>
     <div>
       <h2 class="artist-name">John Gerrard</h2>
-      <p class="artist-meta">b. 20 July 1974, North Tipperary, Ireland · Irish</p>
+      <p class="artist-meta"><span class="ko">b. 1974년 7월 20일, 아일랜드 북 티퍼레리 · 아일랜드</span><span class="en">b. 20 July 1974, North Tipperary, Ireland · Irish</span></p>
       <div class="tags"><span class="tag">Digital Simulation</span><span class="tag">Real-Time CGI</span><span class="tag">Ecology / Power</span></div>
     </div>
   </div>
   <div class="fields">
-    
     <div class="field always">
-      <span class="field-lbl">Education</span>
-      <p class="field-val">BFA, Ruskin School of Drawing and Fine Art, Oxford · Postgraduate, School of the Art Institute of Chicago · Computer Science, Trinity College, Dublin</p>
+      <span class="field-lbl"><span data-ko data-en><span class="ko">학력</span><span class="en">Education</span></span></span>
+      <div class="field-val ko">BFA, 러스킨 드로잉·미술학교, 옥스퍼드 · 시카고 예술대학원 · 트리니티 컬리지 더블린, 컴퓨터공학</div><div class="field-val en">BFA, Ruskin School of Drawing and Fine Art, Oxford · Postgraduate, School of the Art Institute of Chicago · Computer Science, Trinity College, Dublin</div>
     </div>
-    
     <div class="field always">
       <span class="field-lbl">Artist Statement</span>
       <p class="field-val serif">"The nature of contemporary power in the broadest sense is central to my motivation — structures of control and networks of energy that have made possible the expansion of humanity in the past century."</p>
     </div>
-    
     <div class="field always">
       <span class="field-lbl">Practice</span>
-      <p class="field-val">게임엔진 기반 실시간 시뮬레이션 — 영상처럼 보이지만 수개월~수년에 걸쳐 제작된 가상 세계. 권력 구조와 에너지 네트워크, 기후, 군사 지정학이 주제다. 지리적으로 격리된 장소(미국 대평원, 고비 사막, 지부티)를 작업 무대로 삼는다. 대표작: 〈Solar Reserve (Tonopah, Nevada)〉(2014) — 10,000개의 거울이 태양광을 포집하는 발전소를 365일 실시간 시뮬레이션; 〈Western Flag (Spindletop, Texas)〉(2017) — 최초 유전 자리에 세운 검은 연기의 깃발; 〈Endling〉.</p>
+      <div class="field-val ko">게임엔진 기반 실시간 시뮬레이션 — 영상처럼 보이지만 수개월~수년에 걸쳐 제작된 가상 세계. 권력 구조와 에너지 네트워크, 기후, 군사 지정학이 주제다. 지리적으로 격리된 장소(미국 대평원, 고비 사막, 지부티)를 작업 무대로 삼는다. 대표작: 〈Solar Reserve (Tonopah, Nevada)〉(2014) — 10,000개의 거울이 태양광을 포집하는 발전소를 365일 실시간 시뮬레이션; 〈Western Flag (Spindletop, Texas)〉(2017) — 최초 유전 자리에 세운 검은 연기의 깃발.</div><div class="field-val en">Real-time computer simulations built on game-engine technology — they look like video but are generated continuously in real time over months or years. The subjects are global power structures: energy networks, military geopolitics, and climate. He locates works in remote, geopolitically significant sites — the American Great Plains, the Gobi Desert, Djibouti. Key works: Solar Reserve (Tonopah, Nevada) (2014), a year-long real-time simulation of a solar power plant; and Western Flag (Spindletop, Texas) (2017), a flag of black smoke over the site of the world's first oil well.</div>
     </div>
   </div>
-  
-    <button class="acc-toggle" aria-expanded="false">
-      <span class="acc-lbl">전시 · 경매 · 링크 · 이미지 더 보기</span>
+  <button class="acc-toggle" aria-expanded="false">
+      <span class="ko acc-lbl">전시 · 경매 · 링크 · 이미지</span>
+      <span class="en acc-lbl">Exhibitions · Prices · Links · Works</span>
       <span class="acc-arrow">▼</span>
     </button>
-  
-    <div class="acc-body">
+  <div class="acc-body">
       <div class="field">
-        <span class="field-lbl">주요 전시</span>
-        <div class="field-val"><ul class="exh-list"><li><span class="exh-yr">2026</span>《Extraction》 Jupiter Artland, Edinburgh <span class="exh-note">2026.4–7</span></li><li><span class="exh-yr">2025</span>《SPIRITS》 LACMA Art+Technology Lab <span class="exh-note">2025.12.21–2026.12.21 — 세계 96개 해변의 플라스틱 신발 가우시안 스플랫 스캔; 4회 계절 공개</span></li><li><span class="exh-yr">2019</span>《Western Flag》 Museo Nacional Thyssen-Bornemisza, Madrid · Rathausmarkt, Hamburg</li><li><span class="exh-yr">2018</span>《Solar Reserve》 LACMA, Los Angeles</li><li><span class="exh-yr">2014</span>Solar Reserve, Lincoln Center Plaza, New York (Public Art Fund)</li><li><span class="exh-yr">2011</span>Live Fire Exercise, Royal Opera House, London (with Wayne McGregor / Royal Ballet)</li><li><span class="exh-yr">2009</span>53rd Venice Biennale — collateral event</li></ul></div>
+        <span class="field-lbl"><span class="ko">주요 전시</span><span class="en">Major Exhibitions</span></span>
+        <div class="field-val"><ul class='exh-list'><li><span class="exh-yr">2026</span>《Extraction》 Jupiter Artland, Edinburgh <span class="exh-note">2026.4–7</span></li><li><span class="exh-yr">2025</span>《SPIRITS》 LACMA Art+Technology Lab <span class="exh-note">2025.12.21–2026.12.21</span></li><li><span class="exh-yr">2019</span>《Western Flag》 Thyssen-Bornemisza, Madrid · Rathausmarkt, Hamburg</li><li><span class="exh-yr">2018</span>《Solar Reserve》 LACMA, Los Angeles</li><li><span class="exh-yr">2014</span>Solar Reserve, Lincoln Center Plaza, New York (Public Art Fund)</li><li><span class="exh-yr">2009</span>53rd Venice Biennale <span class="exh-note">collateral event</span></li></ul></div>
       </div>
       <div class="field">
-        <span class="field-lbl">경매가</span>
-        <div class="field-val"><p class="field-val">실시간 시뮬레이션 작품은 에디션 기반. 갤러리 1차 시장 주도. Pace Gallery와 함께 NFT·디지털 에디션 실험 (Petro National, Pace Verso × Art Blocks, 2022). 공개 경매 기록 제한적.</p></div>
+        <span class="field-lbl"><span class="ko">경매가</span><span class="en">Auction Records</span></span>
+        <div><p class="field-val ko">실시간 시뮬레이션 작품은 에디션 기반. Pace Gallery와 함께 NFT·디지털 에디션 실험 (Petro National, Pace Verso × Art Blocks, 2022). 공개 경매 기록 제한적.</p><p class="field-val en">Real-time simulation works are edition-based. Digital edition experiments with Pace Gallery (Petro National, Pace Verso × Art Blocks, 2022). Public auction records limited.</p></div>
       </div>
       <div class="field">
-        <span class="field-lbl">웹사이트 / 갤러리</span>
+        <span class="field-lbl"><span class="ko">웹사이트 / 갤러리</span><span class="en">Website / Gallery</span></span>
         <div class="link-row"><a class="link-btn" href="https://www.johngerrard.net" target="_blank" rel="noopener">johngerrard.net</a><a class="link-btn" href="https://www.pacegallery.com/artists/john-gerrard/" target="_blank" rel="noopener">Pace Gallery</a><a class="link-btn" href="https://www.tate.org.uk/art/artists/john-gerrard-18965" target="_blank" rel="noopener">Tate</a></div>
       </div>
-      <div class='field'><span class='field-lbl'>대표 작품</span><div><div class="art-grid"><figure class="art-fig">
+      <div class="field">
+        <span class="field-lbl"><span class="ko">대표 작품</span><span class="en">Selected Works</span></span>
+        <div class="art-grid"><figure class="art-fig">
           <div class="art-img-wrap">
             <img src="https://www.johngerrard.net/img/2017/western-flag.jpg" alt="John Gerrard, Western Flag (Spindletop, Texas), 2017" loading="lazy"
-              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패</div>'">
+              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패 / Image load failed</div>'">
           </div>
           <figcaption>
             <p class="art-caption">〈Western Flag (Spindletop, Texas)〉, 2017. Real-time digital simulation, LED display. Somerset House / Channel 4, London.</p>
             <div class="art-meta">
               <span class="art-copy">© John Gerrard. Courtesy Pace Gallery.</span>
-              <a class="art-src" href="https://www.johngerrard.net" target="_blank" rel="noopener">원문 ↗</a>
+              <a class="art-src" href="https://www.johngerrard.net" target="_blank" rel="noopener">원문 / Source ↗</a>
             </div>
           </figcaption>
-        </figure></div></div></div>
+        </figure></div>
+      </div>
     </div>
 </article>
-
 <article class="artist" id="pooley">
   <div class="artist-hd">
     <span class="artist-num">08</span>
     <div>
       <h2 class="artist-name">Christiane Pooley</h2>
-      <p class="artist-meta">b. 1983, Temuco, Chile · Lives: Paris · Chilean</p>
+      <p class="artist-meta"><span class="ko">b. 1983, 칠레 테무코 · 거주: 파리 · 칠레</span><span class="en">b. 1983, Temuco, Chile · Lives: Paris · Chilean</span></p>
       <div class="tags"><span class="tag">Painting</span><span class="tag">Liminal Landscape</span><span class="tag">Memory / Archive</span></div>
     </div>
   </div>
   <div class="fields">
-    
     <div class="field always">
-      <span class="field-lbl">Education</span>
-      <p class="field-val">BA Fine Arts, Pontifical Catholic University of Chile, Santiago · Postgraduate Diploma, Chelsea College of Art, London (2006)</p>
+      <span class="field-lbl"><span data-ko data-en><span class="ko">학력</span><span class="en">Education</span></span></span>
+      <div class="field-val ko">BA 순수미술, 칠레 가톨릭대학교, 산티아고 · 대학원 수료, 첼시 예술대학, 런던 (2006)</div><div class="field-val en">BA Fine Arts, Pontifical Catholic University of Chile, Santiago · Postgraduate Diploma, Chelsea College of Art, London (2006)</div>
     </div>
-    
     <div class="field always">
       <span class="field-lbl">Artist Statement</span>
       <p class="field-val serif">"My paintings explore place as both a physical environment and an emotional state that transcends time and geographical boundaries — combining memory with archival images to create spaces that teeter on the edge of reality and dream."</p>
     </div>
-    
     <div class="field always">
       <span class="field-lbl">Practice</span>
-      <p class="field-val">장소를 물리적 환경이자 시공을 초월한 정서적 상태로 다룬다. 개인 기억과 아카이브 이미지를 뒤섞어 현실과 꿈 사이 어딘가에 존재하는 풍경을 그린다. 구체적 디테일과 추상 사이의 팽팽한 긴장이 향수·기원·정체성에 대한 질문을 복잡하게 만든다. 유년기를 보낸 아라우카니아 지역의 역사 — 마푸체 원주민과 칠레 정부 간 토지 갈등 — 가 작업 전반에 깔려 있다. 수집처: Pizzuti Collection (콜럼버스 미술관) 등.</p>
+      <div class="field-val ko">장소를 물리적 환경이자 시공을 초월한 정서적 상태로 다룬다. 개인 기억과 아카이브 이미지를 뒤섞어 현실과 꿈 사이 어딘가에 존재하는 풍경을 그린다. 구체적 디테일과 추상 사이의 팽팽한 긴장이 향수·기원·정체성에 대한 질문을 복잡하게 만든다. 유년기를 보낸 아라우카니아 지역의 역사 — 마푸체 원주민과 칠레 정부 간 토지 갈등 — 가 작업 전반에 깔려 있다. 수집처: Pizzuti Collection (콜럼버스 미술관) 등.</div><div class="field-val en">Pooley treats place as both a physical environment and an emotional state that transcends time — combining personal memory with archival images to produce landscapes existing between reality and dream. The tension between specific detail and abstraction complicates questions of nostalgia, origin, and identity. Her childhood in the Araucanía region — shaped by the long conflict between the Mapuche people and the Chilean government — underlies the work throughout. Collections: Pizzuti Collection (Columbus Museum of Art).</div>
     </div>
   </div>
-  
-    <button class="acc-toggle" aria-expanded="false">
-      <span class="acc-lbl">전시 · 경매 · 링크 · 이미지 더 보기</span>
+  <button class="acc-toggle" aria-expanded="false">
+      <span class="ko acc-lbl">전시 · 경매 · 링크 · 이미지</span>
+      <span class="en acc-lbl">Exhibitions · Prices · Links · Works</span>
       <span class="acc-arrow">▼</span>
     </button>
-  
-    <div class="acc-body">
+  <div class="acc-body">
       <div class="field">
-        <span class="field-lbl">주요 전시</span>
-        <div class="field-val"><ul class="exh-list"><li><span class="exh-yr">2026</span>《Trilla》 Galerie Perrotin, Shanghai <span class="exh-note">2026.5.30–8.22 — 중국 본토 첫 개인전</span></li><li><span class="exh-yr">2025</span>《Imaginary Country》 Galerie Perrotin, New York</li><li><span class="exh-yr">2024</span>《Geographies of Love》 Gallery 38, Tokyo · Solo, Kristin Hjellegjerde, West Palm Beach</li><li><span class="exh-yr">2023</span>《Profundidad》 Galerie Perrotin, Hong Kong</li><li><span class="exh-yr">2021</span>《The Need for Roots》 Kristin Hjellegjerde, London · 《Distance》 Gallery 38, Tokyo</li><li><span class="exh-yr">2018</span>《Landscape Beneath》 Bendana Pinel, Paris</li></ul></div>
+        <span class="field-lbl"><span class="ko">주요 전시</span><span class="en">Major Exhibitions</span></span>
+        <div class="field-val"><ul class='exh-list'><li><span class="exh-yr">2026</span>《Trilla》 Galerie Perrotin, Shanghai <span class="exh-note">2026.5.30–8.22 — first solo in mainland China</span></li><li><span class="exh-yr">2025</span>《Imaginary Country》 Galerie Perrotin, New York</li><li><span class="exh-yr">2024</span>《Geographies of Love》 Gallery 38, Tokyo · Kristin Hjellegjerde, West Palm Beach</li><li><span class="exh-yr">2023</span>《Profundidad》 Galerie Perrotin, Hong Kong</li><li><span class="exh-yr">2021</span>《The Need for Roots》 Kristin Hjellegjerde, London · 《Distance》 Gallery 38, Tokyo</li><li><span class="exh-yr">2018</span>《Landscape Beneath》 Bendana Pinel, Paris</li></ul></div>
       </div>
       <div class="field">
-        <span class="field-lbl">경매가</span>
-        <div class="field-val"><p class="field-val">MutualArt 기준 낙찰가 범위: $708–$5,479 (소형 작품 기준). 2024 최고가: A1-2 (2008), FauveParis — $5,479. 갤러리 1차 시장: 중형 회화 €8,000–€25,000 추정 (Perrotin 전속 이후 상승 중).</p></div>
+        <span class="field-lbl"><span class="ko">경매가</span><span class="en">Auction Records</span></span>
+        <div><p class="field-val ko">MutualArt 기준 낙찰가 범위: $708–$5,479 (소형 작품 기준). 갤러리 1차 시장: 중형 회화 €8,000–€25,000 추정 (Perrotin 전속 이후 상승 중).</p><p class="field-val en">MutualArt hammer prices: $708–$5,479 (small works). Gallery primary market: mid-size paintings estimated €8,000–€25,000, rising since Perrotin representation.</p></div>
       </div>
       <div class="field">
-        <span class="field-lbl">웹사이트 / 갤러리</span>
-        <div class="link-row"><a class="link-btn" href="https://cargocollective.com/christianepooley" target="_blank" rel="noopener">cargocollective.com/christianepooley</a><a class="link-btn" href="https://www.perrotin.com/artists/CHRISTIANE_POOLEY/1071" target="_blank" rel="noopener">Galerie Perrotin</a><a class="link-btn" href="https://kristinhjellegjerde.com/artists/213-christiane-pooley/" target="_blank" rel="noopener">Kristin Hjellegjerde</a></div>
+        <span class="field-lbl"><span class="ko">웹사이트 / 갤러리</span><span class="en">Website / Gallery</span></span>
+        <div class="link-row"><a class="link-btn" href="https://cargocollective.com/christianepooley" target="_blank" rel="noopener">cargocollective.com</a><a class="link-btn" href="https://www.perrotin.com/artists/CHRISTIANE_POOLEY/1071" target="_blank" rel="noopener">Galerie Perrotin</a><a class="link-btn" href="https://kristinhjellegjerde.com/artists/213-christiane-pooley/" target="_blank" rel="noopener">Kristin Hjellegjerde</a></div>
       </div>
-      <div class='field'><span class='field-lbl'>대표 작품</span><div><div class="art-grid"><figure class="art-fig">
+      <div class="field">
+        <span class="field-lbl"><span class="ko">대표 작품</span><span class="en">Selected Works</span></span>
+        <div class="art-grid"><figure class="art-fig">
           <div class="art-img-wrap">
             <img src="https://www.perrotin.com/storage/artworks/2025/01/christiane-pooley-imaginary-country-perrotin-new-york-2025.jpg" alt="Christiane Pooley, Imaginary Country, Perrotin NY 2025" loading="lazy"
-              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패</div>'">
+              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패 / Image load failed</div>'">
           </div>
           <figcaption>
-            <p class="art-caption">Exhibition view: 〈Imaginary Country〉, Galerie Perrotin, New York, 2025.</p>
+            <p class="art-caption">Exhibition view: 《Imaginary Country》, Galerie Perrotin, New York, 2025.</p>
             <div class="art-meta">
               <span class="art-copy">© Christiane Pooley. Courtesy Galerie Perrotin.</span>
-              <a class="art-src" href="https://www.perrotin.com/artists/CHRISTIANE_POOLEY/1071" target="_blank" rel="noopener">원문 ↗</a>
+              <a class="art-src" href="https://www.perrotin.com/artists/CHRISTIANE_POOLEY/1071" target="_blank" rel="noopener">원문 / Source ↗</a>
             </div>
           </figcaption>
-        </figure></div></div></div>
+        </figure></div>
+      </div>
     </div>
 </article>
-
 <article class="artist" id="eliasson">
   <div class="artist-hd">
     <span class="artist-num">09</span>
     <div>
       <h2 class="artist-name">Olafur Eliasson</h2>
-      <p class="artist-meta">b. 1967, Copenhagen, Denmark · Lives: Berlin / Copenhagen · Icelandic-Danish</p>
+      <p class="artist-meta"><span class="ko">b. 1967, 덴마크 코펜하겐 · 거주: 베를린/코펜하겐 · 아이슬란드계 덴마크</span><span class="en">b. 1967, Copenhagen, Denmark · Lives: Berlin / Copenhagen · Icelandic-Danish</span></p>
       <div class="tags"><span class="tag">Installation</span><span class="tag">Light / Atmosphere</span><span class="tag">Climate / Ecology</span></div>
     </div>
   </div>
   <div class="fields">
     
-    
     <div class="field always">
       <span class="field-lbl">Artist Statement</span>
       <p class="field-val serif">"Art is not a thing, it is a relation — between the work, the viewer, and the context. My interest lies in the act of perceiving: what it means to experience space, light, and movement, and what it tells us about how we see the world."</p>
     </div>
-    
     <div class="field always">
       <span class="field-lbl">Practice</span>
-      <p class="field-val">빛·바람·물·이끼·무지개 등 과학적 현상과 자연 요소를 주제가 아닌 능동적 재료로 사용한다. 지각·신체성·기후위기의 교차점에서 작동하는 예술이다. 베를린의 Studio Olafur Eliasson은 장인·건축가·과학자·예술가 100여 명이 협업하는 독특한 집단 구조로 운영된다. 대표작: 〈The Weather Project〉(테이트 터빈홀, 2003 — 2,000여 개의 전구로 재현한 거대한 태양, 약 200만 명 관람), 〈Beauty〉(1993 — 스포트라이트·물·안개로 구현한 실내 무지개), 〈Ice Watch〉(그린란드 빙하를 도시 광장으로 직접 가져와 녹이는 기후 행동). 에너지 빈곤 해소를 위한 태양광 조명 'Little Sun'도 개발했다.</p>
+      <div class="field-val ko">빛·바람·물·이끼·무지개 등 과학적 현상과 자연 요소를 주제가 아닌 능동적 재료로 사용한다. 지각·신체성·기후위기의 교차점에서 작동하는 예술이다. 베를린의 Studio Olafur Eliasson은 장인·건축가·과학자·예술가 100여 명이 협업하는 독특한 집단 구조로 운영된다. 대표작: 〈The Weather Project〉(테이트 터빈홀, 2003 — 2,000여 개의 전구로 재현한 거대한 태양, 약 200만 명 관람), 〈Beauty〉(1993 — 스포트라이트·물·안개로 구현한 실내 무지개), 〈Ice Watch〉(그린란드 빙하를 도시 광장으로 직접 가져와 녹이는 기후 행동). 에너지 빈곤 해소를 위한 태양광 조명 'Little Sun'도 개발했다.</div><div class="field-val en">Eliasson uses natural phenomena — light, wind, water, moss, rainbows — not as subjects but as active materials. His work operates at the intersection of perception, embodiment, and the climate crisis. Studio Olafur Eliasson in Berlin is a collective of around 100 craftspeople, architects, scientists, and artists. Major works: The Weather Project (Tate Modern, 2003 — an artificial sun from 2,000 bulbs, approximately two million visitors); Beauty (1993 — an indoor rainbow from spotlights, water, and mist); Ice Watch (glacial ice transported from Greenland to city squares). He also developed Little Sun, an open-source solar light for communities without electricity.</div>
     </div>
   </div>
-  
-    <button class="acc-toggle" aria-expanded="false">
-      <span class="acc-lbl">전시 · 경매 · 링크 · 이미지 더 보기</span>
+  <button class="acc-toggle" aria-expanded="false">
+      <span class="ko acc-lbl">전시 · 경매 · 링크 · 이미지</span>
+      <span class="en acc-lbl">Exhibitions · Prices · Links · Works</span>
       <span class="acc-arrow">▼</span>
     </button>
-  
-    <div class="acc-body">
+  <div class="acc-body">
       <div class="field">
-        <span class="field-lbl">주요 전시</span>
-        <div class="field-val"><ul class="exh-list"><li><span class="exh-yr">2026</span>《Your curious journey》 MCAD Manila <span class="exh-note">2026.7.9–11.15 — 싱가포르·오클랜드·타이베이·자카르타 순회전 마지막</span></li><li><span class="exh-yr">2025</span>《Presence》 QAGOMA, Brisbane <span class="exh-note">2025.12.6–2026.7.12</span></li><li><span class="exh-yr">2023</span>《Sometimes the river is the bridge》 Museum of Contemporary Art, Tokyo</li><li><span class="exh-yr">2019</span>《In Real Life》 Tate Modern, London → Guggenheim Bilbao 순회</li><li><span class="exh-yr">2003</span>《The Weather Project》 Tate Modern Turbine Hall <span class="exh-note">정의 기준 작품</span></li><li><span class="exh-yr">2003</span>Danish Pavilion, Venice Biennale</li></ul></div>
+        <span class="field-lbl"><span class="ko">주요 전시</span><span class="en">Major Exhibitions</span></span>
+        <div class="field-val"><ul class='exh-list'><li><span class="exh-yr">2026</span>《Your curious journey》 MCAD Manila <span class="exh-note">2026.7.9–11.15 — final stop of Singapore/Auckland/Taipei/Jakarta tour</span></li><li><span class="exh-yr">2025</span>《Presence》 QAGOMA, Brisbane <span class="exh-note">2025.12.6–2026.7.12</span></li><li><span class="exh-yr">2023</span>《Sometimes the river is the bridge》 Museum of Contemporary Art, Tokyo</li><li><span class="exh-yr">2019</span>《In Real Life》 Tate Modern, London → Guggenheim Bilbao</li><li><span class="exh-yr">2003</span>《The Weather Project》 Tate Modern Turbine Hall <span class="exh-note">defining work</span></li><li><span class="exh-yr">2003</span>Danish Pavilion, Venice Biennale</li></ul></div>
       </div>
       <div class="field">
-        <span class="field-lbl">경매가</span>
-        <div class="field-val"><table class="price-tbl"><thead><tr><th>연도</th><th>작품</th><th>경매사</th><th>낙찰가</th></tr></thead><tbody><tr><td class="yr">2021</td><td>Yellow Versus Purple (2003)</td><td class="muted">Christie's</td><td class="price">$2.8M</td></tr><tr><td class="yr">2019</td><td>Model for a timeless garden</td><td class="muted">Sotheby's London</td><td class="price">£480,000</td></tr><tr><td class="yr">2019</td><td>Colour circle series</td><td class="muted">Phillips</td><td class="price">$320,000</td></tr></tbody></table><p class="price-note">대형 설치는 기관 커미션. 에디션 판화·소형 조각: $10,000–$200,000. 광학 실험 회화(colour circle) 시리즈: $100,000–$500,000 범위.</p></div>
+        <span class="field-lbl"><span class="ko">경매가</span><span class="en">Auction Records</span></span>
+        <div><table class="price-tbl"><thead><tr><th><span class="ko">연도</span><span class="en">Year</span></th><th><span class="ko">작품</span><span class="en">Work</span></th><th><span class="ko">경매사</span><span class="en">House</span></th><th><span class="ko">낙찰가</span><span class="en">Result</span></th></tr></thead><tbody><tr><td class="yr">2021</td><td>Yellow Versus Purple (2003)</td><td class="muted">Christie's</td><td class="price">$2.8M</td></tr><tr><td class="yr">2019</td><td>Model for a timeless garden</td><td class="muted">Sotheby's London</td><td class="price">£480,000</td></tr><tr><td class="yr">2019</td><td>Colour circle series</td><td class="muted">Phillips</td><td class="price">$320,000</td></tr></tbody></table><p class="price-note ko">대형 설치는 기관 커미션. 에디션 판화·소형 조각: $10,000–$200,000. 광학 실험 회화: $100,000–$500,000 범위.</p><p class="price-note en">Large installations are institutional commissions. Edition prints and small sculptures: $10,000–$200,000. Colour-circle paintings: $100,000–$500,000.</p></div>
       </div>
       <div class="field">
-        <span class="field-lbl">웹사이트 / 갤러리</span>
+        <span class="field-lbl"><span class="ko">웹사이트 / 갤러리</span><span class="en">Website / Gallery</span></span>
         <div class="link-row"><a class="link-btn" href="https://olafureliasson.net" target="_blank" rel="noopener">olafureliasson.net</a><a class="link-btn" href="https://www.neugerriemschneider.com/artists/olafur-eliasson/" target="_blank" rel="noopener">neugerriemschneider</a><a class="link-btn" href="https://www.tanyabonakdar.com/artists/olafur-eliasson/" target="_blank" rel="noopener">Tanya Bonakdar Gallery</a></div>
       </div>
-      <div class='field'><span class='field-lbl'>대표 작품</span><div><div class="art-grid"><figure class="art-fig">
+      <div class="field">
+        <span class="field-lbl"><span class="ko">대표 작품</span><span class="en">Selected Works</span></span>
+        <div class="art-grid"><figure class="art-fig">
           <div class="art-img-wrap">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Eliasson_sun.jpg/1200px-Eliasson_sun.jpg" alt="The Weather Project, Tate Modern, 2003" loading="lazy"
-              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패</div>'">
+              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패 / Image load failed</div>'">
           </div>
           <figcaption>
             <p class="art-caption">〈The Weather Project〉, 2003. Monofrequency lights, projection foil, haze, mirror foil. Tate Modern Turbine Hall, London.</p>
             <div class="art-meta">
               <span class="art-copy">© 2003 Olafur Eliasson. Photo: Marcus Leith / Tate. CC BY-SA 3.0 — Wikimedia Commons.</span>
-              <a class="art-src" href="https://commons.wikimedia.org/wiki/File:Eliasson_sun.jpg" target="_blank" rel="noopener">원문 ↗</a>
+              <a class="art-src" href="https://commons.wikimedia.org/wiki/File:Eliasson_sun.jpg" target="_blank" rel="noopener">원문 / Source ↗</a>
             </div>
           </figcaption>
-        </figure></div></div></div>
+        </figure></div>
+      </div>
     </div>
 </article>
-
 <article class="artist" id="jansen">
   <div class="artist-hd">
     <span class="artist-num">10</span>
     <div>
       <h2 class="artist-name">Theo Jansen</h2>
-      <p class="artist-meta">b. 1948, Scheveningen, Netherlands · Lives: Delft · Dutch</p>
+      <p class="artist-meta"><span class="ko">b. 1948, 네덜란드 스헤베닝겐 · 거주: 델프트 · 네덜란드</span><span class="en">b. 1948, Scheveningen, Netherlands · Lives: Delft · Dutch</span></p>
       <div class="tags"><span class="tag">Kinetic Sculpture</span><span class="tag">Wind Power</span><span class="tag">Artificial Life</span></div>
     </div>
   </div>
   <div class="fields">
-    
     <div class="field always">
-      <span class="field-lbl">Education</span>
-      <p class="field-val">Physics, Delft University of Technology (attended; left to pursue art)</p>
+      <span class="field-lbl"><span data-ko data-en><span class="ko">학력</span><span class="en">Education</span></span></span>
+      <div class="field-val ko">물리학, 델프트 공과대학교 (중퇴 후 예술 전업)</div><div class="field-val en">Physics, Delft University of Technology (left to pursue art)</div>
     </div>
-    
     <div class="field always">
       <span class="field-lbl">Artist Statement</span>
       <p class="field-val serif">"The walls between art and engineering exist only in our minds. I am trying to create new forms of life: not in a petri dish, but on the beach, from plastic tubes and the wind."</p>
     </div>
-    
     <div class="field always">
       <span class="field-lbl">Practice</span>
-      <p class="field-val">PVC 튜브·케이블타이·페트병으로 만들고 바람만으로 움직이는 키네틱 조각 〈Strandbeest(해변 생물)〉 연작. 자연선택의 원리를 예술 실천으로 압축한 35년 이상의 1인 진화 프로젝트다. 매년 봄 새로운 종을 발표하고 가을에 '뼈 무덤(boneyard)'으로 은퇴시킨다. 각 세대는 이전보다 더 효율적으로 보행·에너지 저장·환경 감지를 수행하도록 개선된다. 1990년부터 네덜란드 북해 해변에서 실험을 이어오고 있으며, Honda·BMW 등 기업 캠페인을 통해 대중적 인지도를 확보했다. 전속 갤러리 없이 재단·기업 후원 구조로 운영된다.</p>
+      <div class="field-val ko">PVC 튜브·케이블타이·페트병으로 만들고 바람만으로 움직이는 키네틱 조각 〈Strandbeest(해변 생물)〉 연작. 자연선택의 원리를 예술 실천으로 압축한 35년 이상의 1인 진화 프로젝트다. 매년 봄 새로운 종을 발표하고 가을에 '뼈 무덤(boneyard)'으로 은퇴시킨다. 각 세대는 이전보다 더 효율적으로 보행·에너지 저장·환경 감지를 수행하도록 개선된다. 1990년부터 네덜란드 북해 해변에서 실험을 이어오고 있으며, Honda·BMW 등 기업 캠페인을 통해 대중적 인지도를 확보했다. 전속 갤러리 없이 재단·기업 후원 구조로 운영된다.</div><div class="field-val en">Strandbeest (beach animal) — kinetic sculptures from PVC tubing, cable ties, and plastic bottles, powered only by wind. A 35-year solo evolution project compressing the logic of natural selection into art practice. Each spring a new species is released; each autumn it is retired to the boneyard. Each generation is improved: more efficient at walking, storing energy, sensing the environment. He has worked on the North Sea coast since 1990. Mass recognition through Honda and BMW campaigns. He operates without a gallery, through foundation and corporate patronage.</div>
     </div>
   </div>
-  
-    <button class="acc-toggle" aria-expanded="false">
-      <span class="acc-lbl">전시 · 경매 · 링크 · 이미지 더 보기</span>
+  <button class="acc-toggle" aria-expanded="false">
+      <span class="ko acc-lbl">전시 · 경매 · 링크 · 이미지</span>
+      <span class="en acc-lbl">Exhibitions · Prices · Links · Works</span>
       <span class="acc-arrow">▼</span>
     </button>
-  
-    <div class="acc-body">
+  <div class="acc-body">
       <div class="field">
-        <span class="field-lbl">주요 전시</span>
-        <div class="field-val"><ul class="exh-list"><li><span class="exh-yr">2026</span>《Strandbeesten Mortuarium》 Kabeldistrict Delft (Prinsenhof Museum 협력) <span class="exh-note">2026.4.19 재개관</span></li><li><span class="exh-yr">2025</span>Plateforme 10, Lausanne <span class="exh-note">Audemars Piguet Contemporary 지원</span></li><li><span class="exh-yr">2023</span>Peabody Essex Museum, Salem, MA · Tinguely Museum, Basel</li><li><span class="exh-yr">2014</span>MoMA, New York <span class="exh-note">Strandbeest 영구 소장 (Animaris Ordis)</span></li><li><span class="exh-yr">2009</span>Exploratorium, San Francisco <span class="exh-note">미국 순회 첫 대형 전시</span></li></ul></div>
+        <span class="field-lbl"><span class="ko">주요 전시</span><span class="en">Major Exhibitions</span></span>
+        <div class="field-val"><ul class='exh-list'><li><span class="exh-yr">2026</span>《Strandbeesten Mortuarium》 Kabeldistrict Delft (Prinsenhof Museum) <span class="exh-note">reopening 2026.4.19</span></li><li><span class="exh-yr">2025</span>Plateforme 10, Lausanne <span class="exh-note">Audemars Piguet Contemporary</span></li><li><span class="exh-yr">2023</span>Peabody Essex Museum, Salem · Tinguely Museum, Basel</li><li><span class="exh-yr">2014</span>MoMA, New York <span class="exh-note">permanent collection: Animaris Ordis</span></li><li><span class="exh-yr">2009</span>Exploratorium, San Francisco <span class="exh-note">first major US tour</span></li></ul></div>
       </div>
       <div class="field">
-        <span class="field-lbl">경매가</span>
-        <div class="field-val"><p class="field-val">전속 갤러리 없음. 구형(은퇴된) Strandbeest 유닛은 재단 또는 직접 계약으로 뮤지엄·컬렉터 납품. 공개 경매 기록 드물며, 주요 단위 €100,000–€500,000+ 추정. 소형 3D 프린트 복제 판매품(비원본): €200–€1,000.</p></div>
+        <span class="field-lbl"><span class="ko">경매가</span><span class="en">Auction Records</span></span>
+        <div><p class="field-val ko">전속 갤러리 없음. 구형 Strandbeest 유닛: 재단 또는 직접 계약으로 뮤지엄·컬렉터 납품, 주요 단위 €100,000–€500,000+ 추정. 소형 3D 프린트 복제(비원본): €200–€1,000.</p><p class="field-val en">No primary gallery. Retired Strandbeest units sold directly or through foundation to museums and collectors; major units estimated €100,000–€500,000+. Small 3D-printed replicas (non-original): €200–€1,000.</p></div>
       </div>
       <div class="field">
-        <span class="field-lbl">웹사이트 / 갤러리</span>
+        <span class="field-lbl"><span class="ko">웹사이트 / 갤러리</span><span class="en">Website / Gallery</span></span>
         <div class="link-row"><a class="link-btn" href="https://www.strandbeest.com" target="_blank" rel="noopener">strandbeest.com</a><a class="link-btn" href="https://www.moma.org/artists/67801" target="_blank" rel="noopener">MoMA Collection</a></div>
       </div>
-      <div class='field'><span class='field-lbl'>대표 작품</span><div><div class="art-grid"><figure class="art-fig">
+      <div class="field">
+        <span class="field-lbl"><span class="ko">대표 작품</span><span class="en">Selected Works</span></span>
+        <div class="art-grid"><figure class="art-fig">
           <div class="art-img-wrap">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Strandbeest_%28Eolaminator%29_by_Theo_Jansen.jpg/1280px-Strandbeest_%28Eolaminator%29_by_Theo_Jansen.jpg" alt="Strandbeest — Animaris Eolaminator" loading="lazy"
-              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패</div>'">
+              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패 / Image load failed</div>'">
           </div>
           <figcaption>
-            <p class="art-caption">〈Animaris Eolaminator〉, Strandbeest 시리즈. PVC tubing, cable ties, plastic bottles. North Sea coast, Netherlands.</p>
+            <p class="art-caption">〈Animaris Eolaminator〉, Strandbeest series. PVC tubing, cable ties, plastic bottles. North Sea coast, Netherlands.</p>
             <div class="art-meta">
               <span class="art-copy">© Theo Jansen. Photo: S. Sörries. CC BY-SA 3.0 — Wikimedia Commons.</span>
-              <a class="art-src" href="https://commons.wikimedia.org/wiki/File:Strandbeest_(Eolaminator)_by_Theo_Jansen.jpg" target="_blank" rel="noopener">원문 ↗</a>
+              <a class="art-src" href="https://commons.wikimedia.org/wiki/File:Strandbeest_(Eolaminator)_by_Theo_Jansen.jpg" target="_blank" rel="noopener">원문 / Source ↗</a>
             </div>
           </figcaption>
         </figure><figure class="art-fig">
           <div class="art-img-wrap">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Theo_Jansen_Strandbeest.jpg/1280px-Theo_Jansen_Strandbeest.jpg" alt="Strandbeest on beach" loading="lazy"
-              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패</div>'">
+              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패 / Image load failed</div>'">
           </div>
           <figcaption>
-            <p class="art-caption">Strandbeest, 북해 해변 보행. Wind-powered kinetic sculpture.</p>
+            <p class="art-caption">Strandbeest, North Sea beach. Wind-powered kinetic sculpture.</p>
             <div class="art-meta">
               <span class="art-copy">© Theo Jansen. CC BY-SA 3.0 — Wikimedia Commons.</span>
-              <a class="art-src" href="https://commons.wikimedia.org/wiki/File:Theo_Jansen_Strandbeest.jpg" target="_blank" rel="noopener">원문 ↗</a>
+              <a class="art-src" href="https://commons.wikimedia.org/wiki/File:Theo_Jansen_Strandbeest.jpg" target="_blank" rel="noopener">원문 / Source ↗</a>
             </div>
           </figcaption>
-        </figure></div></div></div>
+        </figure></div>
+      </div>
     </div>
 </article>
-
 <article class="artist" id="quinonero">
   <div class="artist-hd">
     <span class="artist-num">11</span>
     <div>
       <h2 class="artist-name">Maru Quiñonero</h2>
-      <p class="artist-meta">b. 1979, Murcia, Spain · Lives: Madrid · Spanish</p>
+      <p class="artist-meta"><span class="ko">b. 1979, 스페인 무르시아 · 거주: 마드리드 · 스페인</span><span class="en">b. 1979, Murcia, Spain · Lives: Madrid · Spanish</span></p>
       <div class="tags"><span class="tag">Colour Field</span><span class="tag">Minimalism</span><span class="tag">Synaesthesia</span></div>
     </div>
   </div>
   <div class="fields">
-    
     <div class="field always">
-      <span class="field-lbl">Education</span>
-      <p class="field-val">BA Art History, Murcia University (2001) · MA Fashion Communication, Carlos III University, Madrid (2006) · 독학 화가 (self-taught painter)</p>
+      <span class="field-lbl"><span data-ko data-en><span class="ko">학력</span><span class="en">Education</span></span></span>
+      <div class="field-val ko">BA 미술사, 무르시아 대학교 (2001) · MA 패션커뮤니케이션, 카를로스3세 대학교, 마드리드 (2006) · 독학 화가</div><div class="field-val en">BA Art History, Murcia University (2001) · MA Fashion Communication, Carlos III University, Madrid (2006) · Self-taught painter</div>
     </div>
-    
     <div class="field always">
       <span class="field-lbl">Artist Statement</span>
-      <p class="field-val serif">"I feel colours in words — mainly in certain letters. That's why I work with colour in an emotional manner. I cannot imagine doing it any other way. It is a language of my own."</p>
+      <p class="field-val serif">"I feel colours in words — mainly in certain letters. That's why I work with colour in an emotional manner. It is a language of my own."</p>
     </div>
-    
     <div class="field always">
       <span class="field-lbl">Practice</span>
-      <p class="field-val">공감각(synaesthesia)에서 출발한 아크릴+연필의 색면 회화. 단어와 특정 알파벳에서 색을 경험하는 감각을 캔버스로 옮긴다. 최근에는 실루엣이 화면에 서서히 떠오르고, 크로셰(코바늘 뜨개) 작업이 회화와 결합되는 방향으로 발전 중이다. 스스로를 '공허에 질서를 세우기 위해 글 쓰고 뜨개질하는 화가'라고 규정한다. 작품 제목은 일상의 만트라와 음악에서 가져온다. 2003년부터 전시 활동을 이어오고 있다.</p>
+      <div class="field-val ko">공감각(synaesthesia)에서 출발한 아크릴+연필의 색면 회화. 단어와 특정 알파벳에서 색을 경험하는 감각을 캔버스로 옮긴다. 최근에는 실루엣이 화면에 서서히 떠오르고, 크로셰(코바늘 뜨개) 작업이 회화와 결합되는 방향으로 발전 중이다. 스스로를 '공허에 질서를 세우기 위해 글 쓰고 뜨개질하는 화가'라고 규정한다. 작품 제목은 일상의 만트라와 음악에서 가져온다. 2003년부터 전시 활동을 이어오고 있다.</div><div class="field-val en">Colour-field painting in acrylic and pencil, originating in synaesthesia — Quiñonero experiences colour in words and individual letters. Recent work has evolved to include silhouettes emerging gradually from the surface, and crochet combined with painting. She describes herself as 'a painter who writes and knits to impose order on the void.' Work titles come from everyday mantras and music. Exhibiting since 2003.</div>
     </div>
   </div>
-  
-    <button class="acc-toggle" aria-expanded="false">
-      <span class="acc-lbl">전시 · 경매 · 링크 · 이미지 더 보기</span>
+  <button class="acc-toggle" aria-expanded="false">
+      <span class="ko acc-lbl">전시 · 경매 · 링크 · 이미지</span>
+      <span class="en acc-lbl">Exhibitions · Prices · Links · Works</span>
       <span class="acc-arrow">▼</span>
     </button>
-  
-    <div class="acc-body">
+  <div class="acc-body">
       <div class="field">
-        <span class="field-lbl">주요 전시</span>
-        <div class="field-val"><ul class="exh-list"><li><span class="exh-yr">2026</span>《A Quiet Place》 Voltz Clarke, New York <span class="exh-note">신작</span></li><li><span class="exh-yr">2025</span>《CASA VACÍA》 Alzueta Gallery, Madrid <span class="exh-note">2025.9–10 — 시집 동시 출간</span></li><li><span class="exh-yr">2025</span>《LA EXTRANJERA》 Palacio Almudí, Murcia <span class="exh-note">첫 기관 개인전 (고향 귀환)</span></li><li><span class="exh-yr">2023</span>《QY2023》 Alzueta Gallery, Madrid (with Maria Yelletisch)</li><li><span class="exh-yr">2021</span>Solo exhibition, Alzueta Gallery, Barcelona</li><li><span class="exh-yr">2020</span>《WHAT IF?》 Voltz Clarke Gallery, New York</li></ul></div>
+        <span class="field-lbl"><span class="ko">주요 전시</span><span class="en">Major Exhibitions</span></span>
+        <div class="field-val"><ul class='exh-list'><li><span class="exh-yr">2026</span>《A Quiet Place》 Voltz Clarke, New York <span class="exh-note">new works</span></li><li><span class="exh-yr">2025</span>《CASA VACÍA》 Alzueta Gallery, Madrid <span class="exh-note">2025.9–10 — poetry collection published simultaneously</span></li><li><span class="exh-yr">2025</span>《LA EXTRANJERA》 Palacio Almudí, Murcia <span class="exh-note">first institutional solo — return to hometown</span></li><li><span class="exh-yr">2023</span>《QY2023》 Alzueta Gallery, Madrid (with Maria Yelletisch)</li><li><span class="exh-yr">2021</span>Solo exhibition, Alzueta Gallery, Barcelona</li><li><span class="exh-yr">2020</span>《WHAT IF?》 Voltz Clarke Gallery, New York</li></ul></div>
       </div>
       <div class="field">
-        <span class="field-lbl">경매가</span>
-        <div class="field-val"><p class="field-val">갤러리 1차 시장 중심. 대형 아크릴 회화 (160×260cm 기준): €15,000–€35,000 범위. 소형 종이 작품: €2,000–€5,000. 공개 경매 기록 제한적. 알수에타 갤러리(바르셀로나·마드리드·파리) 유통 주도.</p></div>
+        <span class="field-lbl"><span class="ko">경매가</span><span class="en">Auction Records</span></span>
+        <div><p class="field-val ko">갤러리 1차 시장 중심. 대형 아크릴 회화 (160×260cm): €15,000–€35,000. 소형 종이 작품: €2,000–€5,000. 공개 경매 기록 제한적.</p><p class="field-val en">Gallery primary market. Large acrylic paintings (160×260cm): €15,000–€35,000. Small works on paper: €2,000–€5,000. Public auction records limited.</p></div>
       </div>
       <div class="field">
-        <span class="field-lbl">웹사이트 / 갤러리</span>
+        <span class="field-lbl"><span class="ko">웹사이트 / 갤러리</span><span class="en">Website / Gallery</span></span>
         <div class="link-row"><a class="link-btn" href="https://alzuetagallery.com/artists/maru-quinonero" target="_blank" rel="noopener">Alzueta Gallery</a><a class="link-btn" href="https://voltzclarke.com/artists/maru-quinonero/" target="_blank" rel="noopener">Voltz Clarke Gallery</a><a class="link-btn" href="https://ocula.com/artists/maru-quinonero/" target="_blank" rel="noopener">Ocula</a></div>
       </div>
-      <div class='field'><span class='field-lbl'>대표 작품</span><div><div class="art-grid"><figure class="art-fig">
+      <div class="field">
+        <span class="field-lbl"><span class="ko">대표 작품</span><span class="en">Selected Works</span></span>
+        <div class="art-grid"><figure class="art-fig">
           <div class="art-img-wrap">
             <img src="https://voltzclarke.com/wp-content/uploads/2025/10/Maru-Quinonero-La-Extranjera-installation-view.jpg" alt="Maru Quiñonero, LA EXTRANJERA, 2025" loading="lazy"
-              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패</div>'">
+              onerror="this.parentElement.innerHTML='<div class=img-err>이미지 로드 실패 / Image load failed</div>'">
           </div>
           <figcaption>
-            <p class="art-caption">Exhibition view: 〈LA EXTRANJERA〉, Palacio Almudí, Murcia, 2025.</p>
+            <p class="art-caption">Exhibition view: 《LA EXTRANJERA》, Palacio Almudí, Murcia, 2025.</p>
             <div class="art-meta">
               <span class="art-copy">© Maru Quiñonero. Courtesy Alzueta Gallery & Voltz Clarke Gallery.</span>
-              <a class="art-src" href="https://voltzclarke.com/exhibitions/maru-quinonero-la-extranjera" target="_blank" rel="noopener">원문 ↗</a>
+              <a class="art-src" href="https://voltzclarke.com/exhibitions/maru-quinonero-la-extranjera" target="_blank" rel="noopener">원문 / Source ↗</a>
             </div>
           </figcaption>
-        </figure></div></div></div>
+        </figure></div>
+      </div>
     </div>
 </article>
 
-<!-- FOOTER -->
 <footer>
   <span>SYR Edition · info@syr.co.kr</span>
   <span>© 2026 SYR</span>
@@ -968,7 +895,31 @@ footer{
 
 <script>
 (function(){
-  // ── Accordion ─────────────────────────────────────────
+
+  // ── Language toggle ──────────────────────────────────────
+  var body = document.body;
+  var btn  = document.getElementById('lang-btn');
+  var lang = localStorage.getItem('syr-lang') || 'ko';
+
+  function applyLang(l) {
+    lang = l;
+    if (l === 'en') {
+      body.classList.add('lang-en');
+      btn.textContent = '한국어';
+    } else {
+      body.classList.remove('lang-en');
+      btn.textContent = 'EN';
+    }
+    try { localStorage.setItem('syr-lang', l); } catch(e){}
+  }
+
+  window.toggleLang = function() {
+    applyLang(lang === 'ko' ? 'en' : 'ko');
+  };
+
+  applyLang(lang);  // restore on load
+
+  // ── Accordion (one open at a time) ────────────────────────
   var toggles = document.querySelectorAll('.acc-toggle');
 
   function closeAll(except) {
@@ -976,10 +927,7 @@ footer{
       if (t === except) return;
       t.setAttribute('aria-expanded','false');
       var b = t.nextElementSibling;
-      if (b && b.classList.contains('acc-body')) {
-        b.classList.remove('open');
-        t.querySelector('.acc-lbl').textContent = '전시 · 경매 · 링크 · 이미지 더 보기';
-      }
+      if (b && b.classList.contains('acc-body')) b.classList.remove('open');
     });
   }
 
@@ -989,20 +937,13 @@ footer{
       closeAll(this);
       var body = this.nextElementSibling;
       if (!body || !body.classList.contains('acc-body')) return;
-      if (isOpen) {
-        this.setAttribute('aria-expanded','false');
-        body.classList.remove('open');
-        this.querySelector('.acc-lbl').textContent = '전시 · 경매 · 링크 · 이미지 더 보기';
-      } else {
-        this.setAttribute('aria-expanded','true');
-        body.classList.add('open');
-        this.querySelector('.acc-lbl').textContent = '닫기';
-      }
+      this.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      body.classList.toggle('open', !isOpen);
     });
   });
 
-  // ── Sticky nav: shadow + active link ─────────────────
-  var nav = document.getElementById('artist-nav');
+  // ── Sticky nav: shadow + active link ──────────────────────
+  var nav   = document.getElementById('artist-nav');
   var links = Array.from(nav.querySelectorAll('a[href^="#"]'));
   var sections = links.map(function(a) {
     return document.querySelector(a.getAttribute('href'));
@@ -1010,11 +951,9 @@ footer{
 
   function onScroll() {
     nav.classList.toggle('scrolled', window.scrollY > 10);
-
     var y = window.scrollY + 90;
     var activeId = '';
     sections.forEach(function(s) { if (s && s.offsetTop <= y) activeId = s.id; });
-
     links.forEach(function(a) {
       var match = a.getAttribute('href') === '#' + activeId;
       a.classList.toggle('active', match);
@@ -1022,7 +961,7 @@ footer{
         var nr = nav.getBoundingClientRect();
         var lr = a.getBoundingClientRect();
         if (lr.left < nr.left + 8 || lr.right > nr.right - 8) {
-          a.scrollIntoView({ inline:'center', block:'nearest', behavior:'smooth' });
+          a.scrollIntoView({inline:'center', block:'nearest', behavior:'smooth'});
         }
       }
     });
@@ -1030,6 +969,7 @@ footer{
 
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
+
 })();
 </script>
 </body>
