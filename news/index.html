@@ -10,8 +10,20 @@
 html{scroll-behavior:smooth;}body{background:var(--bg);color:var(--body-c);font-family:var(--sans-ko);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;}
 .masthead{position:static;background:var(--white);border-bottom:1px solid var(--ink);padding:0 2rem;}
 .sticky-header{position:sticky;top:0;z-index:200;background:var(--white);}
+/* desktop nav links (inside .mast-l) */
+.mast-nav-link{
+  font-family:var(--sans-en);font-size:10.5px;font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);padding:0 .65rem;
+  display:flex;align-items:center;height:100%;
+  text-decoration:none;white-space:nowrap;
+  border-bottom:2px solid transparent;
+  transition:color .15s,border-color .15s;
+}
+.mast-nav-link:hover{color:var(--navy);}
+.mast-nav-link.active{color:var(--navy);border-bottom-color:var(--gold);font-weight:600;}
 .mast-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:.85rem 0;gap:1rem;}
-.mast-l,.mast-r{display:flex;align-items:center;}.mast-r{justify-content:flex-end;gap:.75rem;}.mast-c{text-align:center;}
+.mast-l,.mast-r{display:flex;align-items:center;}.mast-l{overflow:hidden;}.mast-r{justify-content:flex-end;gap:.75rem;}.mast-c{text-align:center;}
 .logo-name{font-family:var(--serif-en);font-size:26px;font-weight:600;color:var(--navy);letter-spacing:.06em;line-height:1;}
 .logo-sub{font-family:var(--sans-en);font-size:9px;color:var(--muted);letter-spacing:.16em;text-transform:uppercase;margin-top:3px;}
 .pub-date{font-family:var(--sans-en);font-size:11px;color:var(--ink);letter-spacing:.04em;}
@@ -139,8 +151,14 @@ html{scroll-behavior:smooth;}body{background:var(--bg);color:var(--body-c);font-
 <header class="masthead">
   <div class="mast-inner">
     <div class="mast-l">
-      <span class="pub-date ko">2026년 8월 18일 화요일 · 팩트체크 v2 · 팟캐스트 통합판</span>
-      <span class="pub-date en" style="display:none">Tuesday, August 18, 2026 · Fact-checked v2 · Podcast-integrated edition</span>
+      <a class="mast-nav-link" href="https://syredition.com/home">Home</a>
+      <a class="mast-nav-link" href="https://syredition.com/about">About</a>
+      <a class="mast-nav-link active" href="https://syredition.com/news">News</a>
+      <a class="mast-nav-link" href="https://syredition.com/briefing">Briefing</a>
+      <a class="mast-nav-link" href="https://syredition.com/book">Book</a>
+      <a class="mast-nav-link" href="https://syredition.com/case">Case</a>
+      <a class="mast-nav-link" href="https://syredition.com/artist">Artist</a>
+      <a class="mast-nav-link" href="https://syredition.com/contact">Contact</a>
     </div>
     <div class="mast-c">
       <div class="logo-name">SYR EDITION</div>
