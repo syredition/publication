@@ -8,12 +8,12 @@
      ============================================================ -->
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+KR:wght@300;400;500&family=Noto+Serif+KR:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&family=Noto+Serif+KR:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
 /* ── SYR Brand System ──────────────────────────────────────────
    Navy   #1C3F7A  headings, logo
-   Teal   #0A8C6E  accent, rules, tags
+   Teal   #1C3F7A  accent, rules, tags
    Body   #1A1A2E  body text
    Muted  #6B7280  captions
    Cream  #F9F8F6  alt bg
@@ -22,9 +22,9 @@
    ─────────────────────────────────────────────────────────────*/
 .p*,.p*::before,.p*::after{box-sizing:border-box;margin:0;padding:0}
 .p{
-  --nv:#1C3F7A;--tl:#0A8C6E;--bd:#1A1A2E;--mu:#6B7280;
+  --nv:#1C3F7A;--tl:#1C3F7A;--bd:#1A1A2E;--mu:#6B7280;
   --cr:#F9F8F6;--ru:#CCCCCC;--wh:#FFFFFF;--ru2:#E8E8E8;
-  --tl2:#D4EDE7;--nv2:#EEF2FA;--rd:#C0392B;
+  --tl2:#EEF2FA;--nv2:#EEF2FA;--rd:#1A1A2E;
   --sk:'Cormorant Garamond','Noto Serif KR',Georgia,serif;
   --ss:'DM Sans','Noto Sans KR',sans-serif;
   --kr:'Noto Serif KR',serif;--krs:'Noto Sans KR',sans-serif;
@@ -104,16 +104,16 @@
 .p-ctag{font-size:8.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
   padding:3px 8px;}
 .p-ctag.us{background:var(--nv2);color:var(--nv);}
-.p-ctag.uk{background:#EEF5EE;color:#1A5C1A;}
-.p-ctag.fr{background:#F5EEEE;color:#5C1A1A;}
-.p-ctag.de{background:#F5F0EE;color:#5C3A1A;}
-.p-ctag.kr{background:#EEEEF5;color:#1A1A5C;}
-.p-ctag.it{background:#FEF0E8;color:#8B3A00;}
-.p-ctag.au{background:#E8F5F0;color:#006040;}
-.p-ctag.eu{background:#F0EEF5;color:#3A1A5C;}
-.p-ctag.ca{background:#F0F5EE;color:#1A4A1A;}
+.p-ctag.uk{background:#F6F6F4;color:#1A5C1A;}
+.p-ctag.fr{background:#F6F6F4;color:#5C1A1A;}
+.p-ctag.de{background:#F6F6F4;color:#5C3A1A;}
+.p-ctag.kr{background:#F6F6F4;color:#1A1A5C;}
+.p-ctag.it{background:#F6F6F4;color:#1A1A2E;}
+.p-ctag.au{background:#F1F1EF;color:#006040;}
+.p-ctag.eu{background:#F6F6F4;color:#3A1A5C;}
+.p-ctag.ca{background:#F6F6F4;color:#1A4A1A;}
 .p-ctag.yr{background:var(--cr);color:var(--mu);border:1px solid var(--ru);}
-.p-ctag.new{background:#D4EDE7;color:var(--tl);}
+.p-ctag.new{background:#EEF2FA;color:var(--tl);}
 .p-case-name{font-family:var(--sk);font-size:19px;color:var(--nv);
   margin-bottom:5px;line-height:1.3;}
 .p-case-party{font-size:11px;letter-spacing:.06em;color:var(--mu);
@@ -392,6 +392,73 @@
 [data-lang="en"] .lang-toggle .lt-en { opacity: 1; color: var(--nv); }
 
 </style>
+
+<style id="se-shell">
+/* ===== SYR unified shell (injected) ===== */
+:root{--se-ink:#141414;--se-ac:#1C3F7A;--se-acd:#16336A;
+--se-br:#6B7280;--se-mu:#6B7280;--se-ru:#DcDcDc;--se-rus:#ECECEC;
+--se-bg:#FFFFFF;--se-st:#F6F6F4;
+--se-serif:'Cormorant Garamond','Noto Serif KR',Georgia,serif;
+--se-sans:'DM Sans','Noto Sans KR',system-ui,sans-serif;}
+/* hide each page's original top-nav + bottom-footer */
+body>nav,.sticky-header,.masthead,.sa-nav,.sa-topstrip,.topbar,.site-nav,.p-top,#siteHeader,
+.sa-footer,.p-foot,.footer,body>footer{display:none !important}
+/* header */
+.se-header{position:sticky;top:0;z-index:9000;background:color-mix(in srgb,var(--se-bg) 92%,transparent);
+-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--se-ru)}
+.se-bar{max-width:1080px;margin:0 auto;padding:0 32px;height:60px;display:flex;
+align-items:center;justify-content:space-between;gap:24px}
+.se-brand{font-family:var(--se-serif);font-weight:600;font-size:20px;color:var(--se-ink);
+letter-spacing:.02em;line-height:1;white-space:nowrap;text-decoration:none}
+.se-right{display:flex;align-items:center;gap:22px}
+/* reset in case a page styles bare <nav>/<ul>/<header> */
+.se-header nav.se-nav{position:static;top:auto;left:auto;right:auto;bottom:auto;width:auto;height:auto;
+margin:0;padding:0;background:none;border:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;display:block}
+.se-header ul,.se-header li{list-style:none;margin:0;padding:0}
+.se-header a{text-decoration:none}
+.se-nav ul{list-style:none;display:flex;align-items:center;gap:22px;margin:0;padding:0}
+.se-nav a{font-family:var(--se-sans);font-size:13px;color:var(--se-mu);font-weight:500;
+text-decoration:none;line-height:1;padding:6px 0;border-bottom:1px solid transparent;
+transition:color .2s,border-color .2s}
+.se-nav a:hover{color:var(--se-ink)}
+.se-nav a.cur{color:var(--se-ink);border-bottom-color:var(--se-ac)}
+.se-lang{border:1px solid var(--se-ru);background:none;cursor:pointer;font-family:var(--se-sans);
+font-size:11px;font-weight:600;color:var(--se-ink);padding:6px 11px;border-radius:1px;
+letter-spacing:.06em;line-height:1;transition:border-color .2s,color .2s}
+.se-lang:hover{border-color:var(--se-ac);color:var(--se-ac)}
+.se-burger{display:none;background:none;border:0;cursor:pointer;padding:6px;width:34px;height:34px}
+.se-burger span{display:block;height:1px;background:var(--se-ink);margin:6px 0;transition:transform .25s,opacity .25s}
+.se-header.open .se-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.se-header.open .se-burger span:nth-child(2){opacity:0}
+.se-header.open .se-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:860px){
+.se-burger{display:block}.se-right{gap:12px}
+.se-header nav.se-nav{position:absolute;left:0;right:0;top:60px;display:none;background:var(--se-bg);
+border-bottom:1px solid var(--se-ru)}
+.se-header.open nav.se-nav{display:block}
+.se-nav ul{flex-direction:column;align-items:stretch;gap:0;max-width:1080px;margin:0 auto;padding:4px 32px 16px}
+.se-nav li{border-top:1px solid var(--se-rus)}
+.se-nav a{display:block;padding:14px 0;border-bottom:0;font-size:15px}
+}
+/* footer */
+.se-footer{padding:28px 0;border-top:1px solid var(--se-ru);background:var(--se-bg)}
+.se-foot-in{max-width:1080px;margin:0 auto;padding:0 32px;display:flex;justify-content:space-between;
+flex-wrap:wrap;gap:12px;font-family:var(--se-sans);color:var(--se-mu);font-size:12.5px}
+.se-foot-in a{color:var(--se-mu);text-decoration:none}.se-foot-in a:hover{color:var(--se-ink)}
+</style>
+
+
+<header class="se-header" id="seHeader">
+  <div class="se-bar">
+    <a class="se-brand" href="/">SYR Edition</a>
+    <button class="se-burger" id="seBurger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="se-right">
+      <nav class="se-nav" aria-label="Primary"><ul><li><a href="/home">Home</a></li><li><a href="/about">About</a></li><li><a href="/news">News</a></li><li><a href="/briefing">Briefing</a></li><li><a href="/book">Book</a></li><li><a href="/case" class="cur">Case</a></li><li><a href="/artist">Artist</a></li><li><a href="/contact">Contact</a></li></ul></nav>
+      <button class="se-lang" id="seLang" type="button" aria-label="Language">EN</button>
+    </div>
+  </div>
+</header>
+
 
 <div class="p" id="page-root" data-lang="ko">
 
@@ -895,3 +962,36 @@ function toggleLang(){
   root.setAttribute('data-lang', root.getAttribute('data-lang') === 'en' ? 'ko' : 'en');
 }
 </script>
+
+
+<footer class="se-footer">
+  <div class="se-foot-in">
+    <div>© SYR Edition</div>
+    <div><a href="mailto:info@syr.co.kr">info@syr.co.kr</a> · <a href="https://syredition.com">syredition.com</a></div>
+  </div>
+</footer>
+
+<script id="se-shell-js">
+(function(){
+  var h=document.getElementById('seHeader'),b=document.getElementById('seBurger'),l=document.getElementById('seLang');
+  if(b&&h){b.addEventListener('click',function(){var o=h.classList.toggle('open');b.setAttribute('aria-expanded',String(o));});
+    h.querySelectorAll('.se-nav a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');});});}
+  var st=document.documentElement;
+  function cur(){return st.getAttribute('data-lang')||'ko';}
+  function lbl(){ if(l) l.textContent = cur()==='en'?'KOR':'EN'; }
+  if(l){
+    var has = (typeof window.toggleLang==='function')||(typeof window.setLang==='function');
+    if(!has){ l.style.display='none'; }
+    else{
+      if(!st.getAttribute('data-lang')) st.setAttribute('data-lang','ko');
+      l.addEventListener('click',function(){
+        if(typeof window.toggleLang==='function'){ window.toggleLang(); }
+        else if(typeof window.setLang==='function'){ var n=cur()==='en'?'ko':'en'; window.setLang(n); st.setAttribute('data-lang',n); }
+        lbl();
+      });
+      lbl();
+    }
+  }
+})();
+</script>
+
