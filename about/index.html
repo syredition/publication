@@ -3,759 +3,434 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SYR · AMD — 아트 마켓 인프라</title>
+<title>About — SYR Edition</title>
+<meta name="description" content="문화예술분야 프로젝트. 필요한 정보와 담론을 제공하고 데이터 기반 의사결정을 지원합니다.">
+<meta property="og:site_name" content="SYR Edition">
+<meta property="og:title" content="About — SYR Edition">
+<meta property="og:description" content="문화예술분야 프로젝트. 필요한 정보와 담론을 제공하고 데이터 기반 의사결정을 지원합니다.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://syredition.com/about">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&family=Noto+Serif+KR:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@300;400&family=Noto+Serif+KR:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
-:root {
-  --c1:#1C1814;
-  --c2:#6B7D6E;
-  --c3:#F0EBE3;
-  --white: #FFFFFF;
-  --off:#FAFAF7;
-  --line:#E2DCD3;
-  --muted:#8A837B;
-  --serif: "Noto Serif KR", "Cormorant Garamond", Georgia, serif;
-  --sans: "Noto Sans KR", sans-serif;
-  --mono: "DM Mono", monospace;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { background: var(--white); color: var(--c1); font-family: var(--sans); font-weight: 300; overflow-x: hidden; line-height: 1.75; }
+/* ══════════════════════════════════════════════════════════════
+   SYR EDITION — About
+   토큰 한 벌, 컨테이너 한 벌. 아래 :root만 고치면 전체가 바뀝니다.
+   ══════════════════════════════════════════════════════════════ */
+:root{
+  --ink:#1C1814;      /* 제목 · 본문 */
+  --sage:#6B7D6E;     /* 강조 · 선 */
+  --bronze:#8C7355;   /* 라벨 */
+  --muted:#8A837B;    /* 보조 */
+  --rule:#E2DCD3;     /* 실선 */
+  --rule-soft:#EFEAE3;
+  --bg:#FAFAF7;       /* 배경 */
+  --stone:#F0EBE3;    /* 교차 배경 */
+  --white:#FFFFFF;
 
-/* ── SLIDE CONTAINER ── */
-.deck { width: 100%; }
-.slide {
-  width: 100%; min-height: 100vh;
-  display: flex; flex-direction: column; justify-content: center;
-  position: relative; overflow: hidden;
-  padding: 5rem 6vw;
-}
-.slide.full { padding: 0; }
+  --serif:'Cormorant Garamond','Noto Serif KR',Georgia,serif;
+  --serif-kr:'Noto Serif KR','Cormorant Garamond',Georgia,serif;
+  --sans:'DM Sans','Noto Sans KR',system-ui,sans-serif;
+  --mono:'DM Mono','DM Sans',monospace;
 
-/* ── NAV ── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1.1rem 3rem;
-  background: rgba(255,255,255,0.93);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line);
-}
-.nav-logo img { height: 16px; opacity: 0.8; }
-.nav-progress { display: flex; gap: 5px; align-items: center; }
-.nav-dot {
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--line); cursor: pointer; transition: all 0.2s;
-}
-.nav-dot.active { background: var(--c1); transform: scale(1.4); }
-.nav-dot:hover { background: var(--c2); }
-.nav-cta {
-  font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--white); background: var(--c1);
-  padding: 0.5rem 1.3rem; text-decoration: none; transition: opacity 0.2s;
-}
-.nav-cta:hover { opacity: 0.75; }
-
-/* ── SCROLL INDICATOR ── */
-.scroll-hint {
-  position: fixed; bottom: 2rem; right: 2.5rem; z-index: 100;
-  display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
-  opacity: 1; transition: opacity 0.4s;
-}
-.scroll-hint.hidden { opacity: 0; pointer-events: none; }
-.scroll-hint span {
-  font-family: var(--mono); font-size: 0.52rem; letter-spacing: 0.15em;
-  text-transform: uppercase; color: var(--muted);
-  writing-mode: vertical-rl;
-}
-.scroll-arrow {
-  width: 1px; height: 40px;
-  background: linear-gradient(to bottom, var(--line), transparent);
-  animation: scrollPulse 1.8s ease-in-out infinite;
-}
-@keyframes scrollPulse {
-  0%,100% { transform: scaleY(1); opacity: 0.6; }
-  50% { transform: scaleY(0.6); opacity: 1; }
+  /* 헤더·본문·푸터가 모두 이 값을 씁니다 — 좌우 정렬의 기준 */
+  --page:1080px;
+  --edge:32px;
 }
 
-/* ── SLIDE COUNTER ── */
-.slide-counter {
-  position: absolute; bottom: 2.2rem; right: 2.5rem;
-  font-family: var(--mono); font-size: 0.6rem; color: var(--muted);
-  letter-spacing: 0.1em;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:var(--sans); font-size:15px; font-weight:400;
+  line-height:1.75; letter-spacing:-.003em;
+  word-break:keep-all; -webkit-font-smoothing:antialiased;
 }
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
 
-/* ── SECTION TAG ── */
-.stag {
-  font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.22em;
-  text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 1.2rem;
-}
-.stag.light { color: rgba(255,255,255,0.45); }
+/* 모든 섹션이 쓰는 단일 컨테이너 */
+.wrap{max-width:var(--page); margin:0 auto; padding:0 var(--edge)}
 
-/* ─────────────────────────────────────────
-   SLIDE 01: COVER
-───────────────────────────────────────── */
-#s01 {
-  background: var(--c1); min-height: 100vh; padding: 0;
-  display: grid; grid-template-columns: 62% 38%;
+/* ── 헤더 ─────────────────────────────────────────────────── */
+.se-header{
+  position:sticky; top:0; z-index:9000;
+  background:rgba(250,250,247,.92);
+  -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
 }
-.cover-left {
-  padding: 7rem 5vw 4rem;
-  display: flex; flex-direction: column; justify-content: space-between;
-  position: relative;
+.se-bar{
+  max-width:var(--page); margin:0 auto; padding:0 var(--edge); height:60px;
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
 }
-.cover-left::after {
-  content: ''; position: absolute; inset: 0;
-  background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 48px 48px; pointer-events: none;
-}
-.cover-syr {
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(5rem, 12vw, 9rem);
-  font-weight: 300; color: var(--white);
-  line-height: 0.9; letter-spacing: -0.02em;
-  position: relative; z-index: 1;
-}
-.cover-tagline {
-  font-family: var(--serif); font-size: clamp(1rem, 2vw, 1.3rem);
-  font-weight: 300; color: var(--c3); font-style: italic;
-  margin-top: 1.5rem; position: relative; z-index: 1;
-}
-.cover-sub {
-  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.18em;
-  color: var(--c2); margin-top: 0.5rem; position: relative; z-index: 1;
-}
-.cover-footer {
-  position: relative; z-index: 1;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 1.5rem;
-  font-family: var(--mono); font-size: 0.6rem; color: var(--c2); letter-spacing: 0.1em;
-}
-.cover-right {
-  background: var(--c3);
-  padding: 7rem 3vw 4rem;
-  display: flex; flex-direction: column; justify-content: center;
-  border-left: 3px solid var(--c2);
-}
-.amd-title {
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(2.4rem, 5vw, 3.8rem);
-  font-weight: 300; color: var(--c1); line-height: 1;
-}
-.amd-sub {
-  font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em;
-  color: var(--c2); margin-top: 0.6rem; text-transform: uppercase;
-}
-.amd-divider { width: 3rem; height: 1px; background: var(--line); margin: 1.5rem 0; }
-.amd-desc {
-  font-family: var(--mono); font-size: 0.7rem; color: var(--muted);
-  letter-spacing: 0.04em; line-height: 1.8;
-}
-
-/* ─────────────────────────────────────────
-   SLIDE 02: WHY NOW
-───────────────────────────────────────── */
-#s02 { background: var(--white); min-height: 100vh; }
-.gap-grid {
-  display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.8rem;
-}
-.gap-card {
-  background: var(--c3); border: 1px solid var(--line);
-  padding: 2rem 1.6rem;
-  position: relative; overflow: hidden;
-}
-.gap-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: var(--c2);
-}
-.gap-num {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 3rem; font-weight: 300; color: var(--c2);
-  line-height: 1; display: block; margin-bottom: 1rem;
-}
-.gap-title {
-  font-family: var(--serif); font-size: 1.1rem; color: var(--c1);
-  margin-bottom: 0.8rem; font-weight: 400;
-}
-.gap-body { font-size: 0.86rem; color: var(--c2); line-height: 1.85; word-break: keep-all; }
-.slide-note {
-  margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line);
-  font-family: var(--mono); font-size: 0.68rem; color: var(--muted);
-  font-style: italic;
-}
-
-/* ─────────────────────────────────────────
-   SLIDE 03: ABOUT
-───────────────────────────────────────── */
-#s03 { background: var(--c3); min-height: 100vh; }
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 2rem; }
-.about-body p { font-size: 0.95rem; color: var(--c1); line-height: 2; margin-bottom: 1.2rem; word-break: keep-all; }
-.about-body strong { color: var(--c1); font-weight: 500; }
-.pillars-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line); margin-top: 2rem; }
-.pillar {
-  background: var(--white); padding: 1.6rem 1rem; text-align: center;
-  transition: background 0.2s;
-}
-.pillar:hover { background: var(--off); }
-.pillar-letter {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 2.2rem; color: var(--c1); display: block; font-weight: 300;
-}
-.pillar-en {
-  font-family: var(--mono); font-size: 0.52rem; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--muted); display: block; margin-top: 0.3rem;
-}
-.pillar-kr { font-size: 0.78rem; color: var(--c2); display: block; margin-top: 0.3rem; }
-.milestones-strip {
-  margin-top: 2.5rem; padding: 1.2rem 1.5rem; background: var(--c1);
-  font-family: var(--mono); font-size: 0.68rem; color: var(--c3);
-  letter-spacing: 0.06em; display: flex; flex-wrap: wrap; gap: 0.5rem 2rem;
-}
-.milestones-strip span { opacity: 0.7; }
-
-/* ─────────────────────────────────────────
-   SLIDE 04: AMD PRODUCT
-───────────────────────────────────────── */
-#s04 { background: var(--white); min-height: 100vh; }
-.product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2.4rem; }
-.product-card {
-  background: var(--c3); border: 1px solid var(--line); padding: 1.8rem 1.6rem;
-  border-left: 3px solid var(--c1);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.product-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(44,44,42,0.08); }
-.product-title { font-family: var(--serif); font-size: 1.15rem; color: var(--c1); margin-bottom: 0.7rem; }
-.product-body { font-size: 0.85rem; color: var(--c2); line-height: 1.85; word-break: keep-all; }
-.product-tag {
-  display: inline-block; margin-top: 0.9rem;
-  font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--c2); background: var(--off);
-  padding: 0.2rem 0.6rem; border: 1px solid var(--line);
-}
-
-/* ─────────────────────────────────────────
-   SLIDE 05: SERVICES
-───────────────────────────────────────── */
-#s05 { background: var(--c3); min-height: 100vh; }
-.services-list { display: flex; flex-direction: column; gap: 1px; background: var(--line); margin-top: 2rem; }
-.svc-row {
-  background: var(--white); padding: 1.3rem 1.8rem;
-  display: grid; grid-template-columns: 2.5rem 1fr auto auto;
-  align-items: center; gap: 1.5rem;
-  transition: background 0.18s;
-}
-.svc-row:hover { background: var(--off); }
-.svc-num { font-family: "Cormorant Garamond", serif; font-size: 1.3rem; color: var(--c2); }
-.svc-title { font-family: var(--serif); font-size: 1.05rem; color: var(--c1); word-break: keep-all; }
-.svc-badge {
-  font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--c2);
-  border: 1px solid var(--line); padding: 0.22rem 0.65rem; white-space: nowrap;
-}
-.svc-desc { font-size: 0.82rem; color: var(--muted); text-align: right; max-width: 22ch; word-break: keep-all; }
-
-/* ─────────────────────────────────────────
-   SLIDE 06: BUSINESS MODEL
-───────────────────────────────────────── */
-#s06 { background: var(--white); min-height: 100vh; }
-.model-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--line); margin-top: 2.4rem; }
-.model-card {
-  background: var(--c3); padding: 2rem 1.4rem;
-  display: flex; flex-direction: column; gap: 0.8rem;
-  position: relative;
-}
-.model-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-}
-.model-card:nth-child(1)::before, .model-card:nth-child(2)::before { background: var(--c1); }
-.model-card:nth-child(3)::before, .model-card:nth-child(4)::before { background: var(--c2); }
-.model-name { font-family: var(--serif); font-size: 1rem; color: var(--c1); line-height: 1.35; }
-.model-price { font-family: "Cormorant Garamond", serif; font-size: 1.4rem; color: var(--c2); font-weight: 300; }
-.model-proj { font-size: 0.8rem; color: var(--muted); line-height: 1.7; }
-.mrr-bar {
-  margin-top: 2rem; background: var(--c1); padding: 1rem 2rem;
-  font-family: var(--mono); font-size: 0.72rem; color: var(--c3);
-  letter-spacing: 0.06em; display: flex; gap: 2rem; flex-wrap: wrap; align-items: center;
-}
-.mrr-item strong { color: var(--white); }
-
-/* ─────────────────────────────────────────
-   SLIDE 07: TRACTION
-───────────────────────────────────────── */
-#s07 { background: var(--c3); min-height: 100vh; }
-.timeline { display: flex; flex-direction: column; gap: 0; margin-top: 2.2rem; position: relative; }
-.tl-item {
-  display: grid; grid-template-columns: 7rem 1.4rem 1fr;
-  gap: 0 1.2rem; align-items: start; padding-bottom: 1.6rem;
-}
-.tl-date { font-family: var(--mono); font-size: 0.68rem; color: var(--c2); padding-top: 0.15rem; }
-.tl-dot-col { display: flex; flex-direction: column; align-items: center; }
-.tl-dot {
-  width: 10px; height: 10px; border-radius: 50%;
-  background: var(--c1); flex-shrink: 0; margin-top: 0.12rem;
-}
-.tl-dot.future { background: var(--line); border: 1px solid var(--c2); }
-.tl-line { width: 1px; flex: 1; background: var(--line); min-height: 1.4rem; }
-.tl-content {}
-.tl-title { font-family: var(--serif); font-size: 1.05rem; color: var(--c1); margin-bottom: 0.22rem; }
-.tl-title.future { color: var(--c2); }
-.tl-sub { font-size: 0.82rem; color: var(--muted); }
-
-/* ─────────────────────────────────────────
-   SLIDE 08: MARKET
-───────────────────────────────────────── */
-#s08 { background: var(--white); min-height: 100vh; }
-.stats-trio { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.4rem; }
-.stat-card {
-  background: var(--c3); border: 1px solid var(--line);
-  padding: 2rem 1.4rem; text-align: center;
-  transition: transform 0.2s;
-}
-.stat-card:hover { transform: translateY(-2px); }
-.stat-num {
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(2rem, 4vw, 3rem); color: var(--c1); display: block; font-weight: 300;
-}
-.stat-label { font-family: var(--serif); font-size: 0.95rem; color: var(--c2); margin-top: 0.3rem; }
-.stat-sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.4rem; }
-.adv-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.2rem; margin-top: 2.5rem; }
-.adv-card {
-  background: var(--off); border: 1px solid var(--line);
-  border-left: 3px solid var(--c2);
-  padding: 1.2rem 1rem;
-}
-.adv-title { font-family: var(--serif); font-size: 0.95rem; color: var(--c1); margin-bottom: 0.5rem; }
-.adv-body { font-size: 0.8rem; color: var(--c2); line-height: 1.75; word-break: keep-all; }
-
-/* ─────────────────────────────────────────
-   SLIDE 09: ROADMAP
-───────────────────────────────────────── */
-#s09 { background: var(--c3); min-height: 100vh; }
-.phase-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--line); margin-top: 2.4rem; }
-.phase-card {
-  background: var(--white); padding: 2rem 1.4rem;
-  display: flex; flex-direction: column; gap: 0.8rem;
-  transition: background 0.2s;
-}
-.phase-card:hover { background: var(--off); }
-.phase-card.active { background: var(--c1); }
-.phase-num { font-family: "Cormorant Garamond", serif; font-size: 2rem; color: var(--c2); font-weight: 300; }
-.phase-card.active .phase-num { color: var(--c3); opacity: 0.7; }
-.phase-label { font-family: var(--serif); font-size: 1rem; color: var(--c1); font-weight: 400; }
-.phase-card.active .phase-label { color: var(--c3); }
-.phase-period { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); }
-.phase-card.active .phase-period { color: var(--c2); }
-.phase-divider { width: 2rem; height: 1px; background: var(--line); }
-.phase-card.active .phase-divider { background: rgba(255,255,255,0.15); }
-.phase-items { display: flex; flex-direction: column; gap: 0.4rem; }
-.phase-item { font-size: 0.82rem; color: var(--c2); word-break: keep-all; line-height: 1.5; }
-.phase-card.active .phase-item { color: var(--c3); opacity: 0.85; }
-.phase-badge {
-  margin-top: auto; align-self: flex-start;
-  font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--c2); border: 1px solid var(--c2);
-  padding: 0.18rem 0.55rem;
-}
-
-/* ─────────────────────────────────────────
-   SLIDE 10: TEAM
-───────────────────────────────────────── */
-#s10 { background: var(--white); min-height: 100vh; }
-.team-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 2.2rem; align-items: start; }
-.founder-card {
-  background: var(--c3); border: 1px solid var(--line);
-  padding: 2.2rem; position: relative; overflow: hidden;
-}
-.founder-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-  background: var(--c1);
-}
-.founder-avatar {
-  width: 64px; height: 64px; border-radius: 50%;
-  background: var(--c2); display: flex; align-items: center; justify-content: center;
-  font-family: "Cormorant Garamond", serif; font-size: 1.3rem; color: var(--white);
-  margin-bottom: 1.2rem;
-}
-.founder-name { font-family: var(--serif); font-size: 1.4rem; color: var(--c1); }
-.founder-kr { font-family: var(--mono); font-size: 0.68rem; color: var(--c2); margin-bottom: 1rem; }
-.founder-divider { width: 100%; height: 1px; background: var(--line); margin: 1rem 0; }
-.founder-roles { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 1.2rem; }
-.founder-role { font-size: 0.85rem; color: var(--c2); }
-.founder-role.primary { color: var(--c1); font-weight: 500; }
-.founder-contact { display: flex; flex-direction: column; gap: 0.3rem; }
-.founder-contact a {
-  font-family: var(--mono); font-size: 0.72rem; color: var(--c2);
-  text-decoration: none; transition: color 0.2s;
-}
-.founder-contact a:hover { color: var(--c1); }
-.open-roles-title { font-family: var(--serif); font-size: 1.1rem; color: var(--c1); margin-bottom: 1.2rem; }
-.open-roles { display: flex; flex-direction: column; gap: 1rem; }
-.role-card {
-  background: var(--off); border: 1px solid var(--line);
-  border-left: 3px solid var(--c2); padding: 1rem 1.1rem;
-}
-.role-title { font-family: var(--serif); font-size: 0.95rem; color: var(--c1); margin-bottom: 0.3rem; }
-.role-desc { font-size: 0.8rem; color: var(--c2); }
-
-/* ─────────────────────────────────────────
-   SLIDE 11: FUNDING
-───────────────────────────────────────── */
-#s11 { background: var(--c3); min-height: 100vh; }
-.funding-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2.2rem; }
-.funding-col-title { font-family: var(--serif); font-size: 1.1rem; color: var(--c1); margin-bottom: 0.8rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--line); }
-.funding-items { display: flex; flex-direction: column; gap: 0.8rem; }
-.funding-item {
-  background: var(--white); border: 1px solid var(--line);
-  padding: 0.9rem 1.1rem; display: flex; justify-content: space-between; align-items: center;
-  transition: background 0.15s;
-}
-.funding-item:hover { background: var(--off); }
-.funding-item.highlight { background: var(--c1); border-color: var(--c1); }
-.fi-left {}
-.fi-name { font-family: var(--serif); font-size: 0.95rem; color: var(--c1); }
-.funding-item.highlight .fi-name { color: var(--white); }
-.fi-timing { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); margin-top: 0.15rem; }
-.funding-item.highlight .fi-timing { color: var(--c2); }
-.fi-amt { font-family: "Cormorant Garamond", serif; font-size: 1.2rem; color: var(--c2); text-align: right; }
-.funding-item.highlight .fi-amt { color: var(--c3); font-size: 1.35rem; }
-
-/* ─────────────────────────────────────────
-   SLIDE 12: CLOSING
-───────────────────────────────────────── */
-#s12 {
-  background: var(--c1); min-height: 100vh; padding: 0;
-  display: grid; grid-template-columns: 62% 38%;
-}
-.closing-left {
-  padding: 7rem 5vw 4rem;
-  display: flex; flex-direction: column; justify-content: space-between;
-  position: relative;
-}
-.closing-left::after {
-  content: ''; position: absolute; inset: 0;
-  background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 48px 48px; pointer-events: none;
-}
-.closing-headline {
-  font-family: var(--serif);
-  font-size: clamp(2.4rem, 6vw, 4.8rem);
-  font-weight: 300; color: var(--white);
-  line-height: 1.2; word-break: keep-all;
-  position: relative; z-index: 1;
-}
-.closing-sub {
-  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em;
-  color: var(--c2); position: relative; z-index: 1;
-}
-.closing-footer {
-  position: relative; z-index: 1;
-  border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem;
-  font-family: var(--mono); font-size: 0.6rem; color: rgba(255,255,255,0.35);
-  letter-spacing: 0.08em;
-}
-.closing-right {
-  background: var(--c3); border-left: 3px solid var(--c2);
-  padding: 7rem 3vw 4rem;
-  display: flex; flex-direction: column; justify-content: center; gap: 2.2rem;
-}
-.contact-block {}
-.contact-label {
-  font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 0.3rem;
-}
-.contact-value { font-family: var(--serif); font-size: 1rem; color: var(--c1); }
-.contact-value a { color: var(--c1); text-decoration: none; }
-.contact-value a:hover { text-decoration: underline; }
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
-.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 768px) {
-  #s01, #s12 { grid-template-columns: 1fr; }
-  .cover-right, .closing-right { border-left: none; border-top: 3px solid var(--c2); }
-  .gap-grid, .product-grid, .stats-trio, .adv-grid,
-  .phase-grid, .team-layout, .funding-cols, .about-grid,
-  .model-grid { grid-template-columns: 1fr; }
-  .svc-row { grid-template-columns: 2rem 1fr; }
-  .svc-badge, .svc-desc { display: none; }
-  nav { padding: 1rem 1.5rem; }
-  .slide { padding: 4.5rem 1.4rem 3rem; }
-}
-@media (max-width: 480px) {
-  .milestones-strip { flex-direction: column; gap: 0.3rem; }
-  .mrr-bar { flex-direction: column; gap: 0.5rem; }
-}
-</style>
-
-<style id="se-shell">
-/* ===== SYR unified shell (injected) ===== */
-:root{--se-ink:#1C1814;--se-ac:#6B7D6E;--se-acd:#586A5B;
---se-br:#8C7355;--se-mu:#8A837B;--se-ru:#E2DCD3;--se-rus:#EFEAE3;
---se-bg:#FAFAF7;--se-st:#F0EBE3;
---se-serif:'Cormorant Garamond','Noto Serif KR',Georgia,serif;
---se-sans:'DM Sans','Noto Sans KR',system-ui,sans-serif;}
-/* hide each page's original top-nav + bottom-footer */
-body>nav,.sticky-header,.masthead,.sa-nav,.sa-topstrip,.topbar,.site-nav,.p-top,#siteHeader,
-.sa-footer,.p-foot,.footer,body>footer{display:none !important}
-/* header */
-.se-header{position:sticky;top:0;z-index:9000;background:color-mix(in srgb,var(--se-bg) 92%,transparent);
--webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--se-ru)}
-.se-bar{max-width:1080px;margin:0 auto;padding:0 32px;height:60px;display:flex;
-align-items:center;justify-content:space-between;gap:24px}
-.se-brand{font-family:var(--se-serif);font-weight:600;font-size:20px;color:var(--se-ink);
-letter-spacing:.02em;line-height:1;white-space:nowrap;text-decoration:none}
-.se-right{display:flex;align-items:center;gap:22px}
-/* reset in case a page styles bare <nav>/<ul>/<header> */
-.se-header nav.se-nav{position:static;top:auto;left:auto;right:auto;bottom:auto;width:auto;height:auto;
-margin:0;padding:0;background:none;border:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;display:block}
-.se-header ul,.se-header li{list-style:none;margin:0;padding:0}
-.se-header a{text-decoration:none}
-.se-nav ul{list-style:none;display:flex;align-items:center;gap:22px;margin:0;padding:0}
-.se-nav a{font-family:var(--se-sans);font-size:13px;color:var(--se-mu);font-weight:500;
-text-decoration:none;line-height:1;padding:6px 0;border-bottom:1px solid transparent;
-transition:color .2s,border-color .2s}
-.se-nav a:hover{color:var(--se-ink)}
-.se-nav a.cur{color:var(--se-ink);border-bottom-color:var(--se-ac)}
-.se-lang{border:1px solid var(--se-ru);background:none;cursor:pointer;font-family:var(--se-sans);
-font-size:11px;font-weight:600;color:var(--se-ink);padding:6px 11px;border-radius:1px;
-letter-spacing:.06em;line-height:1;transition:border-color .2s,color .2s}
-.se-lang:hover{border-color:var(--se-ac);color:var(--se-ac)}
-.se-burger{display:none;background:none;border:0;cursor:pointer;padding:6px;width:34px;height:34px}
-.se-burger span{display:block;height:1px;background:var(--se-ink);margin:6px 0;transition:transform .25s,opacity .25s}
-.se-header.open .se-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.se-brand{font-family:var(--serif); font-weight:500; font-size:20px; color:var(--ink);
+  letter-spacing:.02em; line-height:1; white-space:nowrap}
+.se-right{display:flex; align-items:center; gap:22px}
+.se-nav ul{list-style:none; display:flex; align-items:center; gap:22px}
+.se-nav a{font-size:13px; color:var(--muted); font-weight:500; line-height:1;
+  padding:6px 0; border-bottom:1px solid transparent;
+  transition:color .2s, border-color .2s}
+.se-nav a:hover{color:var(--ink)}
+.se-nav a.cur{color:var(--ink); border-bottom-color:var(--sage)}
+.se-lang{border:1px solid var(--rule); background:none; cursor:pointer;
+  font-family:var(--sans); font-size:11px; font-weight:600; color:var(--ink);
+  padding:6px 11px; border-radius:1px; letter-spacing:.06em; line-height:1;
+  transition:border-color .2s, color .2s}
+.se-lang:hover{border-color:var(--sage); color:var(--sage)}
+.se-burger{display:none; background:none; border:0; cursor:pointer;
+  padding:6px; width:32px; height:32px}
+.se-burger span{display:block; height:1px; background:var(--ink); margin:5.5px 0;
+  transition:transform .25s, opacity .25s}
+.se-header.open .se-burger span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
 .se-header.open .se-burger span:nth-child(2){opacity:0}
-.se-header.open .se-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.se-header.open .se-burger span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 @media(max-width:860px){
-.se-burger{display:block}.se-right{gap:12px}
-.se-header nav.se-nav{position:absolute;left:0;right:0;top:60px;display:none;background:var(--se-bg);
-border-bottom:1px solid var(--se-ru)}
-.se-header.open nav.se-nav{display:block}
-.se-nav ul{flex-direction:column;align-items:stretch;gap:0;max-width:1080px;margin:0 auto;padding:4px 32px 16px}
-.se-nav li{border-top:1px solid var(--se-rus)}
-.se-nav a{display:block;padding:14px 0;border-bottom:0;font-size:15px}
+  .se-burger{display:block}
+  .se-right{gap:12px}
+  .se-nav{position:absolute; left:0; right:0; top:60px; display:none;
+    background:var(--bg); border-bottom:1px solid var(--rule)}
+  .se-header.open .se-nav{display:block}
+  .se-nav ul{flex-direction:column; align-items:stretch; gap:0;
+    max-width:var(--page); margin:0 auto; padding:4px var(--edge) 14px}
+  .se-nav li{border-top:1px solid var(--rule-soft)}
+  .se-nav a{display:block; padding:13px 0; border-bottom:0; font-size:14px}
 }
-/* footer */
-.se-footer{padding:28px 0;border-top:1px solid var(--se-ru);background:var(--se-bg)}
-.se-foot-in{max-width:1080px;margin:0 auto;padding:0 32px;display:flex;justify-content:space-between;
-flex-wrap:wrap;gap:12px;font-family:var(--se-sans);color:var(--se-mu);font-size:12.5px}
-.se-foot-in a{color:var(--se-mu);text-decoration:none}.se-foot-in a:hover{color:var(--se-ink)}
-</style>
 
+/* ── 섹션 공통 ────────────────────────────────────────────── */
+section{padding:clamp(3.5rem,8vw,6rem) 0}
+section + section{border-top:1px solid var(--rule)}
+.dark{background:var(--ink); border-top:0}
+.dark + section{border-top:0}
+
+.stag{
+  font-family:var(--mono); font-size:.58rem; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--bronze);
+  display:block; margin-bottom:1rem;
+}
+.dark .stag{color:var(--sage)}
+
+h1,h2{font-family:var(--serif-kr); font-weight:400; color:var(--ink); line-height:1.3}
+h2{font-size:clamp(1.35rem,2.6vw,1.9rem); letter-spacing:-.01em}
+
+/* ── 표지 ─────────────────────────────────────────────────── */
+.cover{position:relative; overflow:hidden; padding:clamp(5rem,11vw,8rem) 0 clamp(4rem,9vw,6.5rem)}
+.cover::after{
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+                   linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+  background-size:48px 48px;
+}
+.cover .wrap{position:relative; z-index:1}
+.cover-syr{
+  font-family:var(--serif); font-size:clamp(3.6rem,10vw,7rem); font-weight:300;
+  color:var(--white); line-height:.9; letter-spacing:-.02em;
+}
+.cover-tagline{
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--sage); margin-top:1.1rem;
+}
+
+/* 표지 아래 소개 — 본문보다 작은 급수 */
+.cover-intro{
+  margin-top:clamp(2.5rem,5vw,3.5rem); padding-top:clamp(2rem,4vw,2.6rem);
+  border-top:1px solid rgba(255,255,255,.12);
+  display:grid; grid-template-columns:minmax(0,4fr) minmax(0,7fr);
+  gap:1rem clamp(2rem,5vw,4rem); align-items:start;
+}
+.cover-intro h1{
+  font-size:clamp(1.15rem,2.1vw,1.45rem); color:var(--stone);
+  font-weight:400; line-height:1.4;
+}
+.cover-intro .lede{
+  font-size:.9rem; color:rgba(240,235,227,.92); line-height:1.95;
+  font-weight:500; max-width:56ch;
+}
+.cover-intro .body{
+  font-size:.85rem; color:rgba(240,235,227,.62); line-height:1.95;
+  margin-top:.9rem; max-width:58ch;
+}
+@media(max-width:820px){
+  .cover-intro{grid-template-columns:1fr; gap:1.1rem}
+}
+
+/* ── 제공 서비스 ──────────────────────────────────────────── */
+.svc-head{display:flex; align-items:baseline; justify-content:space-between;
+  gap:1.5rem; flex-wrap:wrap}
+.product-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:1.1rem;
+  margin-top:clamp(1.8rem,4vw,2.4rem);
+}
+@media(max-width:720px){ .product-grid{grid-template-columns:1fr} }
+.product-card{
+  background:var(--stone); border:1px solid var(--rule);
+  border-left:3px solid var(--ink);
+  padding:1.6rem 1.5rem;
+  transition:transform .2s, box-shadow .2s;
+}
+.product-card:hover{transform:translateY(-3px); box-shadow:0 8px 24px rgba(28,24,20,.07)}
+.product-title{font-family:var(--serif-kr); font-size:1.05rem; color:var(--ink);
+  margin-bottom:.6rem; font-weight:400}
+.product-body{font-size:.83rem; color:var(--sage); line-height:1.85}
+.product-tag{
+  display:inline-block; margin-top:.85rem;
+  font-family:var(--mono); font-size:.56rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--sage); background:var(--bg);
+  padding:.2rem .6rem; border:1px solid var(--rule);
+}
+
+/* 대상 고객 — 카드가 아니라 얇은 선으로만 구분해 서비스와 위계를 둡니다 */
+.clients{margin-top:clamp(2.4rem,5vw,3.2rem)}
+.client-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1.4rem; margin-top:1.1rem}
+@media(max-width:860px){ .client-grid{grid-template-columns:1fr 1fr} }
+@media(max-width:480px){ .client-grid{grid-template-columns:1fr} }
+.client{border-top:1px solid var(--sage); padding-top:.85rem}
+.client h3{font-family:var(--serif-kr); font-size:.95rem; font-weight:400;
+  color:var(--ink); margin-bottom:.3rem; line-height:1.4}
+.client p{font-size:.78rem; color:var(--muted); line-height:1.7}
+
+/* ── 문의 ─────────────────────────────────────────────────── */
+.contact-grid{
+  display:grid; grid-template-columns:minmax(0,6fr) minmax(0,5fr);
+  gap:clamp(2.5rem,6vw,4.5rem); align-items:start;
+}
+@media(max-width:820px){ .contact-grid{grid-template-columns:1fr; gap:2.5rem} }
+
+.contact-headline{
+  font-family:var(--serif-kr); font-size:clamp(1.6rem,4vw,2.9rem);
+  font-weight:300; color:var(--white); line-height:1.35;
+}
+.contact-en{
+  font-family:var(--mono); font-size:.68rem; letter-spacing:.12em;
+  color:var(--sage); margin-top:1.2rem;
+}
+
+.founder-name{font-family:var(--serif); font-size:1.5rem; font-weight:400; color:var(--white); line-height:1.1}
+.founder-kr{font-family:var(--serif-kr); font-size:.9rem; color:var(--stone); opacity:.7; margin-top:.25rem}
+.founder-divider{width:2.5rem; height:1px; background:rgba(255,255,255,.2); margin:1.2rem 0}
+.founder-roles{display:flex; flex-direction:column; gap:.25rem}
+.founder-role{font-size:.8rem; color:rgba(240,235,227,.6); line-height:1.6}
+.founder-role.primary{font-family:var(--mono); font-size:.6rem; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--sage); margin-bottom:.3rem}
+
+.contact-lines{margin-top:2rem; display:flex; flex-direction:column; gap:1.1rem}
+.contact-label{
+  font-family:var(--mono); font-size:.55rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--muted); display:block; margin-bottom:.25rem;
+}
+.contact-value{font-family:var(--serif); font-size:1.05rem; color:var(--white)}
+.contact-value a{border-bottom:1px solid rgba(255,255,255,.25); padding-bottom:1px;
+  transition:border-color .2s}
+.contact-value a:hover{border-bottom-color:var(--sage)}
+
+/* ── 푸터 ─────────────────────────────────────────────────── */
+.se-footer{padding:26px 0; border-top:1px solid var(--rule); background:var(--bg)}
+.se-foot-in{
+  max-width:var(--page); margin:0 auto; padding:0 var(--edge);
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  font-size:12.5px; color:var(--muted);
+}
+.se-foot-in a{border-bottom:1px solid var(--rule); transition:color .2s, border-color .2s}
+.se-foot-in a:hover{color:var(--ink); border-bottom-color:var(--sage)}
+
+/* ── 등장 효과 · 접근성 ───────────────────────────────────── */
+.reveal{opacity:0; transform:translateY(16px);
+  transition:opacity .6s ease, transform .6s ease}
+.reveal.visible{opacity:1; transform:translateY(0)}
+:focus-visible{outline:2px solid var(--sage); outline-offset:3px}
+@media(prefers-reduced-motion:reduce){
+  *{transition:none !important; animation:none !important; scroll-behavior:auto}
+  .reveal{opacity:1; transform:none}
+}
+</style>
 </head>
 <body>
 
+<!-- ══ HEADER ══════════════════════════════════════════════════ -->
 <header class="se-header" id="seHeader">
   <div class="se-bar">
     <a class="se-brand" href="/">SYR Edition</a>
-    <button class="se-burger" id="seBurger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="se-burger" id="seBurger" type="button" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
     <div class="se-right">
-      <nav class="se-nav" aria-label="Primary"><ul><li><a href="/home">Home</a></li><li><a href="/about" class="cur">About</a></li><li><a href="/news">News</a></li><li><a href="/briefing">Briefing</a></li><li><a href="/book">Book</a></li><li><a href="/case">Case</a></li><li><a href="/artist">Artist</a></li><li><a href="/contact">Contact</a></li></ul></nav>
+      <nav class="se-nav" aria-label="Primary">
+        <ul>
+          <li><a href="/home">Home</a></li>
+          <li><a href="/about" class="cur">About</a></li>
+          <li><a href="/news">News</a></li>
+          <li><a href="/briefing">Briefing</a></li>
+          <li><a href="/book">Book</a></li>
+          <li><a href="/case">Case</a></li>
+          <li><a href="/artist">Artist</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
       <button class="se-lang" id="seLang" type="button" aria-label="Language">EN</button>
     </div>
   </div>
 </header>
 
+<!-- ══ 표지 + About ════════════════════════════════════════════ -->
+<section class="cover dark">
+  <div class="wrap">
+    <div class="cover-syr">SYR</div>
+    <p class="cover-tagline">Stay Curious, Stay Strategic</p>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-progress" id="navProgress">
-    <div class="closing-sub">
-        <a class="closing-sub" href="/home">Home</a>
-        <a class="closing-sub" href="/about">About</a>
-        <a class="closing-sub" href="/news">News</a>  
-        <a class="closing-sub"href="/briefing">Briefing</a>  
-        <a class="closing-sub" href="/book">Book</a>
-        <a class="closing-sub"href="/case">Case</a>   
-        <a class="closing-sub" href="/artist">Artist</a>   
-        <a class="closing-sub" href="/contact">Contact</a>   
-    </div>
-  </div>
-</nav>
-
-<!-- SCROLL HINT -->
-<div class="scroll-hint" id="scrollHint">
-  <span>Scroll</span>
-  <div class="scroll-arrow"></div>
-</div>
-
-<!-- ══ SLIDE 01: COVER ══ -->
-<section id="s01" class="slide full">
-  <div class="cover-left">
-    <div>
-      <div class="cover-syr">SYR</div>
-      <p class="cover-sub"> Stay Curious Stay Strategic </p>
-    </div>
-    <div class="cover-footer">
-    </div>
-  </div>
-  <div class="cover-right">
-    <div class="amd-divider"></div>
-    <div class="amd-desc">SYR Edition <br> 문화예술 프로그램을 그려갑니다. </div>
-  </div>
-  <div class="slide-counter">01 / 12</div>
-</section>
-
-<!-- ══ SLIDE 03: ABOUT ══ -->
-<section id="s03" class="slide">
-  <span class="stag">About SYR</span>
-  <h2 class="reveal" style="font-family:var(--serif); font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:300; color:var(--c1);">문화예술분야 프로젝트 </h2>
-  <div class="about-grid">
-    <div class="about-body">
-      <p class="reveal"> <strong> 문화예술, 필요한 정보와 담론을 제공합니다. 이를 통한 데이터 기반 의사결정을 지원합니다.</strong></p>
-      <p class="reveal"> 문화예술계 토크/포럼을 운영하고, 국내외 페어 파트너십 프로젝트를 총괄했습니다. 국내외 작가의 비영리 전시를 개최하며 비영리 섹터의 활동을 이어가는 중입니다.</p>
-    </div>
-    <div>
-
+    <div class="cover-intro">
+      <h1 class="reveal">문화예술분야 프로젝트</h1>
+      <div>
+        <p class="lede reveal">문화예술, 필요한 정보와 담론을 제공합니다. 이를 통한 데이터 기반 의사결정을 지원합니다.</p>
+        <p class="body reveal">문화예술계 토크·포럼을 운영하고, 국내외 페어 파트너십 프로젝트를 총괄했습니다. 국내외 작가의 비영리 전시를 개최하며 비영리 섹터의 활동을 이어가는 중입니다.</p>
       </div>
     </div>
   </div>
-  <div class="milestones-strip reveal">
-    <span>코리아 아트마켓 리포트 아티클 게재 </span>
-    <span>디파인서울 2024, 아트부산 2025 토크 프로그램 운영</span>
-    <span>·</span>
-    <span>2025 CONNECT — 도쿄 겐다이 × 아트부산 파트너십 총괄</span>
-    <span>·</span>
-    <span>SYR Edition 뉴스레터 런칭</span>
-  </div>
-  <div class="slide-counter">03 / 12</div>
 </section>
 
-<!-- ══ SLIDE 04: AMD PRODUCT ══ -->
-<section id="s04" class="slide">
-  <h2 class="reveal" style="font-family:var(--serif); font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:300; color:var(--c1);">Service</h2>
-  <p class="reveal" style="font-family:var(--mono); font-size:0.72rem; color:var(--muted); letter-spacing:0.08em; margin-top:0.4rem;">아래의 서비스를 제공합니다</p>
-  <div class="product-grid">
-    <div class="product-card reveal">
-      <div class="product-title">시가감정</div>
-      <p class="product-body">AI 기반 감정 보고서. 경매 낙찰가·작가 인덱스·시장 동향을 교차 분석해 신뢰할 수 있는 시장 가치를 제공합니다.</p>
+<!-- ══ 제공 서비스 ═════════════════════════════════════════════ -->
+<section id="services">
+  <div class="wrap">
+    <div class="svc-head">
+      <div>
+        <span class="stag">Services</span>
+        <h2>제공 서비스</h2>
+      </div>
     </div>
-    <div class="product-card reveal">
-      <div class="product-title">리서치 & 공공 프로젝트</div>
-      <p class="product-body">정부 지원사업 및 포럼 기획, 정책 동향을 컬렉터와 전문가를 위해  작성합니다.</p>
-    </div>
-    <div class="product-card reveal">
-      <div class="product-title">프로그램 플랫폼</div>
-      <p class="product-body">세미나, 레지던시, 페어 프로그래밍. 국내외 전문가와 컬렉터를 연결하는 온·오프라인 프로그램을 운영합니다.</p>
-    </div>
-    <div class="product-card reveal">
-      <div class="product-title">VIP 커뮤니티</div>
-      <p class="product-body">컬렉터·갤러리를 위한 프라이빗 네트워크. 딜 선공개, 글로벌 파트너 큐레이션, 프리미엄 멤버십.</p>
-      <span class="product-tag">M9–M12 오픈 예정</span>
-    </div>
-  </div>
-</section>
 
+    <div class="product-grid">
 
-<!-- ══ SLIDE 12: CLOSING ══ -->
-<section id="s12" class="slide full">
-  <div class="closing-left">
-    <div>
-      <div class="closing-headline">예술로 소통하고 문화로 담아냅니다.</div>
-      <p class="closing-sub" style="margin-top:1.5rem;">Art, Culture and Beyond</p>
-    </div>
-    <div class="closing-footer">
-      © syr
-    </div>
-  </div>
-  <div class="closing-right">
+      <div class="product-card reveal">
+        <div class="product-title">프로그램 기획운영 </div>
+        <p class="product-body">국내외 전문가와 컬렉터를 연결하는 온오프라인 문화교류 프로그램을 운영합니다.</p>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-title">정책분석 & 사업평가</div>
+        <p class="product-body">공공기관·재단에 적용되는 문화 정책을 분석하고 공모 및 자체 사업의 성과를 평가합니다.</p>
+      </div>
+      
+      <div class="product-card reveal">
+        <div class="product-title">네트워크 & 커뮤니티</div>
+        <p class="product-body">브랜드, 갤러리, 컬레터를 위한 파트너십을 연결합니다.</p>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-title">가치평가 </div>
+        <p class="product-body">투명하게 가치를 평가하고, 감정·보험·거래·상속·기부를 위한 평가보고서를 제공합니다.</p>
+      </div>
 
-    <div class="contact-block">
-      <div class="founder-name">Soyoung Ryu</div>
-      <div class="founder-kr">류소영</div>
-      <div class="founder-divider"></div>
-      <div class="founder-roles">
-        <div class="founder-role primary">Founder</div>
-        <div class="founder-role">PhD Candidate, International Studies</div>
-        <div class="founder-role">Cultural Economics · Art Policy · Global ODA</div>
     </div>
-    <div class="contact-block">
-      <span class="contact-label">Website</span>
-      <div class="contact-value"><a href="https://syredition.com" target="_blank">syredition.com</a></div>
-    </div>
-    <div class="contact-block">
-      <span class="contact-label">Email</span>
-      <div class="contact-value"><a href="mailto:info@syr.co.kr">info@syr.co.kr</a></div>
+
+    <div class="clients">
+      <span class="stag">Who We Serve</span>
+      <div class="client-grid">
+        <div class="client reveal">
+          <h3>공공·기관</h3>
+          <p>사업 관리, 평가</p>
+        </div>
+        <div class="client reveal">
+          <h3>기업·재단</h3>
+          <p>브랜딩, 컬렉션 관리</p>
+        </div>
+        <div class="client reveal">
+          <h3>갤러리·페어</h3>
+          <p>프로그램 기획, 홍보</p>
+        </div>
+        <div class="client reveal">
+          <h3>컬렉터·오피스</h3>
+          <p>감정, 포트폴리오</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<script>
-// ── SCROLL REVEAL ──
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), i * 80);
-    }
-  });
-}, { threshold: 0.1 });
-reveals.forEach(el => observer.observe(el));
+<!-- ══ 문의 ════════════════════════════════════════════════════ -->
+<section id="contact" class="dark">
+  <div class="wrap">
+    <span class="stag">Contact</span>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-headline">예술로 소통하고<br>문화로 담아냅니다.</div>
+        <p class="contact-en">Art, Culture and Beyond</p>
+      </div>
 
-// ── NAV DOTS ──
-const slides = document.querySelectorAll('section[id]');
-const dots = document.querySelectorAll('.nav-dot');
-const scrollHint = document.getElementById('scrollHint');
+      <div>
+        <div class="founder-name">Soyoung Ryu</div>
+        <div class="founder-kr">류소영</div>
+        <div class="founder-divider"></div>
+        <div class="founder-roles">
+          <div class="founder-role primary">Founder</div>
+          <div class="founder-role">International Studies | Strategy and Organization</div>
+          <div class="founder-role">Cultural Economics · Art Policy · Governance </div>
+        </div>
 
-const slideObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting && e.intersectionRatio > 0.4) {
-      const id = e.target.id;
-      dots.forEach(d => d.classList.toggle('active', d.dataset.target === id));
-      scrollHint.classList.toggle('hidden', id === 's12');
-    }
-  });
-}, { threshold: 0.4 });
-slides.forEach(s => slideObserver.observe(s));
-
-// ── DOT CLICK ──
-dots.forEach(d => {
-  d.addEventListener('click', () => {
-    document.getElementById(d.dataset.target)?.scrollIntoView({ behavior: 'smooth' });
-  });
-});
-
-// ── HIDE SCROLL HINT AFTER FIRST SCROLL ──
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 200) scrollHint.classList.add('hidden');
-}, { once: true });
-</script>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <footer class="se-footer">
   <div class="se-foot-in">
     <div>© SYR Edition</div>
-    <div><a href="mailto:info@syr.co.kr">info@syr.co.kr</a> · <a href="https://syredition.com">syredition.com</a></div>
   </div>
 </footer>
 
-<script id="se-shell-js">
+<script>
+/* ── 스크롤 등장 ─────────────────────────────────────────── */
 (function(){
-  var h=document.getElementById('seHeader'),b=document.getElementById('seBurger'),l=document.getElementById('seLang');
-  if(b&&h){b.addEventListener('click',function(){var o=h.classList.toggle('open');b.setAttribute('aria-expanded',String(o));});
-    h.querySelectorAll('.se-nav a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');});});}
-  var st=document.documentElement;
-  function cur(){return st.getAttribute('data-lang')||'ko';}
-  function lbl(){ if(l) l.textContent = cur()==='en'?'KOR':'EN'; }
-  if(l){
-    var has = (typeof window.toggleLang==='function')||(typeof window.setLang==='function');
-    if(!has){ l.style.display='none'; }
-    else{
-      if(!st.getAttribute('data-lang')) st.setAttribute('data-lang','ko');
-      l.addEventListener('click',function(){
-        if(typeof window.toggleLang==='function'){ window.toggleLang(); }
-        else if(typeof window.setLang==='function'){ var n=cur()==='en'?'ko':'en'; window.setLang(n); st.setAttribute('data-lang',n); }
-        lbl();
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function(el){ el.classList.add('visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e, i){
+      if (e.isIntersecting) {
+        setTimeout(function(){ e.target.classList.add('visible'); }, i * 80);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(function(el){ io.observe(el); });
+})();
+
+/* ── 헤더 : 모바일 메뉴 · 언어 버튼 ──────────────────────── */
+(function(){
+  var h = document.getElementById('seHeader');
+  var b = document.getElementById('seBurger');
+  var l = document.getElementById('seLang');
+
+  if (b && h) {
+    b.addEventListener('click', function(){
+      var open = h.classList.toggle('open');
+      b.setAttribute('aria-expanded', String(open));
+    });
+    h.querySelectorAll('.se-nav a').forEach(function(a){
+      a.addEventListener('click', function(){ h.classList.remove('open'); });
+    });
+  }
+
+  /* 이 페이지에는 아직 이중언어 텍스트가 없으므로 버튼을 숨깁니다.
+     .ko / .en 방식을 붙이고 toggleLang()을 정의하면 자동으로 나타납니다. */
+  var root = document.documentElement;
+  var hasToggle = (typeof window.toggleLang === 'function') || (typeof window.setLang === 'function');
+  if (l) {
+    if (!hasToggle) { l.style.display = 'none'; }
+    else {
+      if (!root.getAttribute('data-lang')) root.setAttribute('data-lang','ko');
+      var label = function(){ l.textContent = (root.getAttribute('data-lang') === 'en') ? 'KOR' : 'EN'; };
+      l.addEventListener('click', function(){
+        if (typeof window.toggleLang === 'function') { window.toggleLang(); }
+        else { var n = root.getAttribute('data-lang') === 'en' ? 'ko' : 'en';
+               window.setLang(n); root.setAttribute('data-lang', n); }
+        label();
       });
-      lbl();
+      label();
     }
   }
 })();
 </script>
-
 </body>
 </html>
