@@ -285,7 +285,7 @@ function toggleLang(){
               formspree.io 가입 → New Form → 받은 주소를 붙여넣기
    ──────────────────────────────────────────────────────────── */
 (function(){
-  var TO = 'info@syr.co.kr';
+  var TO = 'info@syredition.com';
   var ENDPOINT = '';   // 예: 'https://formspree.io/f/xxxxxxxx'
 
   var form   = document.getElementById('cform');
@@ -353,8 +353,8 @@ function toggleLang(){
       say('보내주셔서 감사합니다. 곧 회신드리겠습니다.',
           'Thank you. We will reply within two business days.', 'ok');
     }).catch(function(){
-      say('시스템 업데이트 중입니다. info@syr.co.kr 로 직접 보내주시면 곧 회신드리겠습니다 :) ',
-          'Something went wrong. Please email info@syr.co.kr directly.', 'bad');
+      say('시스템 업데이트 중입니다. info@syredition.com 로 직접 보내주시면 곧 회신드리겠습니다 :) ',
+          'Something went wrong. Please email info@syredition.com directly.', 'bad');
     }).then(function(){
       button.disabled = false;
     });
@@ -517,7 +517,7 @@ h1{font-family:var(--serif-kr); font-size:clamp(1.35rem,2.6vw,1.9rem);
     <div class="contact-grid">
       <div class="meta">
         <b>Email</b>
-        <a href="mailto:info@syr.co.kr">info@syr.co.kr</a>
+        <a href="mailto:info@syredition.com">info@syredition.com</a>
 
         <b>Hours</b>
         월–금 10:00–17:00 (KST)
@@ -657,7 +657,7 @@ h1{font-family:var(--serif-kr); font-size:clamp(1.35rem,2.6vw,1.9rem);
         form.reset();
         say('보내주셔서 감사합니다. 곧 회신드리겠습니다.','ok');
       })
-      .catch(function(){ say('시스템 업데이트 중입니다. info@syr.co.kr 로 직접 보내주시면 곧 회신드리겠습니다 :) ','bad'); })
+      .catch(function(){ say('시스템 업데이트 중입니다. info@syredition.com 로 직접 보내주시면 곧 회신드리겠습니다 :) ','bad'); })
       .then(function(){ button.disabled=false; });
   });
 })();
